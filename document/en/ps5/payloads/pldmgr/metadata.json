@@ -1,0 +1,42 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "id": "pldmgr",
+  "displayTitle": "pldmgr",
+  "description": "PS5 payload manager. Runs on PS5 as a web server.",
+  "authors": [
+    "itsPLK"
+  ],
+  "projectUrl": "https://github.com/itsPLK/ps5-payload-manager",
+  "sourceRepo": "itsPLK/ps5-payload-manager",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.1.1",
+      "fileName": "pldmgr-v0.1.1.elf",
+      "filePath": "payloads/pldmgr/0.1.1/pldmgr-v0.1.1.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.1.1/pldmgr-v0.1.1.elf",
+      "hash": "33029ec7e3fb82f63839582169ab44f01650547870050e4ee8f76eaaa8733ce2",
+      "fileSize": 2033936,
+      "releaseDate": "2026-05-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.1.0",
+      "fileName": "pldmgr_v0.1.0.elf",
+      "filePath": "payloads/pldmgr/0.1.0/pldmgr_v0.1.0.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.1.0/pldmgr_v0.1.0.elf",
+      "hash": "71ef59287f1c708e3c16575574a45396d3d6ac1b5bf3ca518b1e3bf9485d224c",
+      "fileSize": 2050320,
+      "releaseDate": "2026-04-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ],
+  "supportedFirmwares": []
+}

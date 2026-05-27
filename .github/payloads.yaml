@@ -35,6 +35,24 @@ payloads:
   # The script will automatically fetch all matching releases.
   # ===========================================================================
 
+  # --- pldmgr: PS5 Payload Manager (web-based dashboard) ---
+  # Repo has GitHub Releases with .elf assets. Asset naming is inconsistent
+  # (v0.1.0 uses underscore, v0.1.1+ uses hyphen), so use broad pattern.
+  - id: pldmgr
+    displayTitle: pldmgr
+    description: PS5 payload manager. Runs on PS5 as a web server.
+    authors:
+      - itsPLK
+    projectUrl: https://github.com/itsPLK/ps5-payload-manager
+    sourceType: github-release
+    sourceRepo: itsPLK/ps5-payload-manager
+    sourcePattern: pldmgr*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
   # --- etaHEN: AIO HEN (converted from direct to github-release) ---
   # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
   - id: etahen
