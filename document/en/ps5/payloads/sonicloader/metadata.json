@@ -1,7 +1,7 @@
 {
   "id": "sonicloader",
   "displayTitle": "Sonic Loader",
-  "description": "Web-based PS5 management dashboard - launch games, cheats, install homebrew and PKGs, file transfer, fan control, and offline account activation. Self-contained with bundled Lapy JB Daemon (no etaHEN needed). WebUI on port 6969.",
+  "description": "[DEPRECATED \u2014 superseded by Elf Arsenal] Web-based PS5 management dashboard - launch games, cheats, install homebrew and PKGs, file transfer, fan control, and offline account activation. Self-contained with bundled Lapy JB Daemon (no etaHEN needed). WebUI on port 6969.",
   "authors": [
     "soniciso",
     "voidwhisper",

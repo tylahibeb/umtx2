@@ -53,6 +53,33 @@ payloads:
       type: ""
       url: ""
 
+  # ===========================================================================
+  # Pattern A2: gitea-release (Gitea API - For Non-GitHub Repos)
+  # Use this when the repo is hosted on a Gitea instance (not GitHub).
+  # The script queries the Gitea REST API to find the latest matching release.
+  # Requires: sourceHost, sourceRepo, sourcePattern
+  # ===========================================================================
+
+  # --- Elf Arsenal: All-in-one PS5 utility (successor to Sonic Loader) ---
+  # Hosted on Gitea (git.etawen.dev), NOT GitHub. Uses gitea-release sourceType
+  # to dynamically fetch the latest release via the Gitea REST API.
+  - id: elf-arsenal
+    displayTitle: Elf Arsenal
+    description: All-in-one PS5 homebrew utility — save management, cheats, FTP, Linux loader, trophy unlocker, and file manager. Successor to Sonic Loader. WebUI on port 6969.
+    authors:
+      - maj0r
+      - soniciso
+    projectUrl: https://git.etawen.dev/soniciso/elf-arsenal
+    sourceType: gitea-release
+    sourceHost: https://git.etawen.dev
+    sourceRepo: soniciso/elf-arsenal
+    sourcePattern: elf-arsenal*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://git.etawen.dev/soniciso/elf-arsenal"
+
   # --- etaHEN: AIO HEN (converted from direct to github-release) ---
   # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
   - id: etahen
@@ -685,6 +712,7 @@ payloads:
         releaseDate: 2025-12-01
 
   # --- Sonic Loader: Web-based PS5 management dashboard ---
+  # DEPRECATED — superseded by Elf Arsenal (elf-arsenal). Hidden from UI.
   # Hosted on a Gitea instance (git.earthonion.com), NOT GitHub, and the site
   # is behind an Anubis anti-bot proof-of-work gate. The auto-update workflow
   # cannot fetch it (requests.get would download the bot-check HTML page).
@@ -693,7 +721,7 @@ payloads:
   # Leave url empty so a missing file never triggers a corrupt download.
   - id: sonicloader
     displayTitle: Sonic Loader
-    description: Web-based PS5 management dashboard - launch games, cheats, install homebrew and PKGs, file transfer, fan control, and offline account activation. Self-contained with bundled Lapy JB Daemon (no etaHEN needed). WebUI on port 6969.
+    description: "[DEPRECATED — superseded by Elf Arsenal] Web-based PS5 management dashboard - launch games, cheats, install homebrew and PKGs, file transfer, fan control, and offline account activation. Self-contained with bundled Lapy JB Daemon (no etaHEN needed). WebUI on port 6969."
     authors:
       - soniciso
       - voidwhisper
@@ -704,6 +732,7 @@ payloads:
     sourcePattern: sonic-loader*.elf
     toPort: 9021
     supportedFirmwares: []
+    willHideEveryTime: true
     license:
       type: "GPL-3.0"
       url: "https://git.earthonion.com/soniciso/sonicloader"

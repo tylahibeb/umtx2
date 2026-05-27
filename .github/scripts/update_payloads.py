@@ -642,6 +642,203 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
     return versions
 
 
+def get_gitea_releases(source_host: str, repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD) -> List[Dict]:
+    """Get releases from a Gitea instance using its REST API.
+    
+    Unlike GitHub (which uses 'gh' CLI), Gitea's API is called directly via HTTP.
+    The API returns full release details including assets in a single call.
+    
+    Args:
+        source_host: Gitea instance URL (e.g., 'https://git.etawen.dev')
+        repo: Repository in 'owner/name' format
+        max_releases: Maximum number of releases to fetch
+        
+    Returns:
+        List of release dicts with keys: tagName, name, isPrerelease, body,
+        publishedAt, assets
+    """
+    api_url = f"{source_host}/api/v1/repos/{repo}/releases?limit={max_releases}"
+    print(f"  Fetching releases from Gitea: {api_url}")
+    
+    try:
+        response = requests.get(api_url, timeout=30, headers={
+            'Accept': 'application/json',
+            'User-Agent': 'UMTX2-Payload-Updater/2.0'
+        })
+        response.raise_for_status()
+        releases = response.json()
+        
+        if not isinstance(releases, list):
+            print(f"  Warning: Unexpected API response format from {source_host}")
+            return []
+        
+        # Map Gitea API fields to our internal format (matching GitHub's structure)
+        mapped = []
+        for rel in releases:
+            mapped.append({
+                'tagName': rel.get('tag_name', ''),
+                'name': rel.get('name', ''),
+                'isPrerelease': rel.get('prerelease', False),
+                'body': rel.get('body', ''),
+                'publishedAt': rel.get('published_at', ''),
+                'assets': rel.get('assets', [])
+            })
+        
+        print(f"  Found {len(mapped)} release(s) on Gitea")
+        return mapped
+    except requests.RequestException as e:
+        print(f"  Error fetching Gitea releases: {e}")
+        return []
+    except Exception as e:
+        print(f"  Unexpected error fetching Gitea releases: {e}")
+        return []
+
+
+def update_payload_from_gitea_release(payload_config: Dict, metadata: Dict) -> List[Dict]:
+    """Update payload from a Gitea-hosted repository.
+    
+    Queries the Gitea REST API to find the latest release with a matching asset.
+    Only tracks the single latest release (dynamic, not hardcoded to specific versions).
+    
+    Config fields required:
+        sourceHost: Gitea instance URL (e.g., 'https://git.etawen.dev')
+        sourceRepo: Repository in 'owner/name' format
+        sourcePattern: Glob pattern to match asset name (e.g., 'elf-arsenal*.elf')
+    """
+    source_host = payload_config.get('sourceHost', '')
+    repo = payload_config['sourceRepo']
+    pattern = payload_config.get('sourcePattern', '*.elf')
+    payload_id = payload_config['id']
+    
+    if not source_host:
+        print(f"  ERROR: sourceHost is required for gitea-release sourceType")
+        return metadata.get('versions', [])
+    
+    # Fetch all releases from Gitea API
+    releases = get_gitea_releases(source_host, repo)
+    if not releases:
+        print(f"  No releases found for {repo} on {source_host}, using existing metadata...")
+        return metadata.get('versions', [])
+    
+    # Preserve existing versions to prevent data loss on fetch failure
+    existing_versions = {v['version']: v for v in metadata.get('versions', [])}
+    versions = []
+    
+    for release in releases:
+        tag = release.get('tagName', '')
+        version = tag.lstrip('v')
+        is_prerelease = release.get('isPrerelease', False)
+        body = release.get('body', '')
+        published_at = release.get('publishedAt', '')
+        assets = release.get('assets', [])
+        
+        # Map Gitea asset format to match_asset() expectations
+        # Gitea uses 'browser_download_url', GitHub uses 'url'
+        normalized_assets = []
+        for a in assets:
+            normalized_assets.append({
+                'name': a.get('name', ''),
+                'url': a.get('browser_download_url', ''),
+                'size': a.get('size', 0)
+            })
+        
+        if not normalized_assets:
+            if version in existing_versions:
+                print(f"  Preserving existing version (no assets): {version}")
+                versions.append(existing_versions[version])
+            else:
+                print(f"  No assets found for {repo}@{tag}")
+            continue
+        
+        matched = match_asset(normalized_assets, pattern)
+        if not matched:
+            if version in existing_versions:
+                print(f"  Preserving existing version (asset mismatch): {version}")
+                versions.append(existing_versions[version])
+            else:
+                print(f"  No matching asset for pattern '{pattern}' in {repo}@{tag}")
+            continue
+        
+        file_name = matched['name']
+        download_url = matched.get('url', '')
+        
+        # Create version directory
+        version_dir = PAYLOADS_DIR / payload_id / version
+        version_dir.mkdir(parents=True, exist_ok=True)
+        
+        dest_path = version_dir / file_name
+        
+        file_hash = ""
+        file_size = 0
+        
+        if dest_path.exists():
+            existing_hash = calculate_file_hash(dest_path)
+            existing_size = dest_path.stat().st_size
+            print(f"  Already exists: {file_name}")
+            file_hash = existing_hash
+            file_size = existing_size
+        else:
+            try:
+                file_hash, file_size = download_file(download_url, dest_path)
+            except Exception as e:
+                print(f"  Error downloading {file_name}: {e}")
+                if version in existing_versions:
+                    print(f"  Preserving existing version (download failed): {version}")
+                    versions.append(existing_versions[version])
+                continue
+        
+        changelog = parse_changelog(body)
+        
+        existing_ver = existing_versions.get(version)
+        if existing_ver and existing_ver.get('changelog'):
+            existing_cl = existing_ver['changelog']
+            if len(existing_cl) >= len(changelog):
+                changelog = existing_cl
+                print(f"  Preserved existing changelog for {version} ({len(changelog)} entries)")
+        
+        if is_prerelease:
+            pre_warning = "⚠ This is a pre-release version. Use with caution."
+            if pre_warning not in changelog:
+                changelog.insert(0, pre_warning)
+        
+        versions.append({
+            'version': version,
+            'fileName': file_name,
+            'filePath': f"payloads/{payload_id}/{version}/{file_name}",
+            'downloadUrl': download_url,
+            'hash': file_hash,
+            'fileSize': file_size,
+            'releaseDate': published_at[:10] if published_at else '',
+            'isDefault': False,
+            'isPreRelease': is_prerelease,
+            'changelog': changelog
+        })
+    
+    # Preserve orphaned versions from existing metadata
+    seen_versions = {v['version'] for v in versions}
+    for ver_key, ver_data in existing_versions.items():
+        if ver_key not in seen_versions:
+            ver_file = ver_data.get('fileName', '')
+            ver_path = PAYLOADS_DIR / payload_id / ver_key / ver_file
+            if ver_file and ver_path.exists():
+                print(f"  Preserving orphaned version (not in Gitea releases): {ver_key}")
+                versions.append(ver_data)
+            else:
+                print(f"  Skipping orphaned version (binary missing): {ver_key}")
+    
+    # Sort by releaseDate and mark latest as default
+    versions_with_date = [v for v in versions if v.get('releaseDate')]
+    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
+    
+    for v in versions:
+        v['isDefault'] = False
+    
+    if versions_with_date:
+        versions_with_date[0]['isDefault'] = True
+    
+    return versions
+
+
 def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dict]:
     """Update payload from direct URLs."""
     versions = []
@@ -911,22 +1108,29 @@ def main():
         # Load existing metadata
         metadata = load_metadata(payload_id)
         
-        # Detect license
-        license_info = detect_license(
-            payload['sourceRepo'],
-            payload.get('license', {})
-        )
+        # Detect license (skip gh CLI for non-GitHub repos)
+        if source_type == 'gitea-release':
+            # Gitea repos: use manual license only (gh CLI only works with GitHub)
+            license_info = payload.get('license', {})
+            if not license_info or not license_info.get('type'):
+                license_info = {'type': 'Unknown', 'url': ''}
+            firmware_compat = payload.get('supportedFirmwares', [])
+        else:
+            license_info = detect_license(
+                payload['sourceRepo'],
+                payload.get('license', {})
+            )
+            firmware_compat = detect_firmware_compatibility(
+                payload['sourceRepo'],
+                payload.get('supportedFirmwares', [])
+            )
         metadata['license'] = license_info
-        
-        # Detect firmware compatibility
-        firmware_compat = detect_firmware_compatibility(
-            payload['sourceRepo'],
-            payload.get('supportedFirmwares', [])
-        )
         
         versions = []
         if source_type == 'github-release':
             versions = update_payload_from_github_release(payload, metadata)
+        elif source_type == 'gitea-release':
+            versions = update_payload_from_gitea_release(payload, metadata)
         elif source_type == 'direct':
             versions = update_payload_from_direct(payload, metadata)
         elif source_type == 'custom':
