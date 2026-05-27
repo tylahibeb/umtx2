@@ -23,7 +23,9 @@
       "releaseDate": "2026-05-02",
       "isDefault": true,
       "isPreRelease": false,
-      "changelog": []
+      "changelog": [
+        "Fixes [Frontend not rendering correctly on lower FW](https://github.com/itsPLK/ps5-payload-manager/issues/2)"
+      ]
     },
     {
       "version": "0.1.0",
@@ -35,7 +37,9 @@
       "releaseDate": "2026-04-30",
       "isDefault": false,
       "isPreRelease": false,
-      "changelog": []
+      "changelog": [
+        "Initial release"
+      ]
     }
   ],
   "supportedFirmwares": []
