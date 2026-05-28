@@ -11,8 +11,9 @@ downloads latest payload binaries, generates metadata, and produces document/en/
 ============================================================================
 
 1. Configuration (payloads.yaml)
-   ├─ sourceType: 'github-release' | 'direct' | 'custom'
-   ├─ github-release: Automatic fetching via GitHub API
+   ├─ sourceType: 'github-release' | 'gitea-release' | 'direct' | 'custom'
+   ├─ github-release: Automatic fetching via GitHub API (gh CLI)
+   ├─ gitea-release: Automatic fetching via Gitea REST API (any Gitea instance)
    ├─ direct: Manual URL specification (for repos without releases)
    └─ custom: JS actions (no binary download)
 
@@ -124,6 +125,58 @@ For browser-based actions:
         releaseDate: 2024-01-01
 ```
 
+**Option D: Gitea Releases (For Self-Hosted Gitea Instances)**
+
+Use this when the project is hosted on a Gitea instance (not GitHub).
+The script queries the Gitea REST API to fetch all releases dynamically.
+No `manualVersions` needed — releases are discovered automatically.
+
+```yaml
+  - id: my-payload
+    displayTitle: My Payload
+    description: Does something
+    authors:
+      - gitea-username
+    projectUrl: https://git.example.com/owner/repo
+    sourceType: gitea-release    # Enables Gitea REST API fetching
+    sourceHost: https://git.example.com  # REQUIRED: Gitea instance base URL
+    sourceRepo: owner/repo       # Repository path (owner/name)
+    sourcePattern: my-payload*.elf  # Glob pattern to match asset name
+    toPort: 9021                 # Optional: Port number for network payloads
+    supportedFirmwares: []       # Optional: Firmware prefixes
+    license:                     # Required: auto-detection only works with GitHub
+      type: "GPL-3.0"
+      url: "https://git.example.com/owner/repo/src/branch/main/LICENSE"
+```
+
+Requirements for gitea-release:
+- The Gitea instance must expose its REST API at `/api/v1/repos/{owner}/{repo}/releases`
+- Each release must contain a binary asset matching sourcePattern
+- Assets must be .elf or .bin files (NOT .zip - security policy)
+- `sourceHost` is **required** — this is the base URL of the Gitea instance
+- License must be set manually; `gh` CLI auto-detection does not work for Gitea
+
+Example (real-world):
+
+```yaml
+  - id: elf-arsenal
+    displayTitle: Elf Arsenal
+    description: PS5 multi-tool payload with cheat runner, save manager, file browser, and FTP server
+    authors:
+      - soniciso
+      - maj0r
+    projectUrl: https://git.etawen.dev/soniciso/elf-arsenal
+    sourceType: gitea-release
+    sourceHost: https://git.etawen.dev
+    sourceRepo: soniciso/elf-arsenal
+    sourcePattern: elf-arsenal*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://git.etawen.dev/soniciso/elf-arsenal/src/branch/main/LICENSE"
+```
+
 ============================================================================
                            SECURITY POLICIES
 ============================================================================
@@ -169,8 +222,9 @@ Issue: Release date mismatch
 ============================================================================
 
 Features:
-- GitHub Releases API integration with changelog parsing
-- License auto-detection from GitHub API
+- GitHub Releases API integration with changelog parsing (gh CLI)
+- Gitea Releases REST API integration (any Gitea instance)
+- License auto-detection from GitHub API (manual for Gitea)
 - Pre-release flag detection
 - Firmware compatibility auto-detection (topics + README)
 - metadata.json generation/maintenance per payload
