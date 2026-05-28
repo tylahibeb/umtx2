@@ -8,12 +8,12 @@ on:
       force_payload_update:
         description: 'Force payload update even if no changes'
         required: false
-        default: 'false'
+        default: false
         type: boolean
   # Twice daily: 06:00 and 18:00 UTC
   schedule:
-    - cron: '0 6 * * *'    # 06:00 UTC
-    - cron: '0 18 * * *'   # 18:00 UTC
+    - cron: '0 0 * * *'    # 06:00 UTC
+    - cron: '0 12 * * *'   # 18:00 UTC
 
 permissions:
   contents: write
