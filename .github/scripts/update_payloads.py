@@ -965,21 +965,10 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
         else:
             print(f"  No URL and file not found: {file_name}")
 
-    # Sort versions by releaseDate (most recent first) and set isDefault accordingly
-    # This ensures the most recent version is always marked as default, regardless of
-    # the order in the config file.
-    versions_with_date = [v for v in versions if v.get('releaseDate')]
-    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
-    
-    # Mark all as non-default first
-    for v in versions:
-        v['isDefault'] = False
-    
-    # Mark the most recent version as default
-    if versions_with_date:
-        versions_with_date[0]['isDefault'] = True
-    
-    return versions
+    # Use shared helper for sort-by-date and default-marking.
+    # Pass empty existing_versions — direct sources don't have orphaned versions
+    # from an upstream API, so the orphan-preservation loop is a no-op.
+    return _finalize_versions(payload_config['id'], versions, {}, source_name="direct")
 
 
 def load_metadata(payload_id: str) -> Dict:
