@@ -484,21 +484,163 @@ def match_asset(assets: List[Dict], pattern: str) -> Optional[Dict]:
     return None
 
 
+def _process_release_version(
+    payload_id: str,
+    version: str,
+    file_name: str,
+    download_url: str,
+    body: str,
+    published_at: str,
+    is_prerelease: bool,
+    existing_versions: Dict[str, Dict],
+    fail_reason: str = "",
+) -> Optional[Dict]:
+    """Process a single release version: download, hash, changelog, build version dict.
+
+    Shared by github-release and gitea-release source types. Handles:
+    - Creating the version directory
+    - Checking for existing local files (reuse hash/size)
+    - Downloading missing binaries
+    - Parsing changelog with existing-preservation logic
+    - Adding pre-release warnings
+
+    Args:
+        payload_id: Payload identifier (used for file paths).
+        version: Version string (e.g. "1.6.2").
+        file_name: Asset filename (e.g. "elf-arsenal.elf").
+        download_url: Direct download URL for the binary.
+        body: Raw release notes Markdown.
+        published_at: ISO-8601 release timestamp.
+        is_prerelease: Whether this is a pre-release.
+        existing_versions: Map of existing versions from metadata (for fallback).
+        fail_reason: Human-readable reason if the caller already detected a problem
+                     (e.g. "fetch failed", "no assets", "asset mismatch"). If non-empty,
+                     fall back to existing version instead of downloading.
+
+    Returns:
+        Version dict on success, the existing version dict on fallback, or None.
+    """
+    # If the caller detected a problem (missing assets, etc.), fall back to existing
+    if fail_reason:
+        if version in existing_versions:
+            print(f"  Preserving existing version ({fail_reason}): {version}")
+            return existing_versions[version]
+        else:
+            print(f"  Skipping version ({fail_reason}): {version}")
+            return None
+
+    # Create version directory
+    version_dir = PAYLOADS_DIR / payload_id / version
+    version_dir.mkdir(parents=True, exist_ok=True)
+
+    dest_path = version_dir / file_name
+
+    # Check if we already have this exact file
+    if dest_path.exists():
+        file_hash = calculate_file_hash(dest_path)
+        file_size = dest_path.stat().st_size
+        print(f"  Already exists: {file_name}")
+    else:
+        try:
+            file_hash, file_size = download_file(download_url, dest_path)
+        except Exception as e:
+            print(f"  Error downloading {file_name}: {e}")
+            if version in existing_versions:
+                print(f"  Preserving existing version (download failed): {version}")
+                return existing_versions[version]
+            return None
+
+    # Parse changelog from release body
+    changelog = parse_changelog(body)
+
+    # PRESERVE existing changelog if it's more detailed than the release body.
+    existing_ver = existing_versions.get(version)
+    if existing_ver and existing_ver.get('changelog'):
+        existing_cl = existing_ver['changelog']
+        if len(existing_cl) >= len(changelog):
+            changelog = existing_cl
+            print(f"  Preserved existing changelog for {version} ({len(changelog)} entries)")
+
+    # Add pre-release warning to changelog if applicable
+    if is_prerelease:
+        pre_warning = "⚠ This is a pre-release version. Use with caution."
+        if pre_warning not in changelog:
+            changelog.insert(0, pre_warning)
+
+    return {
+        'version': version,
+        'fileName': file_name,
+        'filePath': f"payloads/{payload_id}/{version}/{file_name}",
+        'downloadUrl': download_url,
+        'hash': file_hash,
+        'fileSize': file_size,
+        'releaseDate': published_at[:10] if published_at else '',
+        'isDefault': False,  # Will be set by _finalize_versions()
+        'isPreRelease': is_prerelease,
+        'changelog': changelog
+    }
+
+
+def _finalize_versions(
+    payload_id: str,
+    fetched_versions: List[Dict],
+    existing_versions: Dict[str, Dict],
+    source_name: str = "upstream",
+) -> List[Dict]:
+    """Finalize the version list after fetching: preserve orphans, sort, mark default.
+
+    Shared by github-release and gitea-release source types. Handles:
+    - Preserving orphaned versions that exist on disk but not in upstream releases.
+    - Sorting all versions by releaseDate (newest first).
+    - Marking the latest version as isDefault.
+
+    Args:
+        payload_id: Payload identifier (used to verify orphaned binaries on disk).
+        fetched_versions: List of version dicts from the upstream fetch.
+        existing_versions: Map of existing versions from metadata.
+        source_name: Label for log messages (e.g. "GitHub", "Gitea").
+
+    Returns:
+        Finalized, sorted list of version dicts.
+    """
+    # PRESERVE: Add versions from existing metadata that weren't found upstream.
+    seen_versions = {v['version'] for v in fetched_versions}
+    for ver_key, ver_data in existing_versions.items():
+        if ver_key not in seen_versions:
+            ver_file = ver_data.get('fileName', '')
+            ver_path = PAYLOADS_DIR / payload_id / ver_key / ver_file
+            if ver_file and ver_path.exists():
+                print(f"  Preserving orphaned version (not in {source_name} releases): {ver_key}")
+                fetched_versions.append(ver_data)
+            else:
+                print(f"  Skipping orphaned version (binary missing): {ver_key}")
+
+    # Sort versions by releaseDate (most recent first) and set isDefault
+    versions_with_date = [v for v in fetched_versions if v.get('releaseDate')]
+    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
+
+    for v in fetched_versions:
+        v['isDefault'] = False
+
+    if versions_with_date:
+        versions_with_date[0]['isDefault'] = True
+
+    return fetched_versions
+
+
 def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> List[Dict]:
     """Update payload from GitHub releases using a two-step approach.
     
     Step 1: gh release list → get tagName, name, isPrerelease
-    Step 2: gh release view TAG → get body, url, assets, createdAt
-    
+    Step 2: gh release view TAG → get body, url, assets, publishedAt
+
     IMPORTANT: Existing versions are preserved even if they disappear from GitHub.
     This prevents data loss when releases are deleted or pruned upstream.
     """
     repo = payload_config['sourceRepo']
     pattern = payload_config.get('sourcePattern', '*.elf')
     payload_id = payload_config['id']
-    versions = []
-    
-    # Preserve existing versions from metadata to prevent data loss
+
     existing_versions = {v['version']: v for v in metadata.get('versions', [])}
 
     # Step 1: Get release list (tagName, name, isPrerelease only)
@@ -507,7 +649,8 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         print(f"  No releases found for {repo}, using existing metadata...")
         return metadata.get('versions', [])
 
-    for i, release in enumerate(releases[:MAX_VERSIONS_PER_PAYLOAD]):
+    versions = []
+    for release in releases[:MAX_VERSIONS_PER_PAYLOAD]:
         tag = release.get('tagName', '')
         version = tag.lstrip('v')
         is_prerelease = release.get('isPrerelease', False)
@@ -515,12 +658,13 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         # Step 2: Get release details (body, url, assets, publishedAt) via gh release view
         details = get_release_details(repo, tag)
         if not details:
-            # If we can't fetch details but have existing version, preserve it
-            if version in existing_versions:
-                print(f"  Preserving existing version (fetch failed): {version}")
-                versions.append(existing_versions[version])
-            else:
-                print(f"  No details found for {repo}@{tag}")
+            ver = _process_release_version(
+                payload_id, version, "", "", "", "",
+                is_prerelease, existing_versions,
+                fail_reason="fetch failed"
+            )
+            if ver:
+                versions.append(ver)
             continue
 
         body = details.get('body', '')
@@ -528,20 +672,24 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         assets = details.get('assets', [])
 
         if not assets:
-            # No assets in release - preserve existing if available
-            if version in existing_versions:
-                print(f"  Preserving existing version (no assets): {version}")
-                versions.append(existing_versions[version])
-            else:
-                print(f"  No assets found for {repo}@{tag}")
+            ver = _process_release_version(
+                payload_id, version, "", "", "", "",
+                is_prerelease, existing_versions,
+                fail_reason="no assets"
+            )
+            if ver:
+                versions.append(ver)
             continue
 
         matched = match_asset(assets, pattern)
         if not matched:
-            # Asset name doesn't match pattern - preserve existing if available
-            if version in existing_versions:
-                print(f"  Preserving existing version (asset mismatch): {version}")
-                versions.append(existing_versions[version])
+            ver = _process_release_version(
+                payload_id, version, "", "", "", "",
+                is_prerelease, existing_versions,
+                fail_reason="asset mismatch"
+            )
+            if ver:
+                versions.append(ver)
             else:
                 print(f"  No matching asset for pattern '{pattern}' in {repo}@{tag}")
             continue
@@ -551,95 +699,14 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         if not download_url:
             download_url = f"https://github.com/{repo}/releases/download/{tag}/{file_name}"
 
-        # Create version directory
-        version_dir = PAYLOADS_DIR / payload_id / version
-        version_dir.mkdir(parents=True, exist_ok=True)
-        
-        dest_path = version_dir / file_name
+        ver = _process_release_version(
+            payload_id, version, file_name, download_url,
+            body, published_at, is_prerelease, existing_versions
+        )
+        if ver:
+            versions.append(ver)
 
-        # Check if we already have this exact file
-        file_hash = ""
-        file_size = 0
-        
-        if dest_path.exists():
-            existing_hash = calculate_file_hash(dest_path)
-            existing_size = dest_path.stat().st_size
-            print(f"  Already exists: {file_name}")
-            file_hash = existing_hash
-            file_size = existing_size
-        else:
-            try:
-                file_hash, file_size = download_file(download_url, dest_path)
-            except Exception as e:
-                print(f"  Error downloading {file_name}: {e}")
-                # Preserve existing version if download fails
-                if version in existing_versions:
-                    print(f"  Preserving existing version (download failed): {version}")
-                    versions.append(existing_versions[version])
-                continue
-
-        # Parse changelog from GitHub release body
-        changelog = parse_changelog(body)
-        
-        # PRESERVE existing changelog if it's more detailed than the release body.
-        # This prevents overwriting manually-written changelogs with sparse GitHub notes.
-        existing_ver = existing_versions.get(version)
-        if existing_ver and existing_ver.get('changelog'):
-            existing_cl = existing_ver['changelog']
-            # Use existing changelog if it has more entries or same count
-            # (existing entries are typically more detailed)
-            if len(existing_cl) >= len(changelog):
-                changelog = existing_cl
-                print(f"  Preserved existing changelog for {version} ({len(changelog)} entries)")
-        
-        # Add pre-release warning to changelog if applicable
-        if is_prerelease:
-            pre_warning = "⚠ This is a pre-release version. Use with caution."
-            if pre_warning not in changelog:
-                changelog.insert(0, pre_warning)
-
-        versions.append({
-            'version': version,
-            'fileName': file_name,
-            'filePath': f"payloads/{payload_id}/{version}/{file_name}",
-            'downloadUrl': download_url,
-            'hash': file_hash,
-            'fileSize': file_size,
-            'releaseDate': published_at[:10] if published_at else '',
-            'isDefault': False,  # Will be set by releaseDate-based sort below
-            'isPreRelease': is_prerelease,
-            'changelog': changelog
-        })
-
-    # PRESERVE: Add versions from existing metadata that weren't found in GitHub releases.
-    # This prevents data loss when releases are deleted/pruned from the upstream repo.
-    seen_versions = {v['version'] for v in versions}
-    for ver_key, ver_data in existing_versions.items():
-        if ver_key not in seen_versions:
-            # Check if the binary still exists on disk
-            ver_file = ver_data.get('fileName', '')
-            ver_path = PAYLOADS_DIR / payload_id / ver_key / ver_file
-            if ver_file and ver_path.exists():
-                print(f"  Preserving orphaned version (not in GitHub releases): {ver_key}")
-                versions.append(ver_data)
-            else:
-                print(f"  Skipping orphaned version (binary missing): {ver_key}")
-
-    # Sort versions by releaseDate (most recent first) and set isDefault accordingly
-    # This ensures the most recent version is always marked as default, regardless of
-    # the order returned by GitHub API or any other source.
-    versions_with_date = [v for v in versions if v.get('releaseDate')]
-    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
-    
-    # Mark all as non-default first
-    for v in versions:
-        v['isDefault'] = False
-    
-    # Mark the most recent version as default
-    if versions_with_date:
-        versions_with_date[0]['isDefault'] = True
-    
-    return versions
+    return _finalize_versions(payload_id, versions, existing_versions, source_name="GitHub")
 
 
 def get_gitea_releases(source_host: str, repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD) -> List[Dict]:
@@ -697,8 +764,8 @@ def get_gitea_releases(source_host: str, repo: str, max_releases: int = MAX_VERS
 def update_payload_from_gitea_release(payload_config: Dict, metadata: Dict) -> List[Dict]:
     """Update payload from a Gitea-hosted repository.
     
-    Queries the Gitea REST API to find the latest release with a matching asset.
-    Only tracks the single latest release (dynamic, not hardcoded to specific versions).
+    Queries the Gitea REST API to fetch all releases with matching assets.
+    Uses the shared _process_release_version() and _finalize_versions() helpers.
     
     Config fields required:
         sourceHost: Gitea instance URL (e.g., 'https://git.etawen.dev')
@@ -709,21 +776,20 @@ def update_payload_from_gitea_release(payload_config: Dict, metadata: Dict) -> L
     repo = payload_config['sourceRepo']
     pattern = payload_config.get('sourcePattern', '*.elf')
     payload_id = payload_config['id']
-    
+
     if not source_host:
         print(f"  ERROR: sourceHost is required for gitea-release sourceType")
         return metadata.get('versions', [])
-    
-    # Fetch all releases from Gitea API
+
+    # Fetch all releases from Gitea API (returns full details including assets)
     releases = get_gitea_releases(source_host, repo)
     if not releases:
         print(f"  No releases found for {repo} on {source_host}, using existing metadata...")
         return metadata.get('versions', [])
-    
-    # Preserve existing versions to prevent data loss on fetch failure
+
     existing_versions = {v['version']: v for v in metadata.get('versions', [])}
     versions = []
-    
+
     for release in releases:
         tag = release.get('tagName', '')
         version = tag.lstrip('v')
@@ -731,112 +797,49 @@ def update_payload_from_gitea_release(payload_config: Dict, metadata: Dict) -> L
         body = release.get('body', '')
         published_at = release.get('publishedAt', '')
         assets = release.get('assets', [])
-        
-        # Map Gitea asset format to match_asset() expectations
+
+        # Normalize Gitea asset format to match_asset() expectations
         # Gitea uses 'browser_download_url', GitHub uses 'url'
-        normalized_assets = []
-        for a in assets:
-            normalized_assets.append({
-                'name': a.get('name', ''),
-                'url': a.get('browser_download_url', ''),
-                'size': a.get('size', 0)
-            })
-        
+        normalized_assets = [{
+            'name': a.get('name', ''),
+            'url': a.get('browser_download_url', ''),
+            'size': a.get('size', 0)
+        } for a in assets]
+
         if not normalized_assets:
-            if version in existing_versions:
-                print(f"  Preserving existing version (no assets): {version}")
-                versions.append(existing_versions[version])
-            else:
-                print(f"  No assets found for {repo}@{tag}")
+            ver = _process_release_version(
+                payload_id, version, "", "", "", "",
+                is_prerelease, existing_versions,
+                fail_reason="no assets"
+            )
+            if ver:
+                versions.append(ver)
             continue
-        
+
         matched = match_asset(normalized_assets, pattern)
         if not matched:
-            if version in existing_versions:
-                print(f"  Preserving existing version (asset mismatch): {version}")
-                versions.append(existing_versions[version])
+            ver = _process_release_version(
+                payload_id, version, "", "", "", "",
+                is_prerelease, existing_versions,
+                fail_reason="asset mismatch"
+            )
+            if ver:
+                versions.append(ver)
             else:
                 print(f"  No matching asset for pattern '{pattern}' in {repo}@{tag}")
             continue
-        
+
         file_name = matched['name']
         download_url = matched.get('url', '')
-        
-        # Create version directory
-        version_dir = PAYLOADS_DIR / payload_id / version
-        version_dir.mkdir(parents=True, exist_ok=True)
-        
-        dest_path = version_dir / file_name
-        
-        file_hash = ""
-        file_size = 0
-        
-        if dest_path.exists():
-            existing_hash = calculate_file_hash(dest_path)
-            existing_size = dest_path.stat().st_size
-            print(f"  Already exists: {file_name}")
-            file_hash = existing_hash
-            file_size = existing_size
-        else:
-            try:
-                file_hash, file_size = download_file(download_url, dest_path)
-            except Exception as e:
-                print(f"  Error downloading {file_name}: {e}")
-                if version in existing_versions:
-                    print(f"  Preserving existing version (download failed): {version}")
-                    versions.append(existing_versions[version])
-                continue
-        
-        changelog = parse_changelog(body)
-        
-        existing_ver = existing_versions.get(version)
-        if existing_ver and existing_ver.get('changelog'):
-            existing_cl = existing_ver['changelog']
-            if len(existing_cl) >= len(changelog):
-                changelog = existing_cl
-                print(f"  Preserved existing changelog for {version} ({len(changelog)} entries)")
-        
-        if is_prerelease:
-            pre_warning = "⚠ This is a pre-release version. Use with caution."
-            if pre_warning not in changelog:
-                changelog.insert(0, pre_warning)
-        
-        versions.append({
-            'version': version,
-            'fileName': file_name,
-            'filePath': f"payloads/{payload_id}/{version}/{file_name}",
-            'downloadUrl': download_url,
-            'hash': file_hash,
-            'fileSize': file_size,
-            'releaseDate': published_at[:10] if published_at else '',
-            'isDefault': False,
-            'isPreRelease': is_prerelease,
-            'changelog': changelog
-        })
-    
-    # Preserve orphaned versions from existing metadata
-    seen_versions = {v['version'] for v in versions}
-    for ver_key, ver_data in existing_versions.items():
-        if ver_key not in seen_versions:
-            ver_file = ver_data.get('fileName', '')
-            ver_path = PAYLOADS_DIR / payload_id / ver_key / ver_file
-            if ver_file and ver_path.exists():
-                print(f"  Preserving orphaned version (not in Gitea releases): {ver_key}")
-                versions.append(ver_data)
-            else:
-                print(f"  Skipping orphaned version (binary missing): {ver_key}")
-    
-    # Sort by releaseDate and mark latest as default
-    versions_with_date = [v for v in versions if v.get('releaseDate')]
-    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
-    
-    for v in versions:
-        v['isDefault'] = False
-    
-    if versions_with_date:
-        versions_with_date[0]['isDefault'] = True
-    
-    return versions
+
+        ver = _process_release_version(
+            payload_id, version, file_name, download_url,
+            body, published_at, is_prerelease, existing_versions
+        )
+        if ver:
+            versions.append(ver)
+
+    return _finalize_versions(payload_id, versions, existing_versions, source_name="Gitea")
 
 
 def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dict]:
