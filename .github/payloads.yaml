@@ -30,10 +30,84 @@
 payloads:
 
   # ===========================================================================
-  # Pattern A: github-release (Fully Automated)
-  # Use this when the repo has proper GitHub Releases with .elf or .bin assets.
-  # The script will automatically fetch all matching releases.
+  # ★ Priority Payloads (surfaced to top for quick access)
   # ===========================================================================
+
+  # --- kstuff-lite: Performance optimized FPKG enabler (drakmor fork) ---
+  # Repo has GitHub Releases with .elf assets
+  # Note: directory name is 'kstuff-lite', id must match directory name
+  - id: kstuff-lite
+    displayTitle: kstuff-lite (drakmor fork)
+    description: FPKG enabler - Performance optimized fork with 1.5-2x speed improvement
+    authors:
+      - drakmor
+      - sleirsgoevy
+      - EchoStretch
+      - zecoxao
+      - flatz
+      - idlesauce
+      - buzzer-re
+      - Al-Azif
+      - john-tornblom
+    projectUrl: https://github.com/drakmor/kstuff-lite
+    sourceType: github-release
+    sourceRepo: drakmor/kstuff-lite
+    sourcePattern: kstuff*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+
+  # --- ShadowMountPlus: Automatic game image mounter ---
+  # Repo has GitHub Releases with .elf assets - fully automated
+  # Note: Asset name is 'shadowmount.elf' (without 'plus' suffix)
+  - id: shadowmountplus
+    displayTitle: ShadowMountPlus
+    description: Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention
+    authors:
+      - drakmor
+      - VoidWhisper
+      - BestPig
+      - EchoStretch
+      - Gezine
+      - earthonion
+      - LightningMods
+      - john-tornblom
+    projectUrl: https://github.com/drakmor/ShadowMountPlus
+    sourceType: github-release
+    sourceRepo: drakmor/ShadowMountPlus
+    sourcePattern: shadowmount*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
+
+  # --- etaHEN: AIO HEN (converted from direct to github-release) ---
+  # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
+  - id: etahen
+    displayTitle: etaHEN
+    description: AIO HEN
+    authors:
+      - LightningMods
+      - Buzzer
+      - sleirsgoevy
+      - ChendoChap
+      - astrelsky
+      - illusion
+      - CTN
+      - SiSTR0
+      - Nomadic
+    projectUrl: https://github.com/etaHEN/etaHEN
+    sourceType: github-release
+    sourceRepo: etaHEN/etaHEN
+    sourcePattern: etaHEN-*.bin
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
 
   # --- pldmgr: PS5 Payload Manager (web-based dashboard) ---
   # Repo has GitHub Releases with .elf assets. Asset naming is inconsistent
@@ -80,30 +154,11 @@ payloads:
       type: "GPL-3.0"
       url: "https://git.etawen.dev/soniciso/elf-arsenal"
 
-  # --- etaHEN: AIO HEN (converted from direct to github-release) ---
-  # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
-  - id: etahen
-    displayTitle: etaHEN
-    description: AIO HEN
-    authors:
-      - LightningMods
-      - Buzzer
-      - sleirsgoevy
-      - ChendoChap
-      - astrelsky
-      - illusion
-      - CTN
-      - SiSTR0
-      - Nomadic
-    projectUrl: https://github.com/etaHEN/etaHEN
-    sourceType: github-release
-    sourceRepo: etaHEN/etaHEN
-    sourcePattern: etaHEN-*.bin
-    toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
-    license:
-      type: ""
-      url: ""
+  # ===========================================================================
+  # Pattern A: github-release (Fully Automated)
+  # Use this when the repo has proper GitHub Releases with .elf or .bin assets.
+  # The script will automatically fetch all matching releases.
+  # ===========================================================================
 
   # --- websrv: Custom homebrew loader ---
   - id: websrv
@@ -300,31 +355,6 @@ payloads:
       type: ""
       url: ""
 
-  # --- ShadowMountPlus: Automatic game image mounter ---
-  # Repo has GitHub Releases with .elf assets - fully automated
-  # Note: Asset name is 'shadowmount.elf' (without 'plus' suffix)
-  - id: shadowmountplus
-    displayTitle: ShadowMountPlus
-    description: Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention
-    authors:
-      - drakmor
-      - VoidWhisper
-      - BestPig
-      - EchoStretch
-      - Gezine
-      - earthonion
-      - LightningMods
-      - john-tornblom
-    projectUrl: https://github.com/drakmor/ShadowMountPlus
-    sourceType: github-release
-    sourceRepo: drakmor/ShadowMountPlus
-    sourcePattern: shadowmount*.elf
-    toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
-    license:
-      type: "GPL-3.0"
-      url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
-
   # --- BackPork: System library sideloader ---
   # Repo has GitHub Releases with .elf assets - fully automated
   - id: backpork
@@ -342,28 +372,31 @@ payloads:
       type: "GPL-3.0"
       url: "https://github.com/BestPig/BackPork/blob/main/LICENSE"
 
-  # --- kstuff-lite: Performance optimized FPKG enabler (drakmor fork) ---
-  # Repo has GitHub Releases with .elf assets
-  # Note: directory name is 'kstuff-lite', id must match directory name
-  - id: kstuff-lite
-    displayTitle: kstuff-lite (drakmor fork)
-    description: FPKG enabler - Performance optimized fork with 1.5-2x speed improvement
+  # --- kstuff-lite (EchoStretch): Official upstream FPKG enabler ---
+  # EchoStretch's own kstuff-lite repo — distinct from drakmor's fork
+  # and EchoStretch/kstuff (the original community fork).
+  # Only v1.06 has a downloadable kstuff.elf binary; older releases are source-code-only.
+  - id: kstuff-lite-echostretch
+    displayTitle: kstuff-lite (EchoStretch)
+    description: FPKG enabler — EchoStretch's official upstream kstuff-lite
     authors:
-      - drakmor
-      - sleirsgoevy
       - EchoStretch
-      - zecoxao
-      - flatz
-      - idlesauce
-      - buzzer-re
-      - Al-Azif
-      - john-tornblom
-    projectUrl: https://github.com/drakmor/kstuff-lite
+    projectUrl: https://github.com/EchoStretch/kstuff-lite
     sourceType: github-release
-    sourceRepo: drakmor/kstuff-lite
+    sourceRepo: EchoStretch/kstuff-lite
     sourcePattern: kstuff*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares:
+      - "3."
+      - "4."
+      - "5."
+      - "6."
+      - "7."
+      - "8."
+      - "9."
+      - "10."
+      - "11."
+      - "12."
     license:
       type: ""
       url: ""
