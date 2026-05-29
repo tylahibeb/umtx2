@@ -23,6 +23,42 @@ function populatePayloadsPage(wkOnlyMode) {
         payloadsView.removeChild(payloadsView.firstChild);
     }
 
+    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, etaHEN sequentially
+    // Always show regardless of wkOnlyMode (all 3 payloads send to port 9021 via elfldr)
+    var quickLaunchContainer = document.createElement("div");
+    quickLaunchContainer.className = "quick-launch-container";
+
+    var quickLaunchBtn = document.createElement("button");
+    quickLaunchBtn.className = "quick-launch-btn";
+    var quickLaunchIcon = document.createElement("span");
+    quickLaunchIcon.className = "quick-launch-icon";
+    quickLaunchIcon.textContent = "⚡";
+    var quickLaunchLabel = document.createElement("span");
+    quickLaunchLabel.textContent = "Quick Launch";
+
+    var quickLaunchSubtitle = document.createElement("p");
+    quickLaunchSubtitle.className = "quick-launch-subtitle";
+    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + etaHEN";
+
+    quickLaunchBtn.appendChild(quickLaunchIcon);
+    quickLaunchBtn.appendChild(quickLaunchLabel);
+    quickLaunchBtn.appendChild(quickLaunchSubtitle);
+    quickLaunchContainer.appendChild(quickLaunchBtn);
+    payloadsView.appendChild(quickLaunchContainer);
+
+    quickLaunchBtn.addEventListener("click", function () {
+        if (window.quickLaunchInProgress) return;
+        window.quickLaunchInProgress = true;
+        window.quickLaunchFailed = false;
+        this.style.opacity = "0.6";
+        this.style.pointerEvents = "none";
+        var self = this;
+        startQuickLaunch(function onComplete() {
+            self.style.opacity = "";
+            self.style.pointerEvents = "";
+        });
+    });
+
     for (var i = 0; i < payload_map.length; i++) {
         var payload = payload_map[i];
 
@@ -110,5 +146,78 @@ function populatePayloadsPage(wkOnlyMode) {
     }
 }
 
+// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, etaHEN
+var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "etahen"];
+var QUICK_LAUNCH_DELAY_MS = 3000;
+
+function startQuickLaunch(onComplete) {
+    var toast = showToast("Quick Launch: Starting...", -1);
+    window.quickLaunchToast = toast;
+
+    var dispatched = 0;
+
+    function finishSequence(success) {
+        window.quickLaunchInProgress = false;
+        window.quickLaunchFailed = !success;
+        window.quickLaunchToast = null;
+        if (onComplete) onComplete();
+    }
+
+    function dispatchNext() {
+        if (window.quickLaunchFailed) {
+            // Error occurred in main loop — button cleanup handled by finishSequence
+            finishSequence(false);
+            return;
+        }
+        if (dispatched >= QUICK_LAUNCH_PAYLOADS.length) {
+            return;
+        }
+
+        var payloadId = QUICK_LAUNCH_PAYLOADS[dispatched];
+        var payload = payload_map.find(function (p) { return p.id === payloadId; });
+
+        if (!payload) {
+            updateToastMessage(toast, "Quick Launch: Failed ❌ — payload '" + payloadId + "' not found");
+            setTimeout(function () {
+                removeToast(toast);
+                finishSequence(false);
+            }, TOAST_ERROR_TIMEOUT);
+            return;
+        }
+
+        // Resolve default version (always use isDefault, ignoring user Settings selection)
+        var defaultVer = payload.versions.find(function (v) { return v.isDefault; }) || payload.versions[0];
+        var filePath = defaultVer.filePath || ("payloads/" + payload.id + "/" + defaultVer.version + "/" + defaultVer.fileName);
+
+        var resolvedPayload = {};
+        for (var key in payload) {
+            resolvedPayload[key] = payload[key];
+        }
+        resolvedPayload.version = defaultVer.version;
+        resolvedPayload.fileName = defaultVer.fileName;
+        resolvedPayload.filePath = filePath;
+
+        updateToastMessage(toast, "Quick Launch: " + payload.displayTitle + " (" + (dispatched + 1) + "/" + QUICK_LAUNCH_PAYLOADS.length + ")");
+
+        window.dispatchEvent(new CustomEvent(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, { detail: resolvedPayload }));
+
+        dispatched++;
+
+        if (dispatched >= QUICK_LAUNCH_PAYLOADS.length) {
+            // All dispatched — main loop processes them
+            updateToastMessage(toast, "Quick Launch: All dispatched ✅ (" + QUICK_LAUNCH_PAYLOADS.length + "/" + QUICK_LAUNCH_PAYLOADS.length + ")");
+            setTimeout(function () {
+                removeToast(toast);
+                finishSequence(true);
+            }, TOAST_SUCCESS_TIMEOUT);
+        } else {
+            setTimeout(dispatchNext, QUICK_LAUNCH_DELAY_MS);
+        }
+    }
+
+    dispatchNext();
+}
+
 // Export to global scope
 window.populatePayloadsPage = populatePayloadsPage;
+window.startQuickLaunch = startQuickLaunch;
