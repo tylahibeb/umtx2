@@ -1477,15 +1477,27 @@ input:checked + .slider:before {
     justify-content: center;
     gap: 0.25rem;
 
-    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.25s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     box-shadow: 0 2px 8px rgba(124, 77, 255, 0.3);
 
     position: relative;
 }
 
+.quick-launch-btn--loading {
+    opacity: 0.55;
+    pointer-events: none;
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(124, 77, 255, 0.12);
+}
+
 .quick-launch-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(124, 77, 255, 0.5);
+}
+
+.quick-launch-btn--loading:hover {
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(124, 77, 255, 0.12);
 }
 
 .quick-launch-btn:active {

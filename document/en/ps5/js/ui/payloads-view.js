@@ -50,12 +50,10 @@ function populatePayloadsPage(wkOnlyMode) {
         if (window.quickLaunchInProgress) return;
         window.quickLaunchInProgress = true;
         window.quickLaunchFailed = false;
-        this.style.opacity = "0.6";
-        this.style.pointerEvents = "none";
+        this.classList.add("quick-launch-btn--loading");
         var self = this;
         startQuickLaunch(function onComplete() {
-            self.style.opacity = "";
-            self.style.pointerEvents = "";
+            self.classList.remove("quick-launch-btn--loading");
         });
     });
 
