@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.2.5",
+      "fileName": "ps5debug-NG_v1.2.5.elf",
+      "filePath": "payloads/ps5debug-ng/1.2.5/ps5debug-NG_v1.2.5.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.5/ps5debug-NG_v1.2.5.elf",
+      "hash": "a2e88c191245aefa7d9a0ff35923c779924d65a6d40d60eda8cfb43764f9988d",
+      "fileSize": 3994008,
+      "releaseDate": "2026-05-31",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Added initial support for FW 8.x, 9.x, 10.x, 11.x, 12.x and 13.x.** \u26a0\ufe0f These are *initial support - testing required* (not yet hardware-validated). Feedback from users on these firmwares is welcome.",
+        "**FW 6.x and 7.61 are hardware-validated.**",
+        "Previously these firmwares failed to install (`SceShellCore not found`) and, even when forced, showed **blank process names** and **truncated memory maps**. All fixed:",
+        "Install now succeeds.",
+        "`PROC_INFO` / `PROC_LIST` show correct process names.",
+        "`PROC_MAPS` returns the complete memory map.",
+        "**Firmware-agnostic process lookup** - the installer now locates the target via a stable system call instead of per-firmware kernel offsets, making install more robust across firmwares.",
+        "**Kernel-patch guard** - the installer now detects when the jailbreak has *already* applied the kernel patch and skips re-writing it, **preventing a kernel panic** seen on 7.61.",
+        "**Corrected per-firmware process-info offsets** - process name / path / title ID / content ID now read correctly on 6.x and newer (were frozen at 4.x values and came back empty on 6.x+).",
+        "Added **EchoStretch** and **Sonic-Iso** to the special thanks."
+      ]
+    },
+    {
       "version": "1.2.4",
       "fileName": "ps5debug-NG.elf",
       "filePath": "payloads/ps5debug-ng/1.2.4/ps5debug-NG.elf",
@@ -22,7 +45,7 @@
       "hash": "4aaa956045e6c0c7867537eb00b5de2e5166ba3434e042bf877078fbf92c6e03",
       "fileSize": 3993960,
       "releaseDate": "2026-05-30",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Features",

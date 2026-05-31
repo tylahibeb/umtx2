@@ -15,6 +15,25 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.3",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.3/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.3/elf-arsenal.elf",
+      "hash": "759fda27b054cdad5aafebe2f97e3bd42b456d78df5d5c7914780828764d0635",
+      "fileSize": 5232704,
+      "releaseDate": "2026-05-31",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "DPI v2 (etaHEN-compatible HTTP installer on port 12800) bundled",
+        "Switch between DPI v1 (loopback :9040) and DPI v2 (HTTP :12800) from Settings \u2192 PKG Installer \u2192 DPI version",
+        "Mutual exclusion: switching version SIGKILLs the old daemon before starting the new one",
+        "DPI version choice persists across reboots via config.ini",
+        "Accurate DPI status badge (v1/v2/not running)",
+        "i18n on all pages + full Google Translate language list"
+      ]
+    },
+    {
       "version": "1.6.2",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.2/elf-arsenal.elf",
@@ -22,7 +41,7 @@
       "hash": "8ee924754a6a95b0bf72ccb58dc5530c140cfa310392a1608416534ae3527f82",
       "fileSize": 10388320,
       "releaseDate": "2026-05-27",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Yesterday's build caused the game library to show **Loading\u2026** on the main page (a fresh load showed a blank grid; Refresh fixed it). Root cause: removing the cheats section FTP how-to block left a setup-time JS crash on a missing DOM element (), aborting the boot IIFE before  could run. Fixed in the latest build. Hard-refresh the page after re-sending the ELF.",
