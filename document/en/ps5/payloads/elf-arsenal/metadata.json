@@ -15,6 +15,25 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.4",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.4/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.4/elf-arsenal.elf",
+      "hash": "ec8b8f5c1c0dcac0d0187f8b795f175eb234670216ddd5992f1b9b1b691edb44",
+      "fileSize": 4642880,
+      "releaseDate": "2026-06-01",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Cheat game list fix**: After a full repo download, the staged-cheat game list was always empty because `list_cheats()` only scanned the flat root \u2014 all downloaded files live in `json/`/`shn/`/`mc4/` subdirs. Now scans all four paths; 3000+ titles correctly appear.",
+        "**Format selector tabs**: When multiple formats exist for a game (e.g. SHN + MC4), tab buttons appear above the cheat list so you can pick which version to load. Example: Dead Space SHN \u2192 1 cheat, MC4 \u2192 10 cheats. Tabs are hidden for single-format games.",
+        "Global toggle + per-patch enable/disable across all three CheatRunner scan dirs",
+        "Upload new XML patch files from the browser",
+        "Source badges (Arsenal / CheatRunner / CheatRunner PS5)",
+        "Drop `.elf` files into `/data/elf-arsenal/plugins/` and manage them from Settings"
+      ]
+    },
+    {
       "version": "1.6.3",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.3/elf-arsenal.elf",
@@ -22,7 +41,7 @@
       "hash": "759fda27b054cdad5aafebe2f97e3bd42b456d78df5d5c7914780828764d0635",
       "fileSize": 5232704,
       "releaseDate": "2026-05-31",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "DPI v2 (etaHEN-compatible HTTP installer on port 12800) bundled",
