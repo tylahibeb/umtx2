@@ -36,14 +36,16 @@
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
+        "Due to a bug in the mkpfs library in versions 0.0.3 and 0.04, please use the command below to create the ffpfsc images.",
+        "```bash",
+        "pip install --no-cache -U --force-reinstall \"mkpfs==0.0.2\"",
+        "mkpfs pack file --verify ./PPSA17858.exfat ./PPSA17858.ffpfsc",
+        "```",
         "Ensure your ShadowMountPlus `scan_depth=2` is set to `2`. Without it, games will not be recognized.",
         "Convert your `.exfat` or `.ffpkg` games into `.ffpfsc` format using the `mkpfs` tool.",
         "```bash",
-        "pip install -U mkpfs",
-        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc",
-        "```",
-        "Ensure the new `.ffpfsc` files are uploaded to the PS5, in one of the monitored folders like `/data/homebrew`.",
-        "Send or activate the `micromount.elf` payload."
+        "pip install -U \"mkpfs==0.0.2\"",
+        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc"
       ]
     },
     {
@@ -80,14 +82,16 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
+        "Due to a bug in the mkpfs library in versions 0.0.3 and 0.04, please use the command below to create the ffpfsc images.",
+        "```bash",
+        "pip install --no-cache -U --force-reinstall \"mkpfs==0.0.2\"",
+        "mkpfs pack file --verify ./GAME1234.exfat ./GAME1234.ffpfsc",
+        "```",
         "Ensure your ShadowMountPlus `scan_depth=2` is set to `2`. Without it, games will not be recognized.",
         "Convert your `.exfat` or `.ffpkg` games into `.ffpfsc` format using the `mkpfs` tool.",
         "```bash",
-        "pip install mkpfs",
-        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc",
-        "```",
-        "Ensure the new `.ffpfsc` files are uploaded to the PS5, in one of the monitored folders like `/data/homebrew`.",
-        "Send or activate the `micromount.elf` payload."
+        "pip install -U \"mkpfs==0.0.2\"",
+        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc"
       ]
     }
   ]

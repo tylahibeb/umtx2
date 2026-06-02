@@ -23,26 +23,19 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "1.6beta14",
+      "version": "1.6beta14-fix1",
       "fileName": "shadowmountplus.elf",
-      "filePath": "payloads/shadowmountplus/1.6beta14/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta14/ShadowMountPlus_1.6beta14.zip",
-      "hash": "16355822450dd0e9cd645a688bafab4d70d296a50eff0b53664027ddc439d796",
+      "filePath": "payloads/shadowmountplus/1.6beta14-fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta14-fix1/ShadowMountPlus_1.6beta14-fix1.zip",
+      "hash": "f4e79bf2d859a70092b008b39c678447aaafc436d6cc54c025469e5429178171",
       "fileSize": 1441104,
-      "releaseDate": "2026-06-01",
+      "releaseDate": "2026-06-02",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "Added support for compressed PFS images https://github.com/PSBrew/MkPFS (read speed 150-250 Mb/s).",
-        "Thanks to @PSBreew for his great work!",
-        "```",
-        "python -m mkpfs pack folder c:\\game_folder d:\\game.ffpfs `",
-        "--compress `",
-        "--skip-executable-compression `",
-        "--compression-level 9 `",
-        "--max-compressed-ratio 95 `",
-        "--min-compress-size 65536 `",
-        "--version PS5"
+        "Fixed mounting of exfat",
+        "Added support for compressed PFS images https://github.com/PSBrew/MkPFS (read speed 150-250 Mb/s). **EXPIREMENTAL!**",
+        "Thanks to @PSBreew for his great work!"
       ]
     },
     {
@@ -447,6 +440,29 @@
         "Support for .ffpkg image format",
         "Basic error handling and logging",
         "Compatible with FW 3.xx - 5.xx"
+      ]
+    },
+    {
+      "version": "1.6beta14",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta14/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta14/ShadowMountPlus_1.6beta14.zip",
+      "hash": "16355822450dd0e9cd645a688bafab4d70d296a50eff0b53664027ddc439d796",
+      "fileSize": 1441104,
+      "releaseDate": "2026-06-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support for compressed PFS images https://github.com/PSBrew/MkPFS (read speed 150-250 Mb/s).",
+        "Thanks to @PSBreew for his great work!",
+        "```",
+        "python -m mkpfs pack folder c:\\game_folder d:\\game.ffpfs `",
+        "--compress `",
+        "--skip-executable-compression `",
+        "--compression-level 9 `",
+        "--max-compressed-ratio 95 `",
+        "--min-compress-size 65536 `",
+        "--version PS5"
       ]
     }
   ],
