@@ -23,8 +23,9 @@ function populatePayloadsPage(wkOnlyMode) {
         payloadsView.removeChild(payloadsView.firstChild);
     }
 
-    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, etaHEN sequentially
-    // Always show regardless of wkOnlyMode (all 3 payloads send to port 9021 via elfldr)
+    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, nanoDNS, etaHEN sequentially
+    // Always show regardless of wkOnlyMode (all payloads send to port 9021 via elfldr)
+    // IMPORTANT: etaHEN must ALWAYS be last — it depends on all other payloads being active first.
     var quickLaunchContainer = document.createElement("div");
     quickLaunchContainer.className = "quick-launch-container";
 
@@ -38,7 +39,7 @@ function populatePayloadsPage(wkOnlyMode) {
 
     var quickLaunchSubtitle = document.createElement("p");
     quickLaunchSubtitle.className = "quick-launch-subtitle";
-    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + etaHEN";
+    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + nanoDNS + etaHEN";
 
     quickLaunchBtn.appendChild(quickLaunchIcon);
     quickLaunchBtn.appendChild(quickLaunchLabel);
@@ -144,11 +145,27 @@ function populatePayloadsPage(wkOnlyMode) {
     }
 }
 
-// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, etaHEN
-var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "etahen"];
+// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, nanoDNS, etaHEN
+// IMPORTANT: etaHEN must ALWAYS be the last entry — it depends on all other payloads.
+var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "nanodns", "etahen"];
 var QUICK_LAUNCH_DELAY_MS = 3000;
 
 function startQuickLaunch(onComplete) {
+    // SAFETY: etaHEN must always be the last payload dispatched.
+    // It depends on kstuff-lite, ShadowMountPlus, and nanoDNS being active first.
+    // Launching it before its dependencies can cause kernel panics.
+    var lastId = QUICK_LAUNCH_PAYLOADS[QUICK_LAUNCH_PAYLOADS.length - 1];
+    if (lastId !== "etahen") {
+        var etahenIdx = QUICK_LAUNCH_PAYLOADS.indexOf("etahen");
+        if (etahenIdx === -1) {
+            showToast("Quick Launch: etaHEN not found in sequence", TOAST_ERROR_TIMEOUT);
+            return;
+        }
+        // Move etaHEN to the end
+        QUICK_LAUNCH_PAYLOADS.splice(etahenIdx, 1);
+        QUICK_LAUNCH_PAYLOADS.push("etahen");
+    }
+
     var toast = showToast("Quick Launch: Starting...", -1);
     window.quickLaunchToast = toast;
 
