@@ -1,7 +1,7 @@
 {
   "id": "shadowmountplus",
   "displayTitle": "ShadowMountPlus",
-  "description": "Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention",
+  "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
   "authors": [
     "drakmor",
     "VoidWhisper",
@@ -23,6 +23,127 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6beta14",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta14/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta14/ShadowMountPlus_1.6beta14.zip",
+      "hash": "16355822450dd0e9cd645a688bafab4d70d296a50eff0b53664027ddc439d796",
+      "fileSize": 1441104,
+      "releaseDate": "2026-06-01",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support for compressed PFS images https://github.com/PSBrew/MkPFS (read speed 150-250 Mb/s).",
+        "Thanks to @PSBreew for his great work!",
+        "```",
+        "python -m mkpfs pack folder c:\\game_folder d:\\game.ffpfs `",
+        "--compress `",
+        "--skip-executable-compression `",
+        "--compression-level 9 `",
+        "--max-compressed-ratio 95 `",
+        "--min-compress-size 65536 `",
+        "--version PS5"
+      ]
+    },
+    {
+      "version": "1.6test13",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test13/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test13/ShadowMountPlus_1.6test13.zip",
+      "hash": "521b63c9de4922d79465d15dcb812fc31c840b39e7f971a130c0e7baffe89db0",
+      "fileSize": 1441104,
+      "releaseDate": "2026-05-31",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added copying of trophy data (for new kstuff)"
+      ]
+    },
+    {
+      "version": "1.6test12",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test12/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test12/ShadowMountPlus_1.6test12.zip",
+      "hash": "534f1a204d371904705334fc09087cedc202bcbc81cf1a9a82a8e1e9e4f6fb90",
+      "fileSize": 1441104,
+      "releaseDate": "2026-05-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed issue with deleting games on firmware 12+ (undeletable gray icons)",
+        "Added experimental ability to install games via Dump Installer"
+      ]
+    },
+    {
+      "version": "1.6test11",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test11/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test11/ShadowMountPlus_1.6test11.zip",
+      "hash": "035de95e2808fa8f285523e061f39df97732ab56b80628f5989cd167b1e6f6df",
+      "fileSize": 1441104,
+      "releaseDate": "2026-05-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Improved stability",
+        "Default scan period reduced from 60 to 15 seconds"
+      ]
+    },
+    {
+      "version": "1.6beta10",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta10/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta10/ShadowMountPlus_1.6beta10.zip",
+      "hash": "ecca6e244bc3f7436f55ac3b2fbb2de397100920c2262e1e95a933a27bfe5cae",
+      "fileSize": 1424720,
+      "releaseDate": "2026-05-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support for global fakelib folder (backports) auto-mounted for all games",
+        "Added support for deep sleep mode and unmounting before entering it",
+        "Fixed background game music lost in main menu",
+        "Added support for kstuff autopause up to version 13.20",
+        "Fixed searching for new games when connecting external drives"
+      ]
+    },
+    {
+      "version": "1.6beta9",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta9/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta9/ShadowMountPlus_1.6beta9.zip",
+      "hash": "7b9789d2a451e0cf52906c33a3797d97c4b8dbba64eca95762ab5929e2026204",
+      "fileSize": 1407656,
+      "releaseDate": "2026-04-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Updated algorithm for detecting kstuff pause crashes (enabled by default)",
+        "Backports now searched next to game first, then other scan directories",
+        "Background scanning disabled while game is running"
+      ]
+    },
+    {
+      "version": "1.6test8-fix1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test8-fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test8-fix1/ShadowMountPlus_1.6test8-fix1.zip",
+      "hash": "f74442867d6d1ee74171a35498178f4e9e9d6c644c6e11b838dbe20ec10fc9b6",
+      "fileSize": 1391288,
+      "releaseDate": "2026-04-05",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Improved game install flow, especially on newer firmware.",
+        "On firmware `12.00+`, batch app installation is enabled automatically.",
+        "`config.ini` is now created automatically on first launch if it is missing.",
+        "The file /data/.ksuff_noautomount that disables automatic mounting is now removed automatically on shutdown.",
+        "Default scan interval was increased to `60` seconds to reduce background activity.",
+        "Shutdown is faster and handles in-progress scan/install work more cleanly.",
+        "fix: firmware 12.00 crash"
+      ]
+    },
+    {
       "version": "1.6test7-fix2",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6test7-fix2/shadowmountplus.elf",
@@ -30,7 +151,7 @@
       "hash": "e691aba93b17a4ae479f539e5cf0595b26ca379e6a11c28d2f27e47f9b72bc21",
       "fileSize": 1387272,
       "releaseDate": "2026-03-29",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Critical fix for memory allocation issue in multi-image scenarios",
@@ -44,7 +165,7 @@
       "version": "1.6test6",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6test6/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test6/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test6/ShadowMountPlus_1.6test6.zip",
       "hash": "6088868d3810875e1fdc151a9349ad899a98bedcbe5b7e8cd8b9a5554b262abd",
       "fileSize": 1387240,
       "releaseDate": "2026-03-22",
@@ -52,45 +173,56 @@
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
-        "Experimental support for dynamic image switching",
-        "Testing improved notification system",
-        "WIP: Background service optimization"
+        "Reworked scanning to use filesystem events, reducing unnecessary rescans and improving reaction time for new, changed, or removed games and images.",
+        "Added scan_depth:",
+        "scan_depth=1 scans the first level only",
+        "scan_depth=2 scans one extra nested level",
+        "recursive_scan=1 is now treated as compatibility mode and forces scan_depth=2.",
+        "Fixed stability waiting for image files so it works correctly for both folders and images.",
+        "Improved damaged image handling: unreadable mounted images are now reported as damaged images instead of misleading param.json errors.",
+        "Kstuff auto-pause now checks kstuff availability at the moment auto-pause is needed, not only at startup.",
+        "Added optional per-game autopause.txt support for local auto-pause delay rules.",
+        "Added runtime hot-reload for selected config.ini settings without restarting the payload."
       ]
     },
     {
       "version": "1.6beta5",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6beta5/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta5/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta5/ShadowMountPlus_1.6beta5.zip",
       "hash": "a54c8fa2f17b0d7c4bff2d7beb6fe611c62bc04c64409d51f073a853a070cebf",
       "fileSize": 1476872,
       "releaseDate": "2026-03-16",
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
-        "Added support for nested directory structures in image paths",
-        "Improved auto-detection of image types",
-        "Fixed unmounting issues when switching between games",
-        "Enhanced logging for troubleshooting",
-        "Better resource cleanup on exit"
+        "A small update before the big changes.",
+        "Image mounting has been moved to /mnt/shadowmnt",
+        "For the test turbo version of  [kstuff-lite](https://github.com/drakmor/kstuff-lite) automounting is disabled (the file /data/.kstuff_noautomount is created)",
+        "Notification log spam has been fixed",
+        "Duplicate image handling has been fixed",
+        "A check for kstuff being installed on the system has been added.",
+        "After testing, I recommend the FFPKG image format with the settings in README.md as the most performant. However, creating them using UFS2Tool sometimes causes problems \u2013 broken images are created with these settings."
       ]
     },
     {
       "version": "1.6beta4",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6beta4/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta4/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta4/shadowmountplus_1.6beta4.zip",
       "hash": "fe54c2fb89d71e2f51d9bd461df3c76b7a107850e76d4ac6d63a04c9fe31ec42",
       "fileSize": 1460504,
       "releaseDate": "2026-03-09",
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
-        "Fixed compatibility issues with FW 5.50",
-        "Improved stability during game launch sequences",
-        "Better handling of large image files (>50GB)",
-        "Optimized memory usage for better system performance",
-        "Fixed issue with certain exFAT formatted images"
+        "Refactored ShadowMount+ into modular subsystems, added automatic kstuff lifecycle management and sandbox fakelib support, improved remount/recovery flow.",
+        "Backports are now mounted from a backports folder located next to the game images instead of /data/backports. This fixes external drive mounting and also works for unpacked games.",
+        "Sandbox fakelib backports are now mounted directly by ShadowMount+. backpork.elf must be disabled.",
+        "Automatic kstuff pause is now enabled by default. You should disable sentinel_warden.elf and turn off etaHEN auto-pause settings.",
+        "Reboot and power-off handling has been fixed, including proper image unmounting during shutdown.",
+        "A quiet mode has been added, with minimal notifications.",
+        "See README.md for full details."
       ]
     },
     {

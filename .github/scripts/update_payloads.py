@@ -239,6 +239,9 @@ import json
 import hashlib
 import re
 import subprocess
+import shutil
+import tempfile
+import zipfile
 from pathlib import Path
 from datetime import date, datetime, timezone
 from typing import Any, Dict, List, Optional
@@ -538,6 +541,96 @@ def match_asset(assets: List[Dict], pattern: str) -> Optional[Dict]:
     return None
 
 
+def match_zip_asset(assets: List[Dict]) -> Optional[Dict]:
+    """Find a ZIP asset that may contain .elf/.bin files.
+
+    Called as a fallback when match_asset() finds no direct .elf/.bin match.
+    Looks for .zip files in the assets list.
+
+    Args:
+        assets: List of GitHub release assets
+
+    Returns:
+        First matching .zip asset dict, or None
+    """
+    for asset in assets:
+        name = asset.get('name', '')
+        if name.lower().endswith('.zip'):
+            return asset
+
+    return None
+
+
+def download_and_extract_zip_asset(
+    download_url: str,
+    dest_dir: Path,
+    pattern: str,
+) -> Optional[Path]:
+    """Download a ZIP asset and extract the first .elf/.bin file matching the pattern.
+
+    Args:
+        download_url: Direct download URL for the ZIP file
+        dest_dir: Directory to extract the .elf/.bin into
+        pattern: Glob pattern to match extracted file (e.g., 'shadowmount*.elf')
+
+    Returns:
+        Path to the extracted .elf/.bin file, or None if extraction failed
+    """
+    ALLOWED_EXTENSIONS = ('.elf', '.bin')
+
+    try:
+        print(f"  Downloading ZIP: {download_url}")
+        response = requests.get(download_url, stream=True, timeout=60)
+        response.raise_for_status()
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_zip = Path(tmp_dir) / "release.zip"
+            with open(tmp_zip, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
+
+            # Extract ZIP
+            with zipfile.ZipFile(tmp_zip, 'r') as zf:
+                zf.extractall(tmp_dir)
+
+            # Find .elf/.bin files in extracted contents
+            regex_pattern = pattern.replace('.', r'\.').replace('*', '.*')
+            regex = re.compile(regex_pattern, re.IGNORECASE)
+
+            best_match = None
+            for extracted in Path(tmp_dir).rglob('*'):
+                if not extracted.is_file():
+                    continue
+                if not any(extracted.name.lower().endswith(ext) for ext in ALLOWED_EXTENSIONS):
+                    continue
+                if regex.match(extracted.name):
+                    best_match = extracted
+                    break
+
+            # Fallback: any .elf/.bin file
+            if not best_match:
+                for extracted in Path(tmp_dir).rglob('*'):
+                    if not extracted.is_file():
+                        continue
+                    if any(extracted.name.lower().endswith(ext) for ext in ALLOWED_EXTENSIONS):
+                        best_match = extracted
+                        break
+
+            if not best_match:
+                print(f"  No .elf/.bin found in ZIP")
+                return None
+
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            dest_path = dest_dir / best_match.name
+            shutil.copy2(str(best_match), str(dest_path))
+            print(f"  Extracted: {best_match.name} ({dest_path.stat().st_size} bytes)")
+            return dest_path
+
+    except Exception as e:
+        print(f"  Error extracting ZIP: {e}")
+        return None
+
+
 def _process_release_version(
     payload_id: str,
     version: str,
@@ -737,6 +830,24 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
 
         matched = match_asset(assets, pattern)
         if not matched:
+            # Fallback: try ZIP extraction
+            zip_asset = match_zip_asset(assets)
+            if zip_asset:
+                zip_url = zip_asset.get('url', '')
+                if not zip_url:
+                    zip_url = f"https://github.com/{repo}/releases/download/{tag}/{zip_asset['name']}"
+                version_dir = PAYLOADS_DIR / payload_id / version
+                extracted = download_and_extract_zip_asset(zip_url, version_dir, pattern)
+                if extracted:
+                    ver = _process_release_version(
+                        payload_id, version, extracted.name, zip_url,
+                        body, published_at, is_prerelease, existing_versions
+                    )
+                    if ver:
+                        ver['filePath'] = f"payloads/{payload_id}/{version}/{extracted.name}"
+                        versions.append(ver)
+                        continue
+
             ver = _process_release_version(
                 payload_id, version, "", "", "", "",
                 is_prerelease, existing_versions,
@@ -872,6 +983,22 @@ def update_payload_from_gitea_release(payload_config: Dict, metadata: Dict) -> L
 
         matched = match_asset(normalized_assets, pattern)
         if not matched:
+            # Fallback: try ZIP extraction
+            zip_asset = match_zip_asset(normalized_assets)
+            if zip_asset:
+                zip_url = zip_asset.get('url', '')
+                version_dir = PAYLOADS_DIR / payload_id / version
+                extracted = download_and_extract_zip_asset(zip_url, version_dir, pattern)
+                if extracted:
+                    ver = _process_release_version(
+                        payload_id, version, extracted.name, zip_url,
+                        body, published_at, is_prerelease, existing_versions
+                    )
+                    if ver:
+                        ver['filePath'] = f"payloads/{payload_id}/{version}/{extracted.name}"
+                        versions.append(ver)
+                        continue
+
             ver = _process_release_version(
                 payload_id, version, "", "", "", "",
                 is_prerelease, existing_versions,
