@@ -11,7 +11,7 @@
   "supportedFirmwares": [],
   "license": {
     "type": "Unknown",
-    "url": ""
+    "url": "https://github.com/drakmor/nanoDNS/blob/main/LICENSE"
   },
   "versions": [
     {
@@ -26,10 +26,27 @@
       "isPreRelease": false,
       "changelog": [
         "Added PS4 support",
-        "Added configurable bind address",
-        "Automatic recovery for listening and upstream sockets",
+        "Added configurable bind address, defaulting to 127.0.0.1",
+        "Added automatic recovery for listening and upstream sockets",
         "Improved upstream DNS failover behavior",
+        "Improved domain mask matching",
+        "Improved config validation and warning messages",
+        "Log file is now overwritten on each startup",
         "PS5 up to 13.20 FW"
+      ]
+    },
+    {
+      "version": "0.1",
+      "fileName": "nanodns.elf",
+      "filePath": "payloads/nanodns/0.1/nanodns.elf",
+      "downloadUrl": "https://github.com/drakmor/nanoDNS/releases/download/0.1/nanodns.elf",
+      "hash": "cc18b5461a0e868b31b5ac77bda9902cc7354864f55de86f77945ad6ce2985f3",
+      "fileSize": 170552,
+      "releaseDate": "2026-03-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "First version"
       ]
     }
   ]
