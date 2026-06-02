@@ -167,6 +167,428 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []
+    },
+    {
+      "version": "0.25.1",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.25.1/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.25.1/DevilutionX.zip",
+      "hash": "aed26de2ca9ec6499c82b1a80527f0d501e98039426e3a1b23e9585892537187",
+      "fileSize": 7610584,
+      "releaseDate": "2025-06-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "filepicker: use same name of mount points as shellui storage settings",
+        "rebuild with latest sdk, which fixes kernel panics on some later firmwares"
+      ]
+    },
+    {
+      "version": "0.25",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.25/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.25/DevilutionX.zip",
+      "hash": "ca0011e516f0ea68681bc60e335e275231dbe3bb2c92c28d0b1a977f485be6b1",
+      "fileSize": 7610584,
+      "releaseDate": "2025-06-23",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "rebuild with latest sdk (which fixes 8.xx offsets)",
+        "retroarch: add mednafen, gba and genesis core"
+      ]
+    },
+    {
+      "version": "0.24",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.24/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.24/DevilutionX.zip",
+      "hash": "287b399526b4c35c28f4725a79a3134a0ce0bcce758aafc5ee7bf6bce458d230",
+      "fileSize": 7610584,
+      "releaseDate": "2025-06-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "catch some fatal signals and print a backtrace to /dev/klog",
+        "fix http POST requests sent to /elfldr",
+        "rebuild with latest sdk (which includes offsets for 8.xx, 9.xx and 10.0x)"
+      ]
+    },
+    {
+      "version": "0.23.1",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.23.1/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.23.1/DevilutionX.zip",
+      "hash": "3fe74537cd976d95caa063b63fc33133e73458e96ef0bf42e4d037046d73d97e",
+      "fileSize": 8851272,
+      "releaseDate": "2025-05-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "list usb devices in the root of the file picker",
+        "support smb shares in the file picker",
+        "add proxy for smb:// shares",
+        "add api for accessing mDNS discoveries",
+        "use the circle button on the controller to navigate back in the file picker.",
+        "Show last modified date and size for files in file picker.",
+        "Replace the smoothscroll library with css animations",
+        "Improve the embeddings of SVGs.",
+        "add mime types for files accessed via /fs api"
+      ]
+    },
+    {
+      "version": "0.22",
+      "fileName": "websrv.elf",
+      "filePath": "payloads/websrv/0.22/websrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.22/Payload.zip",
+      "hash": "b125c7174dbb47e48c14cffe83b0c7c44b47400578e520f2948beb27da71feed",
+      "fileSize": 705232,
+      "releaseDate": "2025-03-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "improve support for offline consoles",
+        "fix bulding with recent versions of the sdk"
+      ]
+    },
+    {
+      "version": "0.21",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.21/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.21/DevilutionX.zip",
+      "hash": "97a11c4c7c3294cee67ccd502f1448ab963fea75bc102e7190c5d1b36c6f1bb7",
+      "fileSize": 8849672,
+      "releaseDate": "2025-03-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "autoscan for homebrew on external media",
+        "add the ability to load homebrew as daemons",
+        "webif: clip text on overflow"
+      ]
+    },
+    {
+      "version": "0.20",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.20/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.20/DevilutionX.zip",
+      "hash": "97a11c4c7c3294cee67ccd502f1448ab963fea75bc102e7190c5d1b36c6f1bb7",
+      "fileSize": 8849672,
+      "releaseDate": "2025-03-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk",
+        "fix memory issues on pc port"
+      ]
+    },
+    {
+      "version": "0.19",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.19/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.19/DevilutionX.zip",
+      "hash": "d214e7b61348dbca8ad5e3c0a49a4cebec729e94e0485308759e6703abb26b23",
+      "fileSize": 8849672,
+      "releaseDate": "2025-02-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with most recent sdk",
+        "scummvm: bump version to 2.9.0",
+        "retroarch: bump version to 1.20.0",
+        "eduke32: bump version to 20241226",
+        "devilutionx: bump version to 1.5.4",
+        "openjazz: initial commit"
+      ]
+    },
+    {
+      "version": "0.18",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.18/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.18/DevilutionX.zip",
+      "hash": "fd53c742e8f8103ad94751857937ac63b35eb98c6e8fd54b51330ec29b5292b6",
+      "fileSize": 8816640,
+      "releaseDate": "2025-01-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk",
+        "avoid using shared memory",
+        "retroarch: tweak compiler flags and settings",
+        "retroarch: build a commodore amiga core"
+      ]
+    },
+    {
+      "version": "0.17",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.17/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.17/DevilutionX.zip",
+      "hash": "c26a89c8dcaf03320b1fd841de53891f1edb6a40c9775c11eeb80da30e2e6b51",
+      "fileSize": 7554992,
+      "releaseDate": "2024-12-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "retroarch: update default config to render a larger part of the screen",
+        "retroarch: add puae core (commodore amiga)",
+        "retroarch: add vice core (commodore c64)",
+        "retroarch: add fbneo core (arcade games, e.g. neogeo)"
+      ]
+    },
+    {
+      "version": "0.16",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.16/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.16/DevilutionX.zip",
+      "hash": "001d4d7c2c64bf002f2e2487208b9b564eec5564d31c7147edffb3abd82eaf48",
+      "fileSize": 7876944,
+      "releaseDate": "2024-12-18",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "webif: fix rendering on lower PS5 firmwares",
+        "homebrew: add initial port of yqake2",
+        "homebrew: add initial port of retroarch",
+        "homebrew: add initial port of linkdev",
+        "homebrew: bump version of offact",
+        "homebrew: add highres eduke32 textures and audio"
+      ]
+    },
+    {
+      "version": "0.14",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.14/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.14/DevilutionX.zip",
+      "hash": "95443de141d905466fedd5a6ff0aa68fc638fa2de522faa1b161e6b8c5515f05",
+      "fileSize": 7764016,
+      "releaseDate": "2024-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "websrv: notify user on ip an port server is running on",
+        "websrv: set authid that has privileges to spawn new procs",
+        "scummvm: update build script",
+        "tvheadend: add dvr and tag listings"
+      ]
+    },
+    {
+      "version": "0.13",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.13/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.13/DevilutionX.zip",
+      "hash": "7df6b3f555f1e7e5441886d60dceca8e2778063a01256134e6533ae31d7a29e8",
+      "fileSize": 7780400,
+      "releaseDate": "2024-10-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "homebrew: replace bin files with build scripts",
+        "ci: build homebrew using build scripts",
+        "scummvm: initial commit",
+        "fbneo: print config path to stdout",
+        "elfldr: cosmetics to stdout rendering"
+      ]
+    },
+    {
+      "version": "0.12",
+      "fileName": "websrv.elf",
+      "filePath": "payloads/websrv/0.12/websrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.12/Payload.zip",
+      "hash": "8e12ff9f3c1cf867dcc5e4a010e6328feb5030e0a2958d2aaa8173d0c728338e",
+      "fileSize": 708936,
+      "releaseDate": "2024-10-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "add a payload elf loader"
+      ]
+    },
+    {
+      "version": "0.11",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.11/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.11/DevilutionX.zip",
+      "hash": "7dd1685169cb125ce98d689da8659e558303fb146380d1fe938d0c2448dcfaaa",
+      "fileSize": 7848936,
+      "releaseDate": "2024-09-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild example payload ELFs with more recent sdk, which includes support for firmware versions 5.xx",
+        "Update elf loader to support 5.xx firmwares where dlsym syscall has been restricted"
+      ]
+    },
+    {
+      "version": "0.10.1",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.10.1/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.10.1/DevilutionX.zip",
+      "hash": "f6a0bfff7715ee6a1b9d7d9189bb9dd1eb4639d080aa9e0f33c9edcbbc10d493",
+      "fileSize": 7832552,
+      "releaseDate": "2024-09-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 1.xx"
+      ]
+    },
+    {
+      "version": "0.10",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.10/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.10/DevilutionX.zip",
+      "hash": "7b932cf02d9f660fd7385fb7e515a492ed416901496d4280d0a5bfb968e1d5e2",
+      "fileSize": 7832552,
+      "releaseDate": "2024-09-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 2.xx"
+      ]
+    },
+    {
+      "version": "0.9",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.9/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.9/DevilutionX.zip",
+      "hash": "ed24bd39c9f3fe7cd88e29ea2eb15497f5c3b53157d530a52ecbd977751a112d",
+      "fileSize": 7832552,
+      "releaseDate": "2024-08-17",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "In addition to updating Payload.zip (websrv.elf), also make sure you update the homebrew stored on the PS5 at /data/homebrew, and Launcher.zip (IV9999-FAKE00000_00-HOMEBREWLOADER01.pkg)",
+        "Changelog:",
+        "add duke nukem 3d source port",
+        "ffplay: add example on how subtitles can be loaded",
+        "filepicker: add a title that defaults to \"Select file...\""
+      ]
+    },
+    {
+      "version": "0.8",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.8/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.8/DevilutionX.zip",
+      "hash": "90c3ccf57d7d9aa4dfd5de232064a593f7c9361a9adfb8ebeb2172517dedf4b9",
+      "fileSize": 7817232,
+      "releaseDate": "2024-07-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "In addition to updating Payload.zip (websrv.elf), also make sure you update the homebrew stored on the PS5 at /data/homebrew. Also update IV9999-FAKE00000_00-HOMEBREWLOADER01.pkg",
+        "Changelog:",
+        "improve UI navigation",
+        "improve homebrew loader pkg with some cosmetic changes",
+        "FFplay: fix 4k playback",
+        "FFplay: If no file is selected, do not start the homebrew",
+        "mednafen: If no file is selected, do not start the homebrew",
+        "mednafen: list m3u playlist entries",
+        "SverigesRadio: add more channels, and display current programme",
+        "SVTplay: show current running programme"
+      ]
+    },
+    {
+      "version": "0.7",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.7/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.7/DevilutionX.zip",
+      "hash": "90c3ccf57d7d9aa4dfd5de232064a593f7c9361a9adfb8ebeb2172517dedf4b9",
+      "fileSize": 7817232,
+      "releaseDate": "2024-07-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "In addition to updating Payload.zip (websrv.elf), also make sure you update the homebrew stored on the PS5 at /data/homebrew. Also update IV9999-FAKE00000_00-HOMEBREWLOADER01.pkg",
+        "Changelog:",
+        "sort homebrew by name",
+        "api: parameterize current working directory",
+        "asset: normalize path in requests",
+        "Change identifier of homebrew launcher pkg so GUI switcher renders the correct game title",
+        "homebrew: add experimental port of FinalBurn Neo",
+        "homebrew: support arbitrary amounts of heap memory",
+        "devolutionx: add binary with multiplayer support",
+        "mednafen: significantly reduce file size by recompiling without the builtin debugger"
+      ]
+    },
+    {
+      "version": "0.6",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.6/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.6/DevilutionX.zip",
+      "hash": "3d235455d9e69af9f53eb33545b20d7a32bc69316b6c9418436351a60ce0dc58",
+      "fileSize": 5188160,
+      "releaseDate": "2024-06-23",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "add version info to api between web server and browser",
+        "support passing on environmental variables to homebrew",
+        "update Mednafen homebrew launcher to use environmental variable to define config dir"
+      ]
+    },
+    {
+      "version": "0.5",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.5/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.5/DevilutionX.zip",
+      "hash": "3d235455d9e69af9f53eb33545b20d7a32bc69316b6c9418436351a60ce0dc58",
+      "fileSize": 5188160,
+      "releaseDate": "2024-06-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "plug memory leak",
+        "set environmental variables",
+        "set current working directory",
+        "lots of cosmetics"
+      ]
+    },
+    {
+      "version": "0.4",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.4/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.4/DevilutionX.zip",
+      "hash": "ec47f6f12ed952770e99b3b4e302d904ad0319d409cfef3aab74e347183ce158",
+      "fileSize": 4953624,
+      "releaseDate": "2024-05-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "set mimetype of assets",
+        "make the overlay that appears after a homebrew is launched munch more informative"
+      ]
+    },
+    {
+      "version": "0.3",
+      "fileName": "devilutionx.elf",
+      "filePath": "payloads/websrv/0.3/devilutionx.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.3/DevilutionX.zip",
+      "hash": "ec47f6f12ed952770e99b3b4e302d904ad0319d409cfef3aab74e347183ce158",
+      "fileSize": 4953624,
+      "releaseDate": "2024-05-26",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "added support for streaming https URLs with FFplay",
+        "added homebrew for streaming live radio broadcasts from sr.se",
+        "added homebrew for streaming live TV broadcasts from svtplay.se",
+        "added a PS5 pkg which puts an icon under \"media\" on your dashboard where the homebrew launcher can be interacted with. Thank you TeRex777 for putting it together!"
+      ]
+    },
+    {
+      "version": "0.1",
+      "fileName": "websrv.elf",
+      "filePath": "payloads/websrv/0.1/websrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.1/Payload.zip",
+      "hash": "02d0a6f8f8ee1ec993db0e5dc13cd5824bf5175b1501e3ef8be760cbaea8216e",
+      "fileSize": 254000,
+      "releaseDate": "2024-05-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Initial release"
+      ]
     }
   ],
   "license": {

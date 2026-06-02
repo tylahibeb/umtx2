@@ -65,6 +65,231 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []
+    },
+    {
+      "version": "0.16.2",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.16.2/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.16.2/Payload.zip",
+      "hash": "8a3c9905df10ce6c81d59d80e4549c2b2ba3a61fc3f8c84e5376ad8347d03fcb",
+      "fileSize": 912400,
+      "releaseDate": "2025-06-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes some kernel panics on later firmwares)"
+      ]
+    },
+    {
+      "version": "0.16.1",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.16.1/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.16.1/Payload.zip",
+      "hash": "22597710ebd3e7641dceb8edb8aee934d9279f87ee6f3a1fed07367b6151813f",
+      "fileSize": 913440,
+      "releaseDate": "2025-06-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes 8.xx offsets)"
+      ]
+    },
+    {
+      "version": "0.16",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.16/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.16/Payload.zip",
+      "hash": "d36ec5f1cc228f5e5d5e2f68da0e100238e7f33e15c35ece4634533496d3680e",
+      "fileSize": 912400,
+      "releaseDate": "2025-06-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which includes offsets for fw 8.xx, 9.xx and 10.0x)",
+        "avoid using sceKernelSpawn and mdbg (which causes issues on fw 9.xx and 10.0x)",
+        "add automated pre-releases on tags"
+      ]
+    },
+    {
+      "version": "0.15",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.15/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.15/Payload.zip",
+      "hash": "029cd3ff51d04b11762ad15acce4007f50eb2e13e9c4c44e9bcd8bfc7000daf7",
+      "fileSize": 1137352,
+      "releaseDate": "2025-04-07",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "add pkg_install command"
+      ]
+    },
+    {
+      "version": "0.14",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.14/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.14/Payload.zip",
+      "hash": "2acdcfabaae25131f65748c0d3313061bf727c5fc1e6bc117878a6aa054d5a15",
+      "fileSize": 1038616,
+      "releaseDate": "2025-03-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "speed improvements",
+        "add df command (print available disk space)"
+      ]
+    },
+    {
+      "version": "0.13.1",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.13.1/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.13.1/Payload.zip",
+      "hash": "0a4c86bbe5cba73026e856b695221a5de2944b7dd2aa48801ffebcaf784713d2",
+      "fileSize": 986336,
+      "releaseDate": "2025-02-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk that supports firmwares up to 7.xx"
+      ]
+    },
+    {
+      "version": "0.13",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.13/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.13/Payload.zip",
+      "hash": "b7cf479010c594e1ad9d0717dce56999de9ef96cc5f5a2e6ca600ecb9736fc6e",
+      "fileSize": 979632,
+      "releaseDate": "2025-01-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "avoid using shared memory",
+        "add reptyr command that sets the stdout fds of a given pid to the telnet client stdout",
+        "rebuild with latest sdk"
+      ]
+    },
+    {
+      "version": "0.12",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.12/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.12/Payload.zip",
+      "hash": "b8b6129c6375b7dceb89cf179b3b4f8d2e35cc692c7605caaa6a95cd91b9d0e8",
+      "fileSize": 831496,
+      "releaseDate": "2024-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "ps: show memory usage",
+        "add sleepmode command",
+        "notify the user when the payload is first launched an operational"
+      ]
+    },
+    {
+      "version": "0.10.1",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.10.1/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.10.1/Payload.zip",
+      "hash": "e80a065bd6103a5df752006b63aac2535400fa2da2632aec3c7c12ac481643f8",
+      "fileSize": 683040,
+      "releaseDate": "2024-09-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 2.xx"
+      ]
+    },
+    {
+      "version": "0.10",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.10/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.10/Payload.zip",
+      "hash": "d175f9c3ae22242437583f49a6d309c9f15ad4bdd431ab0385e83adb4ef30535",
+      "fileSize": 683040,
+      "releaseDate": "2024-08-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "hbldr: support launching ELFs with relative paths",
+        "change default PATH to /mnt/usb0/homebrew/bin:/user/homebrew/bin",
+        "readme: accommodate for recent changes"
+      ]
+    },
+    {
+      "version": "0.9",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.9/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.9/Payload.zip",
+      "hash": "84123f5fb53ccee3c1f0eacfb70348e989deecbe9386da25876eb23f6d937b8e",
+      "fileSize": 683040,
+      "releaseDate": "2024-07-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "improve telnet compatibility (by using use libtelnet)",
+        "sleep: run in a seperate process"
+      ]
+    },
+    {
+      "version": "0.8",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.8/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.8/Payload.zip",
+      "hash": "d129c1a51093afed961a242416bbc35b4f01787e8220505a88dc077b25e7193a",
+      "fileSize": 1341832,
+      "releaseDate": "2024-07-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "hbldr: attach homebrew to a fake game",
+        "hbldr: support allocation of arbitrary amounts of heap memory",
+        "hbldr: set envp in libkernel and make sure cwd is set before launching payload",
+        "hbdbg: add new command that launches homebrew that enters the STOP state on entry point so a debugger can attach to it",
+        "add authid command that prints or changes the authid of the login session"
+      ]
+    },
+    {
+      "version": "0.7",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.7/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.7/Payload.zip",
+      "hash": "9b79447ec667777391a618635defabebc6178a076c0cc799553450d55234df4f",
+      "fileSize": 674360,
+      "releaseDate": "2024-05-09",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "hbldr: ensure argv[0] is set to the path of the payload",
+        "elfldr: performance improvement"
+      ]
+    },
+    {
+      "version": "0.6",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.6/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.6/Payload.zip",
+      "hash": "908cc6cae7a95b7dc8773e8ed4cd7ee092708df7a9e785de783165c22daba942",
+      "fileSize": 469320,
+      "releaseDate": "2024-04-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "elfldr: allow libc to allocate arbitrary amount of memory"
+      ]
+    },
+    {
+      "version": "0.5",
+      "fileName": "shsrv.elf",
+      "filePath": "payloads/shsrv/0.5/shsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.5/Payload.zip",
+      "hash": "995dc9f12789bb598733abfa0835f492c96688128ebde3ce58b281f8ce124913",
+      "fileSize": 469232,
+      "releaseDate": "2024-04-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Support payloads of up to 16MiB in size"
+      ]
     }
   ],
   "license": {

@@ -92,6 +92,198 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []
+    },
+    {
+      "version": "0.20.2",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.20.2/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.20.2/Payload.zip",
+      "hash": "3eb7fdd7e22cb381752f9424a55e4d7c955e2a0bfd8da4e5f7a230abea5d121d",
+      "fileSize": 364424,
+      "releaseDate": "2025-06-26",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes some kernel panics on later firmwares)"
+      ]
+    },
+    {
+      "version": "0.20.1",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.20.1/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.20.1/Payload.zip",
+      "hash": "5e23d5dce3bd3939eeba9e9451d749daf266f86818a9086b461683aa2f21b4f2",
+      "fileSize": 364424,
+      "releaseDate": "2025-06-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes 8.xx offsets)"
+      ]
+    },
+    {
+      "version": "0.20",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.20/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.20/Payload.zip",
+      "hash": "43e5e40623c618f008010464c05f4c6041d866f3e119b3a4ac5fb9c6056f3d21",
+      "fileSize": 364424,
+      "releaseDate": "2025-06-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which includes offsets for fw 8.xx, 9.xx and 10.0x)",
+        "reduce the size of the payload by stripping it",
+        "avoid using sceKernelSpawn and mdbg (which causes issues on fw 9.xx and 10.0x)",
+        "add automated pre-releases on tags"
+      ]
+    },
+    {
+      "version": "0.19",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.19/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.19/Payload.zip",
+      "hash": "930982bb4e98612f70441922efadbb0aa7e7b16ec260d6b243276ed02cadc29d",
+      "fileSize": 412544,
+      "releaseDate": "2025-03-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "improve support for consoles that are offline",
+        "ignore SIGPIPE on sockets piped to stdio"
+      ]
+    },
+    {
+      "version": "0.18.1",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.18.1/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.18.1/Payload.zip",
+      "hash": "7210cff3007272ae40ec5317f1c72eb59124ebe7a74581e9830ef7125a50435e",
+      "fileSize": 412576,
+      "releaseDate": "2025-03-05",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk",
+        "use malloc rather than making an mmap syscall in some places"
+      ]
+    },
+    {
+      "version": "0.18",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.18/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.18/Payload.zip",
+      "hash": "9361d4dedd5db3b3e12485b1af97a4f077e67cac2aa4c07e534c059d52f6df77",
+      "fileSize": 414432,
+      "releaseDate": "2025-02-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "fix compatibility with webkit elfldr and most recent payload sdk",
+        "check if qaflags are already patched before applying debug mode"
+      ]
+    },
+    {
+      "version": "0.17",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.17/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.17/Payload.zip",
+      "hash": "249fbfd7a68d7f201978b39964e41c0fa7edb94f1b2d4208c3876469583220e2",
+      "fileSize": 460496,
+      "releaseDate": "2025-01-05",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "avoid using shared memory"
+      ]
+    },
+    {
+      "version": "0.16",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.16/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.16/Payload.zip",
+      "hash": "7013cf545c21929618d0da5c28ab2ca822fae95781bbe05f264da60e228a6fa8",
+      "fileSize": 306128,
+      "releaseDate": "2024-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "only notify user of port:ip the first time the payload is launched",
+        "make socket server more robust against transmission errors"
+      ]
+    },
+    {
+      "version": "0.15",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.15/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.15/Payload.zip",
+      "hash": "4c3550827a75bcc3681ce481f92d3e1ee302331ae8534ac66298ec55a3d0c065",
+      "fileSize": 305312,
+      "releaseDate": "2024-09-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "add support for firmware 2.70 and 5.xx"
+      ]
+    },
+    {
+      "version": "0.14.1",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.14.1/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.14.1/Payload.zip",
+      "hash": "0573c51fd113f0ca27923dc0fdc4a243cf51aee9dae66f5955f4412ad342f15c",
+      "fileSize": 255888,
+      "releaseDate": "2024-09-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 2.xx"
+      ]
+    },
+    {
+      "version": "0.14",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.14/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.14/Payload.zip",
+      "hash": "3eba6e50f09903f44d8a7e303aec6cef039acf73ad0c276ba28c20561dbd1ff9",
+      "fileSize": 255624,
+      "releaseDate": "2024-05-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "support arbitrary large payloads",
+        "performance improvements for large payloads with many relocations",
+        "accommodate for recent changes to sdk file system layout"
+      ]
+    },
+    {
+      "version": "0.13",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.13/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.13/Payload.zip",
+      "hash": "e2b1fddea5335db9392298b4b29e8cf7733322b3ce56e130539b551c7a5cd33d",
+      "fileSize": 255464,
+      "releaseDate": "2024-04-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "allow libc to allocate arbitrary amount of memory",
+        "detach from parent before killing previously running instances of elfldr"
+      ]
+    },
+    {
+      "version": "0.12",
+      "fileName": "elfldr.elf",
+      "filePath": "payloads/elfldr/0.12/elfldr.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.12/Payload.zip",
+      "hash": "9daab3d43bcbf1fdad8b494c1c6e8cf65e12f5aeebb5354a199046ac45221561",
+      "fileSize": 255408,
+      "releaseDate": "2024-04-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "support payloads that are up to 16MiB in size"
+      ]
     }
   ],
   "license": {

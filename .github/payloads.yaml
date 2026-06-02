@@ -60,11 +60,12 @@ payloads:
       url: ""
 
   # --- ShadowMountPlus: Automatic game image mounter ---
-  # Repo has GitHub Releases with .elf assets - fully automated
-  # Note: Asset name is 'shadowmount.elf' (without 'plus' suffix)
+  # Repo has GitHub Releases with .elf or .zip assets - fully automated
+  # Note: v1.6beta3 and earlier ship .elf directly; v1.6beta4+ are ZIP-only
+  # (the ZIP extraction fallback in update_payloads.py handles this automatically)
   - id: shadowmountplus
     displayTitle: ShadowMountPlus
-    description: Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention
+    description: Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention
     authors:
       - drakmor
       - VoidWhisper
@@ -83,6 +84,34 @@ payloads:
     license:
       type: "GPL-3.0"
       url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
+
+  # --- MicroMount: Compressed PFS image auto-mounter ---
+  # Companion to ShadowMountPlus - auto-mounts .ffpfsc compressed images
+  # All releases are ZIP-only; ZIP extraction fallback in update_payloads.py handles this.
+  - id: micromount
+    displayTitle: MicroMount
+    description: Auto-mounts compressed PFS images (.ffpfsc) into managed mountpoints. Companion to ShadowMountPlus.
+    authors:
+      - RenanGBarreto
+    projectUrl: https://github.com/PSBrew/MicroMount
+    sourceType: github-release
+    sourceRepo: PSBrew/MicroMount
+    sourcePattern: micromount*.elf
+    toPort: 9021
+    supportedFirmwares:
+      - "3."
+      - "4."
+      - "5."
+      - "6."
+      - "7."
+      - "8."
+      - "9."
+      - "10."
+      - "11."
+      - "12."
+    license:
+      type: ""
+      url: ""
 
   # --- etaHEN: AIO HEN (converted from direct to github-release) ---
   # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
@@ -105,6 +134,25 @@ payloads:
     sourcePattern: etaHEN-*.bin
     toPort: 9021
     supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+
+  # --- nanoDNS: DNS proxy server ---
+  # PS5-only DNS proxy that blocks PlayStation telemetry domains.
+  # Repo has GitHub Releases with .elf assets - fully automated.
+  # sourcePattern is exact 'nanodns.elf' to avoid matching the PS4 variant.
+  - id: nanodns
+    displayTitle: nanoDNS
+    description: DNS proxy server for PS5 - blocks PlayStation telemetry domains
+    authors:
+      - drakmor
+    projectUrl: https://github.com/drakmor/nanoDNS
+    sourceType: github-release
+    sourceRepo: drakmor/nanoDNS
+    sourcePattern: nanodns.elf
+    toPort: 9021
+    supportedFirmwares: []
     license:
       type: ""
       url: ""
@@ -710,39 +758,6 @@ payloads:
     license:
       type: ""
       url: ""
-
-  # --- VoidShell: PS5 Homebrew Dashboard ---
-  # Ko-fi exclusive distribution (orphaned - no GitHub releases)
-  # This payload requires manual version management.
-  - id: voidshell
-    displayTitle: VoidShell
-    description: Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, payload manager, Sentinel Warden, cheats support, app dumper, and save tools (Port 7007)
-    authors:
-      - VoidWhisper
-    projectUrl: https://ko-fi.com/voidwhisper
-    sourceType: direct
-    sourceRepo: ""
-    toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
-    license:
-      type: "Proprietary"
-      url: "https://ko-fi.com/voidwhisper"
-    manualVersions:
-      - version: "3.0-beta"
-        fileName: voidshell.elf
-        url: ""
-        isDefault: true
-        releaseDate: 2026-04-12
-      - version: "2.0-beta"
-        fileName: voidshell.elf
-        url: ""
-        isDefault: false
-        releaseDate: 2026-03-31
-      - version: "pre-beta"
-        fileName: voidshell.elf
-        url: ""
-        isDefault: false
-        releaseDate: 2025-12-01
 
   # --- Sonic Loader: Web-based PS5 management dashboard ---
   # DEPRECATED — superseded by Elf Arsenal (elf-arsenal). Hidden from UI.

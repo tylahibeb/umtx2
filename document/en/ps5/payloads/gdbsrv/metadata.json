@@ -92,6 +92,82 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []
+    },
+    {
+      "version": "0.6",
+      "fileName": "gdbsrv.elf",
+      "filePath": "payloads/gdbsrv/0.6/gdbsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.6/Payload.zip",
+      "hash": "94629b284f7d93afae65d640b6fab2dcfacba01d39fc05c259d8a383e94cee28",
+      "fileSize": 156720,
+      "releaseDate": "2025-06-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "ps5: add support for firmwares up to 10.01",
+        "ps5: fix for recent sdk updates where patches to sceKernelSpawn are not applied anymore",
+        "getreg: fix formatting of 32bit registers"
+      ]
+    },
+    {
+      "version": "0.5",
+      "fileName": "gdbsrv.elf",
+      "filePath": "payloads/gdbsrv/0.5/gdbsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.5/Payload.zip",
+      "hash": "bbc7332816b88697a75509a9f3aec8581493059da194db1a1497bf80852ce5b5",
+      "fileSize": 157208,
+      "releaseDate": "2025-01-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "ps5: and ui notification when server starts",
+        "avoid using shared memory"
+      ]
+    },
+    {
+      "version": "0.3",
+      "fileName": "gdbsrv.elf",
+      "filePath": "payloads/gdbsrv/0.3/gdbsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.3/Payload.zip",
+      "hash": "3301bf6aea9dd672c0900b68f16d9039f2187f3c8e73409c07a5dd73d5824fa9",
+      "fileSize": 230440,
+      "releaseDate": "2024-07-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "set envp and cwd of payloads",
+        "support attaching to arbitrary process"
+      ]
+    },
+    {
+      "version": "0.2",
+      "fileName": "gdbsrv.elf",
+      "filePath": "payloads/gdbsrv/0.2/gdbsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.2/Payload.zip",
+      "hash": "c3a226aa39b3bd9728ff31f4a655a3d1d1898562d9030218ae8a8eec9837554e",
+      "fileSize": 128704,
+      "releaseDate": "2024-06-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Redirect stdout of the payload as notifications to gdb",
+        "allow multiple debugging sessions in parallel",
+        "Support Ctrl-C break signals"
+      ]
+    },
+    {
+      "version": "0.1",
+      "fileName": "gdbsrv.elf",
+      "filePath": "payloads/gdbsrv/0.1/gdbsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.1/Payload.zip",
+      "hash": "c40c281f391a15b6421ef841352eee5775db21ca42c6b7b42a2bb40daec324bc",
+      "fileSize": 111704,
+      "releaseDate": "2024-06-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Initial release"
+      ]
     }
   ],
   "license": {

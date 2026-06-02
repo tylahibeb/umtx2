@@ -253,6 +253,196 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []
+    },
+    {
+      "version": "0.12.2",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.12.2/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.12.2/Payload.zip",
+      "hash": "f34f236ec4ce6b6b0dd3310446a736e94706643790c3f06e0098937cc66e1138",
+      "fileSize": 137808,
+      "releaseDate": "2025-06-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes some kernel panics on later firmwares)"
+      ]
+    },
+    {
+      "version": "0.12.1",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.12.1/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.12.1/Payload.zip",
+      "hash": "7311567ac3c5e03fcfbf4912b127a518ba377e0c9a3143f83fec6b2c88597022",
+      "fileSize": 137960,
+      "releaseDate": "2025-06-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes 8.xx offsets)"
+      ]
+    },
+    {
+      "version": "0.12",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.12/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.12/Payload.zip",
+      "hash": "f82a11e10ae82c5978763e286fdc6f03f270d278e2b9047f6b651490a9d6fa16",
+      "fileSize": 137808,
+      "releaseDate": "2025-06-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which includes offsets for fw 8.xx, 9.xx and 10.0x)",
+        "add automated pre-releases on tags"
+      ]
+    },
+    {
+      "version": "0.11.3",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.11.3/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.11.3/Payload.zip",
+      "hash": "c7b1afe59ea7c56863e4876e0adf9c43e6e6946b568b37807999858f35d43456",
+      "fileSize": 139856,
+      "releaseDate": "2025-03-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk where offsets for 5.xx have been updated"
+      ]
+    },
+    {
+      "version": "0.11.2",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.11.2/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.11.2/Payload.zip",
+      "hash": "bb32f726a8eac6608288a047ba457020caf84559a739799ae2c7b1c18643a701",
+      "fileSize": 139856,
+      "releaseDate": "2025-02-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk that supports firmwares up to 7.xx"
+      ]
+    },
+    {
+      "version": "0.11.1",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.11.1/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.11.1/Payload.zip",
+      "hash": "0688952e8ae5ee015cee36db003bf048ca5ab8b84e0fb9e2b1bbb90941028e52",
+      "fileSize": 155312,
+      "releaseDate": "2025-01-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
+      "version": "0.11",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.11/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.11/Payload.zip",
+      "hash": "ad7d16ccba4a2b7e3242af2c73029d3cc34043e5767ce0f3937e66cde3f34ce1",
+      "fileSize": 127512,
+      "releaseDate": "2024-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "provide gui notification when first launched",
+        "raise permissions so we gain access to certain character devices, e.g. /dev/sflash0",
+        "RETR: allow the retrieval of any type of file, e.g., character devices"
+      ]
+    },
+    {
+      "version": "0.10.2",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.10.2/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.10.2/Payload.zip",
+      "hash": "23fdd2bc8c5b2e4503f76c5d53c2458be1691ea5ee45daf84077add5749c7c57",
+      "fileSize": 110176,
+      "releaseDate": "2024-09-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 1.xx"
+      ]
+    },
+    {
+      "version": "0.10.1",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.10.1/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.10.1/Payload.zip",
+      "hash": "b9a3d11d0e78b16a4c2a8c1437f478305edd5ef9d3374fd3c7be08943b2e8f0b",
+      "fileSize": 110176,
+      "releaseDate": "2024-09-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 2.xx"
+      ]
+    },
+    {
+      "version": "0.10",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.10/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.10/Payload.zip",
+      "hash": "279f7b3e0b862b48076dfaf185aa2a645511cc773427844d6d3d2133a4788ff7",
+      "fileSize": 110176,
+      "releaseDate": "2024-08-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "APPE: fix behavior when no REST command has been issued",
+        "STOR: truncate files to the new size when overwritten"
+      ]
+    },
+    {
+      "version": "0.9",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.9/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.9/Payload.zip",
+      "hash": "5fd77e882b42e766908d23abbd245d51cb1938316c929d0c0764477885ecf93e",
+      "fileSize": 110096,
+      "releaseDate": "2024-07-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "readme: add quick start instructions",
+        "cmd: support appending files",
+        "cmd: add CHMOD command, and a couple of redundant legacy commands"
+      ]
+    },
+    {
+      "version": "0.8",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.8/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.8/Payload.zip",
+      "hash": "482b918938a21558a0577318778724ab2a275b0a170ea3fa4bd9abf600360359",
+      "fileSize": 109904,
+      "releaseDate": "2024-07-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "use buffered read when serving files to clients, the zero-copy sendfile syscall seems to cause issues with some files",
+        "improve logging facilities"
+      ]
+    },
+    {
+      "version": "0.7",
+      "fileName": "ftpsrv.elf",
+      "filePath": "payloads/ftpsrv/0.7/ftpsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.7/Payload.zip",
+      "hash": "746a263bf0a961ecb47801c822294340fd042c0d12cbd9edeb18a715268ab390",
+      "fileSize": 93080,
+      "releaseDate": "2024-04-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Accommodate makefile for new sdk",
+        "stdio cosmetics"
+      ]
     }
   ],
   "license": {

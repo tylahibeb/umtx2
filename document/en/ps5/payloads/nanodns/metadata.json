@@ -1,0 +1,36 @@
+{
+  "id": "nanodns",
+  "displayTitle": "nanoDNS",
+  "description": "DNS proxy server for PS5 - blocks PlayStation telemetry domains",
+  "authors": [
+    "drakmor"
+  ],
+  "projectUrl": "https://github.com/drakmor/nanoDNS",
+  "sourceRepo": "drakmor/nanoDNS",
+  "toPort": 9021,
+  "supportedFirmwares": [],
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "versions": [
+    {
+      "version": "0.2",
+      "fileName": "nanodns.elf",
+      "filePath": "payloads/nanodns/0.2/nanodns.elf",
+      "downloadUrl": "https://github.com/drakmor/nanoDNS/releases/download/0.2/nanodns.elf",
+      "hash": "278732b2f5ae801d5f9a303d8fc96d97f7bf153833aa058534a41ef028d76c86",
+      "fileSize": 132344,
+      "releaseDate": "2026-03-21",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Added PS4 support",
+        "Added configurable bind address",
+        "Automatic recovery for listening and upstream sockets",
+        "Improved upstream DNS failover behavior",
+        "PS5 up to 13.20 FW"
+      ]
+    }
+  ]
+}

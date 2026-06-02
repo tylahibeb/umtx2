@@ -1,0 +1,87 @@
+{
+  "id": "micromount",
+  "displayTitle": "MicroMount",
+  "description": "Auto-mounts compressed PFS images (.ffpfsc) into managed mountpoints. Companion to ShadowMountPlus.",
+  "authors": [
+    "RenanGBarreto"
+  ],
+  "projectUrl": "https://github.com/PSBrew/MicroMount",
+  "sourceRepo": "PSBrew/MicroMount",
+  "toPort": 9021,
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/PSBrew/MicroMount/blob/main/LICENSE"
+  },
+  "versions": [
+    {
+      "version": "0.0.3",
+      "fileName": "micromount.elf",
+      "filePath": "payloads/micromount/0.0.3/micromount.elf",
+      "downloadUrl": "https://github.com/PSBrew/MicroMount/releases/download/0.0.3/micromount_0.0.3.zip",
+      "hash": "483c0cb9eb637e13bc72969b658efa551b9c249265c78d39ff385f1e7c561cf4",
+      "fileSize": 141440,
+      "releaseDate": "2026-06-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Ensure your ShadowMountPlus `scan_depth=2` is set to `2`. Without it, games will not be recognized.",
+        "Convert your `.exfat` or `.ffpkg` games into `.ffpfsc` format using the `mkpfs` tool.",
+        "```bash",
+        "pip install -U mkpfs",
+        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc",
+        "```",
+        "Ensure the new `.ffpfsc` files are uploaded to the PS5, in one of the monitored folders like `/data/homebrew`.",
+        "Send or activate the `micromount.elf` payload."
+      ]
+    },
+    {
+      "version": "0.0.2",
+      "fileName": "micromount.elf",
+      "filePath": "payloads/micromount/0.0.2/micromount.elf",
+      "downloadUrl": "https://github.com/PSBrew/MicroMount/releases/download/0.0.2/micromount_0.0.2.zip",
+      "hash": "a357990cf801ed6737c4182550bf2ed976d3a3255f1549286a10bfd8f2d4904b",
+      "fileSize": 141440,
+      "releaseDate": "2026-06-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Ensure your ShadowMountPlus `scan_depth=2` is set to `2`. Without it, games will not be recognized.",
+        "Convert your `.exfat` or `.ffpkg` games into `.ffpfsc` format using the `mkpfs` tool.",
+        "```bash",
+        "pip install -U mkpfs",
+        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc",
+        "```",
+        "Ensure the new `.ffpfsc` files are uploaded to the PS5, in one of the monitored folders like `/data/homebrew`.",
+        "Send or activate the `micromount.elf` payload.",
+        "This release improves reliability and usability:",
+        "Main notifications now include a friendly icon."
+      ]
+    },
+    {
+      "version": "0.0.1",
+      "fileName": "micromount.elf",
+      "filePath": "payloads/micromount/0.0.1/micromount.elf",
+      "downloadUrl": "https://github.com/PSBrew/MicroMount/releases/download/0.0.1/micromount_0.0.1.zip",
+      "hash": "1d9b0c4d543bc603e27e7d3be06cdc0c9b96c1b615ca6dd08bc721223145c596",
+      "fileSize": 115944,
+      "releaseDate": "2026-06-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Ensure your ShadowMountPlus `scan_depth=2` is set to `2`. Without it, games will not be recognized.",
+        "Convert your `.exfat` or `.ffpkg` games into `.ffpfsc` format using the `mkpfs` tool.",
+        "```bash",
+        "pip install mkpfs",
+        "mkpfs pack file --compress --verify ./GAME1234.exfat ./GAME1234.ffpfsc",
+        "```",
+        "Ensure the new `.ffpfsc` files are uploaded to the PS5, in one of the monitored folders like `/data/homebrew`.",
+        "Send or activate the `micromount.elf` payload."
+      ]
+    }
+  ]
+}

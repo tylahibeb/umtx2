@@ -66,6 +66,132 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []
+    },
+    {
+      "version": "0.6.2",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.6.2/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.6.2/Payload.zip",
+      "hash": "a98335a3b4ac5e629c444d1d19c0951a826776bc8798a24b5393b602910b1b4f",
+      "fileSize": 134656,
+      "releaseDate": "2025-06-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes some kernel panics on later firmwares)"
+      ]
+    },
+    {
+      "version": "0.6.1",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.6.1/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.6.1/Payload.zip",
+      "hash": "9ac2ecb4f9625e1db23efba121e113bdbfa7c3d9e7049b5970c588e8849c4cfe",
+      "fileSize": 134808,
+      "releaseDate": "2025-06-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which fixes 8.xx offsets)"
+      ]
+    },
+    {
+      "version": "0.6",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.6/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.6/Payload.zip",
+      "hash": "9e92c6d6fb0e294d7aa377e61eb45cfb69970e8fdd20fc734136abb264bb5f1c",
+      "fileSize": 134656,
+      "releaseDate": "2025-06-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk (which includes offsets for 8.xx, 9.xx, and 10.0x)"
+      ]
+    },
+    {
+      "version": "0.5.3",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.5.3/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.5.3/Payload.zip",
+      "hash": "44b381a18b54e2f6d2483e52ece8e59dc14b6b815e8383ec63efd5de4bd8797a",
+      "fileSize": 136704,
+      "releaseDate": "2025-03-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk where offsets for 5.xx have been updated"
+      ]
+    },
+    {
+      "version": "0.5.2",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.5.2/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.5.2/Payload.zip",
+      "hash": "f9fd1fc038e8bc6591dfa5702e7e55c6648171af6f2269692e2057733e3d7aed",
+      "fileSize": 136704,
+      "releaseDate": "2025-02-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk that supports firmwares up to 7.xx"
+      ]
+    },
+    {
+      "version": "0.5.1",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.5.1/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.5.1/Payload.zip",
+      "hash": "80ed4199163bdb179cb719ad750ad55c812030f08c5c46e2f2f1a487ff45ed45",
+      "fileSize": 135776,
+      "releaseDate": "2025-01-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
+      "version": "0.5",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.5/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.5/Payload.zip",
+      "hash": "d935a94749bd168543d59e67c345f87cedc54d09836d1a6d5ae8bf026fdbe287",
+      "fileSize": 91816,
+      "releaseDate": "2024-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "only provide notification when payload is first launched"
+      ]
+    },
+    {
+      "version": "0.4.1",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.4.1/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.4.1/Payload.zip",
+      "hash": "3e43a5b98316c719595011f8239fd1dd411583532b634066cd8f191f100df0e3",
+      "fileSize": 90992,
+      "releaseDate": "2024-09-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuild with more recent sdk, which includes support for firmware versions 2.xx"
+      ]
+    },
+    {
+      "version": "0.4",
+      "fileName": "klogsrv.elf",
+      "filePath": "payloads/klogsrv/0.4/klogsrv.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.4/Payload.zip",
+      "hash": "c3acd5b6c18360442b4ab9bff8f39a312bca1ce06f6e8a219b57d90f4c5f35a1",
+      "fileSize": 90552,
+      "releaseDate": "2024-04-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Minor cosmetics to source code and makefiles"
+      ]
     }
   ],
   "license": {
