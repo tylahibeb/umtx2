@@ -23,19 +23,20 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "1.6test15",
+      "version": "1.6test15-fix1",
       "fileName": "shadowmountplus.elf",
-      "filePath": "payloads/shadowmountplus/1.6test15/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test15/ShadowMountPlus_1.6test15.zip",
-      "hash": "7eb7f6e80b33f5f42ef0e900bec78fb3a6842ebdc8c8868463e02558209c1010",
+      "filePath": "payloads/shadowmountplus/1.6test15-fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test15-fix1/ShadowMountPlus_1.6test15-fix1.zip",
+      "hash": "94796dcb6574a4bd33c15d638a57e7bac17802368a695512a86afc6c49414198",
       "fileSize": 1457520,
-      "releaseDate": "2026-06-02",
+      "releaseDate": "2026-06-03",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
         "Fixed issues with mounting in /system_ex/app",
         "Experimental support for .ffpfsc images has been added. Scan depth can be left at `scan_depth=1`.",
-        "**Do not use with MicroMount!**"
+        "**Do not use with MicroMount!**",
+        "fix: PFS mount issue"
       ]
     },
     {
@@ -456,6 +457,22 @@
         "Support for .ffpkg image format",
         "Basic error handling and logging",
         "Compatible with FW 3.xx - 5.xx"
+      ]
+    },
+    {
+      "version": "1.6test15",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test15/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test15/ShadowMountPlus_1.6test15.zip",
+      "hash": "7eb7f6e80b33f5f42ef0e900bec78fb3a6842ebdc8c8868463e02558209c1010",
+      "fileSize": 1457520,
+      "releaseDate": "2026-06-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed issues with mounting in /system_ex/app",
+        "Experimental support for .ffpfsc images has been added. Scan depth can be left at `scan_depth=1`.",
+        "**Do not use with MicroMount!**"
       ]
     },
     {

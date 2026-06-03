@@ -1,0 +1,79 @@
+{
+  "license": {
+    "type": "GPL-3.0",
+    "url": "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
+  },
+  "id": "ps5upload",
+  "displayTitle": "PS5 Upload",
+  "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
+  "authors": [
+    "phantomptr"
+  ],
+  "projectUrl": "https://github.com/phantomptr/ps5upload",
+  "sourceRepo": "phantomptr/ps5upload",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "2.23.11",
+      "fileName": "ps5upload-2.23.11.elf",
+      "filePath": "payloads/ps5upload/2.23.11/ps5upload-2.23.11.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.23.11/ps5upload-2.23.11.elf",
+      "hash": "fce4ff5e5725dcf6a2817955c577419f526401c0982e8a7bc63f3191d8933893",
+      "fileSize": 1019496,
+      "releaseDate": "2026-06-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Uploads no longer abort with a \"buffer space\" error on Windows.** During a",
+        "fast multi-stream upload, Windows could briefly run out of network buffers",
+        "(`os error 10055`), and the app treated that as fatal \u2014 stopping the whole",
+        "transfer partway through. It now waits a moment and retries the connection",
+        "automatically, so a temporary hiccup no longer ends your upload. Engine-only",
+        "fix; no need to re-send the payload to your PS5."
+      ]
+    },
+    {
+      "version": "2.23.8",
+      "fileName": "ps5upload-2.23.8.elf",
+      "filePath": "payloads/ps5upload/2.23.8/ps5upload-2.23.8.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.23.8/ps5upload-2.23.8.elf",
+      "hash": "b60e94cf419fbd8ef79a707ef031f47088adba79d6e536d9ccb3f80bf6b31780",
+      "fileSize": 1017968,
+      "releaseDate": "2026-06-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Uploading from a network drive no longer crashes the helper.** When the",
+        "source folder lives on a network share (SMB/UNC), scanning it can take",
+        "minutes. The app was sometimes running several of those scans at once \u2014 a",
+        "background \"diff vs PS5\" preview on top of your actual upload \u2014 which fought",
+        "over the same share and could take the helper down on big games. Now only one",
+        "scan runs at a time, and the preview pauses while a transfer is in progress",
+        "and resumes when it's done."
+      ]
+    },
+    {
+      "version": "2.23.7",
+      "fileName": "ps5upload-2.23.7.elf",
+      "filePath": "payloads/ps5upload/2.23.7/ps5upload-2.23.7.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.23.7/ps5upload-2.23.7.elf",
+      "hash": "de10025a7e61bebe0264052a62136c62478512ca3061940215304059f53dd00d",
+      "fileSize": 1017968,
+      "releaseDate": "2026-06-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Queued uploads are more reliable.** Before running a queue, the app now",
+        "makes sure your PS5 is on the matching helper, and it paces jobs so a long",
+        "list no longer crashes the helper partway through.",
+        "**Install and upload now take turns instead of colliding.** Starting an",
+        "install (or adding a .pkg) while something is uploading no longer drops the",
+        "connection \u2014 it waits in line and starts automatically when the current",
+        "transfer finishes, and the screen tells you it's waiting (with a Cancel",
+        "option). The transfer also no longer needlessly blips during a package",
+        "install."
+      ]
+    }
+  ],
+  "supportedFirmwares": []
+}

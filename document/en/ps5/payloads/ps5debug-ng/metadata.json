@@ -18,14 +18,29 @@
   ],
   "versions": [
     {
+      "version": "1.2.7",
+      "fileName": "ps5debug-NG_v1.2.7.elf",
+      "filePath": "payloads/ps5debug-ng/1.2.7/ps5debug-NG_v1.2.7.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.7/ps5debug-NG_v1.2.7.elf",
+      "hash": "bfb07865611df05d4a07236f375e7e0b64e2f387124052fa67510f8b4fcae1a7",
+      "fileSize": 3994008,
+      "releaseDate": "2026-06-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "\ud83d\udc1b Fixed a **critical bug** - console crash (KP) when rescanning with \"between\".",
+        "No other changes from v1.2.6 revision1 (which added the FW 8.40+ poke/breakpoint fix)."
+      ]
+    },
+    {
       "version": "1.2.6",
-      "fileName": "ps5debug-NG_v1.2.6.elf",
-      "filePath": "payloads/ps5debug-ng/1.2.6/ps5debug-NG_v1.2.6.elf",
-      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.6/ps5debug-NG_v1.2.6.elf",
-      "hash": "1381b0587ce27375b5a8877c7cb7812d3a6155a9e999fbbbddb7639b4335cf18",
+      "fileName": "ps5debug-NG_v1.2.6-revision1.elf",
+      "filePath": "payloads/ps5debug-ng/1.2.6/ps5debug-NG_v1.2.6-revision1.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.6/ps5debug-NG_v1.2.6-revision1.elf",
+      "hash": "902dd3a34aa78d34966513846867b93cd9046c2c35207a05a4779b92748adc2f",
       "fileSize": 3994008,
       "releaseDate": "2026-06-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "v1.2.5 added *initial* support for FW 8.x-13.x. **v1.2.6 makes it actually functional** and adds hardware verification across most firmwares.",

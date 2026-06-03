@@ -15,6 +15,22 @@
   },
   "versions": [
     {
+      "version": "0.3",
+      "fileName": "nanodns.elf",
+      "filePath": "payloads/nanodns/0.3/nanodns.elf",
+      "downloadUrl": "https://github.com/drakmor/nanoDNS/releases/download/0.3/nanodns.elf",
+      "hash": "ce1c8b31036ab948da65b362a4b6f249ffca8a555fc5bc4b051ec65d041bc944",
+      "fileSize": 132344,
+      "releaseDate": "2026-06-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "The PS4 version has been fixed (GoldenHEN compatability)",
+        "PS5 up to 13.20 FW",
+        "PS4 up to 13.50 FW"
+      ]
+    },
+    {
       "version": "0.2",
       "fileName": "nanodns.elf",
       "filePath": "payloads/nanodns/0.2/nanodns.elf",
@@ -22,7 +38,7 @@
       "hash": "278732b2f5ae801d5f9a303d8fc96d97f7bf153833aa058534a41ef028d76c86",
       "fileSize": 132344,
       "releaseDate": "2026-03-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Added PS4 support",
@@ -32,7 +48,8 @@
         "Improved domain mask matching",
         "Improved config validation and warning messages",
         "Log file is now overwritten on each startup",
-        "PS5 up to 13.20 FW"
+        "PS5 up to 13.20 FW",
+        "PS4 up to 13.50 FW"
       ]
     },
     {
