@@ -506,18 +506,6 @@ body.jailbreak-active .top-right-buttons {
     border-radius: 50%;
 }
 
-/* PS5-style online status indicator */
-.profile-status {
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 50%;
-    background-color: #FFC107;
-    border: 1.5px solid var(--background-color-primary);
-}
-
 /* PS5-style clock */
 .ps5-clock {
     font-family: 'SST', 'Segoe UI', system-ui, -apple-system, sans-serif;
