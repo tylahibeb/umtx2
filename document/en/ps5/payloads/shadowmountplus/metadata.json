@@ -23,6 +23,22 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6test15",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test15/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test15/ShadowMountPlus_1.6test15.zip",
+      "hash": "7eb7f6e80b33f5f42ef0e900bec78fb3a6842ebdc8c8868463e02558209c1010",
+      "fileSize": 1457520,
+      "releaseDate": "2026-06-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed issues with mounting in /system_ex/app",
+        "Experimental support for .ffpfsc images has been added. Scan depth can be left at `scan_depth=1`.",
+        "**Do not use with MicroMount!**"
+      ]
+    },
+    {
       "version": "1.6beta14-fix1",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6beta14-fix1/shadowmountplus.elf",
@@ -30,7 +46,7 @@
       "hash": "f4e79bf2d859a70092b008b39c678447aaafc436d6cc54c025469e5429178171",
       "fileSize": 1441104,
       "releaseDate": "2026-06-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Fixed mounting of exfat",

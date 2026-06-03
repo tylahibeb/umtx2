@@ -12,8 +12,34 @@
   "projectUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG",
   "sourceRepo": "OpenSourcereR-dev/ps5debug-NG",
   "toPort": 9021,
-  "supportedFirmwares": [],
+  "supportedFirmwares": [
+    "5.",
+    "3."
+  ],
   "versions": [
+    {
+      "version": "1.2.6",
+      "fileName": "ps5debug-NG_v1.2.6.elf",
+      "filePath": "payloads/ps5debug-ng/1.2.6/ps5debug-NG_v1.2.6.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.6/ps5debug-NG_v1.2.6.elf",
+      "hash": "1381b0587ce27375b5a8877c7cb7812d3a6155a9e999fbbbddb7639b4335cf18",
+      "fileSize": 3994008,
+      "releaseDate": "2026-06-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "v1.2.5 added *initial* support for FW 8.x-13.x. **v1.2.6 makes it actually functional** and adds hardware verification across most firmwares.",
+        "\u2705 **Hardware-verified: FW 4.x, 6.x, 8.x, 9.x, 10.x and 12.x** - poke, software + hardware breakpoints, all watchpoint types, title ID, content ID and version confirmed working.",
+        "\u26a0\ufe0f **FW 3.x, 5.x, 7.x, 11.x and 13.x: supported but not yet fully tested.** The fixes are firmware-agnostic by design. Feedback welcome.",
+        "Pokes silently failed on FW \u2265 9 (the kernel blocks the old mdbg write path there). Writes now go through a DMAP page-table walk, so **poking, cheats and patches work again on 9.x-13.x**. (mdbg stays the path on FW \u2264 8.x.)",
+        "Newly allocated memory is pre-faulted so writes land correctly.",
+        "Hardware breakpoints/watchpoints were silently doing nothing on 9.x+ - now enabled across 9.00-13.20.",
+        "Software (INT3) breakpoints now write correctly on 9.x+ (same DMAP fix as poke).",
+        "Fixed breakpoints/watchpoints that **fired a few times then stopped** on FW 11/12 (the debug-status register wasn't being cleared between hits).",
+        "Game **title ID, content ID and version** are detected by scanning the process instead of per-firmware offsets (which shifted at 8.x and 12.x). Reaper / Cheater again show the running game correctly on newer firmware.",
+        "Closing the client mid-operation (e.g. during a scan) could **crash the whole console** by killing SceShellCore. Now suppressed - disconnecting is safe. Affects all firmwares."
+      ]
+    },
     {
       "version": "1.2.5",
       "fileName": "ps5debug-NG_v1.2.5.elf",
@@ -22,7 +48,7 @@
       "hash": "a2e88c191245aefa7d9a0ff35923c779924d65a6d40d60eda8cfb43764f9988d",
       "fileSize": 3994008,
       "releaseDate": "2026-05-31",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Added initial support for FW 8.x, 9.x, 10.x, 11.x, 12.x and 13.x.** \u26a0\ufe0f These are *initial support - testing required* (not yet hardware-validated). Feedback from users on these firmwares is welcome.",
