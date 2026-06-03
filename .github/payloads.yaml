@@ -351,6 +351,24 @@ payloads:
       type: "GPL-3.0"
       url: "https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/main/LICENSE"
 
+  # --- ps5upload: Fast PS5 file transfer tool (desktop app + PS5 payload) ---
+  # Repo has GitHub Releases with ps5upload-*.elf assets - fully automated
+  # Companion desktop app at https://github.com/phantomptr/ps5upload
+  - id: ps5upload
+    displayTitle: PS5 Upload
+    description: Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.
+    authors:
+      - phantomptr
+    projectUrl: https://github.com/phantomptr/ps5upload
+    sourceType: github-release
+    sourceRepo: phantomptr/ps5upload
+    sourcePattern: ps5upload-*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
+
   # --- ps5debug-dizz: Open source debugger by DizzRL ---
   - id: ps5debug-dizz
     displayTitle: ps5debug
