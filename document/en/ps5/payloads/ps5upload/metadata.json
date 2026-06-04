@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "2.24.0",
+      "fileName": "ps5upload-2.24.0.elf",
+      "filePath": "payloads/ps5upload/2.24.0/ps5upload-2.24.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.24.0/ps5upload-2.24.0.elf",
+      "hash": "42ff33acf010249879a576eee5c1b20bb00aee3fc0c4f2046e4fbf2a247ad3cd",
+      "fileSize": 1019496,
+      "releaseDate": "2026-06-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Much faster downloads (backup console \u2192 PC).** Saving a game to your PC",
+        "used to reconnect for every small chunk; it now keeps one connection open",
+        "and reads ahead, and pulls folders over several connections at once. A big",
+        "single file roughly doubled to about full network speed, and folder backups",
+        "are much quicker. It also resumes from where it left off if the connection",
+        "drops. Nothing new to send to your PS5 \u2014 it's all in the app.",
+        "**See which console each upload is for.** Every item in the upload and",
+        "install queues now shows its target console, so a mixed queue isn't a",
+        "guessing game.",
+        "**Upload to several consoles at once (optional).** New setting under"
+      ]
+    },
+    {
       "version": "2.23.11",
       "fileName": "ps5upload-2.23.11.elf",
       "filePath": "payloads/ps5upload/2.23.11/ps5upload-2.23.11.elf",
@@ -21,7 +44,7 @@
       "hash": "fce4ff5e5725dcf6a2817955c577419f526401c0982e8a7bc63f3191d8933893",
       "fileSize": 1019496,
       "releaseDate": "2026-06-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Uploads no longer abort with a \"buffer space\" error on Windows.** During a",

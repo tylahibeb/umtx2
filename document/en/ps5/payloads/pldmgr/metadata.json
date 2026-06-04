@@ -14,6 +14,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.3.0",
+      "fileName": "pldmgr_v0.3.0.elf",
+      "filePath": "payloads/pldmgr/0.3.0/pldmgr_v0.3.0.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.3.0/pldmgr_v0.3.0.elf",
+      "hash": "18cdd03af7aed869be8e9ca37856ad159f34d8e816a036f366d176bf8516821d",
+      "fileSize": 2050320,
+      "releaseDate": "2026-06-04",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution."
+      ]
+    },
+    {
       "version": "0.2.0",
       "fileName": "pldmgr_v0.2.0.elf",
       "filePath": "payloads/pldmgr/0.2.0/pldmgr_v0.2.0.elf",
@@ -21,7 +35,7 @@
       "hash": "511c6b687c5a4245323977f5d851f81050c7c7f88aa16b58ae47111a5280d792",
       "fileSize": 2017552,
       "releaseDate": "2026-06-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Sidebar State Persistence**: The sidebar's expanded/collapsed state is now persisted in `localStorage` across page reloads. ([7570084](https://github.com/itsPLK/ps5_next_menu/commit/7570084))",
