@@ -14,6 +14,75 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "2.26.1",
+      "fileName": "ps5upload-2.26.1.elf",
+      "filePath": "payloads/ps5upload/2.26.1/ps5upload-2.26.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.26.1/ps5upload-2.26.1.elf",
+      "hash": "62a249750d600a013a6a1c95a4648235b0e94dcd8b46e59119a1ef05bc8dda61",
+      "fileSize": 1021976,
+      "releaseDate": "2026-06-04",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Turn PS5 screenshots into normal pictures.** The PS5 saves screenshots as",
+        "HDR `.jxr` files that most photo viewers and browsers can't open. The",
+        "Screenshots screen now has a **Convert** button on each shot that turns it into",
+        "a regular `.png` you can open and share anywhere \u2014 no extra apps or extensions",
+        "needed. (Desktop app.)",
+        "**Fan speed in the Hardware screen.** \"Read sensors\" now also shows the",
+        "console's current fan duty, next to temperatures and CPU clock.",
+        "**Reading sensors is safe on every console.** The one sensor that could freeze",
+        "the helper on some firmware (power draw) is no longer read, so live readings",
+        "can never knock the connection offline \u2014 on any PS5 model or firmware."
+      ]
+    },
+    {
+      "version": "2.25.5",
+      "fileName": "ps5upload-2.25.5.elf",
+      "filePath": "payloads/ps5upload/2.25.5/ps5upload-2.25.5.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.25.5/ps5upload-2.25.5.elf",
+      "hash": "ad08728502d2447fc1d2b38631b2e2f8dcd3d0cf83485f01166c2f162c426478",
+      "fileSize": 1019664,
+      "releaseDate": "2026-06-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**System \u2192 Hardware no longer drops the connection.** On some consoles,",
+        "opening the Hardware screen (or the dashboard's live readouts) could break the",
+        "connection to the helper and force you to send it again. Live temperatures and",
+        "CPU clock are now read in a way that's safe on every firmware, so the",
+        "connection stays put. (Power draw now shows as \"unavailable\" on firmware where",
+        "reading it isn't safe \u2014 a deliberate trade so it can never knock the helper",
+        "offline.)",
+        "**File search can't run the console out of memory.** Indexing a very large",
+        "drive is now capped, so a big game library won't exhaust the helper's memory;",
+        "the results just show as partial when the limit is hit."
+      ]
+    },
+    {
+      "version": "2.25.4",
+      "fileName": "ps5upload-2.25.4.elf",
+      "filePath": "payloads/ps5upload/2.25.4/ps5upload-2.25.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.25.4/ps5upload-2.25.4.elf",
+      "hash": "55d44e2e2fcd4e6adcdf8213aa421479529fabf3fe8dc315e82b4fa3f8cc4ad2",
+      "fileSize": 1019904,
+      "releaseDate": "2026-06-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Plays nice with ShadowMount+.** If you run ShadowMount+, ps5upload now hands",
+        "games off to it instead of doing its own thing and clashing. Uploading or",
+        "registering a game adds it to ShadowMount+'s install list and lets SMP do the",
+        "mounting + registering \u2014 so trophies, disc images, and nested PFS all work,",
+        "and the two tools stop fighting over the same title. Falls back to ps5upload's",
+        "own mount/register when ShadowMount+ isn't running.",
+        "**nanoDNS support.** Added the nanoDNS payload \u2014 a tiny on-console DNS server",
+        "that blocks PlayStation Network / update domains (and can redirect any domain)",
+        "\u2014 to the Payloads list, plus a new **nanoDNS** screen to edit its config and a",
+        "guide for pointing your PS5's DNS at it."
+      ]
+    },
+    {
       "version": "2.25.3",
       "fileName": "ps5upload-2.25.3.elf",
       "filePath": "payloads/ps5upload/2.25.3/ps5upload-2.25.3.elf",
@@ -21,7 +90,7 @@
       "hash": "75d2f4482b17280042abd50dbf80a0b9c0b473f409c133a35de13df2303cd37a",
       "fileSize": 1019904,
       "releaseDate": "2026-06-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A much better Installed Apps screen.** Every game now has a **Play** button",
