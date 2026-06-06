@@ -14,6 +14,21 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "2.27.1",
+      "fileName": "ps5upload-2.27.1.elf",
+      "filePath": "payloads/ps5upload/2.27.1/ps5upload-2.27.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.27.1/ps5upload-2.27.1.elf",
+      "hash": "bf262bb348fe8c39bb6860a8de941359c4066963e9fb7da54b1dd003e045ae1c",
+      "fileSize": 1024544,
+      "releaseDate": "2026-06-06",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Routine dependency updates (frontend libraries and a networking crate). No",
+        "user-facing changes \u2014 just keeping things current and secure."
+      ]
+    },
+    {
       "version": "2.26.1",
       "fileName": "ps5upload-2.26.1.elf",
       "filePath": "payloads/ps5upload/2.26.1/ps5upload-2.26.1.elf",
@@ -21,7 +36,7 @@
       "hash": "62a249750d600a013a6a1c95a4648235b0e94dcd8b46e59119a1ef05bc8dda61",
       "fileSize": 1021976,
       "releaseDate": "2026-06-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Turn PS5 screenshots into normal pictures.** The PS5 saves screenshots as",
