@@ -14,6 +14,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.3.1",
+      "fileName": "pldmgr_v0.3.1.elf",
+      "filePath": "payloads/pldmgr/0.3.1/pldmgr_v0.3.1.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.3.1/pldmgr_v0.3.1.elf",
+      "hash": "518740adbacccb9094fadb07dd424c53ee290f38306449ccc9d6957fdf813c0b",
+      "fileSize": 2050320,
+      "releaseDate": "2026-06-06",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution."
+      ]
+    },
+    {
       "version": "0.3.0",
       "fileName": "pldmgr_v0.3.0.elf",
       "filePath": "payloads/pldmgr/0.3.0/pldmgr_v0.3.0.elf",
@@ -21,7 +35,7 @@
       "hash": "18cdd03af7aed869be8e9ca37856ad159f34d8e816a036f366d176bf8516821d",
       "fileSize": 2050320,
       "releaseDate": "2026-06-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Multi-Source Payload Repositories**: Added support for adding, removing, and reordering third-party payload repository URLs via a new **Manage Sources** settings view. Payloads within the **Storage Hub** are now grouped by source with dedicated catalogs and origin badges. ([f4c76fb](https://github.com/itsPLK/ps5_next_menu/commit/f4c76fb))",
