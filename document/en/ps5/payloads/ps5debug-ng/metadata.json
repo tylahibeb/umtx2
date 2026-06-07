@@ -12,10 +12,7 @@
   "projectUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG",
   "sourceRepo": "OpenSourcereR-dev/ps5debug-NG",
   "toPort": 9021,
-  "supportedFirmwares": [
-    "5.",
-    "3."
-  ],
+  "supportedFirmwares": [],
   "versions": [
     {
       "version": "1.2.7",
