@@ -14,6 +14,28 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "2.29.0",
+      "fileName": "ps5upload-2.29.0.elf",
+      "filePath": "payloads/ps5upload/2.29.0/ps5upload-2.29.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.29.0/ps5upload-2.29.0.elf",
+      "hash": "18ee931eb63238957c7ba8ae0bd5efd65536a2d1e480c79a01f59cf98f9a28e3",
+      "fileSize": 1043856,
+      "releaseDate": "2026-06-07",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Run multiple PS5s at the same time.** When you have more than one console,",
+        "a tab strip appears at the top \u2014 one tab per PS5, each with its own live",
+        "status. Switch between them freely; every console keeps its own uploads and",
+        "package installs running in parallel in the background. Installing on one",
+        "console no longer makes the others wait \u2014 start work on each independently.",
+        "**Big uploads are reliable again.** Fixed a crash that could drop the",
+        "connection partway through very large uploads (you'd have had to re-send the",
+        "helper). On top of that, if a transfer ever drops, the app now automatically",
+        "re-deploys the helper and resumes from where it left off instead of giving up."
+      ]
+    },
+    {
       "version": "2.28.3",
       "fileName": "ps5upload-2.28.3.elf",
       "filePath": "payloads/ps5upload/2.28.3/ps5upload-2.28.3.elf",
@@ -21,7 +43,7 @@
       "hash": "a93086afcd4c27e06607811a31a471a553ae3152b777358ea6026351e9542def",
       "fileSize": 1043840,
       "releaseDate": "2026-06-07",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**The app fits your phone screen now.** Pages that used to run off the right",
