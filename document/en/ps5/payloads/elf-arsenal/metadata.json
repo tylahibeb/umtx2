@@ -15,6 +15,58 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.7",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.7/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.7/elf-arsenal.elf",
+      "hash": "eb597cc3d88dee1c4a07b9c1124826d3985adbe850bad9334c4283fc224a67ca",
+      "fileSize": 4659264,
+      "releaseDate": "2026-06-06",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "1.6.6",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.6/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.6/elf-arsenal.elf",
+      "hash": "9ada95a6f0fe3693bdb2d8aee15c178165382c79069037b97b9b7730d9a11fef",
+      "fileSize": 4642864,
+      "releaseDate": "2026-06-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**FW Spoof fix**: payload now applies the version you enter (e.g. `9.60`) \u2014 previously hardcoded `99.99` and ignored your input",
+        "**klogsrv visibility**: fw-spoof output now goes to stderr and appears in the klog viewer",
+        "**UI clarification**: `ps4_sdk_version` and `upd_version` are patched (games/update checks); PS5 Settings \"System Software\" reads a separate sysctl and is unaffected",
+        "**DPI fix from v1.6.5** still applies (10.xx/11.xx authid + timing)"
+      ]
+    },
+    {
+      "version": "1.6.5",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.5/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.5/elf-arsenal.elf",
+      "hash": "f6b72d84a134af7b1a6f5c5c1b40318953c0045791a3a04003d83c5a1769cc64",
+      "fileSize": 4642864,
+      "releaseDate": "2026-06-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Root cause:** DPI v1 calls `sceAppInstUtilInitialize()` at startup before kstuff has launched and patched the kernel. The 10-second timeout fired first \u2192 `init_rc = -0xDEAD` \u2192 all installs silently failed. On FW 11.00+, `SYSTEM_AUTHID` is also required and was never set on the spawned DPI process.",
+        "**Fixes:**",
+        "DPI v1: 25 s startup sleep so kstuff is ready before AppInstUtil init",
+        "DPI v1: lazy retry on each failed install request (catches late IPMI)",
+        "DPI v1 + v2: Arsenal now calls `jb_escalate_pid()` after spawning DPI (same pattern as CheatRunner) \u2014 grants `SYSTEM_AUTHID` for FW 11.xx+",
+        "DPI v2: bind retry with backoff instead of silent immediate exit",
+        "Both: diagnostic stderr logs now visible in klogsrv",
+        "**Previous releases also in this build:**",
+        "fw-spoof 10.xx KP fix (8-byte needle + scan limit)",
+        "Toggle toasts fixed (lapyjb/CheatRunner/FPKGGuard/DPIv2)"
+      ]
+    },
+    {
       "version": "1.6.4",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.4/elf-arsenal.elf",
@@ -22,7 +74,7 @@
       "hash": "fc1a41d062c3c4532475bb7fa1468ed850b7b5a1944763e742618befe30f4135",
       "fileSize": 4642864,
       "releaseDate": "2026-06-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Cheat game list fix**: After a full repo download, the staged-cheat game list was always empty because `list_cheats()` only scanned the flat root \u2014 all downloaded files live in `json/`/`shn/`/`mc4/` subdirs. Now scans all four paths; 3000+ titles correctly appear.",

@@ -1,0 +1,41 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "id": "ps5-game-compressor",
+  "displayTitle": "PS5 Game Compressor",
+  "description": "Compress, unpack, validate, and repair games mounted via ShadowMountPlus. WebUI on port 5910.",
+  "authors": [
+    "juma-sayeh"
+  ],
+  "projectUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor",
+  "sourceRepo": "juma-sayeh/PS5-Game-Compressor",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.9.5",
+      "fileName": "game-compressor.elf",
+      "filePath": "payloads/ps5-game-compressor/0.9.5/game-compressor.elf",
+      "downloadUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v0.9.5/game-compressor.elf",
+      "hash": "ccd60f6a4d8608c4d8bc548b2637a8450ecfe0d32c179b18ad83a8aa21eb9c57",
+      "fileSize": 444584,
+      "releaseDate": "2026-06-06",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "First public release of PS5 Game Compressor.",
+        "ShadowMountPlus `1.6test15-fix2` or later.",
+        "Kstuff lite `1.07` or later.",
+        "Compress mounted ShadowMountPlus games to FF-PFSC output.",
+        "Choose PFS or exFAT compression output.",
+        "Validate and repair compressed PFSC games.",
+        "Uncompress compressed games back to app form.",
+        "Move supported titles between internal storage and USB storage.",
+        "Web UI with progress, speed, remaining-time estimates, history, remembered last selected game, and an About modal.",
+        "PS5 home-screen launcher tile support."
+      ]
+    }
+  ],
+  "supportedFirmwares": []
+}

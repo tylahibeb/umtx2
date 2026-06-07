@@ -369,6 +369,24 @@ payloads:
       type: "GPL-3.0"
       url: "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
 
+  # --- PS5 Game Compressor: Compress, unpack, validate, and repair games ---
+  # Repo has GitHub Releases with .elf assets - fully automated
+  # Works in tandem with ShadowMountPlus. WebUI on port 5910.
+  - id: ps5-game-compressor
+    displayTitle: PS5 Game Compressor
+    description: Compress, unpack, validate, and repair games mounted via ShadowMountPlus. WebUI on port 5910.
+    authors:
+      - juma-sayeh
+    projectUrl: https://github.com/juma-sayeh/PS5-Game-Compressor
+    sourceType: github-release
+    sourceRepo: juma-sayeh/PS5-Game-Compressor
+    sourcePattern: game-compressor*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
   # --- ps5debug-dizz: Open source debugger by DizzRL ---
   - id: ps5debug-dizz
     displayTitle: ps5debug
