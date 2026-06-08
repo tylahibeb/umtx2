@@ -1,0 +1,73 @@
+{
+  "license": {
+    "type": "GPL-3.0",
+    "url": "https://github.com/notmaj0r/CheatRunner/blob/main/LICENSE"
+  },
+  "id": "cheatrunner",
+  "displayTitle": "CheatRunner",
+  "description": "Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.",
+  "authors": [
+    "notmaj0r"
+  ],
+  "projectUrl": "https://github.com/notmaj0r/CheatRunner",
+  "sourceRepo": "notmaj0r/CheatRunner",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.12",
+      "fileName": "CheatRunner.elf",
+      "filePath": "payloads/cheatrunner/0.12/CheatRunner.elf",
+      "downloadUrl": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.12/CheatRunner.elf",
+      "hash": "129c6c248f4e77cf62465ccf761cccd15f74836ffd090b7a81431fc984b505c2",
+      "fileSize": 2194008,
+      "releaseDate": "2026-06-03",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "CheatRunner v0.12",
+        "See the full changelog here: [Changelog](https://github.com/notmaj0r/CheatRunner/blob/main/CHANGELOG.md)",
+        "Special Thanks:",
+        "\ud83d\udc96 Supporters - those who supported the project through [Ko-Fi](https://ko-fi.com/maj0r).",
+        "\u2022 primo",
+        "\ud83d\udc9a Testers - those who tested early builds of CheatRunner before release.",
+        "\u2022 Primeiro \u2022 F.Iablonski \u2022 Ial3x \u2022 PS5Commando \u2022 Sjmak83 and many others.",
+        "\u2b50 Additional Thanks",
+        "\u2022 Sonic-Iso for contributing with ideas and helping with implementations."
+      ]
+    },
+    {
+      "version": "0.11",
+      "fileName": "CheatRunner.elf",
+      "filePath": "payloads/cheatrunner/0.11/CheatRunner.elf",
+      "downloadUrl": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.11/CheatRunner.elf",
+      "hash": "ddd1e2a35f97f6660b908645314102e0794c76b86c13acaba5de1327527de41e",
+      "fileSize": 2046456,
+      "releaseDate": "2026-05-27",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "CheatRunner v0.11",
+        "[Changelog:](https://github.com/notmaj0r/CheatRunner/blob/main/CHANGELOG.md)"
+      ]
+    },
+    {
+      "version": "beta",
+      "fileName": "CheatRunner.elf",
+      "filePath": "payloads/cheatrunner/beta/CheatRunner.elf",
+      "downloadUrl": "https://github.com/notmaj0r/CheatRunner/releases/download/beta/CheatRunner.elf",
+      "hash": "28a2b4b59806fd0863a9d13d44162856976ac3a892ac9bca7decf1360f0c8b8d",
+      "fileSize": 2013592,
+      "releaseDate": "2026-05-23",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "CheatRunner v0.1 is out!",
+        "if u have any issues, just hop on our Discord server!"
+      ]
+    }
+  ],
+  "supportedFirmwares": []
+}

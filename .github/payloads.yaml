@@ -387,6 +387,24 @@ payloads:
       type: ""
       url: ""
 
+  # --- CheatRunner: Web-based cheat trainer and launcher ---
+  # Repo has GitHub Releases with CheatRunner.elf assets - fully automated
+  # WebUI on port 9999. Licensed under GPL-3.0.
+  - id: cheatrunner
+    displayTitle: CheatRunner
+    description: Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.
+    authors:
+      - notmaj0r
+    projectUrl: https://github.com/notmaj0r/CheatRunner
+    sourceType: github-release
+    sourceRepo: notmaj0r/CheatRunner
+    sourcePattern: CheatRunner*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/notmaj0r/CheatRunner/blob/main/LICENSE"
+
   # --- ps5debug-dizz: Open source debugger by DizzRL ---
   - id: ps5debug-dizz
     displayTitle: ps5debug
