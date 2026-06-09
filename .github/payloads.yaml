@@ -85,34 +85,6 @@ payloads:
       type: "GPL-3.0"
       url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
 
-  # --- MicroMount: Compressed PFS image auto-mounter ---
-  # Companion to ShadowMountPlus - auto-mounts .ffpfsc compressed images
-  # All releases are ZIP-only; ZIP extraction fallback in update_payloads.py handles this.
-  - id: micromount
-    displayTitle: MicroMount
-    description: Auto-mounts compressed PFS images (.ffpfsc) into managed mountpoints. Companion to ShadowMountPlus.
-    authors:
-      - RenanGBarreto
-    projectUrl: https://github.com/PSBrew/MicroMount
-    sourceType: github-release
-    sourceRepo: PSBrew/MicroMount
-    sourcePattern: micromount*.elf
-    toPort: 9021
-    supportedFirmwares:
-      - "3."
-      - "4."
-      - "5."
-      - "6."
-      - "7."
-      - "8."
-      - "9."
-      - "10."
-      - "11."
-      - "12."
-    license:
-      type: ""
-      url: ""
-
   # --- etaHEN: AIO HEN (converted from direct to github-release) ---
   # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
   - id: etahen
