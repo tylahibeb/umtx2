@@ -15,6 +15,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.12",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.12/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.12/elf-arsenal.elf",
+      "hash": "022ff62a030aee9a119b10e6b5fef78c018aeaa7a6bf78c7702b67879c361c63",
+      "fileSize": 5003312,
+      "releaseDate": "2026-06-09",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Baked-in extracted-game mounter: registers folder-method (sce_sys) games on the XMB with icons, no ShadowMountPlus install required \u2014 ports SMP's engine (read titleId from param.json, remount /system_ex rw, nullfs-mount to /system_ex/app/<id>, stage appmeta, FW12 AppInstallAll). Runs on boot and via System Tools. Hero now correctly locks to \"Currently Playing\" (was gated behind cheats) and the title no longer clips. Working Repair Icons / Force Rescan, app.db icon/metadata repair (backup-first, FW12-safe), thorough fpkg force-unlock. Interface language picker in System Tools (full Google-Translate set, auto-matches console language, persistent override). Native PKG Zone, avatar current-image fix, File Commander renamed to File Manager, old standalone file-manager assets removed."
+      ]
+    },
+    {
       "version": "1.6.11",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.11/elf-arsenal.elf",
@@ -22,7 +36,7 @@
       "hash": "d30a7c223b2ec7bd32be25f073dfe1b8003ce4d15c809fb2790c16a8f9ca2ba0",
       "fileSize": 5019696,
       "releaseDate": "2026-06-09",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Working Repair Icons / Force Rescan buttons (were POSTing to no-op GET stubs that did nothing): Repair Icons now reloads the home-screen icons, Force Rescan re-registers missing fpkg titles, both toast the real result. Native glass PKG Zone (replaces broken iframe). Avatar changer shows your current avatar. Hero card no longer clips long titles. FW 12 fix for the lastAccessTime column error. Thorough fpkg force-unlock (clears BSD immutable/no-unlink flags + chmod 0777) fixes \"cannot delete\" PS4 titles; 0555 fpkg-guard lock disabled. Mounter scan paths now mirror ShadowMountPlus and the \"no images found\" notification is accurate."
