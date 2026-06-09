@@ -15,6 +15,48 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.11",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.11/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.11/elf-arsenal.elf",
+      "hash": "d30a7c223b2ec7bd32be25f073dfe1b8003ce4d15c809fb2790c16a8f9ca2ba0",
+      "fileSize": 5019696,
+      "releaseDate": "2026-06-09",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Working Repair Icons / Force Rescan buttons (were POSTing to no-op GET stubs that did nothing): Repair Icons now reloads the home-screen icons, Force Rescan re-registers missing fpkg titles, both toast the real result. Native glass PKG Zone (replaces broken iframe). Avatar changer shows your current avatar. Hero card no longer clips long titles. FW 12 fix for the lastAccessTime column error. Thorough fpkg force-unlock (clears BSD immutable/no-unlink flags + chmod 0777) fixes \"cannot delete\" PS4 titles; 0555 fpkg-guard lock disabled. Mounter scan paths now mirror ShadowMountPlus and the \"no images found\" notification is accurate."
+      ]
+    },
+    {
+      "version": "1.6.10",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.10/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.10/elf-arsenal.elf",
+      "hash": "5654619261cc2aedcae4e6add1baba92d7fdcd8c3f134589baf6ba003fb0d3a1",
+      "fileSize": 5019696,
+      "releaseDate": "2026-06-08",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixes the PKGManager crash (storage ReferenceError) from v1.6.9. Includes USB drive usage, real users/rename, native avatar set, line-by-line log viewer, hero info modal, PKG drive detection, Supporters modal."
+      ]
+    },
+    {
+      "version": "1.6.8",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.8/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.8/elf-arsenal.elf",
+      "hash": "6782d726612c8b5f6dcaece89d7e84a59431be47a299d28b1efe543b54672c09",
+      "fileSize": 5019696,
+      "releaseDate": "2026-06-08",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Elf-Arsenal+ release. Voidshell glass UI port with full feature parity (Saves/PSN/PKG Zone/System Tools/Cheats pages), built-in cheat engine, DPI v2-only, multi-source title enumeration, release pickers, file-manager + ETA fixes, and ~590KB slimmer binary."
+      ]
+    },
+    {
       "version": "1.6.7",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.7/elf-arsenal.elf",
@@ -22,7 +64,7 @@
       "hash": "eb597cc3d88dee1c4a07b9c1124826d3985adbe850bad9334c4283fc224a67ca",
       "fileSize": 4659264,
       "releaseDate": "2026-06-06",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     },

@@ -22,9 +22,16 @@
       "fileSize": 2050320,
       "releaseDate": "2026-06-06",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
-        "\u26a0 This is a pre-release version. Use with caution."
+        "Fixed an issue where installed payloads were not showing on the dashboard for some users ([#28](https://github.com/itsPLK/ps5-payload-manager/issues/28)).",
+        "Restored the USB scanning limit strictly to the root level.",
+        "Added options to copy instead of move when importing payloads from USB.",
+        "---",
+        "You do **not** need to manually download or replace your original `pldmgr.elf` file.",
+        "Simply install the update directly within the Payload Manager app (from the repository).",
+        "The updated version will automatically launch on every subsequent startup, regardless of whether you load the old or new `.elf` file initially.",
+        "This means **you don't need to update your autoloader config** or replace any files on your console/USB!"
       ]
     },
     {
