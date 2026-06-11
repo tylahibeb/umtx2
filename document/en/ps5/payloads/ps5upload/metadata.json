@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.0.0",
+      "fileName": "ps5upload-3.0.0.elf",
+      "filePath": "payloads/ps5upload/3.0.0/ps5upload-3.0.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.0.0/ps5upload-3.0.0.elf",
+      "hash": "77412fe07bc7e297d4c0c9d89f02b76220c2fe0a31c0297f610da6aca18b345c",
+      "fileSize": 1045680,
+      "releaseDate": "2026-06-10",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "The big redesign. Same tool, sharper look, fewer steps, fewer surprises.",
+        "**A fresh look across the whole app.** Deeper, richer dark theme with real",
+        "depth and a more vivid PlayStation blue; refreshed light and OLED themes;",
+        "smooth animations on dialogs, menus, and page changes (and the four",
+        "PlayStation shapes as the new loading mark). Every button and field now",
+        "shows a visible focus ring for keyboard users, and motion respects your",
+        "system's reduced-motion setting.",
+        "**Keep your PS5 awake \u2014 your choice.** Settings \u2192 Upload now has a",
+        "three-way \"Keep the PS5 awake\" option: **Off**, **During transfers**",
+        "(default, protects long uploads from rest mode), or **Always while"
+      ]
+    },
+    {
       "version": "2.30.0",
       "fileName": "ps5upload-2.30.0.elf",
       "filePath": "payloads/ps5upload/2.30.0/ps5upload-2.30.0.elf",
@@ -21,7 +44,7 @@
       "hash": "7c6cf22cdf905488739c87174bab50ac7fc5f85c83b92847549d4523ae09f7f2",
       "fileSize": 1044632,
       "releaseDate": "2026-06-07",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Running several PS5s hard at once won't crash a console.** When work",
