@@ -14,6 +14,64 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.1.4",
+      "fileName": "ps5upload-3.1.4.elf",
+      "filePath": "payloads/ps5upload/3.1.4/ps5upload-3.1.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.1.4/ps5upload-3.1.4.elf",
+      "hash": "f50ee4d23db78df9b110b6c5d8b714af585c9b43614ac70784bb31b920128f78",
+      "fileSize": 1056824,
+      "releaseDate": "2026-06-11",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Game details open on Android now.** Tapping a game's **Details** in the",
+        "Library did nothing on phones \u2014 the detail popup was being positioned to a",
+        "scrolled area instead of the screen, so it opened off-screen. It now opens",
+        "centered, every time.",
+        "Internal: green CI again (code formatting, translation coverage, and the",
+        "RAR test fixtures) \u2014 no user-facing change."
+      ]
+    },
+    {
+      "version": "3.1.3",
+      "fileName": "ps5upload-3.1.3.elf",
+      "filePath": "payloads/ps5upload/3.1.3/ps5upload-3.1.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.1.3/ps5upload-3.1.3.elf",
+      "hash": "e043a09613b9abfd0adad51020114954f188186d9f1d0e6dcbe6045bc3a127a1",
+      "fileSize": 1056824,
+      "releaseDate": "2026-06-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Each PS5 keeps its own upload, even when you switch.** Pick a file and set",
+        "up an upload for one console, hop to another console in the top tabs, then",
+        "hop back \u2014 your picked file, password, and options are right where you left",
+        "them. The cut/copy clipboard and your place in the File System are remembered",
+        "per console too, so switching never loses what you were doing.",
+        "**No more accidental reloads.** Right-clicking no longer pops the WebView's",
+        "Back / Reload / Inspect menu (which could restart the app mid-upload and make",
+        "it look like everything stopped), and the reload shortcuts are blocked in the",
+        "packaged app. Right-click still works inside text fields for copy/paste."
+      ]
+    },
+    {
+      "version": "3.1.2",
+      "fileName": "ps5upload-3.1.2.elf",
+      "filePath": "payloads/ps5upload/3.1.2/ps5upload-3.1.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.1.2/ps5upload-3.1.2.elf",
+      "hash": "e3db04d0b79378b5f5517ce95fea8e21dd754c65173f6d01717728704f3e34cd",
+      "fileSize": 1056824,
+      "releaseDate": "2026-06-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Windows packaging fixed.** The new `.rar` support pulled in a library that",
+        "didn't link cleanly on Windows, which broke the 3.1.0 / 3.1.1 Windows builds",
+        "(so those never shipped). Fixed \u2014 this release packages on every platform",
+        "again, and includes everything from 3.1.0 and 3.1.1 below."
+      ]
+    },
+    {
       "version": "3.0.0",
       "fileName": "ps5upload-3.0.0.elf",
       "filePath": "payloads/ps5upload/3.0.0/ps5upload-3.0.0.elf",
@@ -21,7 +79,7 @@
       "hash": "77412fe07bc7e297d4c0c9d89f02b76220c2fe0a31c0297f610da6aca18b345c",
       "fileSize": 1045680,
       "releaseDate": "2026-06-10",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "The big redesign. Same tool, sharper look, fewer steps, fewer surprises.",
