@@ -24,6 +24,24 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.2-dr-test2",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite/1.2-dr-test2/kstuff.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.2-dr-test2/kstuff.elf",
+      "hash": "2b699d411079a21dba7c39a02993fc0fb21e52f434103e884a0c892fafe56b75",
+      "fileSize": 1558040,
+      "releaseDate": "2026-06-11",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Added Trophy support (**do not work with an activated account**)",
+        "Thanks @idlesauce, @ArkSama and @EchoStretch!",
+        "Thank you to everyone working on this project \u2014 @sleirsgoevy, @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif, @EchoStretch, and many others!",
+        "*Firmware up to 12.70 is supported.*"
+      ]
+    },
+    {
       "version": "1.2-dr-test1",
       "fileName": "kstuff.elf",
       "filePath": "payloads/kstuff-lite/1.2-dr-test1/kstuff.elf",
@@ -31,7 +49,7 @@
       "hash": "9c1b242eaed3704ef18be45d001a2c4ebf2d9222cfe3cbb0f0c3db33309abac9",
       "fileSize": 1553752,
       "releaseDate": "2026-05-31",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Version for testing, please write about problems on discord or on github.",
