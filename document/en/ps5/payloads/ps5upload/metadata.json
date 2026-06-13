@@ -14,22 +14,26 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "3.2.3",
-      "fileName": "ps5upload-3.2.3.elf",
-      "filePath": "payloads/ps5upload/3.2.3/ps5upload-3.2.3.elf",
-      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.3/ps5upload-3.2.3.elf",
-      "hash": "63811258238be0511c8a8867049825e26f4ecef81ba4053e413e984825d0f922",
-      "fileSize": 1058432,
-      "releaseDate": "2026-06-12",
+      "version": "3.2.4",
+      "fileName": "ps5upload-3.2.4.elf",
+      "filePath": "payloads/ps5upload/3.2.4/ps5upload-3.2.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.4/ps5upload-3.2.4.elf",
+      "hash": "02449d05d12bf08457816a5c6b7c3a18d5c41505f075448754983975382a3e27",
+      "fileSize": 1058528,
+      "releaseDate": "2026-06-13",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "**Clearer status bar.** The strip along the bottom used to cram five",
-        "things together (`engine | Fat | v3.2.0 | PS5 | FW 5.10`), which was hard",
-        "to read. It now shows just the two things that matter at a glance \u2014 the",
-        "**Engine** and your **PS5** (with its firmware) \u2014 neatly separated. The",
-        "console name dims when it's not connected, and the helper version and",
-        "kernel details are tucked into the tooltip when you hover."
+        "A big polish release built from real-user feedback and a full UI/UX pass.",
+        "**Fewer reasons to restart your PS5.** If the helper gets stuck, the app now",
+        "detects and force-clears the previous instance on its own before sending the",
+        "new one \u2014 so you usually don't have to reboot the console or kill it by hand",
+        "anymore. Verified on FW 5.10 and 9.60.",
+        "**Packages & USB.**",
+        "Install a `.pkg` straight from the **File System** browser \u2014 right where the",
+        "file sits, no detour through the scan.",
+        "PS4 packages now show up reliably with the correct PS4/PS5 badge, and",
+        "scanning USB/external drives for packages is much faster."
       ]
     },
     {
@@ -53,6 +57,25 @@
         "concurrent operations.",
         "**One busy console no longer freezes the app for the others.** A slow or",
         "very large upload (especially from a network drive) used to be able to stall"
+      ]
+    },
+    {
+      "version": "3.2.3",
+      "fileName": "ps5upload-3.2.3.elf",
+      "filePath": "payloads/ps5upload/3.2.3/ps5upload-3.2.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.3/ps5upload-3.2.3.elf",
+      "hash": "63811258238be0511c8a8867049825e26f4ecef81ba4053e413e984825d0f922",
+      "fileSize": 1058432,
+      "releaseDate": "2026-06-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Clearer status bar.** The strip along the bottom used to cram five",
+        "things together (`engine | Fat | v3.2.0 | PS5 | FW 5.10`), which was hard",
+        "to read. It now shows just the two things that matter at a glance \u2014 the",
+        "**Engine** and your **PS5** (with its firmware) \u2014 neatly separated. The",
+        "console name dims when it's not connected, and the helper version and",
+        "kernel details are tucked into the tooltip when you hover."
       ]
     },
     {
