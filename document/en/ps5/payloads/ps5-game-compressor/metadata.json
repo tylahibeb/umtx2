@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.9.6",
+      "fileName": "game-compressor.elf",
+      "filePath": "payloads/ps5-game-compressor/0.9.6/game-compressor.elf",
+      "downloadUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v0.9.6/game-compressor.elf",
+      "hash": "649b68671034a4ca7d713301bfcf8af252478b4701543d6c8f37dcd875206668",
+      "fileSize": 722000,
+      "releaseDate": "2026-06-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Compared against `main` because this repository does not currently have a local or remote `develop` branch.",
+        "Reworked the web UI with a polished responsive layout, richer game state badges, improved progress details, smoother action menus, and clearer compression/uncompression dialogs.",
+        "Added compression destination choices for keeping output on current storage, writing to internal SSD, or writing directly to detected external storage targets.",
+        "Added external storage discovery for `/mnt/ext0`, `/mnt/ext1`, and `/mnt/usb0` through `/mnt/usb7`, including free-space checks and target labels in the UI.",
+        "Added move and copy operations between internal storage and external storage.",
+        "Added compression profiles: `space` for smaller output and `fast` for faster compression.",
+        "Added destructive stream compression with resumable journal support and a minimum-free-space guard for low-space workflows.",
+        "Added validate-only, read-speed-test, read-EOF-test, delete-game-data, original-restore, and uncompress-plan API flows.",
+        "Added ShadowMountPlus hint/config management, source scan requests, forced remounts, and running-payload restart control.",
+        "Compression now supports optimized worker scheduling, raw-block handling, and zlib/miniz/runtime encoder configuration through the Makefile."
+      ]
+    },
+    {
       "version": "0.9.5",
       "fileName": "game-compressor.elf",
       "filePath": "payloads/ps5-game-compressor/0.9.5/game-compressor.elf",
@@ -21,7 +44,7 @@
       "hash": "ccd60f6a4d8608c4d8bc548b2637a8450ecfe0d32c179b18ad83a8aa21eb9c57",
       "fileSize": 444584,
       "releaseDate": "2026-06-06",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "First public release of PS5 Game Compressor.",

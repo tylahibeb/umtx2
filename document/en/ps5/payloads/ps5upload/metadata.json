@@ -14,6 +14,48 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.2.3",
+      "fileName": "ps5upload-3.2.3.elf",
+      "filePath": "payloads/ps5upload/3.2.3/ps5upload-3.2.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.3/ps5upload-3.2.3.elf",
+      "hash": "63811258238be0511c8a8867049825e26f4ecef81ba4053e413e984825d0f922",
+      "fileSize": 1058432,
+      "releaseDate": "2026-06-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Clearer status bar.** The strip along the bottom used to cram five",
+        "things together (`engine | Fat | v3.2.0 | PS5 | FW 5.10`), which was hard",
+        "to read. It now shows just the two things that matter at a glance \u2014 the",
+        "**Engine** and your **PS5** (with its firmware) \u2014 neatly separated. The",
+        "console name dims when it's not connected, and the helper version and",
+        "kernel details are tucked into the tooltip when you hover."
+      ]
+    },
+    {
+      "version": "2.30.0",
+      "fileName": "ps5upload-2.30.0.elf",
+      "filePath": "payloads/ps5upload/2.30.0/ps5upload-2.30.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.30.0/ps5upload-2.30.0.elf",
+      "hash": "7c6cf22cdf905488739c87174bab50ac7fc5f85c83b92847549d4523ae09f7f2",
+      "fileSize": 1044632,
+      "releaseDate": "2026-06-07",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Running several PS5s hard at once won't crash a console.** When work",
+        "overlapped on one console \u2014 reading its live temperature while a package was",
+        "installing, or registering a game on one PS5 while another was mid-install \u2014",
+        "the helper's low-level kernel operations could collide and, in the worst",
+        "case, black-screen and restart the console. Those operations are now",
+        "serialized internally, so heavy concurrent use across consoles stays stable.",
+        "Verified on real hardware (PS5 and PS5 Pro) under a thousand-plus",
+        "concurrent operations.",
+        "**One busy console no longer freezes the app for the others.** A slow or",
+        "very large upload (especially from a network drive) used to be able to stall"
+      ]
+    },
+    {
       "version": "3.1.6",
       "fileName": "ps5upload-3.1.6.elf",
       "filePath": "payloads/ps5upload/3.1.6/ps5upload-3.1.6.elf",
@@ -21,7 +63,7 @@
       "hash": "5ac81f3501da4126018cba0a9931a306d176842ebe7d9230e121a5f38f3b3143",
       "fileSize": 1057824,
       "releaseDate": "2026-06-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Renaming a profile sticks now.** Renaming a console user updated the name",
@@ -71,29 +113,6 @@
         "centered, every time.",
         "Internal: green CI again (code formatting, translation coverage, and the",
         "RAR test fixtures) \u2014 no user-facing change."
-      ]
-    },
-    {
-      "version": "2.30.0",
-      "fileName": "ps5upload-2.30.0.elf",
-      "filePath": "payloads/ps5upload/2.30.0/ps5upload-2.30.0.elf",
-      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v2.30.0/ps5upload-2.30.0.elf",
-      "hash": "7c6cf22cdf905488739c87174bab50ac7fc5f85c83b92847549d4523ae09f7f2",
-      "fileSize": 1044632,
-      "releaseDate": "2026-06-07",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "**Running several PS5s hard at once won't crash a console.** When work",
-        "overlapped on one console \u2014 reading its live temperature while a package was",
-        "installing, or registering a game on one PS5 while another was mid-install \u2014",
-        "the helper's low-level kernel operations could collide and, in the worst",
-        "case, black-screen and restart the console. Those operations are now",
-        "serialized internally, so heavy concurrent use across consoles stays stable.",
-        "Verified on real hardware (PS5 and PS5 Pro) under a thousand-plus",
-        "concurrent operations.",
-        "**One busy console no longer freezes the app for the others.** A slow or",
-        "very large upload (especially from a network drive) used to be able to stall"
       ]
     },
     {
@@ -533,5 +552,7 @@
       ]
     }
   ],
-  "supportedFirmwares": []
+  "supportedFirmwares": [
+    "5."
+  ]
 }
