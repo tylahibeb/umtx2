@@ -14,6 +14,51 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.3.2",
+      "fileName": "ps5upload-3.3.2.elf",
+      "filePath": "payloads/ps5upload/3.3.2/ps5upload-3.3.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.2/ps5upload-3.3.2.elf",
+      "hash": "65417f472668c955cbd892a9ba4a5170f671abfce2de4e136e7abd1a71f5626e",
+      "fileSize": 1100368,
+      "releaseDate": "2026-06-14",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "A data-loss fix.",
+        "**\"Auto Delete after installation\" is now actually respected.** With it OFF,",
+        "an uploaded PKG was still being deleted after install \u2014 because the engine",
+        "always cleaned up the staged file regardless of the setting. It now keeps the",
+        "PKG when you ask it to. The same fix stops the File System \u2192 Install action",
+        "from deleting a PKG you point it at in place.",
+        "**Better install logging.** Bug reports now capture your Auto Install / Auto",
+        "Delete settings and log the exact install/delete decision for each PKG, so",
+        "issues like this are diagnosable without a repro."
+      ]
+    },
+    {
+      "version": "3.3.1",
+      "fileName": "ps5upload-3.3.1.elf",
+      "filePath": "payloads/ps5upload/3.3.1/ps5upload-3.3.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.1/ps5upload-3.3.1.elf",
+      "hash": "36a24c6d5038a53e91e5bf00549a064f2deba5ee23e330ecf16bc39557467bff",
+      "fileSize": 1100368,
+      "releaseDate": "2026-06-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "A polish + fixes release.",
+        "**Hardware temperatures now show \u00b0F as well as \u00b0C** (e.g. `62\u00b0C / 144\u00b0F`).",
+        "**Bigger checkboxes.** Checkboxes everywhere (Settings included) were tiny;",
+        "they're now comfortably sized and accent-coloured, and larger still on touch.",
+        "**File System drive list is consistent.** `/data` used to look dimmer than",
+        "your USB/external drives; now every drive reads equally clearly, with just the",
+        "border + icon marking which is active/external/internal.",
+        "**Quieter PS5 kernel log.** The Hardware screen used to query `hw.physmem`,",
+        "which the PS5 rejects and logs as an error on every read. It now uses only",
+        "approved sources for the same RAM figure \u2014 no more log spam."
+      ]
+    },
+    {
       "version": "3.2.9",
       "fileName": "ps5upload-3.2.9.elf",
       "filePath": "payloads/ps5upload/3.2.9/ps5upload-3.2.9.elf",
@@ -21,7 +66,7 @@
       "hash": "6da0eead315eaeb63ddb4995566fb7bc53b5fb588144121d264c373846073087",
       "fileSize": 1059424,
       "releaseDate": "2026-06-14",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Shutdown now fully powers off the PS5.** The Shutdown button was putting the",
