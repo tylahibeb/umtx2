@@ -14,26 +14,20 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "3.2.4",
-      "fileName": "ps5upload-3.2.4.elf",
-      "filePath": "payloads/ps5upload/3.2.4/ps5upload-3.2.4.elf",
-      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.4/ps5upload-3.2.4.elf",
-      "hash": "02449d05d12bf08457816a5c6b7c3a18d5c41505f075448754983975382a3e27",
-      "fileSize": 1058528,
-      "releaseDate": "2026-06-13",
+      "version": "3.2.9",
+      "fileName": "ps5upload-3.2.9.elf",
+      "filePath": "payloads/ps5upload/3.2.9/ps5upload-3.2.9.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.9/ps5upload-3.2.9.elf",
+      "hash": "6da0eead315eaeb63ddb4995566fb7bc53b5fb588144121d264c373846073087",
+      "fileSize": 1059424,
+      "releaseDate": "2026-06-14",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "A big polish release built from real-user feedback and a full UI/UX pass.",
-        "**Fewer reasons to restart your PS5.** If the helper gets stuck, the app now",
-        "detects and force-clears the previous instance on its own before sending the",
-        "new one \u2014 so you usually don't have to reboot the console or kill it by hand",
-        "anymore. Verified on FW 5.10 and 9.60.",
-        "**Packages & USB.**",
-        "Install a `.pkg` straight from the **File System** browser \u2014 right where the",
-        "file sits, no detour through the scan.",
-        "PS4 packages now show up reliably with the correct PS4/PS5 badge, and",
-        "scanning USB/external drives for packages is much faster."
+        "**Shutdown now fully powers off the PS5.** The Shutdown button was putting the",
+        "console into rest mode instead of turning it off, because the API it used",
+        "respects the system's rest-mode setting. It now does a true power-off (use the",
+        "separate **Rest mode** button if you want standby). Hardware-verified."
       ]
     },
     {
@@ -57,6 +51,29 @@
         "concurrent operations.",
         "**One busy console no longer freezes the app for the others.** A slow or",
         "very large upload (especially from a network drive) used to be able to stall"
+      ]
+    },
+    {
+      "version": "3.2.4",
+      "fileName": "ps5upload-3.2.4.elf",
+      "filePath": "payloads/ps5upload/3.2.4/ps5upload-3.2.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.2.4/ps5upload-3.2.4.elf",
+      "hash": "02449d05d12bf08457816a5c6b7c3a18d5c41505f075448754983975382a3e27",
+      "fileSize": 1058528,
+      "releaseDate": "2026-06-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "A big polish release built from real-user feedback and a full UI/UX pass.",
+        "**Fewer reasons to restart your PS5.** If the helper gets stuck, the app now",
+        "detects and force-clears the previous instance on its own before sending the",
+        "new one \u2014 so you usually don't have to reboot the console or kill it by hand",
+        "anymore. Verified on FW 5.10 and 9.60.",
+        "**Packages & USB.**",
+        "Install a `.pkg` straight from the **File System** browser \u2014 right where the",
+        "file sits, no detour through the scan.",
+        "PS4 packages now show up reliably with the correct PS4/PS5 badge, and",
+        "scanning USB/external drives for packages is much faster."
       ]
     },
     {
