@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.3.3",
+      "fileName": "ps5upload-3.3.3.elf",
+      "filePath": "payloads/ps5upload/3.3.3/ps5upload-3.3.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.3/ps5upload-3.3.3.elf",
+      "hash": "e5b765f5e4e679c6030168ab621f38f64919aa37f189e85c657d130948d1dff8",
+      "fileSize": 1100448,
+      "releaseDate": "2026-06-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "A big-install data-loss fix, plus the in-app updater.",
+        "**Large PKGs (25 GB, 100 GB, 200 GB+) install reliably now.** The tool used to",
+        "decide an install was \"done\" after a fixed ~100-second timer, then delete the",
+        "uploaded PKG \u2014 but Sony's installer reads that PKG for the *entire* install,",
+        "which for a big game takes many minutes. So a 25 GB game would upload, get",
+        "deleted mid-install, and leave you with no game and no PKG (the reported",
+        "Bloodborne case on FW 12.20). The tool now **watches the install actually",
+        "finish** instead of guessing: it tracks the title landing on the console and",
+        "the bytes writing to disk, with no size limit, and only deletes the staged PKG",
+        "once the install is genuinely complete. A live install **percentage** shows"
+      ]
+    },
+    {
       "version": "3.3.2",
       "fileName": "ps5upload-3.3.2.elf",
       "filePath": "payloads/ps5upload/3.3.2/ps5upload-3.3.2.elf",
@@ -21,7 +44,7 @@
       "hash": "65417f472668c955cbd892a9ba4a5170f671abfce2de4e136e7abd1a71f5626e",
       "fileSize": 1100368,
       "releaseDate": "2026-06-14",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "A data-loss fix.",

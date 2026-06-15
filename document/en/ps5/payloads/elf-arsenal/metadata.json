@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.8",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.8/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.8/elf-arsenal.elf",
+      "hash": "6782d726612c8b5f6dcaece89d7e84a59431be47a299d28b1efe543b54672c09",
+      "fileSize": 5019696,
+      "releaseDate": "2026-06-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**PS5 browser loads ~50\u00d7 faster** \u2014 JSX + Tailwind precompiled at build time. 547 KB inline HTML \u2192 11 KB shell + separately cached 519 KB `app.js`.",
+        "**Mobile layout** \u2014 clean responsive layout on phones (iOS Safari, Android Chrome): bottom nav, 2-column portrait grid, proper touch targets. Desktop unchanged.",
+        "**Mobile game cards** \u2014 info/favorites/hide quick-action buttons on phones. Hidden on PS5 and desktop.",
+        "**FW 12 execute-only page fix** \u2014 `mprotect()` before `pt_copyout()` makes SHN/MC4 cheats work on FW 8.40+ including FW 12.",
+        "Full in-browser file manager under the **Files** tab \u2014 browse, copy, move, delete across `/data`, `/user`, `/system_data`, USB/ext.",
+        "**NomadicDNS (`62.210.38.117`) is retired and no longer works.** Use `127.0.0.1` (nanoDNS, bundled, on by default).",
+        "**Network not connecting after JB?** Wait for Arsenal to start, then **Settings \u2192 Network \u2192 turn off then on**.",
+        "```",
+        "nc -q0 <PS5_IP> 9021 < elf-arsenal.elf",
+        "```"
+      ]
+    },
+    {
       "version": "1.6.7",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.7/elf-arsenal.elf",
@@ -172,7 +195,7 @@
       "hash": "fa30659b4df1d25a0bb94c0e198bd2da5db87d3608a157cbad58feb43c60e370",
       "fileSize": 4806848,
       "releaseDate": "2026-06-11",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
@@ -333,20 +356,6 @@
       "isPreRelease": false,
       "changelog": [
         "Fixes the PKGManager crash (storage ReferenceError) from v1.6.9. Includes USB drive usage, real users/rename, native avatar set, line-by-line log viewer, hero info modal, PKG drive detection, Supporters modal."
-      ]
-    },
-    {
-      "version": "1.6.8",
-      "fileName": "elf-arsenal.elf",
-      "filePath": "payloads/elf-arsenal/1.6.8/elf-arsenal.elf",
-      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.8/elf-arsenal.elf",
-      "hash": "6782d726612c8b5f6dcaece89d7e84a59431be47a299d28b1efe543b54672c09",
-      "fileSize": 5019696,
-      "releaseDate": "2026-06-08",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "Elf-Arsenal+ release. Voidshell glass UI port with full feature parity (Saves/PSN/PKG Zone/System Tools/Cheats pages), built-in cheat engine, DPI v2-only, multi-source title enumeration, release pickers, file-manager + ETA fixes, and ~590KB slimmer binary."
       ]
     }
   ],
