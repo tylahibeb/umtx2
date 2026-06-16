@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.19",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.19/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.19/elf-arsenal.elf",
+      "hash": "fa30659b4df1d25a0bb94c0e198bd2da5db87d3608a157cbad58feb43c60e370",
+      "fileSize": 4806848,
+      "releaseDate": "2026-06-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Root cause**: `fanThreshold`/`fanTarget` were defined in `App` but never passed as props to the `Settings` component \u2014 every toggle call was `/api/fan/set?temp=undefined`, and the toggle silently did nothing. Fixed.",
+        "Disabling fan override now persists across Arsenal restarts \u2014 `/api/fan/unpin` now calls `config_save()` so `fan_threshold=0` is written to disk.",
+        "Fan watcher already re-applies the pinned threshold every 15 s to fight the firmware's automatic reset on game launch (was always there, now actually reachable).",
+        "`config.ini` had been silently corrupting itself in a loop:",
+        "`stringifyINI` turned flat C keys (`fan_threshold=0`) into character-indexed INI sections (`[fan_threshold] / 0=4 / 1=0`).",
+        "`config_preserve_ui_sections` faithfully re-copied every section it found \u2014 including the garbage ones.",
+        "Repeat forever.",
+        "Both sides fixed:",
+        "**`stringifyINI`** now writes root-level primitives (flat C-backend keys) as verbatim `key=value` lines before emitting any `[Section]` blocks.",
+        "**`config_preserve_ui_sections`** switched from deny-list to **allow-list** \u2014 only `[Settings]`, `[Sentinel]`, `[Experimental]`, `[CustomPaths]`, `[Blacklist]`, `[AutoPayloads]`, `[PKG]` are preserved. Garbage sections and the legacy `[FanControl]` block are silently dropped on every save."
+      ]
+    },
+    {
       "version": "1.6.8",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.8/elf-arsenal.elf",
@@ -22,7 +45,7 @@
       "hash": "6782d726612c8b5f6dcaece89d7e84a59431be47a299d28b1efe543b54672c09",
       "fileSize": 5019696,
       "releaseDate": "2026-06-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**PS5 browser loads ~50\u00d7 faster** \u2014 JSX + Tailwind precompiled at build time. 547 KB inline HTML \u2192 11 KB shell + separately cached 519 KB `app.js`.",
@@ -185,24 +208,6 @@
         "nanoDNS gate on every boot-time HTTP poller",
         "One-shot sonic-loader.elf -> elf-arsenal.elf migration for upgrading users",
         "SDK update to v0.39 (clang 19.1.7)"
-      ]
-    },
-    {
-      "version": "1.6.19",
-      "fileName": "elf-arsenal.elf",
-      "filePath": "payloads/elf-arsenal/1.6.19/elf-arsenal.elf",
-      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.19/elf-arsenal.elf",
-      "hash": "fa30659b4df1d25a0bb94c0e198bd2da5db87d3608a157cbad58feb43c60e370",
-      "fileSize": 4806848,
-      "releaseDate": "2026-06-11",
-      "isDefault": false,
-      "isPreRelease": true,
-      "changelog": [
-        "\u26a0 This is a pre-release version. Use with caution.",
-        "**Cheats actually apply now.** PS5 maps game code as execute-only memory (XOM), so the engine's ptrace baseline reads always failed and cheats silently no-op'd while showing \"enabled\". Reads now mprotect the page readable first. SHN/MC4 cheats land correctly; wrong-version cheats report cleanly instead of crashing.",
-        "**Much faster web UI on the PS5 browser.** JSX is pre-transpiled at build time (esbuild) and Tailwind is a static stylesheet \u2014 no more runtime Babel (2.85 MB) or runtime Tailwind on-device.",
-        "Removed the inert File Manager \"safety\" button.",
-        "Launch a registered homebrew payload by name."
       ]
     },
     {

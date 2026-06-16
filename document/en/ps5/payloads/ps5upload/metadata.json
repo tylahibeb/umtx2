@@ -14,6 +14,75 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.3.6",
+      "fileName": "ps5upload-3.3.6.elf",
+      "filePath": "payloads/ps5upload/3.3.6/ps5upload-3.3.6.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.6/ps5upload-3.3.6.elf",
+      "hash": "e42f3d847679f46c699d88be7f163fad92c89c7114d290a4f0e66c53f36804c8",
+      "fileSize": 1101136,
+      "releaseDate": "2026-06-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "A data-loss fix: installing a game's update can no longer delete the game.",
+        "**Installing an update (patch) can never overwrite or delete your base game.**",
+        "A game's update shares the same ID as the game itself, so the installer could",
+        "end up *re-installing that ID* \u2014 wiping the installed game instead of patching",
+        "it (hardware-confirmed: a 26 GB game was deleted by installing its update). An",
+        "update now installs **only** via the safe path that applies it on top; if that",
+        "can't apply it, the update **fails harmlessly and your game stays completely",
+        "intact** \u2014 never replaced or removed. Base games and DLC are unaffected.",
+        "*(If an update won't install through the app on your firmware, install it from",
+        "the PS5's own Package Installer \u2014 your game is safe either way.)*"
+      ]
+    },
+    {
+      "version": "3.3.5",
+      "fileName": "ps5upload-3.3.5.elf",
+      "filePath": "payloads/ps5upload/3.3.5/ps5upload-3.3.5.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.5/ps5upload-3.3.5.elf",
+      "hash": "f256667803831b49a84a7054c4623e30429b683e925381c3ac2df3885d2ea071",
+      "fileSize": 1100736,
+      "releaseDate": "2026-06-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "USB install fixes \u2014 no more stuck \"downloading\" tile, and a copy that survives a flaky connection.",
+        "**Installing a big game from USB no longer leaves a broken \"Downloading\u2026\"",
+        "tile.** 3.3.4 tried to install straight off the USB drive, which made the PS5",
+        "register the game as a download it then streamed off USB at a crawl (a 25 GB",
+        "game showed *\"Downloading\u2026 50 hours left\"* and left an undeletable tile eating",
+        "space). Installs now always copy to internal storage first and never trigger",
+        "that. *(If you have a stuck Bloodborne/other tile from 3.3.4: delete it from",
+        "the PS5 to reclaim the space \u2014 your PKG on the USB drive is untouched.)*",
+        "**The USB\u2192internal copy survives connection drops.** A 25 GB copy used to die",
+        "the instant the PS5 connection blipped \u2014 even though the console was still"
+      ]
+    },
+    {
+      "version": "3.3.4",
+      "fileName": "ps5upload-3.3.4.elf",
+      "filePath": "payloads/ps5upload/3.3.4/ps5upload-3.3.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.4/ps5upload-3.3.4.elf",
+      "hash": "3c1b6ea2575f89cf6cbaf56dded1b58628ee2ff07c9387d84cf49ff3489fd0f3",
+      "fileSize": 1100736,
+      "releaseDate": "2026-06-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Install verification + extended-storage fixes.",
+        "**Installs to an extended / M.2 SSD are recognized correctly.** If your PS5",
+        "installs games to an extended drive (not internal storage), the app used to",
+        "report the install as *failed* \u2014 even though the game installed perfectly and",
+        "plays \u2014 because it only looked for the game in internal storage. It now",
+        "confirms an install by the actual data written to **any** drive, so",
+        "extended-storage installs are no longer wrongly flagged as failures. (If you",
+        "hit this before: the game was fine all along \u2014 just launch it.)",
+        "**A \"hollow\" install still can't masquerade as success.** The app confirms a",
+        "title's content actually landed before reporting success, and tells you"
+      ]
+    },
+    {
       "version": "3.3.3",
       "fileName": "ps5upload-3.3.3.elf",
       "filePath": "payloads/ps5upload/3.3.3/ps5upload-3.3.3.elf",
@@ -21,7 +90,7 @@
       "hash": "e5b765f5e4e679c6030168ab621f38f64919aa37f189e85c657d130948d1dff8",
       "fileSize": 1100448,
       "releaseDate": "2026-06-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "A big-install data-loss fix, plus the in-app updater.",

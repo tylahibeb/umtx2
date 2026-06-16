@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.9.7",
+      "fileName": "game-compressor.elf",
+      "filePath": "payloads/ps5-game-compressor/0.9.7/game-compressor.elf",
+      "downloadUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v0.9.7/game-compressor.elf",
+      "hash": "9c8cc07b50933bcbefa5e5aae86eac0fc3e97035c737c9c5c79037f6e2a8d132",
+      "fileSize": 773256,
+      "releaseDate": "2026-06-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Game Compressor 0.9.7 is focused on stability, safer storage operations, and",
+        "better handling of real PS5 setups with USB/external storage and duplicate title",
+        "locations.",
+        "Compared against `v0.9.6`.",
+        "Fixed crashes and UI stalls caused by scanning large USB-hosted game folders.",
+        "Fixed operations on duplicate title IDs by targeting the selected source path,",
+        "not only the title ID.",
+        "Fixed ShadowMountPlus refresh/remount handling for duplicate or moved game",
+        "instances.",
+        "Fixed validation progress, ETA, and speed reporting so validation and mounted"
+      ]
+    },
+    {
       "version": "0.9.6",
       "fileName": "game-compressor.elf",
       "filePath": "payloads/ps5-game-compressor/0.9.6/game-compressor.elf",
@@ -21,7 +44,7 @@
       "hash": "649b68671034a4ca7d713301bfcf8af252478b4701543d6c8f37dcd875206668",
       "fileSize": 722000,
       "releaseDate": "2026-06-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Compared against `main` because this repository does not currently have a local or remote `develop` branch.",

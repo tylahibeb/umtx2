@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.13",
+      "fileName": "CheatRunner.elf",
+      "filePath": "payloads/cheatrunner/0.13/CheatRunner.elf",
+      "downloadUrl": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.13/CheatRunner.elf",
+      "hash": "0490d46c0ae8d3029106551f588ca9479f32df485678eb73c29685ad3072090b",
+      "fileSize": 8813304,
+      "releaseDate": "2026-06-15",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "CheatRunner v0.13",
+        "See the full changelog here: [Changelog](https://github.com/notmaj0r/CheatRunner/blob/main/CHANGELOG.md)",
+        "Check [GUIDE](https://github.com/notmaj0r/CheatRunner#homebrew-launcher) to setup CheatRunner.zip on Homebrew Launcher.",
+        "Special Thanks:",
+        "\ud83d\udc96 Supporters - those who supported the project through [Ko-Fi](https://ko-fi.com/maj0r).",
+        "\u2022 primo \u2022 lal3x \u2022 jawad \u2022 anonymous",
+        "\ud83d\udc9a Testers - those who tested early builds of CheatRunner before release.",
+        "\u2b50 Additional Thanks",
+        "\u2022 Sonic-Iso for contributing with ideas and helping with implementations."
+      ]
+    },
+    {
       "version": "0.12",
       "fileName": "CheatRunner.elf",
       "filePath": "payloads/cheatrunner/0.12/CheatRunner.elf",
@@ -21,7 +44,7 @@
       "hash": "129c6c248f4e77cf62465ccf761cccd15f74836ffd090b7a81431fc984b505c2",
       "fileSize": 2194008,
       "releaseDate": "2026-06-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
