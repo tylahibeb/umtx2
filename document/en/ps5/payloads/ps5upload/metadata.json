@@ -14,6 +14,75 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.3.9",
+      "fileName": "ps5upload-3.3.9.elf",
+      "filePath": "payloads/ps5upload/3.3.9/ps5upload-3.3.9.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.9/ps5upload-3.3.9.elf",
+      "hash": "380dcff3ff921948643c400a71397ec98dcefebbbce6304cf753e3b008c30e7f",
+      "fileSize": 1101496,
+      "releaseDate": "2026-06-16",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "A clearer, more helpful \"Install from USB / external drive\" section.",
+        "**The USB / external drive section is redesigned.** It used to hide itself",
+        "whenever a scan found nothing \u2014 so it \"popped in\" only after results arrived,",
+        "and when a drive was empty the whole thing (Refresh button included)",
+        "disappeared, leaving no way to look again. It's now always present with clear",
+        "**Scanning\u2026**, **nothing found**, and **list** states, a refresh that's always",
+        "available, and a short explanation of what it does (it copies the package onto",
+        "the console first \u2014 your drive's copy is left untouched \u2014 then installs it).",
+        "**External packages now show real details.** Each one is read on demand for",
+        "its cover art, real game title, version (e.g. `v01.02`), and an Update/DLC"
+      ]
+    },
+    {
+      "version": "3.3.8",
+      "fileName": "ps5upload-3.3.8.elf",
+      "filePath": "payloads/ps5upload/3.3.8/ps5upload-3.3.8.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.8/ps5upload-3.3.8.elf",
+      "hash": "74e234a3da2b4b93bad99f541385a17097d4b612d51156a54ef9abbf7ef2c4ff",
+      "fileSize": 1101496,
+      "releaseDate": "2026-06-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Tell a game's updates apart at a glance \u2014 and stop an update from looking",
+        "\"installed\" when it isn't.",
+        "**An update/DLC no longer shows \"Installed \u00b7 Reinstall\" just because the base",
+        "game is installed.** A PS4 update shares the base game's title id, so once the",
+        "base was on the console its never-installed update inherited the \"installed\"",
+        "badge and a \"Reinstall\" button. Add-ons now always read as installable \u2014",
+        "only the base game shows as installed (its install state is the one the PS5",
+        "can actually confirm).",
+        "**Each package now shows its version and original filename.** Updates share a",
+        "ContentID *and* a title, so they used to look identical apart from the"
+      ]
+    },
+    {
+      "version": "3.3.7",
+      "fileName": "ps5upload-3.3.7.elf",
+      "filePath": "payloads/ps5upload/3.3.7/ps5upload-3.3.7.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.7/ps5upload-3.3.7.elf",
+      "hash": "cd33e76fa9e590c37d805a863ec1bb118c0dacf9166a1a4dc4754b86e6421051",
+      "fileSize": 1101496,
+      "releaseDate": "2026-06-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "The 3.3.6 data-loss fix now actually covers PS4 game updates \u2014 plus clearer",
+        "messaging when an install fails.",
+        "**Installing a PS4 game's update (patch) can no longer delete the base game.**",
+        "3.3.6 added this protection, but it relied on the update being labelled as one",
+        "in a way the install couldn't always see \u2014 so a PS4 patch still looked like a",
+        "full game, reinstalled the shared ID, and **wiped the installed base**",
+        "(hardware-confirmed on two consoles: a Jak X patch deleted its 3.8 GB base).",
+        "The app now reads the real \"update vs. full game\" flag **straight from the",
+        "package on the console** at install time, so an update is recognised no matter",
+        "how it reached the PS5 (uploaded, copied from USB, or picked from the file"
+      ]
+    },
+    {
       "version": "3.3.6",
       "fileName": "ps5upload-3.3.6.elf",
       "filePath": "payloads/ps5upload/3.3.6/ps5upload-3.3.6.elf",
@@ -21,7 +90,7 @@
       "hash": "e42f3d847679f46c699d88be7f163fad92c89c7114d290a4f0e66c53f36804c8",
       "fileSize": 1101136,
       "releaseDate": "2026-06-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "A data-loss fix: installing a game's update can no longer delete the game.",
