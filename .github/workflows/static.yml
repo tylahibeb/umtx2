@@ -10,10 +10,9 @@ on:
         required: false
         default: false
         type: boolean
-  # Twice daily: 06:00 and 18:00 UTC
+  # Every 3 hours: 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 UTC
   schedule:
-    - cron: '0 0 * * *'    # 06:00 UTC
-    - cron: '0 12 * * *'   # 18:00 UTC
+    - cron: '0 */3 * * *'
 
 permissions:
   contents: write
@@ -22,7 +21,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update-payloads:
