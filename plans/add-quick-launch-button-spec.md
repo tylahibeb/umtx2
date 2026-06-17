@@ -1,8 +1,8 @@
 # Spec: Add Quick Launch Multi-Payload Button
 
-**Status:** 📋 Draft — pending implementation
+**Status:** ✅ Implemented (updated 2026-06 — etaHEN swapped for Elf Arsenal, nanoDNS removed; Arsenal bundles its own DNS)
 **Date:** 2026-05-29
-**Request:** Add a full-width button to the top of the payload selections that launches kstuff-lite (drakmor), shadowmountplus, and etahen in order with a delay between each.
+**Request:** Add a full-width button to the top of the payload selections that launches kstuff-lite (drakmor), shadowmountplus, and Elf Arsenal in order with a delay between each.
 
 ---
 
@@ -11,7 +11,7 @@
 Add a **"Quick Launch"** button to the `payloads-view` that dispatches the three priority payloads sequentially:
 1. **kstuff-lite (drakmor fork)** — FPKG enabler
 2. **ShadowMountPlus** — Game image mounter
-3. **etaHEN** — AIO HEN
+3. **Elf Arsenal** — All-in-one homebrew (bundles its own nanoDNS)
 
 The button uses the **default version** of each payload (ignoring user-selected versions from Settings), dispatches them with a **3-second gap** between each, shows a **combined progress toast**, and **stops on first failure**. It's placed in its own row **between the top bar and the payload grid**, styled with a **distinct accent** to stand out.
 
@@ -55,9 +55,9 @@ Toast updates: "Quick Launch: ShadowMountPlus (2/3)"
     ↓
 Wait 3 seconds (setTimeout)
     ↓
-Dispatch etaHEN (default version)
+Dispatch Elf Arsenal (default version)
     ↓
-Toast updates: "Quick Launch: etaHEN (3/3) — Done ✅"
+Toast updates: "Quick Launch: Elf Arsenal (3/3) — Done ✅"
     ↓
 Toast auto-dismisses after TOAST_SUCCESS_TIMEOUT (2s)
 ```
@@ -149,7 +149,7 @@ The button is **not** a regular `.btn` — it gets its own CSS class:
 ### 4.3 Subtitle
 
 Below the main label, a smaller subtitle lists the payloads:
-- Format: `kstuff-lite + ShadowMountPlus + etaHEN`
+- Format: `kstuff-lite + ShadowMountPlus + Elf Arsenal`
 - Font size: ~0.85rem
 - Opacity: 0.8
 
@@ -170,7 +170,7 @@ A **single** persistent toast element is created when Quick Launch starts. It up
 | Start | "Quick Launch: Starting..." | ~0ms (immediately updates) |
 | After dispatch 1 | "Quick Launch: kstuff-lite (1/3)" | 3s until next dispatch |
 | After dispatch 2 | "Quick Launch: ShadowMountPlus (2/3)" | 3s until next dispatch |
-| After dispatch 3 | "Quick Launch: etaHEN (3/3) — Done ✅" | TOAST_SUCCESS_TIMEOUT (2s) |
+| After dispatch 3 | "Quick Launch: Elf Arsenal (3/3) — Done ✅" | TOAST_SUCCESS_TIMEOUT (2s) |
 | On error | "Quick Launch: Failed ❌ — [payload] error" | TOAST_ERROR_TIMEOUT (5s) |
 
 The combined toast uses `updateToastMessage()` for in-place updates (avoiding toast spam). Individual payload execution will also create their own toasts from the queue processor — those should be suppressed or the combined toast should be the only one.
@@ -218,7 +218,7 @@ quickLaunchBtn.innerHTML = '<span class="quick-launch-icon">⚡</span><span>Quic
 
 var quickLaunchSubtitle = document.createElement("p");
 quickLaunchSubtitle.className = "quick-launch-subtitle";
-quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + etaHEN";
+quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + Elf Arsenal";
 
 quickLaunchBtn.appendChild(quickLaunchSubtitle);
 quickLaunchContainer.appendChild(quickLaunchBtn);
@@ -232,7 +232,7 @@ quickLaunchBtn.addEventListener("click", function() {
 Define `startQuickLaunch()`:
 
 ```javascript
-var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "etahen"];
+var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "elf-arsenal"];
 var QUICK_LAUNCH_DELAY_MS = 3000;
 
 function startQuickLaunch() {
