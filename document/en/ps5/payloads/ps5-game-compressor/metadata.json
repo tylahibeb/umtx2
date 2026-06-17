@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.0.0",
+      "fileName": "game-compressor.elf",
+      "filePath": "payloads/ps5-game-compressor/1.0.0/game-compressor.elf",
+      "downloadUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.0/game-compressor.elf",
+      "hash": "29eb7e0b2d46ff23203597ce93ff463d7c4df65ace48b08ca65be3cb184491b2",
+      "fileSize": 823344,
+      "releaseDate": "2026-06-17",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Game Compressor 1.0.0 is the APR Emu compatibility release.",
+        "Compared against `v0.9.9`.",
+        "Built APR Emu indexing directly into Game Compressor. Before compressing a",
+        "title that uses APR Emu, the app performs the same `build_ampr_index.py` work",
+        "on the PS5 and includes the generated `ampr_emu.index` in the compressed",
+        "output.",
+        "Added a secondary `Build AMPR Index` action for folder titles. This lets users",
+        "build or refresh the index without starting a compression job.",
+        "Rebuilds APR indexes cleanly. Existing `ampr_emu.index` files are replaced for",
+        "APR titles during pre-compress indexing so stale indexes are not carried into"
+      ]
+    },
+    {
       "version": "0.9.9",
       "fileName": "game-compressor.elf",
       "filePath": "payloads/ps5-game-compressor/0.9.9/game-compressor.elf",
@@ -21,7 +44,7 @@
       "hash": "b1eaada178c1512fab7efd14d4a396462ae70ad0fe77396b0177e6262d23382f",
       "fileSize": 799736,
       "releaseDate": "2026-06-17",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Game Compressor 0.9.9 focuses on mounted image recovery/extraction, safer",
