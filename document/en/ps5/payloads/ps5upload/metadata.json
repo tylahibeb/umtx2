@@ -14,6 +14,26 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.3.20",
+      "fileName": "ps5upload-3.3.20.elf",
+      "filePath": "payloads/ps5upload/3.3.20/ps5upload-3.3.20.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.20/ps5upload-3.3.20.elf",
+      "hash": "ddf2bbfb014b036855cdbb6a2e6f312dc711e4750dd7bb5e3ae9912362489168",
+      "fileSize": 1101496,
+      "releaseDate": "2026-06-17",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Installs wait for the PS5 to be ready \u2014 fewer \"couldn't be applied\" errors.**",
+        "Right after an install the PS5 has a brief recovery moment (the screen-black",
+        "blink); starting the next install during it was getting rejected with a",
+        "transient error, so you'd have to wait and retry by hand. ps5upload now checks",
+        "the console is settled before it installs, and if the PS5 says it's busy it",
+        "waits and retries automatically instead of failing \u2014 so back-to-back updates",
+        "and DLC just work. (Shows \"Waiting for the PS5 to be ready\u2026\" while it waits.)"
+      ]
+    },
+    {
       "version": "3.3.19",
       "fileName": "ps5upload-3.3.19.elf",
       "filePath": "payloads/ps5upload/3.3.19/ps5upload-3.3.19.elf",
@@ -21,7 +41,7 @@
       "hash": "93f7b9a6e961d7e1d838c040aa470ab421bffdd68cc2e95837b899ca1fa91db3",
       "fileSize": 1101496,
       "releaseDate": "2026-06-17",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**\"Installed\" no longer leaks between consoles.** If you staged the same .pkg",
