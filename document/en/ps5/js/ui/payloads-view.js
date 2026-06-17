@@ -23,7 +23,7 @@ function populatePayloadsPage(wkOnlyMode) {
         payloadsView.removeChild(payloadsView.firstChild);
     }
 
-    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, Elf Arsenal sequentially
+    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, etaHEN sequentially
     // Always show regardless of wkOnlyMode (all payloads send to port 9021 via elfldr)
     // IMPORTANT: etaHEN must ALWAYS be last — it depends on all other payloads being active first.
     var quickLaunchContainer = document.createElement("div");
@@ -39,7 +39,7 @@ function populatePayloadsPage(wkOnlyMode) {
 
     var quickLaunchSubtitle = document.createElement("p");
     quickLaunchSubtitle.className = "quick-launch-subtitle";
-    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + Elf Arsenal";
+    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + etaHEN";
 
     quickLaunchBtn.appendChild(quickLaunchIcon);
     quickLaunchBtn.appendChild(quickLaunchLabel);
@@ -145,10 +145,10 @@ function populatePayloadsPage(wkOnlyMode) {
     }
 }
 
-// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, Elf Arsenal
-// Elf Arsenal is launched last so it builds on top of kstuff-lite's kernel patches
-// and ShadowMountPlus's mounts (Arsenal bundles its own nanoDNS internally).
-var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "elf-arsenal"];
+// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, etaHEN
+// etaHEN is launched last because it depends on kstuff-lite's kernel patches
+// and ShadowMountPlus's mounts being active first.
+var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "etahen"];
 var QUICK_LAUNCH_DELAY_MS = 3000;
 
 function startQuickLaunch(onComplete) {
