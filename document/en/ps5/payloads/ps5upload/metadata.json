@@ -14,6 +14,51 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "3.3.22",
+      "fileName": "ps5upload-3.3.22.elf",
+      "filePath": "payloads/ps5upload/3.3.22/ps5upload-3.3.22.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.22/ps5upload-3.3.22.elf",
+      "hash": "6fac6e1fa572e8780a39b7d32f418eff8900f9d6c921d6aad926270db30f9527",
+      "fileSize": 1101896,
+      "releaseDate": "2026-06-17",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**See what's playing, and stop it.** Installed Apps now shows a \"Playing\" badge",
+        "on whatever game is currently running, and the Play button turns into **Close",
+        "game** so you can stop it right from the app (with a confirm \u2014 it's the same",
+        "as quitting on the console).",
+        "**More patience when launching a game.** A first launch (just-installed, or a",
+        "cold start) can take a while to come up. Pressing Play now shows \"Starting\u2026\"",
+        "and waits for the game to actually appear before saying it's playing \u2014 and it",
+        "won't let you fire a second launch into a game that's still starting (which is",
+        "what could knock it back down). If it's taking a while, you get a calm \"give",
+        "it a moment\" note rather than an error."
+      ]
+    },
+    {
+      "version": "3.3.21",
+      "fileName": "ps5upload-3.3.21.elf",
+      "filePath": "payloads/ps5upload/3.3.21/ps5upload-3.3.21.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.21/ps5upload-3.3.21.elf",
+      "hash": "1c9fc0f7de8c98bd3904560fc91f5718022748174b668698715c0b91baecc30c",
+      "fileSize": 1101896,
+      "releaseDate": "2026-06-17",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Fixed: moving files from USB to the internal SSD crashed the console.** Cut",
+        "& paste from a USB drive to internal storage was reliably kernel-panicking the",
+        "PS5 (a hard crash + reboot). The tool was asking the console to *rename* the",
+        "file across drives, which this kernel can't do \u2014 it panics instead of",
+        "reporting the error. ps5upload now detects a cross-drive move up front and",
+        "completes it the safe way (copy, then remove the original) \u2014 the same thing it",
+        "already did for copies. **Hardware-verified: the move that used to crash the",
+        "console now completes without a hitch.** (Same fix applied to the shell tab's",
+        "`mv` command.)"
+      ]
+    },
+    {
       "version": "3.3.20",
       "fileName": "ps5upload-3.3.20.elf",
       "filePath": "payloads/ps5upload/3.3.20/ps5upload-3.3.20.elf",
@@ -21,7 +66,7 @@
       "hash": "ddf2bbfb014b036855cdbb6a2e6f312dc711e4750dd7bb5e3ae9912362489168",
       "fileSize": 1101496,
       "releaseDate": "2026-06-17",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Installs wait for the PS5 to be ready \u2014 fewer \"couldn't be applied\" errors.**",
