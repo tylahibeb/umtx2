@@ -855,3 +855,29 @@ payloads:
         url: ""
         isDefault: true
         releaseDate: 2023-01-01
+
+  # --- umtx2-host: Local UMTX2 host payload (custom build) ---
+  # Uses 'direct' sourceType with no upstream URL — the on-disk binary is
+  # the source of truth. CI rehashes this entry every run (no auto-update
+  # from GitHub), so changing the .elf requires dropping a new file into
+  # payloads/umtx2-host/{version}/ and bumping manualVersions.
+  - id: umtx2-host
+    displayTitle: UMTX2 Host
+    description: Payload that installs a shortcut to this payload manager
+    authors:
+      - ayolmao
+    projectUrl: ""
+    sourceType: direct
+    sourceRepo: ""
+    sourcePattern: umtx2-host*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "1.0"
+        fileName: umtx2-host.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2026-06-16
