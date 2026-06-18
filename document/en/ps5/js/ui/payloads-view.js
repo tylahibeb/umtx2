@@ -23,9 +23,10 @@ function populatePayloadsPage(wkOnlyMode) {
         payloadsView.removeChild(payloadsView.firstChild);
     }
 
-    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, etaHEN sequentially
+    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, CheatRunner sequentially
     // Always show regardless of wkOnlyMode (all payloads send to port 9021 via elfldr)
-    // IMPORTANT: etaHEN must ALWAYS be last — it depends on all other payloads being active first.
+    // IMPORTANT: CheatRunner runs last — it depends on kstuff-lite's kernel patches
+    // and ShadowMountPlus's mounts being active first.
     var quickLaunchContainer = document.createElement("div");
     quickLaunchContainer.className = "quick-launch-container";
 
@@ -39,7 +40,7 @@ function populatePayloadsPage(wkOnlyMode) {
 
     var quickLaunchSubtitle = document.createElement("p");
     quickLaunchSubtitle.className = "quick-launch-subtitle";
-    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + etaHEN";
+    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + CheatRunner";
 
     quickLaunchBtn.appendChild(quickLaunchIcon);
     quickLaunchBtn.appendChild(quickLaunchLabel);
@@ -145,10 +146,10 @@ function populatePayloadsPage(wkOnlyMode) {
     }
 }
 
-// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, etaHEN
-// etaHEN is launched last because it depends on kstuff-lite's kernel patches
+// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, CheatRunner
+// CheatRunner is launched last because it depends on kstuff-lite's kernel patches
 // and ShadowMountPlus's mounts being active first.
-var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "etahen"];
+var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "cheatrunner"];
 var QUICK_LAUNCH_DELAY_MS = 3000;
 
 function startQuickLaunch(onComplete) {
