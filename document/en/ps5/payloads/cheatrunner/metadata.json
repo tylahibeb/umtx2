@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.14",
+      "fileName": "CheatRunner.elf",
+      "filePath": "payloads/cheatrunner/0.14/CheatRunner.elf",
+      "downloadUrl": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.14/CheatRunner.elf",
+      "hash": "5ffe8ed97fd6021cfad2b44a1be68c1b9f6e84c1e3a8d925f9e3b975235aa99f",
+      "fileSize": 8813288,
+      "releaseDate": "2026-06-18",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "CheatRunner v0.14",
+        "See the full changelog here: [Changelog](https://github.com/notmaj0r/CheatRunner/blob/main/CHANGELOG.md)",
+        "Check [GUIDE](https://github.com/notmaj0r/CheatRunner#homebrew-launcher) to setup CheatRunner.zip on Homebrew Launcher.",
+        "\u26a0\ufe0f Before updating to a new CheatRunner version, please follow these steps: [Updating CheatRunner](https://github.com/notmaj0r/CheatRunner#-updating-cheatrunner)",
+        "Special Thanks:",
+        "\ud83d\udc96 Supporters - those who supported the project through [Ko-Fi](https://ko-fi.com/maj0r) or [Buy Me a Coffee](https://buymeacoffee.com/maj0r).",
+        "\u2022 primo \u2022 lal3x \u2022 jawad \u2022 anonymous \u2022 Maffioh",
+        "\ud83d\udc9a Testers - those who tested early builds of CheatRunner before release.",
+        "\u2b50 Additional Thanks",
+        "\u2022 [illusiony](https://github.com/illusionyy) and [idlesauce](https://github.com/idlesauce) - Ported mdbg stuff from [ps-patch-system](https://github.com/illusionyy/ps-patch-system) to CheatRunner!"
+      ]
+    },
+    {
       "version": "0.13",
       "fileName": "CheatRunner.elf",
       "filePath": "payloads/cheatrunner/0.13/CheatRunner.elf",
@@ -21,7 +45,7 @@
       "hash": "0490d46c0ae8d3029106551f588ca9479f32df485678eb73c29685ad3072090b",
       "fileSize": 8813304,
       "releaseDate": "2026-06-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
