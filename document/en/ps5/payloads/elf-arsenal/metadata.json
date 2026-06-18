@@ -15,6 +15,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.21",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.21/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.21/elf-arsenal.elf",
+      "hash": "cec800889364e4e8a4586989f27a1e31717b3b384683386b88deef9c78bc50dd",
+      "fileSize": 4692176,
+      "releaseDate": "2026-06-18",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Bluesky links replace X/Twitter in UI and launcher. README cleaned up."
+      ]
+    },
+    {
       "version": "1.6.19",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.19/elf-arsenal.elf",
@@ -22,7 +36,7 @@
       "hash": "fa30659b4df1d25a0bb94c0e198bd2da5db87d3608a157cbad58feb43c60e370",
       "fileSize": 4806848,
       "releaseDate": "2026-06-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Root cause**: `fanThreshold`/`fanTarget` were defined in `App` but never passed as props to the `Settings` component \u2014 every toggle call was `/api/fan/set?temp=undefined`, and the toggle silently did nothing. Fixed.",
