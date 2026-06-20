@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.0.2",
+      "fileName": "game-compressor.elf",
+      "filePath": "payloads/ps5-game-compressor/1.0.2/game-compressor.elf",
+      "downloadUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.2/game-compressor.elf",
+      "hash": "65918eda7454e9221b244ff0fa29738bf3e251b4745efcf589271bb76de3f6b1",
+      "fileSize": 1088608,
+      "releaseDate": "2026-06-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Game Compressor 1.0.2 focuses on APR-EMU update handling, safer image patching,",
+        "and UI polish.",
+        "Compared against `v1.0.1`.",
+        "Added APR-EMU version management for titles that include `libSceAmpr.sprx`.",
+        "You can apply the latest cached version, choose a specific version, upload a",
+        "custom `.sprx`/`.prx`, or restore the original title-provided binary when a",
+        "backup is available.",
+        "Added APR-EMU hot-swap support for direct `.exfat` images and compatible",
+        "compressed `.ffpfsc` images, including mounted hash verification after update.",
+        "Added direct `ampr_emu.index` insertion/refresh support for `.exfat` and"
+      ]
+    },
+    {
       "version": "1.0.1",
       "fileName": "game-compressor.elf",
       "filePath": "payloads/ps5-game-compressor/1.0.1/game-compressor.elf",
@@ -21,7 +44,7 @@
       "hash": "64dba49ef83b2508de4fb99e8b4cc86816812ea7bd70696a29c6b13c95994e9d",
       "fileSize": 817800,
       "releaseDate": "2026-06-18",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Game Compressor 1.0.1 focuses on APR game support on internal SSD, image",
