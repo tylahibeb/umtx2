@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.0.3",
+      "fileName": "game-compressor.elf",
+      "filePath": "payloads/ps5-game-compressor/1.0.3/game-compressor.elf",
+      "downloadUrl": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.3/game-compressor.elf",
+      "hash": "51b66edf6210c022d57a31ab12bf97f95a3c71ea683df387d9081494f11606b2",
+      "fileSize": 1092136,
+      "releaseDate": "2026-06-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Game Compressor 1.0.3 is a small stability release for compressed `.ffpfsc`",
+        "images and the compression dialog.",
+        "Compared against `v1.0.2`.",
+        "Improved USB-to-USB compression reliability by zeroing PFSC/PFS padding that",
+        "could otherwise prevent the final `.ffpfsc` from mounting.",
+        "Fixed compressed APR-EMU update and AMPR index rebuild finalization so their",
+        "rewritten `.ffpfsc` images also have clean outer padding.",
+        "Let validate and repair clean older Game Compressor `.ffpfsc` wrapper padding",
+        "before mount, while skipping that cleanup for third-party layouts and still",
+        "continuing validation."
+      ]
+    },
+    {
       "version": "1.0.2",
       "fileName": "game-compressor.elf",
       "filePath": "payloads/ps5-game-compressor/1.0.2/game-compressor.elf",
@@ -21,7 +44,7 @@
       "hash": "65918eda7454e9221b244ff0fa29738bf3e251b4745efcf589271bb76de3f6b1",
       "fileSize": 1088608,
       "releaseDate": "2026-06-20",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Game Compressor 1.0.2 focuses on APR-EMU update handling, safer image patching,",
