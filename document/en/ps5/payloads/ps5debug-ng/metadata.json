@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.3.0",
+      "fileName": "ps5debug-NG_v1.3.0.elf",
+      "filePath": "payloads/ps5debug-ng/1.3.0/ps5debug-NG_v1.3.0.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.3.0/ps5debug-NG_v1.3.0.elf",
+      "hash": "8f75fb90b45d7cc4d59147e3323577d7264cf572c78a27f76722202f492ad16a",
+      "fileSize": 4043160,
+      "releaseDate": "2026-06-21",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "v1.2.x was about getting FW 8.x-13.x **working**. **v1.3.0 is the big feature release**: dramatically faster memory scanning (Turbo Scan), new register access (FS/GS base + full AVX/YMM), faster bulk writes, and reliability fixes. Hardware-verified; firmware-agnostic by design.",
+        "A new server-side scan engine with an **AVX2 SIMD comparator** and a low-overhead **aliasing read path** that pulls target memory far faster than the classic per-region path.",
+        "**Multi-threaded** across memory regions.",
+        "Big gains where it matters most - **value-tracking rescans** (find a value, then narrow down) are several times faster, because reading memory was the real bottleneck.",
+        "**Unknown-initial-value snapshot scans** - search for a value you can't type yet, then filter by increased / decreased / changed.",
+        "**Region classify** query so clients can skip slow / uncached memory regions instead of crawling them.",
+        "Fully **additive and opt-in** - every existing scan command is unchanged, so older clients keep working exactly as before.",
+        "**FS/GS segment base read/write** - the 64-bit TLS / per-thread base pointers that x86-64 actually uses for thread-local storage. The classic register read only carried the 16-bit segment selectors; the **bases** (where TLS actually points) are now readable and writable.",
+        "**Full AVX/YMM floating-point registers** - reading/writing FP registers now covers the **complete 832-byte FPU/AVX state**, so the **upper halves of YMM0-15 are finally populated and writable**. Previously only the 512-byte legacy XMM area came back.",
+        "These are new **server-side** capabilities - client UIs can surface them."
+      ]
+    },
+    {
       "version": "1.2.7",
       "fileName": "ps5debug-NG_v1.2.7.elf",
       "filePath": "payloads/ps5debug-ng/1.2.7/ps5debug-NG_v1.2.7.elf",
@@ -22,7 +45,7 @@
       "hash": "bfb07865611df05d4a07236f375e7e0b64e2f387124052fa67510f8b4fcae1a7",
       "fileSize": 3994008,
       "releaseDate": "2026-06-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "\ud83d\udc1b Fixed a **critical bug** - console crash (KP) when rescanning with \"between\".",
