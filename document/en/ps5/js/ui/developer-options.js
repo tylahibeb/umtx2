@@ -156,6 +156,34 @@ function populateDevOptions() {
         }
     ));
 
+    // Disable AppCache toggle — when on (default), preserves browser's
+    // auto-download behavior. When off, in-flight cache downloads are aborted
+    // so the user does not see the cascading 'Downloading new cache...'
+    // toasts on frequent updates. Pairs with the existing 'Browser appcache
+    // remover' payload for clearing already-cached state.
+    body.appendChild(createDevToggle(
+        'Disable AppCache',
+        // Visual toggle ON means "preserve auto-download" (default), so we
+        // invert the underlying flag — checked = !disableAppCache.
+        !window.devOptions.disableAppCache,
+        function (enabled) {
+            // enabled is the new visual state. Invert back to the flag.
+            window.devOptions.disableAppCache = !enabled;
+            saveDevOptions();
+            if (window.devOptions.disableAppCache) {
+                // User flipped to OFF — abort kicks in on the next
+                // 'downloading' event. For users with existing cache, the
+                // Browser appcache remover payload is still needed.
+                showToast(
+                    'AppCache downloads will be aborted. To clear existing cache, run the "Browser appcache remover" payload once.',
+                    TOAST_SUCCESS_TIMEOUT
+                );
+            } else {
+                showToast('AppCache auto-downloads re-enabled.', TOAST_SUCCESS_TIMEOUT);
+            }
+        }
+    ));
+
     // Clear All Cache button
     var clearCacheBtn = document.createElement('button');
     clearCacheBtn.className = 'dev-option-button';

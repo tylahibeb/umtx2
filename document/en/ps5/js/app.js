@@ -132,6 +132,11 @@ function registerAppCacheEventHandlers() {
     }, false);
 
     appCache.addEventListener('error', function (e) {
+        // If Disable AppCache is on, the abort() above legitimately triggers
+        // this error event. Don't bother the user with a toast in that mode.
+        if (window.devOptions && window.devOptions.disableAppCache) {
+            return;
+        }
         // only show error toast if we're online
         if (navigator.onLine) {
             finishAppCacheToast('Error while caching site.', 5000);
@@ -163,6 +168,25 @@ function registerAppCacheEventHandlers() {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             finishAppCacheToast('The site was updated. Refresh to switch to updated version.', 10000);
         }
+    }, false);
+
+    // When Disable AppCache is on the user opts out of the AppCache pipeline.
+    // Abort each in-progress download so the user does not see the cascading
+    // 'Downloading new cache...' toasts on every frequent update. The flag
+    // check is deferred one tick because loadDevOptions() runs shortly after
+    // this function and we must not race it on first page load.
+    appCache.addEventListener('downloading', function (e) {
+        setTimeout(function () {
+            if (!window.devOptions || !window.devOptions.disableAppCache) {
+                createOrUpdateAppCacheToast('Downloading new cache...');
+                return;
+            }
+            try {
+                window.applicationCache.abort();
+            } catch (abortErr) {
+                console.error('AppCache abort failed:', abortErr);
+            }
+        }, 0);
     }, false);
 }
 
