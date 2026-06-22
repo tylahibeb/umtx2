@@ -508,6 +508,47 @@ payloads:
         isDefault: true
         releaseDate: 2026-03-29
 
+  # --- Kylin Core: PS5 homebrew cheat loader and real-time game modifier ---
+  # Repo has GitHub Releases with kylin-core.elf asset (v1.3.2 Community Lite).
+  # Supports .shn, .mc4, and .json cheat formats with automatic game detection.
+  # Compatible with FW 4.xx - 12.xx per upstream README.
+  - id: kylin-core
+    displayTitle: Kylin Core
+    description: PS5 homebrew cheat loader and real-time game modifier — supports .shn, .mc4, and .json formats with automatic game detection. Compatible with FW 4.xx - 12.xx.
+    authors:
+      - aydencharles
+    projectUrl: https://github.com/aydencharles/kylin-core-release
+    sourceType: github-release
+    sourceRepo: aydencharles/kylin-core-release
+    sourcePattern: kylin-core.elf
+    toPort: 9021
+    supportedFirmwares: ["4.", "5.", "6.", "7.", "8.", "9.", "10.", "11.", "12."]
+    license:
+      type: ""
+      url: ""
+
+  # --- BFpilot: Browser-based file manager for PS5 ---
+  # Repo has GitHub Releases with bfpilot.elf asset across 9 releases.
+  # WebUI on port 5905. Supports file browse/upload/download/copy/move/rename/delete
+  # and built-in archive extraction (ZIP, RAR, 7z).
+  # sourcePattern is exact 'bfpilot.elf' (no glob) to avoid picking helper variants
+  # like bfpilot-archive-worker / bfpilot-debug / bfpilot-core / bfpilot-full /
+  # bfpilot-launcher-installer. Mirrors the nanodns.elf exact-match approach.
+  - id: bfpilot
+    displayTitle: BFpilot
+    description: Browser-based file manager for jailbroken PS5 consoles — browse, upload, download, copy, move, rename, and delete files at http://<PS5_IP>:5905/. Built-in archive extraction (ZIP, RAR, 7z).
+    authors:
+      - ItsBlurf
+    projectUrl: https://github.com/ItsBlurf/BFpilot
+    sourceType: github-release
+    sourceRepo: ItsBlurf/BFpilot
+    sourcePattern: bfpilot.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
   # ===========================================================================
   # Pattern B: direct (Manual URL Management)
   # Use this when:
