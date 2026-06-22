@@ -1,0 +1,51 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/aydencharles/kylin-core-release/blob/main/LICENSE"
+  },
+  "id": "kylin-core",
+  "displayTitle": "Kylin Core",
+  "description": "PS5 homebrew cheat loader and real-time game modifier \u2014 supports .shn, .mc4, and .json formats with automatic game detection. Compatible with FW 4.xx - 12.xx.",
+  "authors": [
+    "aydencharles"
+  ],
+  "projectUrl": "https://github.com/aydencharles/kylin-core-release",
+  "sourceRepo": "aydencharles/kylin-core-release",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "1.3.1-community-lite",
+      "fileName": "kylin-core.elf",
+      "filePath": "payloads/kylin-core/1.3.1-community-lite/kylin-core.elf",
+      "downloadUrl": "https://github.com/aydencharles/kylin-core-release/releases/download/v1.3.1-community-lite/kylin-core.elf",
+      "hash": "90320a4169d61be6e168e605e59c4d8fc89fb978f1772f03c2011e7e8087b8a3",
+      "fileSize": 6015672,
+      "releaseDate": "2026-06-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "<a href=\"https://ko-fi.com/0xp0co\"><img src=\"https://img.shields.io/badge/Ko--fi-Support-FF6433?style=for-the-badge&logo=kofi&logoColor=white\" alt=\"Support Kylin Core on Ko-fi\"></a>",
+        "If you find this project helpful, please consider supporting its continued development. Your support is greatly appreciated!",
+        "**Real-time cheat toggle** \u2014 enable or disable cheats anytime during gameplay",
+        "**Multi-format support** \u2014 supports `.shn` / `.mc4` / `.json` cheat files",
+        "**Automatic game detection** \u2014 no manual title ID needed",
+        "**Single-tool solution** \u2014 no extra modules, no dependencies",
+        "**Stable in-game operation** \u2014 no freeze on APR games",
+        "| File | Description |",
+        "|---|---|",
+        "| `kylin-core.elf` | Payload binary, loaded via PLDMGR |"
+      ]
+    }
+  ],
+  "supportedFirmwares": [
+    "4.",
+    "5.",
+    "6.",
+    "7.",
+    "8.",
+    "9.",
+    "10.",
+    "11.",
+    "12."
+  ]
+}

@@ -29,6 +29,78 @@
       ]
     },
     {
+      "version": "1.6.7",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.7/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.7/elf-arsenal.elf",
+      "hash": "eb597cc3d88dee1c4a07b9c1124826d3985adbe850bad9334c4283fc224a67ca",
+      "fileSize": 4659264,
+      "releaseDate": "2026-06-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "1.6.2",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.2/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.2/elf-arsenal.elf",
+      "hash": "8ee924754a6a95b0bf72ccb58dc5530c140cfa310392a1608416534ae3527f82",
+      "fileSize": 10388320,
+      "releaseDate": "2026-05-27",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Yesterday's build caused the game library to show **Loading\u2026** on the main page (a fresh load showed a blank grid; Refresh fixed it). Root cause: removing the cheats section FTP how-to block left a setup-time JS crash on a missing DOM element (), aborting the boot IIFE before  could run. Fixed in the latest build. Hard-refresh the page after re-sending the ELF.",
+        "Sorry for the disruption \u2014 thank you for the patience and the reports. \u2764\ufe0f",
+        "---",
+        "**Delete `/data/elf-arsenal/`** from the console (via FTP or another payload), then re-send this ELF. The fresh first-boot pass will recreate it cleanly. This wipes saved settings but fixes the corrupt config left by the early build.",
+        "---",
+        "Small **\u24d8** button now sits in the bottom-right corner of every game tile in the grid",
+        "Fetches a Wikipedia summary (title, description, thumbnail) for that game",
+        "Tap \u24d8 to get info without launching or changing the spotlight",
+        "**Power button** added to the header",
+        "Reboot and Shutdown via the FreeBSD reboot(2) syscall \u2014 works on devkit and retail"
+      ]
+    },
+    {
+      "version": "1.6.1-offlinepack-2026-05-24",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.1-offlinepack-2026-05-24/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.1-offlinepack-2026-05-24/elf-arsenal.elf",
+      "hash": "b7fc85bc25bcb05d9ad3c94931d173b35e882d737bfec8c14f64569878732e00",
+      "fileSize": 8728416,
+      "releaseDate": "2026-05-24",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Auto-cut for the offline pack zip. See commit 842119f. Pack contains: kstuff (3 sources), SMP 1.6test11, Linux loader v2.1, Y2JB autoloader, tile pkg, OffAct+PKGInstall, 3 cheat repos, manifest. FTP the zip to /data/elf-arsenal-offline-pack.zip then Settings -> Offline pack -> Extract now."
+      ]
+    },
+    {
+      "version": "1.6.0",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.0/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.0/elf-arsenal.elf",
+      "hash": "8f492648f76a4741abd0107c112c6499dad5aa19c34224a5e96a9adda8728c4f",
+      "fileSize": 8103248,
+      "releaseDate": "2026-05-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "First Elf Arsenal release.",
+        "Rebrand from Sonic Loader",
+        "Baked-in PS5 Linux loader (v2.1) for first-boot install on FW \u2264 6.02",
+        "np-fake-signout payload (preserves username + accountId)",
+        "Background-services JSON fix (toggles hit /api/state now)",
+        "Trophy UDS daemon defaults to OFF; legacy launcher-patch defaults ON",
+        "Auto-apply patches nested into the Cheat engine settings section",
+        "nanoDNS gate on every boot-time HTTP poller",
+        "One-shot sonic-loader.elf -> elf-arsenal.elf migration for upgrading users",
+        "SDK update to v0.39 (clang 19.1.7)"
+      ]
+    },
+    {
       "version": "1.6.19",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.19/elf-arsenal.elf",
@@ -73,18 +145,6 @@
         "nc -q0 <PS5_IP> 9021 < elf-arsenal.elf",
         "```"
       ]
-    },
-    {
-      "version": "1.6.7",
-      "fileName": "elf-arsenal.elf",
-      "filePath": "payloads/elf-arsenal/1.6.7/elf-arsenal.elf",
-      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.7/elf-arsenal.elf",
-      "hash": "eb597cc3d88dee1c4a07b9c1124826d3985adbe850bad9334c4283fc224a67ca",
-      "fileSize": 4659264,
-      "releaseDate": "2026-06-06",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": []
     },
     {
       "version": "1.6.6",
@@ -162,66 +222,6 @@
         "DPI version choice persists across reboots via config.ini",
         "Accurate DPI status badge (v1/v2/not running)",
         "i18n on all pages + full Google Translate language list"
-      ]
-    },
-    {
-      "version": "1.6.2",
-      "fileName": "elf-arsenal.elf",
-      "filePath": "payloads/elf-arsenal/1.6.2/elf-arsenal.elf",
-      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.2/elf-arsenal.elf",
-      "hash": "8ee924754a6a95b0bf72ccb58dc5530c140cfa310392a1608416534ae3527f82",
-      "fileSize": 10388320,
-      "releaseDate": "2026-05-27",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "Yesterday's build caused the game library to show **Loading\u2026** on the main page (a fresh load showed a blank grid; Refresh fixed it). Root cause: removing the cheats section FTP how-to block left a setup-time JS crash on a missing DOM element (), aborting the boot IIFE before  could run. Fixed in the latest build. Hard-refresh the page after re-sending the ELF.",
-        "Sorry for the disruption \u2014 thank you for the patience and the reports. \u2764\ufe0f",
-        "---",
-        "**Delete `/data/elf-arsenal/`** from the console (via FTP or another payload), then re-send this ELF. The fresh first-boot pass will recreate it cleanly. This wipes saved settings but fixes the corrupt config left by the early build.",
-        "---",
-        "Small **\u24d8** button now sits in the bottom-right corner of every game tile in the grid",
-        "Fetches a Wikipedia summary (title, description, thumbnail) for that game",
-        "Tap \u24d8 to get info without launching or changing the spotlight",
-        "**Power button** added to the header",
-        "Reboot and Shutdown via the FreeBSD reboot(2) syscall \u2014 works on devkit and retail"
-      ]
-    },
-    {
-      "version": "1.6.1-offlinepack-2026-05-24",
-      "fileName": "elf-arsenal.elf",
-      "filePath": "payloads/elf-arsenal/1.6.1-offlinepack-2026-05-24/elf-arsenal.elf",
-      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.1-offlinepack-2026-05-24/elf-arsenal.elf",
-      "hash": "b7fc85bc25bcb05d9ad3c94931d173b35e882d737bfec8c14f64569878732e00",
-      "fileSize": 8728416,
-      "releaseDate": "2026-05-24",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "Auto-cut for the offline pack zip. See commit 842119f. Pack contains: kstuff (3 sources), SMP 1.6test11, Linux loader v2.1, Y2JB autoloader, tile pkg, OffAct+PKGInstall, 3 cheat repos, manifest. FTP the zip to /data/elf-arsenal-offline-pack.zip then Settings -> Offline pack -> Extract now."
-      ]
-    },
-    {
-      "version": "1.6.0",
-      "fileName": "elf-arsenal.elf",
-      "filePath": "payloads/elf-arsenal/1.6.0/elf-arsenal.elf",
-      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.0/elf-arsenal.elf",
-      "hash": "8f492648f76a4741abd0107c112c6499dad5aa19c34224a5e96a9adda8728c4f",
-      "fileSize": 8103248,
-      "releaseDate": "2026-05-22",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "First Elf Arsenal release.",
-        "Rebrand from Sonic Loader",
-        "Baked-in PS5 Linux loader (v2.1) for first-boot install on FW \u2264 6.02",
-        "np-fake-signout payload (preserves username + accountId)",
-        "Background-services JSON fix (toggles hit /api/state now)",
-        "Trophy UDS daemon defaults to OFF; legacy launcher-patch defaults ON",
-        "Auto-apply patches nested into the Cheat engine settings section",
-        "nanoDNS gate on every boot-time HTTP poller",
-        "One-shot sonic-loader.elf -> elf-arsenal.elf migration for upgrading users",
-        "SDK update to v0.39 (clang 19.1.7)"
       ]
     },
     {

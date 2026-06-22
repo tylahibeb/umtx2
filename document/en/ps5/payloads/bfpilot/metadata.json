@@ -1,0 +1,224 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "id": "bfpilot",
+  "displayTitle": "BFpilot",
+  "description": "Browser-based file manager for jailbroken PS5 consoles \u2014 browse, upload, download, copy, move, rename, and delete files at http://<PS5_IP>:5905/. Built-in archive extraction (ZIP, RAR, 7z).",
+  "authors": [
+    "ItsBlurf"
+  ],
+  "projectUrl": "https://github.com/ItsBlurf/BFpilot",
+  "sourceRepo": "ItsBlurf/BFpilot",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.3.1-test4",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.1-test4/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test4/bfpilot.elf",
+      "hash": "9c59141cdf0c9b0c8c5c912c207ac055986833f0232d2e6d0ac348bfdebd60f3",
+      "fileSize": 996368,
+      "releaseDate": "2026-06-20",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "BFpilot v0.3.1 test build.",
+        "High-level changes since v0.3:",
+        "Adds standalone archive extraction support inside `bfpilot.elf`; normal archive extraction no longer requires injecting a separate worker ELF.",
+        "Adds archive handling for ZIP, RAR, 7z, and common split archive flows, including password prompting for encrypted archives.",
+        "Keeps the launcher installer as a separate payload for firmware compatibility.",
+        "Includes UI polish around storage display, plugged drive handling, and persistent custom shortcuts.",
+        "Keeps diagnostics and transfer instrumentation available for troubleshooting.",
+        "Artifacts:",
+        "`bfpilot.elf` - main compatible BFpilot file manager payload.",
+        "`bfpilot-launcher-installer.elf` - separate launcher tile installer payload."
+      ]
+    },
+    {
+      "version": "0.3",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3/bfpilot.elf",
+      "hash": "7aa63351a21bf7a663e95dee78409f9cd06fac29fc329fae902652399a3ffe46",
+      "fileSize": 186832,
+      "releaseDate": "2026-06-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "BFpilot v0.3 is a stable release after the compatibility and UI cleanup pass. (tested on 11.6 and 12.6)",
+        "Highlights:",
+        "Stable file-manager-only `bfpilot.elf` for broad firmware compatibility.",
+        "Separate `bfpilot-launcher-installer.elf` for the PS5 home-screen tile.",
+        "Cleaner web UI with Data/Homebrew/Mounts/User/Root places, mounted drives only when present, and a compact storage summary.",
+        "Persistent custom shortcuts with add, remove, and rename controls.",
+        "Transfer diagnostics with timing, throughput, byte counts, device IDs, and last-upload stats.",
+        "Faster PS5-side copy path with a larger transfer buffer.",
+        "Local diagnostics and a safe smoke test for upload, download, copy, move, rename, and cleanup under `/data/test`.",
+        "Repository cleanup: old debug/full/probe payloads and generated artifacts were removed from the release surface."
+      ]
+    },
+    {
+      "version": "0.2.1-test.4",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.2.1-test.4/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.2.1-test.4/bfpilot.elf",
+      "hash": "4ac2fd8ad78acf7692256e597442e9d3f94df963ec01b441ada52bd9cf589b0b",
+      "fileSize": 177784,
+      "releaseDate": "2026-06-12",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "BFpilot v0.2.1 test build 4. This is a prerelease root-cause repair build, not the latest stable release.",
+        "Recommended payloads:",
+        "bfpilot.elf: maximum-compatibility file manager only.",
+        "bfpilot-launcher-installer.elf: isolated tile installer using the live-proven ps5-websrv dependency/authid pattern.",
+        "bfpilot-debug.elf: file-manager startup diagnostics.",
+        "bfpilot-launcher-installer-safe.elf and installer probes: firmware/loader diagnostics.",
+        "bfpilot-full.elf: experimental integrated launcher path.",
+        "Key fixes:",
+        "Live-tested launcher tile registration now succeeds: UserService init, authid setup, AppInst init, and AppInstallTitleDir all returned 0.",
+        "Stable bfpilot.elf remains launcher-free and maximum compatibility."
+      ]
+    },
+    {
+      "version": "0.2.1-test.3",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.2.1-test.3/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.2.1-test.3/bfpilot.elf",
+      "hash": "c9451678b0dc16b2cad0b9befbd360232e558b4b4664d829546821a04232d645",
+      "fileSize": 178736,
+      "releaseDate": "2026-06-04",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "BFpilot v0.2.1 test build 3. This is a prerelease compatibility build, not the latest stable release.",
+        "Recommended first payload:",
+        "bfpilot.elf: maximum-compatibility file manager, no AppInstUtil/launcher installer imports.",
+        "Debug/test payloads:",
+        "bfpilot-debug.elf: file manager with extra boot/debug notifications.",
+        "bfpilot-full.elf: dynamic launcher experiment plus file manager.",
+        "bfpilot-launcher-installer.elf: direct AppInstUtil launcher installer test, mainly for firmware/loaders that accept AppInst imports.",
+        "bfpilot-launcher-installer-safe.elf: runtime AppInst resolver diagnostic.",
+        "tests/*.elf: small boot/http/notification/AppInst probes.",
+        "Changes in this test build:"
+      ]
+    },
+    {
+      "version": "0.2.1-test.2",
+      "fileName": "bfpilot-core.elf",
+      "filePath": "payloads/bfpilot/0.2.1-test.2/bfpilot-core.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.2.1-test.2/bfpilot-core.elf",
+      "hash": "4375479705f599147533e3ec667fb18bf03fe9de17eb29fb54c5998078d429e0",
+      "fileSize": 177968,
+      "releaseDate": "2026-06-03",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Firmware-compatibility test build. This is a prerelease test build, not the latest stable release.",
+        "Changes since v0.2.1-test.1:",
+        "Full build now links libSceAppInstUtil normally.",
+        "Full build calls sceAppInstUtilInitialize() and sceAppInstUtilAppInstallAll(NULL) through SDK stubs.",
+        "Only sceAppInstUtilAppInstallTitleDir is dynamically resolved by NID Wudg3Xe3heE.",
+        "Launcher install runs after the web server starts and failures are nonfatal.",
+        "Launcher failure notification now says BFpilot launcher skipped / Use http://PS5_IP:5905/.",
+        "/api/diag now reports core_server_started, launcher_attempted, appinst_init_rc, title_dir_resolved, install_title_rc, install_all_rc, uninstall_rc, and launcher_final_state.",
+        "Recommended test order:",
+        "Send bfpilot-core.elf to elfldr port 9021 and open http://PS5_IP:5905/."
+      ]
+    },
+    {
+      "version": "0.2.1-test.1",
+      "fileName": "bfpilot-core.elf",
+      "filePath": "payloads/bfpilot/0.2.1-test.1/bfpilot-core.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.2.1-test.1/bfpilot-core.elf",
+      "hash": "4477574a489aa43e3e12acf540a0913b47b855dbab1061fefad882d53cc905b4",
+      "fileSize": 176512,
+      "releaseDate": "2026-06-03",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "BFpilot v0.2.1 firmware-compatibility test build.",
+        "This is a prerelease/test build, not the latest stable release.",
+        "Recommended test order:",
+        "Test bfpilot-core.elf first on every firmware/loader.",
+        "Open http://PS5_IP:5905/ and verify /api/status and /api/diag.",
+        "Only test bfpilot-full.elf after core mode works.",
+        "Treat launcher install failure as non-fatal if the web server still works.",
+        "See docs/FIRMWARE_TESTING.md for the full test protocol."
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.2.0/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.2.0/bfpilot.elf",
+      "hash": "09e668baae3b9aa5e998dcd521ab2620f5314791a5698e08dae3ee800ea828d1",
+      "fileSize": 324688,
+      "releaseDate": "2026-06-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "BFpilot v0.2.0 is the renamed file-manager-focused build.",
+        "Added and fixed in this build:",
+        "Renamed the project, web UI, PS5 launcher tile, notifications, and release binary from BS5FileManager to BFpilot.",
+        "Removes older BSFM00001 / BS5F00001 launcher tiles during refresh.",
+        "Keeps reinjection handoff compatible with older BS5FileManager listeners on port 5905.",
+        "Upload progress from the web UI shows sent size, speed, ETA, file count, and current filename.",
+        "missing target folders are created automatically.",
+        "Injecting the payload refreshes/installs the PS5 launcher tile without auto-opening the browser.",
+        "Cancel handling is safer during scan, copy, move cleanup, and delete operations.",
+        "dark themed now"
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "fileName": "bs5filemanager.elf",
+      "filePath": "payloads/bfpilot/0.1.1/bs5filemanager.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.1.1/bs5filemanager.elf",
+      "hash": "89759a423196c2baef799480bb4ed514a152ac288359491b3d494c0f0e7d470d",
+      "fileSize": 150224,
+      "releaseDate": "2026-05-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Early BS5FileManager build, focused on a small stable PS5 browser file manager.",
+        "Changes in this corrected 0.1.1 build:",
+        "Refreshes and re-registers the PS5 home-screen launcher tile on every injection.",
+        "Stores launcher state under /data/BS5fm.",
+        "Adds safe reinjection handoff: idle old instances are stopped, active file jobs are left alone.",
+        "Keeps the web UI on port 5905 and inject/deploy port 9021.",
+        "Shows copy/move/delete speed in MB/s and ETA from server-side job counters."
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "fileName": "bs5filemanager.elf",
+      "filePath": "payloads/bfpilot/0.1.0/bs5filemanager.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.1.0/bs5filemanager.elf",
+      "hash": "33761f07b975f2664d0609899f208dd91a5ce8f0ffd2408d60bddfe979b8170e",
+      "fileSize": 149640,
+      "releaseDate": "2026-05-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Early but stable BS5FileManager build.",
+        "This is the first public release of the lightweight PS5 browser file-manager payload.",
+        "Highlights:",
+        "Web file manager on port 5905",
+        "PS5 home-screen launcher tile",
+        "Copy, move, delete, rename, mkdir, upload, and download",
+        "Click-to-calculate folder sizes",
+        "Inject `bs5filemanager.elf` on port `9021`, then open `http://<PS5_IP>:5905/`.",
+        "SHA256 (\bs5filemanager.elf): 33761f07b975f2664d0609899f208dd91a5ce8f0ffd2408d60bddfe979b8170e"
+      ]
+    }
+  ],
+  "supportedFirmwares": []
+}
