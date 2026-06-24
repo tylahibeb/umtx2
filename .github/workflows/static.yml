@@ -48,6 +48,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Regenerate appcache manifest
+        if: success()
+        # Keep cache.appcache in git in sync with the just-emitted payload_map.js
+        # so on-disk hashes + metadata.json entries for new/changed payloads
+        # are picked up. `git add .` in the next step will include any diff.
+        run: |
+          python appcache_manifest_generator.py -d document/en/ps5
+
       - name: Commit changes
         if: success()
         run: |
