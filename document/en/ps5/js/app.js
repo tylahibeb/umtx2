@@ -86,25 +86,46 @@ function registerAppCacheEventHandlers() {
     function createOrUpdateAppCacheToast(message, timeout) {
         if (timeout === undefined) timeout = -1;
 
-        if (!toast) {
-            toast = showToast(message, timeout);
-        } else {
-            updateToastMessage(toast, message);
-        }
+        // Defer one tick so loadDevOptions() finishes populating
+        // window.devOptions on first page load (mirrors the pattern used
+        // by the deferred 'downloading' listener below). When 'Disable
+        // AppCache' is on, dismiss any pending stuck toast and skip
+        // showing a new one — the user opted out of the AppCache pipeline
+        // and shouldn't see "Downloading new cache..." or any intermediate
+        // toast whose follow-up event was aborted.
+        setTimeout(function () {
+            if (window.devOptions && window.devOptions.disableAppCache) {
+                if (toastTimeout) {
+                    clearTimeout(toastTimeout);
+                    toastTimeout = null;
+                }
+                if (toast) {
+                    removeToast(toast);
+                    toast = null;
+                }
+                return;
+            }
 
-        // Clear any existing timeout before setting a new one
-        if (toastTimeout) {
-            clearTimeout(toastTimeout);
-            toastTimeout = null;
-        }
+            if (!toast) {
+                toast = showToast(message, timeout);
+            } else {
+                updateToastMessage(toast, message);
+            }
 
-        if (timeout > 0) {
-            toastTimeout = setTimeout(function () {
-                removeToast(toast);
-                toast = null;
+            // Clear any existing timeout before setting a new one
+            if (toastTimeout) {
+                clearTimeout(toastTimeout);
                 toastTimeout = null;
-            }, timeout);
-        }
+            }
+
+            if (timeout > 0) {
+                toastTimeout = setTimeout(function () {
+                    removeToast(toast);
+                    toast = null;
+                    toastTimeout = null;
+                }, timeout);
+            }
+        }, 0);
     }
 
     /** Dismiss the current cache toast with a final message, then auto-remove. */
@@ -127,16 +148,10 @@ function registerAppCacheEventHandlers() {
         createOrUpdateAppCacheToast("Checking for updates...");
     }, false);
 
-    appCache.addEventListener('downloading', function (e) {
-        createOrUpdateAppCacheToast('Downloading new cache...');
-    }, false);
-
     appCache.addEventListener('error', function (e) {
-        // If Disable AppCache is on, the abort() above legitimately triggers
-        // this error event. Don't bother the user with a toast in that mode.
-        if (window.devOptions && window.devOptions.disableAppCache) {
-            return;
-        }
+        // Abort above legitimately fires this 'error' event when Disable
+        // AppCache is on; createOrUpdateAppCacheToast's deferred gate will
+        // dismiss any pending stuck toast and skip showing an error here.
         // only show error toast if we're online
         if (navigator.onLine) {
             finishAppCacheToast('Error while caching site.', 5000);
