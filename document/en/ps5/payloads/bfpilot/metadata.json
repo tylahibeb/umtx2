@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.3.1-test5",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.1-test5/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test5/bfpilot.elf",
+      "hash": "8ddb633cf97f141f72a9a3135be35187d2b073b5a6e90d6c731d4456cecc0865",
+      "fileSize": 193264,
+      "releaseDate": "2026-06-24",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "BFpilot v0.3.1 test build 5.",
+        "Changes:",
+        "Archive extraction is back out of the main payload. `bfpilot.elf` is",
+        "file-manager-only again.",
+        "RAR and 7z extraction were made conservative for PS5 stability.",
+        "Docs and diagnostics were aligned to the worker-based archive flow.",
+        "Build and import checks passed.",
+        "Assets:",
+        "`bfpilot.elf`",
+        "`bfpilot-launcher-installer.elf`"
+      ]
+    },
+    {
       "version": "0.3.1-test4",
       "fileName": "bfpilot.elf",
       "filePath": "payloads/bfpilot/0.3.1-test4/bfpilot.elf",
@@ -21,7 +45,7 @@
       "hash": "9c59141cdf0c9b0c8c5c912c207ac055986833f0232d2e6d0ac348bfdebd60f3",
       "fileSize": 996368,
       "releaseDate": "2026-06-20",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
