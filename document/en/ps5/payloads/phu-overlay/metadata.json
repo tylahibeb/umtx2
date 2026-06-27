@@ -1,0 +1,30 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "id": "phu-overlay",
+  "displayTitle": "PHU Games Tools",
+  "description": "FPS counter, statistics, patches, cheats, and trophy installer overlay for jailbroken PS5. In-game controls: L2+R3 to toggle overlay, L1+R1+Touchpad for cheat menu. Requires kstuff. Supports FW 3.00-12.70.",
+  "authors": [
+    "Team-PHU"
+  ],
+  "projectUrl": "",
+  "sourceRepo": "",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "1.15.0-alpha",
+      "fileName": "phu_overlay.elf",
+      "filePath": "payloads/phu-overlay/1.15.0-alpha/phu_overlay.elf",
+      "downloadUrl": "",
+      "hash": "8ba85b204ac48e153c245486611bcc3017f043fd3a566c5861dcf31e083807f8",
+      "fileSize": 1525576,
+      "releaseDate": "2026-05-24",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ],
+  "supportedFirmwares": []
+}

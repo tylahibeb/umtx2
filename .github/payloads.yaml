@@ -549,6 +549,25 @@ payloads:
       type: ""
       url: ""
 
+  # --- WebKit Cache Remover: Browser cache cleaner for all users ---
+  # Repo has GitHub Releases with webkit_cache_remover.elf assets.
+  # Deletes /user/home/<userid>/webkit/shell directories for all users.
+  # Tested on FW 4.51. Runtime ~2 seconds with kstuff enabled.
+  - id: webkit-cache-remover
+    displayTitle: WebKit Cache Remover
+    description: Removes WebKit browser cache for all users on jailbroken PS5 consoles. Runtime ~2 seconds with kstuff enabled. Tested on FW 4.51.
+    authors:
+      - vladimir-cucu
+    projectUrl: https://github.com/vladimir-cucu/ps5-webkit-cache-remover
+    sourceType: github-release
+    sourceRepo: vladimir-cucu/ps5-webkit-cache-remover
+    sourcePattern: ps5-webkit-cache-remover*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
   # ===========================================================================
   # Pattern B: direct (Manual URL Management)
   # Use this when:
@@ -922,3 +941,28 @@ payloads:
         url: ""
         isDefault: true
         releaseDate: 2026-06-16
+
+  # --- PHU Games Tools: FPS counter, stats, patches, cheats, trophy installer ---
+  # Direct sourceType — binary provided locally, no upstream GitHub Releases.
+  # Drop a new phu_overlay.elf into payloads/phu-overlay/{version}/ and
+  # bump manualVersions to update.
+  - id: phu-overlay
+    displayTitle: PHU Games Tools
+    description: "FPS counter, statistics, patches, cheats, and trophy installer overlay for jailbroken PS5. In-game controls: L2+R3 to toggle overlay, L1+R1+Touchpad for cheat menu. Requires kstuff. Supports FW 3.00-12.70."
+    authors:
+      - Team-PHU
+    projectUrl: ""
+    sourceType: direct
+    sourceRepo: ""
+    sourcePattern: phu_overlay*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "1.15.0-alpha"
+        fileName: phu_overlay.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2026-05-24

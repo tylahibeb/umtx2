@@ -1,0 +1,48 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "id": "webkit-cache-remover",
+  "displayTitle": "WebKit Cache Remover",
+  "description": "Removes WebKit browser cache for all users on jailbroken PS5 consoles. Runtime ~2 seconds with kstuff enabled. Tested on FW 4.51.",
+  "authors": [
+    "vladimir-cucu"
+  ],
+  "projectUrl": "https://github.com/vladimir-cucu/ps5-webkit-cache-remover",
+  "sourceRepo": "vladimir-cucu/ps5-webkit-cache-remover",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "1.02",
+      "fileName": "ps5-webkit-cache-remover-v1.02.elf",
+      "filePath": "payloads/webkit-cache-remover/1.02/ps5-webkit-cache-remover-v1.02.elf",
+      "downloadUrl": "https://github.com/vladimir-cucu/ps5-webkit-cache-remover/releases/download/v1.02/ps5-webkit-cache-remover-v1.02.elf",
+      "hash": "96fa4e50f13bdb50dfa6487743f031d4c8779d2ebdd02ca2e36dbdf76cbad5ef",
+      "fileSize": 118448,
+      "releaseDate": "2025-05-22",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Improved runtime from ~15 sec to ~2 sec when `kstuff` is enabled.",
+        "Built with v0.30 of `ps5-payload-sdk`."
+      ]
+    },
+    {
+      "version": "1.01",
+      "fileName": "ps5-webkit-cache-remover-v1.01.elf",
+      "filePath": "payloads/webkit-cache-remover/1.01/ps5-webkit-cache-remover-v1.01.elf",
+      "downloadUrl": "https://github.com/vladimir-cucu/ps5-webkit-cache-remover/releases/download/v1.01/ps5-webkit-cache-remover-v1.01.elf",
+      "hash": "13e4aa34451535667ab59fe1151318b9aefaa55c1d1c1abfd121a77fd6d47843",
+      "fileSize": 116768,
+      "releaseDate": "2025-05-09",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added sanity check to validate user cache paths before deletion.",
+        "Improved safety of `strncpy` usage by enforcing proper bounds."
+      ]
+    }
+  ],
+  "supportedFirmwares": []
+}
