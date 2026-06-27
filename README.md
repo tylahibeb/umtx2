@@ -51,6 +51,16 @@ etaHEN, elfldr, ftpsrv, websrv, gdbsrv, klogsrv, shsrv, ps5debug, ps5debug-dizz,
 
 Live at: [https://kemalsanli.github.io/umtx2/](https://kemalsanli.github.io/umtx2/)
 
+### Custom Payload Repository (for PS5 Payload Manager)
+
+This host also publishes its catalog as a JSON file in the format consumed by [itsPLK/ps5-payload-manager](https://github.com/itsPLK/ps5-payload-manager) (see `CUSTOM_REPOSITORIES.md`). To install the catalog in PS5 Payload Manager, open **Settings → Manage Sources → Add Source** and paste:
+
+```
+https://tylahibeb.github.io/umtx2/payloads.json
+```
+
+Catalog contents: one entry per visible payload (deprecated/`sourceType: custom` payloads are filtered out), pointing at the default/latest version. Each item includes an optional SHA-256 `checksum` for download verification and an auto-derived `category` (Networking / Game / Hack / Tools / Uncategorized).
+
 ### Self-hosted
 
 If you'd rather run your own instance (LAN-only, custom domain, or fully offline / air-gapped), use the companion repo:

@@ -263,6 +263,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 PAYLOADS_DIR = REPO_ROOT / "document" / "en" / "ps5" / "payloads"
 PAYLOAD_MAP_FILE = REPO_ROOT / "document" / "en" / "ps5" / "payload_map.js"
 PAYLOAD_CONFIG_FILE = REPO_ROOT / ".github" / "payloads.yaml"
+CUSTOM_CATALOG_FILE = REPO_ROOT / "document" / "en" / "ps5" / "payloads.json"
+CUSTOM_CATALOG_NAME = "Custom Payloads Host"
 
 MAX_VERSIONS_PER_PAYLOAD = 999  # Effectively unlimited - fetch all available versions
 CUSTOM_ACTION_APPCACHE_REMOVE = "appcache-remove"
@@ -272,6 +274,22 @@ AUTHOR_PATTERNS = {
     "MIT": ["john-tornblom"],
     "GPL": ["LightningMods", "sleirsgoevy", "EchoStretch"],
 }
+
+# Auto-tag categories for the PS5 Payload Manager custom repository catalog
+# (https://github.com/itsPLK/ps5-payload-manager/blob/main/CUSTOM_REPOSITORIES.md).
+# First-match wins against the payload description; missing matches fall back to
+# 'Uncategorized', which the spec treats as pldmgr's default bucket.
+CATEGORY_KEYWORDS = [
+    ("Networking", ["ftp", "klog", "shell server", "telnet", "http server",
+                    "https server", "dns", "tunnel_proxy", "http server"]),
+    ("Game", ["cheat", "patch", "fps counter", "framerate", "trophy",
+              "mount", "mounting", "game image", "image mounter"]),
+    ("Hack", ["debug", "kstuff", "hen", "fpkg", "hypervisor",
+              "jailbreak", "jailbroken", "enabler", "jail"]),
+    ("Tools", ["payload manager", "elf loader", "elfldr", "file manager",
+               "browser cache", "browser", "utility", "toolbox",
+               "manager", "installer"]),
+]  # noqa: E501
 
 
 def calculate_file_hash(file_path: Path) -> str:
@@ -1254,6 +1272,188 @@ def generate_payload_map_js(payloads_config: List[Dict]) -> str:
     return "\n".join(lines)
 
 
+# =============================================================================
+#  Custom Repository Catalog Generator
+# =============================================================================
+# Produces document/en/ps5/payloads.json — a JSON file in the
+# ps5-payload-manager "CUSTOM_REPOSITORIES" schema. PS5 Payload Manager users
+# paste the URL of this file into Settings → Manage Sources → Add Source.
+#
+# Source: payloads.yaml + the metadata.json files already on disk under
+# document/en/ps5/payloads/<id>/. No network calls required at generation time
+# (the upstream remote URLs are *embedded* in the catalog, not fetched here).
+# =============================================================================
+
+
+def derive_gh_pages_base_url() -> str:
+    """Compute the GitHub Pages base URL for this repository.
+
+    Priority:
+      1. `$GITHUB_REPOSITORY` (always set in GitHub Actions) → https://<owner>.github.io/<repo>/
+      2. `git remote get-url origin` for local development → ditto
+      3. Empty string — caller treats this as "fallback unavailable".
+
+    Both SSH (`git@github.com:owner/repo.git`) and HTTPS remote URLs are supported.
+    """
+    repo = os.environ.get('GITHUB_REPOSITORY', '')
+    if repo and '/' in repo:
+        owner, name = repo.split('/', 1)
+        return f"https://{owner}.github.io/{name}/"
+    try:
+        result = subprocess.run(
+            ['git', 'remote', 'get-url', 'origin'],
+            capture_output=True, text=True, check=True, timeout=10
+        )
+        url = result.stdout.strip()
+        match = re.search(r'github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?/?$', url)
+        if match:
+            return f"https://{match.group(1)}.github.io/{match.group(2)}/"
+    except Exception:
+        pass
+    return ""
+
+
+def categorize_description(description: str) -> str:
+    """Auto-tag a payload by description keywords; first match wins."""
+    if not description:
+        return "Uncategorized"
+    d = description.lower()
+    for category, keywords in CATEGORY_KEYWORDS:
+        for kw in keywords:
+            if kw in d:
+                return category
+    return "Uncategorized"
+
+
+def build_catalog_item(
+    payload_cfg: Dict,
+    default_version: Dict,
+    gh_pages_base: str,
+) -> Optional[Dict]:
+    """Build a single catalog entry from a payload config + its default version.
+
+    Returns None if the entry would have an empty filename or url. The caller
+    is expected to skip such entries so pldmgr's parser never sees them.
+    """
+    filename = default_version.get('fileName', '')
+    if not filename:
+        return None  # Custom action or empty entry -> skip
+
+    upstream_url = (default_version.get('downloadUrl') or '').strip()
+    fallback_url = ''
+    file_path = default_version.get('filePath', '')
+    if file_path and gh_pages_base:
+        # filePath is repo-relative ("payloads/foo/1.0/foo.elf"); prepend base.
+        fallback_url = gh_pages_base + file_path.lstrip('/')
+
+    url = upstream_url or fallback_url
+    if not url:
+        return None
+
+    item = {
+        "name": payload_cfg.get('displayTitle', payload_cfg['id']),
+        "filename": filename,
+        "url": url,
+    }
+
+    description = payload_cfg.get('description', '')
+    if description:
+        item["description"] = description
+
+    version = default_version.get('version', '')
+    if version:
+        item["version"] = version
+
+    item["category"] = categorize_description(description)
+
+    checksum = default_version.get('hash', '')
+    if checksum:
+        item["checksum"] = checksum.lower()
+
+    return item
+
+
+def include_payload_in_catalog(payload_cfg: Dict) -> bool:
+    """Filter: skip custom-JS actions and `willHideEveryTime` payloads."""
+    if payload_cfg.get('sourceType') == 'custom':
+        return False
+    if payload_cfg.get('willHideEveryTime'):
+        return False
+    return True
+
+
+def generate_custom_catalog(
+    payloads_config: List[Dict],
+    output_path: Path,
+    gh_pages_base: Optional[str] = None,
+) -> int:
+    """Generate `payloads.json` from a list of processed payload configs.
+
+    Filtering (see `include_payload_in_catalog`): skips custom sourceType and
+    payloads with `willHideEveryTime: true`. For each remaining payload it
+    picks the `isDefault` version (or the first version if no default was
+    marked) and builds a single catalog entry. The `url` field falls back to
+    GH Pages if the upstream `downloadUrl` is empty.
+
+    Honors the spec rule that the top-level `name` field appears before
+    `payloads` in the file — Python 3.7+ dicts preserve insertion order and
+    `json.dump` mirrors it.
+
+    Returns the number of items written. Writes atomically (tmp → rename).
+    """
+    if gh_pages_base is None:
+        gh_pages_base = derive_gh_pages_base_url()
+
+    items: List[Dict] = []
+    skipped_no_url = 0
+    skipped_no_version = 0
+    skipped_filtered = 0
+
+    for payload in payloads_config:
+        if not include_payload_in_catalog(payload):
+            skipped_filtered += 1
+            continue
+
+        # Try in-memory `versions` first; fall back to on-disk metadata.json so
+        # the function is usable both from `main()` (post-update payloads) and
+        # from a standalone builder that only has a YAML config.
+        versions = payload.get('versions') or []
+        if not versions:
+            versions = load_metadata(payload['id']).get('versions', [])
+        if not versions:
+            skipped_no_version += 1
+            continue
+
+        default_version = next((v for v in versions if v.get('isDefault')), None)
+        if not default_version:
+            # If no version was marked default, fall back to the first one
+            # rather than silently dropping the payload from the catalog.
+            default_version = versions[0]
+
+        item = build_catalog_item(payload, default_version, gh_pages_base)
+        if item is None:
+            skipped_no_url += 1
+            continue
+        items.append(item)
+
+    catalog = {
+        "name": CUSTOM_CATALOG_NAME,
+        "payloads": items,
+    }
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = output_path.with_suffix(output_path.suffix + '.tmp')
+    with open(tmp_path, 'w', encoding='utf-8') as f:
+        json.dump(catalog, f, indent=2, ensure_ascii=False)
+        f.write('\n')
+    tmp_path.rename(output_path)
+
+    print(f"  Generated {output_path.name}: {len(items)} payloads "
+          f"({skipped_filtered} filtered, {skipped_no_version} no-version, "
+          f"{skipped_no_url} no-url)")
+    return len(items)
+
+
 def main():
     print("=" * 60)
     print("PS5 UMTX2 Payload Updater v2")
@@ -1421,6 +1621,10 @@ def main():
     with open(PAYLOAD_MAP_FILE, 'w') as f:
         f.write(new_content)
     print(f"Written: {PAYLOAD_MAP_FILE}")
+
+    # Generate the PS5 Payload Manager custom repository catalog
+    # (document/en/ps5/payloads.json). See CUSTOM_CATALOG_FILE above.
+    generate_custom_catalog(config['payloads'], CUSTOM_CATALOG_FILE)
 
     # Set GitHub Actions output
     if os.environ.get('GITHUB_OUTPUT'):

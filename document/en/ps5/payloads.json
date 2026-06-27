@@ -1,0 +1,329 @@
+{
+  "name": "Custom Payloads Host",
+  "payloads": [
+    {
+      "name": "kstuff-lite (drakmor fork)",
+      "filename": "kstuff.elf",
+      "url": "https://github.com/drakmor/kstuff-lite/releases/download/1.2-dr-test2/kstuff.elf",
+      "description": "FPKG enabler - Performance optimized fork with 1.5-2x speed improvement",
+      "version": "1.2-dr-test2",
+      "category": "Hack",
+      "checksum": "2b699d411079a21dba7c39a02993fc0fb21e52f434103e884a0c892fafe56b75"
+    },
+    {
+      "name": "ShadowMountPlus",
+      "filename": "shadowmountplus.elf",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test15-fix2/shadowmountplus.elf",
+      "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
+      "version": "1.6test15-fix2",
+      "category": "Game",
+      "checksum": "8ab32f4cede840a73515c05697fe81759bc98cf41fc22b43e09943262f447e99"
+    },
+    {
+      "name": "etaHEN",
+      "filename": "etaHEN-2.5B.bin",
+      "url": "https://github.com/etaHEN/etaHEN/releases/download/2.5B/etaHEN-2.5B.bin",
+      "description": "AIO HEN",
+      "version": "2.5B",
+      "category": "Hack",
+      "checksum": "4845cac45095361b8983b14d6690622183b0dcfbf6d7fda16e161aa91ff0531e"
+    },
+    {
+      "name": "nanoDNS",
+      "filename": "nanodns.elf",
+      "url": "https://github.com/drakmor/nanoDNS/releases/download/0.3/nanodns.elf",
+      "description": "DNS proxy server for PS5 - blocks PlayStation telemetry domains",
+      "version": "0.3",
+      "category": "Networking",
+      "checksum": "ce1c8b31036ab948da65b362a4b6f249ffca8a555fc5bc4b051ec65d041bc944"
+    },
+    {
+      "name": "pldmgr",
+      "filename": "pldmgr_v0.3.1.elf",
+      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.3.1/pldmgr_v0.3.1.elf",
+      "description": "PS5 payload manager. Runs on PS5 as a web server.",
+      "version": "0.3.1",
+      "category": "Tools",
+      "checksum": "518740adbacccb9094fadb07dd424c53ee290f38306449ccc9d6957fdf813c0b"
+    },
+    {
+      "name": "Elf Arsenal",
+      "filename": "elf-arsenal.elf",
+      "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.21/elf-arsenal.elf",
+      "description": "All-in-one PS5 homebrew utility — save management, cheats, FTP, Linux loader, trophy unlocker, and file manager. Successor to Sonic Loader. WebUI on port 6969.",
+      "version": "1.6.21",
+      "category": "Networking",
+      "checksum": "cec800889364e4e8a4586989f27a1e31717b3b384683386b88deef9c78bc50dd"
+    },
+    {
+      "name": "websrv",
+      "filename": "websrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.32/websrv-ps5.elf",
+      "description": "Custom homebrew loader. Runs on port 8080.",
+      "version": "0.32",
+      "category": "Uncategorized",
+      "checksum": "8dd24df100bff6db156e86bdf9380d5c0fcd2a680c2b08f5c87380d5007190c5"
+    },
+    {
+      "name": "ftpsrv",
+      "filename": "ftpsrv-ps5-install.elf",
+      "url": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.20/ftpsrv-ps5-install.elf",
+      "description": "FTP server. Runs on port 2121.",
+      "version": "0.20",
+      "category": "Networking",
+      "checksum": "23f69de0f1ab1e1a3869473e87a271f750ec595056df0142fabbf21f5153c077"
+    },
+    {
+      "name": "gdbsrv",
+      "filename": "gdbsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.8/gdbsrv-ps5.elf",
+      "description": "GDB server. Runs on port 2159.",
+      "version": "0.8",
+      "category": "Uncategorized",
+      "checksum": "7621b829bd8b6d6f3d2328fa12c16af956b0ca128250f92a91eddc100c87f208"
+    },
+    {
+      "name": "klogsrv",
+      "filename": "klogsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.8/klogsrv-ps5.elf",
+      "description": "Klog server. Runs on port 3232.",
+      "version": "0.8",
+      "category": "Networking",
+      "checksum": "f6eb1b415ecf3340b89a56a0cb04ba5c714430085851ada13a98012b63a5a4cf"
+    },
+    {
+      "name": "shsrv",
+      "filename": "shsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.18.2/shsrv-ps5.elf",
+      "description": "Telnet shell server. Runs on port 2323.",
+      "version": "0.18.2",
+      "category": "Networking",
+      "checksum": "990f7fbcf3761f97db9b97638d3e119352447fb904b2cf70b191c02289e1c69e"
+    },
+    {
+      "name": "ELF Loader",
+      "filename": "elfldr-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.23/elfldr-ps5.elf",
+      "description": "ELF loader",
+      "version": "0.23",
+      "category": "Tools",
+      "checksum": "092d16ee0ede0c494947efd38d1a17bbd7cc4b022d3858ea898833c188c703e8"
+    },
+    {
+      "name": "Byepervisor HEN",
+      "filename": "byepervisor.elf",
+      "url": "https://github.com/EchoStretch/Byepervisor/releases/download/1.1/byepervisor.elf",
+      "description": "FPKG enabler",
+      "version": "1.1",
+      "category": "Hack",
+      "checksum": "f913ba96bf87561bcc22f1391d2ad58515b3ed0a9e5199d63dbbd9125ec3c317"
+    },
+    {
+      "name": "ps5debug-NG",
+      "filename": "ps5debug-NG_v1.3.0.elf",
+      "url": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.3.0/ps5debug-NG_v1.3.0.elf",
+      "description": "PS5 debugger payload - userland TCP wire-protocol server hosted inside SceShellCore (successor to GoldHEN/ps5debug)",
+      "version": "1.3.0",
+      "category": "Hack",
+      "checksum": "8f75fb90b45d7cc4d59147e3323577d7264cf572c78a27f76722202f492ad16a"
+    },
+    {
+      "name": "PS5 Upload",
+      "filename": "ps5upload-3.3.22.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.22/ps5upload-3.3.22.elf",
+      "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
+      "version": "3.3.22",
+      "category": "Game",
+      "checksum": "6fac6e1fa572e8780a39b7d32f418eff8900f9d6c921d6aad926270db30f9527"
+    },
+    {
+      "name": "PS5 Game Compressor",
+      "filename": "game-compressor.elf",
+      "url": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.3/game-compressor.elf",
+      "description": "Compress, unpack, validate, and repair games mounted via ShadowMountPlus. WebUI on port 5910.",
+      "version": "1.0.3",
+      "category": "Game",
+      "checksum": "51b66edf6210c022d57a31ab12bf97f95a3c71ea683df387d9081494f11606b2"
+    },
+    {
+      "name": "CheatRunner",
+      "filename": "CheatRunner.elf",
+      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.14/CheatRunner.elf",
+      "description": "Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.",
+      "version": "0.14",
+      "category": "Game",
+      "checksum": "5ffe8ed97fd6021cfad2b44a1be68c1b9f6e84c1e3a8d925f9e3b975235aa99f"
+    },
+    {
+      "name": "ps5debug",
+      "filename": "ps5debug.elf",
+      "url": "https://github.com/idlesauce/ps5debug/releases/download/v0.0.1-r2/ps5debug.elf",
+      "description": "Debugger, open source version by DizzRL",
+      "version": "0.0.1-r2",
+      "category": "Hack",
+      "checksum": "550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f"
+    },
+    {
+      "name": "ps5-versions",
+      "filename": "ps5-versions.elf",
+      "url": "https://github.com/SiSTR0/ps5-versions/releases/download/v1.0/ps5-versions.elf",
+      "description": "Shows kernel build, os and sdk versions",
+      "version": "1.0",
+      "category": "Uncategorized",
+      "checksum": "4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be"
+    },
+    {
+      "name": "ps5-remoteplay-get-pin",
+      "filename": "rp-get-pin.elf",
+      "url": "https://github.com/idlesauce/ps5-remoteplay-get-pin/releases/download/v0.1.1/rp-get-pin.elf",
+      "description": "Get Remote Play PIN for offline activated users. Send again to cancel.",
+      "version": "0.1.1",
+      "category": "Uncategorized",
+      "checksum": "1d611c1856dd2f4b4b6cb42ead1128a7f08a26585788f92de79fa4f67d721472"
+    },
+    {
+      "name": "BackPork",
+      "filename": "ps5-backpork.elf",
+      "url": "https://github.com/BestPig/BackPork/releases/download/0.1/ps5-backpork.elf",
+      "description": "Background payload for sideloading system libraries into PS5 games",
+      "version": "0.1",
+      "category": "Uncategorized",
+      "checksum": "f76dd1885ef6aebec55e12a71b32a6bbf0e1cafb9146960a51b231fd52b914fe"
+    },
+    {
+      "name": "kstuff-lite (EchoStretch)",
+      "filename": "kstuff.elf",
+      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.07/kstuff.elf",
+      "description": "FPKG enabler — EchoStretch's official upstream kstuff-lite",
+      "version": "1.07",
+      "category": "Hack",
+      "checksum": "886c3440c0a5d07e146ae5e7a13c7884fbdd9ef88407d962c29daf2ea1d910c0"
+    },
+    {
+      "name": "Kylin Core",
+      "filename": "kylin-core.elf",
+      "url": "https://github.com/aydencharles/kylin-core-release/releases/download/v1.3.1-community-lite/kylin-core.elf",
+      "description": "PS5 homebrew cheat loader and real-time game modifier — supports .shn, .mc4, and .json formats with automatic game detection. Compatible with FW 4.xx - 12.xx.",
+      "version": "1.3.1-community-lite",
+      "category": "Game",
+      "checksum": "90320a4169d61be6e168e605e59c4d8fc89fb978f1772f03c2011e7e8087b8a3"
+    },
+    {
+      "name": "BFpilot",
+      "filename": "bfpilot.elf",
+      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test5/bfpilot.elf",
+      "description": "Browser-based file manager for jailbroken PS5 consoles — browse, upload, download, copy, move, rename, and delete files at http://<PS5_IP>:5905/. Built-in archive extraction (ZIP, RAR, 7z).",
+      "version": "0.3.1-test5",
+      "category": "Hack",
+      "checksum": "8ddb633cf97f141f72a9a3135be35187d2b073b5a6e90d6c731d4456cecc0865"
+    },
+    {
+      "name": "WebKit Cache Remover",
+      "filename": "ps5-webkit-cache-remover-v1.02.elf",
+      "url": "https://github.com/vladimir-cucu/ps5-webkit-cache-remover/releases/download/v1.02/ps5-webkit-cache-remover-v1.02.elf",
+      "description": "Removes WebKit browser cache for all users on jailbroken PS5 consoles. Runtime ~2 seconds with kstuff enabled. Tested on FW 4.51.",
+      "version": "1.02",
+      "category": "Hack",
+      "checksum": "96fa4e50f13bdb50dfa6487743f031d4c8779d2ebdd02ca2e36dbdf76cbad5ef"
+    },
+    {
+      "name": "ps5-kstuff (EchoStretch fork)",
+      "filename": "kstuff.elf",
+      "url": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.7/kstuff.elf",
+      "description": "FPKG enabler - Community fork with additional patches",
+      "version": "1.6.7",
+      "category": "Game",
+      "checksum": "f1c1f4b2b6395644af04cbe9828aba58586acf7aacb9e01113cac92ce16e3569"
+    },
+    {
+      "name": "ps5-kstuff",
+      "filename": "kstuff.elf",
+      "url": "https://github.com/EchoStretch/ps4jb-payloads/releases/download/kstuff-ps5/kstuff-ps5.elf",
+      "description": "FPKG enabler",
+      "version": "1.5",
+      "category": "Hack",
+      "checksum": "02da00b055e39d7bd08e9b59e07420f6368a2c165d6d345c2b734a3186ec4389"
+    },
+    {
+      "name": "kstuff-toggle (legacy 0.2)",
+      "filename": "kstuff-toggle.elf",
+      "url": "https://github.com/EchoStretch/kstuff-toggle/releases/download/latest/kstuff-toggle.elf",
+      "description": "Kstuff Toggle Beta - original single-binary release",
+      "version": "0.2",
+      "category": "Hack",
+      "checksum": "b85aac983940ff3b895136bdfdc81cd06af7670b3a8a3c386f08e0a406851ff4"
+    },
+    {
+      "name": "kstuff-toggle (PS5 sysentvec)",
+      "filename": "kstuff-toggle-ps5.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/kstuff-toggle-ps5/0.6/kstuff-toggle-ps5.elf",
+      "description": "Kstuff Toggle - toggles PS5 sysentvec only (Payload 1)",
+      "version": "0.6",
+      "category": "Hack",
+      "checksum": "9009b96f36721a1b4c305735038d70cd72d596c553156bfa2a27e60a68ae2dee"
+    },
+    {
+      "name": "kstuff-toggle (PS4 sysentvec)",
+      "filename": "kstuff-toggle-ps4.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/kstuff-toggle-ps4/0.6/kstuff-toggle-ps4.elf",
+      "description": "Kstuff Toggle - toggles PS4 sysentvec only (Payload 2)",
+      "version": "0.6",
+      "category": "Hack",
+      "checksum": "ae8c39e79f731b5b0515b8487ff7986cf9a626e760881dacc107bd888f3694c6"
+    },
+    {
+      "name": "kstuff-toggle (both sysentvec)",
+      "filename": "kstuff-toggle-both.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/kstuff-toggle-both/0.6/kstuff-toggle-both.elf",
+      "description": "Kstuff Toggle - toggles PS5 + PS4 sysentvec (Payload 3, equivalent to legacy 0.2 behavior)",
+      "version": "0.6",
+      "category": "Hack",
+      "checksum": "0e87e92959791d9edf04c314802fcf18ccf37db74ae353d434a0062557f85093"
+    },
+    {
+      "name": "libhijacker game-patch",
+      "filename": "libhijacker-game-patch.v1.160.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/libhijacker/1.160/libhijacker-game-patch.v1.160.elf",
+      "description": "Patches supported games to run at higher framerates, and adds debug menus to certain titles.",
+      "version": "1.160",
+      "category": "Game",
+      "checksum": "6ea242cb1ed033f5111b63f0ed7d8162f30f417a778364213261636962cbf5fc"
+    },
+    {
+      "name": "ps5debug",
+      "filename": "ps5debug_v1.0b5.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/ps5debug/1.0b5/ps5debug_v1.0b5.elf",
+      "description": "Debugger",
+      "version": "1.0b5",
+      "category": "Hack",
+      "checksum": "9dc888f66b8dd97d1317ac7260ab9499f709ddf0cbab59db82347c0aa93aaa8a"
+    },
+    {
+      "name": "ps5-hen",
+      "filename": "ps5-hen.elf",
+      "url": "https://github.com/cragson/ps5-hen/releases/download/dev-latest/ps5-hen.elf",
+      "description": "HEN - Defeats the Hypervisor and enables homebrew and PS4 FPKG support",
+      "version": "dev-latest",
+      "category": "Hack",
+      "checksum": "e3359befe93809ec1c96a50bdf61ee0b0a8f56228a4e62dadab3738faf618723"
+    },
+    {
+      "name": "UMTX2 Host",
+      "filename": "umtx2-host.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/umtx2-host/1.0/umtx2-host.elf",
+      "description": "Payload that installs a shortcut to this payload manager",
+      "version": "1.0",
+      "category": "Tools",
+      "checksum": "a441fdedea149a9da05b3e3d8f5b8a106905586ad9a0e4001010edbe34c44378"
+    },
+    {
+      "name": "PHU Games Tools",
+      "filename": "phu_overlay.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/phu-overlay/1.15.0-alpha/phu_overlay.elf",
+      "description": "FPS counter, statistics, patches, cheats, and trophy installer overlay for jailbroken PS5. In-game controls: L2+R3 to toggle overlay, L1+R1+Touchpad for cheat menu. Requires kstuff. Supports FW 3.00-12.70.",
+      "version": "1.15.0-alpha",
+      "category": "Game",
+      "checksum": "8ba85b204ac48e153c245486611bcc3017f043fd3a566c5861dcf31e083807f8"
+    }
+  ]
+}

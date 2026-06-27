@@ -12,6 +12,7 @@ from typing import Dict, List, Set, Tuple
 # Configuration
 BASE_DIR = Path(__file__).parent.parent.parent / "document" / "en" / "ps5"
 PAYLOADS_DIR = BASE_DIR / "payloads"
+CUSTOM_CATALOG_FILE = BASE_DIR / "payloads.json"
 REQUIRED_METADATA_FIELDS = ["id", "displayTitle", "authors", "projectUrl", "versions"]
 REQUIRED_VERSION_FIELDS = ["version", "fileName", "filePath", "downloadUrl"]
 
@@ -257,6 +258,98 @@ def test_payload_map():
     
     print_success("payload_map.js is valid")
 
+def test_catalog_exists():
+    """Verify the PS5 Payload Manager custom-repository JSON exists."""
+    print_info("Checking payloads.json exists...")
+    if not CUSTOM_CATALOG_FILE.exists():
+        raise AssertionError(
+            f"Custom catalog missing: {CUSTOM_CATALOG_FILE}\n"
+            "  Regenerate with: python3 .github/scripts/build_catalog.py\n"
+            "  or rerun: python3 .github/scripts/update_payloads.py"
+        )
+    print_success(f"payloads.json exists ({CUSTOM_CATALOG_FILE.stat().st_size} bytes)")
+
+
+def test_catalog_structure():
+    """Validate payloads.json conforms to the ps5-payload-manager
+    CUSTOM_REPOSITORIES schema
+    (https://github.com/itsPLK/ps5-payload-manager/blob/main/CUSTOM_REPOSITORIES.md).  # noqa: E501
+    """
+    print_info("Validating payloads.json structure...")
+
+    with open(CUSTOM_CATALOG_FILE, 'r', encoding='utf-8') as f:
+        raw = f.read()
+
+    # Spec rule: 'name' MUST appear before 'payloads' in the JSON file so the
+    # parser can locate it correctly.
+    try:
+        name_idx = raw.index('"name"')
+        payloads_idx = raw.index('"payloads"')
+    except ValueError as e:
+        raise AssertionError(f"payloads.json missing top-level keys: {e}")
+    if name_idx > payloads_idx:
+        raise AssertionError(
+            "payloads.json: top-level 'name' field must appear before "
+            "'payloads' in the JSON file"
+        )
+
+    try:
+        catalog = json.loads(raw)
+    except json.JSONDecodeError as e:
+        raise AssertionError(f"payloads.json is invalid JSON: {e}")
+
+    if not isinstance(catalog, dict):
+        raise AssertionError("payloads.json root must be a JSON object")
+    if not catalog.get('name') or not isinstance(catalog['name'], str):
+        raise AssertionError("payloads.json: top-level 'name' must be a non-empty string")
+    if 'payloads' not in catalog or not isinstance(catalog['payloads'], list):
+        raise AssertionError("payloads.json: 'payloads' must be an array")
+
+    errors = []
+    for idx, item in enumerate(catalog['payloads']):
+        if not isinstance(item, dict):
+            errors.append(f"payloads[{idx}]: must be an object")
+            continue
+        for field in ('name', 'filename', 'url'):
+            v = item.get(field)
+            if not v or not isinstance(v, str):
+                errors.append(
+                    f"payloads[{idx}] ({item.get('name', '?')}): missing/empty '{field}'"
+                )
+        url = item.get('url', '') or ''
+        if url and not (url.startswith('http://') or url.startswith('https://')):
+            errors.append(
+                f"payloads[{idx}] ({item.get('name', '?')}): url must be http(s): {url}"
+            )
+        if 'version' in item and item['version'] is not None:
+            if not isinstance(item['version'], str):
+                errors.append(
+                    f"payloads[{idx}] ({item.get('name', '?')}): 'version' must be string"
+                )
+        checksum = item.get('checksum')
+        if checksum:
+            if not isinstance(checksum, str) or len(checksum) != 64 \
+                    or not re.fullmatch(r'[0-9a-fA-F]{64}', checksum):
+                errors.append(
+                    f"payloads[{idx}] ({item.get('name', '?')}): checksum must be "
+                    "64-character SHA-256 hex"
+                )
+
+    if errors:
+        raise AssertionError("payloads.json schema errors:\n  - " + "\n  - ".join(errors))
+
+    if len(catalog['payloads']) < 5:
+        raise AssertionError(
+            f"payloads.json has only {len(catalog['payloads'])} payloads; "
+            "expected at least 25 (visible payload set)"
+        )
+
+    print_success(
+        f"payloads.json valid: {len(catalog['payloads'])} payloads, "
+        f"name='{catalog['name']}'"
+    )
+
+
 def test_appcache():
     """Test cache.appcache lists all required files."""
     print_info("Validating cache.appcache...")
@@ -423,6 +516,8 @@ def main():
         ("JavaScript Syntax", test_js_syntax),
         ("HTML References", test_html_references),
         ("Payload Map", test_payload_map),
+        ("Custom Catalog Exists", test_catalog_exists),
+        ("Custom Catalog Structure", test_catalog_structure),
         ("AppCache", test_appcache),
         ("Global Functions", test_global_functions),
         ("CSS Validity", test_css_validity),

@@ -140,5 +140,5 @@ payloads/ps5upload/3.3.22/ps5upload-3.3.22.elf #6fac6e1fa572e8780a39b7d32f418eff
 payloads/kstuff/metadata.json #38d1460e812c4022005f2b6829cdadd5a6316caf302aa4c01913a163f8677e88
 payloads/kstuff/1.5/kstuff.elf #02da00b055e39d7bd08e9b59e07420f6368a2c165d6d345c2b734a3186ec4389
 
-NETWORK:
-*
+NETWORK:*
+payloads.json
