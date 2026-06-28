@@ -94,11 +94,11 @@
     {
       "name": "shsrv",
       "filename": "shsrv-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.18.2/shsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.19/shsrv-ps5.elf",
       "description": "Telnet shell server. Runs on port 2323.",
-      "version": "0.18.2",
+      "version": "0.19",
       "category": "Networking",
-      "checksum": "990f7fbcf3761f97db9b97638d3e119352447fb904b2cf70b191c02289e1c69e"
+      "checksum": "797827b50a93dbf327abdca45063d76ea24b17e561d927f397a0b73cadb2e2bd"
     },
     {
       "name": "ELF Loader",
