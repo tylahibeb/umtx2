@@ -13,11 +13,11 @@
     {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
-      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test15-fix2/shadowmountplus.elf",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta16/shadowmountplus.elf",
       "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
-      "version": "1.6test15-fix2",
+      "version": "1.6beta16",
       "category": "Game",
-      "checksum": "8ab32f4cede840a73515c05697fe81759bc98cf41fc22b43e09943262f447e99"
+      "checksum": "a35246fb3bb6042b25653b51cdcbc33254b40339342bf1d2dd0d2eceee2ca526"
     },
     {
       "name": "etaHEN",
@@ -58,11 +58,11 @@
     {
       "name": "websrv",
       "filename": "websrv-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.32/websrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.33/websrv-ps5.elf",
       "description": "Custom homebrew loader. Runs on port 8080.",
-      "version": "0.32",
+      "version": "0.33",
       "category": "Uncategorized",
-      "checksum": "8dd24df100bff6db156e86bdf9380d5c0fcd2a680c2b08f5c87380d5007190c5"
+      "checksum": "4676a40ac4c7ca1adeb04980efa48dd33a8961446b42e6a12abfcbe96090c8ac"
     },
     {
       "name": "ftpsrv",
@@ -129,12 +129,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-3.3.22.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.22/ps5upload-3.3.22.elf",
+      "filename": "ps5upload-3.3.24.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.24/ps5upload-3.3.24.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "3.3.22",
+      "version": "3.3.24",
       "category": "Game",
-      "checksum": "6fac6e1fa572e8780a39b7d32f418eff8900f9d6c921d6aad926270db30f9527"
+      "checksum": "0669701436835059cf5ddefbc7a739268fcb621337b59922d1670d36a5599896"
     },
     {
       "name": "PS5 Game Compressor",
