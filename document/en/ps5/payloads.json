@@ -193,11 +193,11 @@
     {
       "name": "kstuff-lite (EchoStretch)",
       "filename": "kstuff.elf",
-      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.07/kstuff.elf",
+      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.08/kstuff.elf",
       "description": "FPKG enabler — EchoStretch's official upstream kstuff-lite",
-      "version": "1.07",
+      "version": "1.08",
       "category": "Hack",
-      "checksum": "886c3440c0a5d07e146ae5e7a13c7884fbdd9ef88407d962c29daf2ea1d910c0"
+      "checksum": "641ad66069e64fb1fda970e37ab963287b3ae9669bba59926280e8b74848993b"
     },
     {
       "name": "Kylin Core",
