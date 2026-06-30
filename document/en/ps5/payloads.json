@@ -211,11 +211,11 @@
     {
       "name": "BFpilot",
       "filename": "bfpilot.elf",
-      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test5/bfpilot.elf",
+      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test6/bfpilot.elf",
       "description": "Browser-based file manager for jailbroken PS5 consoles — browse, upload, download, copy, move, rename, and delete files at http://<PS5_IP>:5905/. Built-in archive extraction (ZIP, RAR, 7z).",
-      "version": "0.3.1-test5",
+      "version": "0.3.1-test6",
       "category": "Hack",
-      "checksum": "8ddb633cf97f141f72a9a3135be35187d2b073b5a6e90d6c731d4456cecc0865"
+      "checksum": "a3f28c7d057822627c4c86953e6f68bdddc39b261acf869836315d74ad8f58ef"
     },
     {
       "name": "WebKit Cache Remover",
