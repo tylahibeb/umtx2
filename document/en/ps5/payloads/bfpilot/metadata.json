@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.3.1-test7-search",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.1-test7-search/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test7-search/bfpilot.elf",
+      "hash": "a22c39ad046f2853640320ffb6f5722b70bd677e64aef842a0e4edf38154a354",
+      "fileSize": 1418656,
+      "releaseDate": "2026-07-02",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Test build for BFpilot search/indexing work.",
+        "Changes:",
+        "Adds indexed search to the file manager UI.",
+        "Adds Index All for user/storage roots.",
+        "Adds Index System for broader system-file crawling.",
+        "Adds search status, cancel, stale tracking, and absolute-path search results.",
+        "Keeps launcher/AppInst imports isolated from the main payload.",
+        "Includes current archive extraction performance work in this build.",
+        "Validation:",
+        "Built all ELF artifacts with PS5_PAYLOAD_SDK=C:/Users/Blurf/ps5sdk."
+      ]
+    },
+    {
       "version": "0.3.1-test6-perf8",
       "fileName": "bfpilot.elf",
       "filePath": "payloads/bfpilot/0.3.1-test6-perf8/bfpilot.elf",
@@ -21,7 +45,7 @@
       "hash": "e9d2d9b0a25914dfa5f48e1936c34761a7c7ef8bca537f3f9c2a7afeaf6da38f",
       "fileSize": 1062720,
       "releaseDate": "2026-06-30",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
