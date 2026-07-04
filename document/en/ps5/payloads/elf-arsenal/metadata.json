@@ -15,6 +15,25 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.22",
+      "fileName": "elf-arsenal.elf",
+      "filePath": "payloads/elf-arsenal/1.6.22/elf-arsenal.elf",
+      "downloadUrl": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.22/elf-arsenal.elf",
+      "hash": "c9793086f68cc9403634642448b2aceb07059aecb331a0b8ae0caaff7cedf860",
+      "fileSize": 4692176,
+      "releaseDate": "2026-07-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Bumps embedded garlic-worker to **v1.1.5**.",
+        "Worker changes:",
+        "`copy_dir_recursive` (PS5) + `copy_dir_pfs` (PS4) now check `copy_file` return codes and fail loudly instead of silently truncating.  Encrypt paths bail with an ERROR log + save_unmount if the copy step fails (out of space or otherwise).  Latent hazard closed \u2014 server-side saveblocks-headroom already prevents the ENOSPC case in the wild.",
+        "User-Agent bumped from `sonicloader-worker/v1.1.4` -> `sonicloader-worker/v1.1.5` so HTOS-web can distinguish updated vs stale workers in the fleet.",
+        "Build pipeline:",
+        "Top-level workflow now rebuilds `payloads/garlic-worker.elf` from `garlic-worker-src/` on every push instead of shipping a stale pre-committed binary.  Future worker source edits flow into the fleet automatically."
+      ]
+    },
+    {
       "version": "1.6.21",
       "fileName": "elf-arsenal.elf",
       "filePath": "payloads/elf-arsenal/1.6.21/elf-arsenal.elf",
@@ -22,7 +41,7 @@
       "hash": "cec800889364e4e8a4586989f27a1e31717b3b384683386b88deef9c78bc50dd",
       "fileSize": 4692176,
       "releaseDate": "2026-06-18",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Bluesky links replace X/Twitter in UI and launcher. README cleaned up."

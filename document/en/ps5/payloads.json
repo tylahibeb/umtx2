@@ -49,11 +49,11 @@
     {
       "name": "Elf Arsenal",
       "filename": "elf-arsenal.elf",
-      "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.21/elf-arsenal.elf",
+      "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.22/elf-arsenal.elf",
       "description": "All-in-one PS5 homebrew utility — save management, cheats, FTP, Linux loader, trophy unlocker, and file manager. Successor to Sonic Loader. WebUI on port 6969.",
-      "version": "1.6.21",
+      "version": "1.6.22",
       "category": "Networking",
-      "checksum": "cec800889364e4e8a4586989f27a1e31717b3b384683386b88deef9c78bc50dd"
+      "checksum": "c9793086f68cc9403634642448b2aceb07059aecb331a0b8ae0caaff7cedf860"
     },
     {
       "name": "websrv",
@@ -193,11 +193,11 @@
     {
       "name": "kstuff-lite (EchoStretch)",
       "filename": "kstuff.elf",
-      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.08/kstuff.elf",
+      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.09/kstuff.elf",
       "description": "FPKG enabler — EchoStretch's official upstream kstuff-lite",
-      "version": "1.08",
+      "version": "1.09",
       "category": "Hack",
-      "checksum": "641ad66069e64fb1fda970e37ab963287b3ae9669bba59926280e8b74848993b"
+      "checksum": "ec5212794dc6e44ee8e70fd0549abec6d3dac8c3e03ddbeafd9f869ffe97d4e8"
     },
     {
       "name": "Kylin Core",
