@@ -14,6 +14,34 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.3.1-test9-exit",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.1-test9-exit/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test9-exit/bfpilot.elf",
+      "hash": "4f6ef844b8313c59fffedc04dcd14cb988f5f3509e5f2cf0fe1bf854eec218e0",
+      "fileSize": 1422952,
+      "releaseDate": "2026-07-05",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Release notes for BFpilot v0.3.1 Test Build 9 Exit. Includes loopback TCP wakeup to prevent accept() socket hangs during web server shutdown, clean shutdown flags for background archive daemon thread, and cleanup of multi-threaded search crawlers before exiting."
+      ]
+    },
+    {
+      "version": "0.3.1-test8-search",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.1-test8-search/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test8-search/bfpilot.elf",
+      "hash": "58b91c36fd2af6af41f3ca656bf4d6c24a28d924cf768fa5f8f46348e042c633",
+      "fileSize": 1422952,
+      "releaseDate": "2026-07-05",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Release notes for BFpilot v0.3.1 Test Build 8 Search. Includes thread-safe opendir/readdir search crawler, concurrent queue synchronization, double-free allocation fixes, and zero-copy/tail logs improvements."
+      ]
+    },
+    {
       "version": "0.3.1-test7-search",
       "fileName": "bfpilot.elf",
       "filePath": "payloads/bfpilot/0.3.1-test7-search/bfpilot.elf",
@@ -21,7 +49,7 @@
       "hash": "a22c39ad046f2853640320ffb6f5722b70bd677e64aef842a0e4edf38154a354",
       "fileSize": 1418656,
       "releaseDate": "2026-07-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
