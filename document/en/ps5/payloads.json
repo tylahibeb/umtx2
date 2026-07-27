@@ -13,11 +13,11 @@
     {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
-      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta16/shadowmountplus.elf",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha4/ShadowMountPlus_1.7alpha4.zip",
       "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
-      "version": "1.6beta16",
+      "version": "1.7alpha4",
       "category": "Game",
-      "checksum": "a35246fb3bb6042b25653b51cdcbc33254b40339342bf1d2dd0d2eceee2ca526"
+      "checksum": "7a9f948f2f0d4d1b4974cb59a7dfa01dfd3db79bc0b83c26355d992d9e73449e"
     },
     {
       "name": "etaHEN",
@@ -39,12 +39,12 @@
     },
     {
       "name": "pldmgr",
-      "filename": "pldmgr_v0.3.1.elf",
-      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.3.1/pldmgr_v0.3.1.elf",
+      "filename": "pldmgr_v0.5.0.elf",
+      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.0/pldmgr_v0.5.0.elf",
       "description": "PS5 payload manager. Runs on PS5 as a web server.",
-      "version": "0.3.1",
+      "version": "0.5.0",
       "category": "Tools",
-      "checksum": "518740adbacccb9094fadb07dd424c53ee290f38306449ccc9d6957fdf813c0b"
+      "checksum": "1fe181908027fc625147ac888288ed1bee72a378b4751d36a8a8e0582d306169"
     },
     {
       "name": "Elf Arsenal",
@@ -129,12 +129,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-3.3.24.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v3.3.24/ps5upload-3.3.24.elf",
+      "filename": "ps5upload-4.1.2.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v4.1.2/ps5upload-4.1.2.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "3.3.24",
+      "version": "4.1.2",
       "category": "Game",
-      "checksum": "0669701436835059cf5ddefbc7a739268fcb621337b59922d1670d36a5599896"
+      "checksum": "4ecdd43a638ebcf1028d1648ee3534ba776e7ba80e1f8c04b8f5c2e827700c93"
     },
     {
       "name": "PS5 Game Compressor",
@@ -148,11 +148,11 @@
     {
       "name": "CheatRunner",
       "filename": "CheatRunner.elf",
-      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.14/CheatRunner.elf",
+      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.16/CheatRunner.elf",
       "description": "Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.",
-      "version": "0.14",
+      "version": "0.16",
       "category": "Game",
-      "checksum": "5ffe8ed97fd6021cfad2b44a1be68c1b9f6e84c1e3a8d925f9e3b975235aa99f"
+      "checksum": "a5483253926a0188c76a68101714cbd9bbc9c2305e0b071fad775d752da995bb"
     },
     {
       "name": "ps5debug",
@@ -210,12 +210,12 @@
     },
     {
       "name": "BFpilot",
-      "filename": "bfpilot.elf",
-      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.1-test9-exit/bfpilot.elf",
+      "filename": "bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
+      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3-alpha.2/bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
       "description": "Browser-based file manager for jailbroken PS5 consoles — browse, upload, download, copy, move, rename, and delete files at http://<PS5_IP>:5905/. Built-in archive extraction (ZIP, RAR, 7z).",
-      "version": "0.3.1-test9-exit",
+      "version": "0.4.3-alpha.2",
       "category": "Hack",
-      "checksum": "4f6ef844b8313c59fffedc04dcd14cb988f5f3509e5f2cf0fe1bf854eec218e0"
+      "checksum": "7f35d04d3e3581710b70c0867df3dec0e252e369f30b4b3592356a25f6832fa0"
     },
     {
       "name": "WebKit Cache Remover",

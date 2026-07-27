@@ -1,7 +1,7 @@
 {
   "license": {
     "type": "Unknown",
-    "url": ""
+    "url": "https://github.com/ItsBlurf/BFpilot/blob/main/LICENSE"
   },
   "id": "bfpilot",
   "displayTitle": "BFpilot",
@@ -14,6 +14,190 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.4.3-alpha.2",
+      "fileName": "bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
+      "filePath": "payloads/bfpilot/0.4.3-alpha.2/bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3-alpha.2/bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
+      "hash": "7f35d04d3e3581710b70c0867df3dec0e252e369f30b4b3592356a25f6832fa0",
+      "fileSize": 247096,
+      "releaseDate": "2026-07-26",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Changes since v0.4.0:",
+        "Separate Media installer, one `/data/BFpilot` data directory, and clean",
+        "reinjection",
+        "Payload loading, chmod, case-insensitive paths, text editing, folder upload,",
+        "and RAR/7z/ZIP extraction",
+        "Safer recursive file operations, conflict handling, and faster large-file",
+        "copy and download paths",
+        "Direct target transfers plus clipboard-style Copy, Move, and Paste Here",
+        "Double-click folder opening, selection-aware controls, responsive layout,",
+        "and drag feedback that appears only while dragging files"
+      ]
+    },
+    {
+      "version": "0.4.3-alpha.1",
+      "fileName": "bfpilot-launcher-installer-v0.4.3-alpha.1.elf",
+      "filePath": "payloads/bfpilot/0.4.3-alpha.1/bfpilot-launcher-installer-v0.4.3-alpha.1.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3-alpha.1/bfpilot-launcher-installer-v0.4.3-alpha.1.elf",
+      "hash": "880291c685df05ca1e956def0741cef801a45d9f6c0d3ab742828e63b12e792e",
+      "fileSize": 247096,
+      "releaseDate": "2026-07-26",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "This alpha contains the work added after v0.4.0:",
+        "Separate Media tile installer, one `/data/BFpilot` data directory, and clean",
+        "reinjection/shutdown behavior",
+        "Payload loading through elfldr, chmod, case-insensitive paths, multi-select,",
+        "and RAR/7z/ZIP extraction",
+        "Safe text editing, recursive folder upload, conflict handling, staged",
+        "overwrite/merge, physical no-symlink traversal, and ShadowMountPlus warnings",
+        "Faster bounded large-file copies, writeback checkpoints, download tuning,",
+        "and earlier-return search queries with expanded telemetry",
+        "Clipboard-style Copy/Move/Paste, restored double-click folder opening,"
+      ]
+    },
+    {
+      "version": "0.4.2-test",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.2-test/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.2-test/bfpilot.elf",
+      "hash": "e1169a397fc9dc439169be2f39bf345a2f636d2e46fdd304c6569060d60ac373",
+      "fileSize": 1503416,
+      "releaseDate": "2026-07-22",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Every item below is an actual change after the `v0.4.1` tag. Unchanged",
+        "v0.4.1 packaging and retained safeguards are intentionally not presented as",
+        "v0.4.2 features.",
+        "Added built-in creation and editing for common UTF-8 text/source/config files,",
+        "with a 5 MiB limit, mode preservation, optimistic version-conflict detection,",
+        "and same-directory atomic replacement.",
+        "Added preservation of an existing UTF-8 BOM and dominant LF, CRLF, or CR",
+        "newline convention when saving through the browser editor.",
+        "Added recursive drag-and-drop folder enumeration through the browser WebKit",
+        "entry API; v0.4.1 did not recursively walk dropped directories."
+      ]
+    },
+    {
+      "version": "0.4.1",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.1/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.1/bfpilot.elf",
+      "hash": "e3ae75f6ab1eeb7dfea6ffd66b0095bb9af9a597d4c7b2ba3435d8922f0adef9",
+      "fileSize": 1481656,
+      "releaseDate": "2026-07-17",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**`bfpilot.elf`** \u2014 file manager on **:5905** only (no AppInst; loaders reject all-in-one)",
+        "**`bfpilot-launcher-installer.elf`** \u2014 PS5 home **Media** tile (`BFPL00001`, category **65536**, deeplink `http://127.0.0.1:5905/`)",
+        "**Use:** inject `bfpilot.elf` for the UI; inject the installer once for the Media shelf (or put a copy at `/data/BFpilot/bfpilot-launcher-installer.elf` so the main ELF auto-starts it).",
+        "Action bar wraps (no horizontal scrollbar)",
+        "Single data dir: `/data/BFpilot`",
+        "#7 folder click open \u00b7 #8 case-insensitive paths \u00b7 #9 extract \u00b7 #10 chmod \u00b7 #11 multi-select \u00b7 #12 version **v0.4.1**",
+        "Load payload via elfldr `:9021`"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.0/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.0/bfpilot.elf",
+      "hash": "7c3e9b5c28013304aae71c84aeb1f5d138a5178df3924f7398f239bd6626d81f",
+      "fileSize": 1477704,
+      "releaseDate": "2026-07-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "\ufeff# BFpilot v0.4.0",
+        "File manager on `http://<PS5_IP>:5905/`. Tested on FW 11.60.",
+        "| | |",
+        "|--|--|",
+        "| **bfpilot.elf** | File manager + archives. Inject this first. |",
+        "| **bfpilot-launcher-installer.elf** | Optional home menu tile (`BFPL00001`) |",
+        "```sh",
+        "python3 payload_sender.py <PS5_IP> 9021 bfpilot.elf",
+        "python3 payload_sender.py <PS5_IP> 9021 bfpilot-launcher-installer.elf",
+        "```"
+      ]
+    },
+    {
+      "version": "0.3.9-test",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.9-test/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.9-test/bfpilot.elf",
+      "hash": "c97c6a29fbb51af55d6b28e3f03c3f235fe0ac586ea09faabaa452f08f60c2b5",
+      "fileSize": 1477032,
+      "releaseDate": "2026-07-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Test build focused on **web upload speed**, **Index All**, and **copy/move** stability.",
+        "No multi-GB `posix_fallocate` while the body streams (fixes 1\u20132 MB/s large-file stall)",
+        "No bulk `TCP_NODELAY`; listen `SO_RCVBUF` 4 MiB",
+        "Server JSON: `averageMBps`, `recvMs`, `writeMs`",
+        "Multi-root crawl + shared visited `(st_dev, st_ino)` (safe when `st_dev == 0`)",
+        "Per-root same-device fence (no mount loops)",
+        "Soft-fail roots; logs entry rate / root CSV",
+        "Free-space preflight after size scan",
+        "Overwrite unlink errno fix",
+        "Large sequential buffers"
+      ]
+    },
+    {
+      "version": "0.3.8-test-clean",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.8-test-clean/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.8-test-clean/bfpilot.elf",
+      "hash": "bfd6232f1c8bb51a04986674286f2df950afdbccfa04c1246310f4bdf646c929",
+      "fileSize": 1472024,
+      "releaseDate": "2026-07-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Major UX and feature update. Heavily tested on 11.6. Treat this as the primary development build \u2014 all features are active and working.",
+        "---",
+        "**Conflict Overwrite and Merge Prompts**: Copy and Move now detect naming conflicts before starting the task. Browser confirm dialog shows Overwrite? for files or Merge? for folders. Skip continues to the next item; Confirm retries with overwrite=1.",
+        "**Checkbox Multi-Selection**: Every row has an individual checkbox for controller-friendly multi-select (no Ctrl/Shift needed). A Select All master checkbox in the header toggles all items at once.",
+        "**Interactive Image Viewer**: Built-in viewer for .png, .jpg, .jpeg, .gif, .bmp, .webp, .ico, .svg. Supports grab-and-drag panning, mouse-wheel zooming (0.1x to 10x), 90 degree rotation, and a Reset button. Double-click to open, Escape to close.",
+        "**Multi-Log Viewer with PS5 Error History Decoder**: The log button now shows a dropdown to select: BFpilot log, Archive log, Search crawler log, Boot log, PS5 VSH log, or PS5 Error History. The Error History option crawls /system_data/priv/error/history/, decodes Sony JSON crash records (error codes, Title IDs, firmware version, ticks) and displays them as a readable trace list. Auto-refreshes every 2 seconds.",
+        "---",
+        "Permission Bypass: Global umask(0) at process start plus chmod/fchmod 0777 hooks on all created files, folders, and uploads.",
+        "Split ZIP Support: Full support for official (.z01/.zip) and raw (.zip.001/.zip.002) multi-volume split ZIP archives.",
+        "Extract Dialog Default Target: Extract dialog now pre-fills the destination from the active Target panel path."
+      ]
+    },
+    {
+      "version": "0.3.5-test10-clean",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.3.5-test10-clean/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.3.5-test10-clean/bfpilot.elf",
+      "hash": "b3bfbbe31a4b42681a1b1739259112da57774eee6375a487810cc4a117e14c7d",
+      "fileSize": 1422936,
+      "releaseDate": "2026-07-05",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "This release contains structural performance, memory efficiency, and usability optimizations.",
+        "heavily tested on 11.6 but didnt have chance to test on other firmwares.",
+        "indexing and files search is working mostly but keep in mind a lot of things are encrypted and are not visible so they cant be indexed.",
+        "treat this as a stablish release with all features, its fast and its working fine, but i stacked a lot of features now so any feedback would be appreciated, if you want lighter version that only has file manager use 3.0.",
+        "**Graceful Exit & Re-injection**:",
+        "Implemented loopback TCP wakeup to unblock the socket `accept()` loop instantly during shutdown.",
+        "Added graceful exit flags to terminate background archive daemon and search crawler threads cleanly.",
+        "Web port `5905` and loader port `9021` release instantly on exit, allowing payload re-injection without console reboots.",
+        "**Fast Multi-Threaded Search Indexing**:",
+        "Added a work-stealing concurrent crawler thread pool for filesystem indexing."
+      ]
+    },
+    {
       "version": "0.3.1-test9-exit",
       "fileName": "bfpilot.elf",
       "filePath": "payloads/bfpilot/0.3.1-test9-exit/bfpilot.elf",
@@ -21,7 +205,7 @@
       "hash": "4f6ef844b8313c59fffedc04dcd14cb988f5f3509e5f2cf0fe1bf854eec218e0",
       "fileSize": 1422952,
       "releaseDate": "2026-07-05",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Release notes for BFpilot v0.3.1 Test Build 9 Exit. Includes loopback TCP wakeup to prevent accept() socket hangs during web server shutdown, clean shutdown flags for background archive daemon thread, and cleanup of multi-threaded search crawlers before exiting."

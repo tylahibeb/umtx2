@@ -23,6 +23,50 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7alpha4",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha4/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha4/ShadowMountPlus_1.7alpha4.zip",
+      "hash": "7a9f948f2f0d4d1b4974cb59a7dfa01dfd3db79bc0b83c26355d992d9e73449e",
+      "fileSize": 1688528,
+      "releaseDate": "2026-07-16",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "This release improves mounting reliability, game lifecycle handling, and usability:",
+        "Added optional persistent image mounting between game launches (Legacy mode)",
+        "`persistent_image_mounts=1|0` (`1` keeps discovered images mounted between game launches; default: `0`)",
+        "Reduced scanner file descriptor usage.",
+        "Added detailed fatal-signal reports for tracked games.",
+        "Improved USB game recovery after suspend/resume.",
+        "Added seamless switching between mounted games.",
+        "Added localized notifications for 30 languages, with automatic console-language detection and manual selection via `language`."
+      ]
+    },
+    {
+      "version": "1.7alpha3",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha3/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha3/ShadowMountPlus_1.7alpha3.zip",
+      "hash": "16ea98e23f0f3400b7168c203dd371f347124c48817550be95c36db4d867625b",
+      "fileSize": 1573320,
+      "releaseDate": "2026-07-15",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Added a public [HTTP/JSON API ](https://github.com/drakmor/ShadowMountPlus/blob/mount-hook/docs/socket-api.md) for listing, mounting, and unmounting games.",
+        "Added optional automatic removal of games with unavailable sources and DLC protection",
+        "`auto_remove_missing_games=1|0` (1 automatically removes games from the system library when their source is no longer available; default: 0)",
+        "`auto_remove_games_with_dlc=1|0` (1 allows automatic removal of games that have installed DLC; default: 0)",
+        "`auto_remove_missing_delay_seconds=<1..86400>` (how long a source must remain unavailable before removal; default: 300)",
+        "Improved game metadata staging and registration performance.",
+        "Fixed runtime mount cleanup after exiting games.",
+        "Fixed game counts for unchanged images reused from the index"
+      ]
+    },
+    {
       "version": "1.6beta16",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6beta16/shadowmountplus.elf",
@@ -30,7 +74,7 @@
       "hash": "a35246fb3bb6042b25653b51cdcbc33254b40339342bf1d2dd0d2eceee2ca526",
       "fileSize": 1457528,
       "releaseDate": "2026-06-28",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Attempting to restore occupied mount points for nullfs",
