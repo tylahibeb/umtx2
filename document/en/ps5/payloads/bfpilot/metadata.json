@@ -14,6 +14,65 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.4.3",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.3/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3/bfpilot.elf",
+      "hash": "e2ca0a948f0d2b5d57f73672836714847a7850c0f07e0859e755e7cbb0204786",
+      "fileSize": 1512456,
+      "releaseDate": "2026-07-27",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Create and edit text files, plus upload complete folders.",
+        "Safer copy, move, delete, upload and archive jobs.",
+        "Direct target paths or Copy/Move then Paste Here.",
+        "Faster large transfers and search, with clearer diagnostics.",
+        "Cleaner dark layout with New Text File and Delete always visible."
+      ]
+    },
+    {
+      "version": "0.4.3-alpha.4",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.3-alpha.4/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3-alpha.4/bfpilot.elf",
+      "hash": "ccb4cfa6bb100132e69daae4237ce89bb66bb14cf6da8f301d58bfe732356a07",
+      "fileSize": 1512472,
+      "releaseDate": "2026-07-27",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Alpha test build.",
+        "Keeps the compact file toolbar, drag-to-upload overlay, and direct or clipboard Copy/Move workflows introduced in alpha.3.",
+        "Removes a machine-specific PS5 address from the feature-test helper; it now uses the neutral `ps5` hostname unless overridden.",
+        "Rebuilt the PS5 payload and launcher installer with the SDK wrappers.",
+        "Passed all offline UI, file-manager safety, issue-surface, performance, and filesystem I/O contract checks.",
+        "This build was validated offline and has not been hardware-tested on a PS5."
+      ]
+    },
+    {
+      "version": "0.4.3-alpha.3",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.3-alpha.3/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3-alpha.3/bfpilot.elf",
+      "hash": "3e072a9bd9967a9633625afc0d358426758ee6e3fdbd09507770c49ff5d101a7",
+      "fileSize": 1512472,
+      "releaseDate": "2026-07-27",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Alpha hardware-tested on PS5.",
+        "Compact single-row toolbar with a More menu and responsive wrapping.",
+        "Darker, more restrained file-manager styling.",
+        "Drag-to-upload target remains hidden until a file is dragged over the page.",
+        "Both transfer workflows are available: direct editable destination and clipboard Copy/Move then Paste Here.",
+        "Includes clean reinjection/takeover behavior from the existing BFpilot service.",
+        "Validation: five host safety/UI suites passed; PS5 file listing, status, served UI, and reinjection verified."
+      ]
+    },
+    {
       "version": "0.4.3-alpha.2",
       "fileName": "bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
       "filePath": "payloads/bfpilot/0.4.3-alpha.2/bfpilot-launcher-installer-v0.4.3-alpha.2.elf",
@@ -21,7 +80,7 @@
       "hash": "7f35d04d3e3581710b70c0867df3dec0e252e369f30b4b3592356a25f6832fa0",
       "fileSize": 247096,
       "releaseDate": "2026-07-26",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
@@ -528,5 +587,7 @@
       ]
     }
   ],
-  "supportedFirmwares": []
+  "supportedFirmwares": [
+    "4."
+  ]
 }
