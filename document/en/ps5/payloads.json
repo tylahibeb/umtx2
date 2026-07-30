@@ -148,11 +148,11 @@
     {
       "name": "CheatRunner",
       "filename": "CheatRunner.elf",
-      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.16/CheatRunner.elf",
+      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.17/CheatRunner.elf",
       "description": "Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.",
-      "version": "0.16",
+      "version": "0.17",
       "category": "Game",
-      "checksum": "a5483253926a0188c76a68101714cbd9bbc9c2305e0b071fad775d752da995bb"
+      "checksum": "2f296d3f1e69b65439bb5dc362f0f6504f6dc9f245fa16a3683e9d7ec9533773"
     },
     {
       "name": "ps5debug",
