@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "4.1.8",
+      "fileName": "ps5upload-4.1.8.elf",
+      "filePath": "payloads/ps5upload/4.1.8/ps5upload-4.1.8.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v4.1.8/ps5upload-4.1.8.elf",
+      "hash": "b35fcd9c19e56a510fff0d005a2ba22f6b1c827e999964e4480eef6665ad476a",
+      "fileSize": 1153488,
+      "releaseDate": "2026-07-31",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Dependency maintenance + security hardening from full codebase audit.",
+        "**Upgraded: docker/login-action v4 \u2192 v4.5.2** (CI workflow).",
+        "**Upgraded: mdns-sd 0.20.2 \u2192 0.20.3** (Tauri mDNS discovery).",
+        "**Upgraded: lucide-react 1.26.0 \u2192 1.27.0** (icon library).",
+        "**Upgraded: eslint 10.7.0 \u2192 10.8.0** (dev dependency).",
+        "**Security: replaced `rm` command's broken path normalizer with",
+        "`is_path_allowed()`.** The old code had a logic bug in its",
+        "`/./` collapsing logic (the `while` condition was tautological)",
+        "and an incomplete banned-prefix list missing `/system_data` and",
+        "`/dev`. A path like `/data/../system_ex/foo` could bypass the"
+      ]
+    },
+    {
       "version": "4.1.7",
       "fileName": "ps5upload-4.1.7.elf",
       "filePath": "payloads/ps5upload/4.1.7/ps5upload-4.1.7.elf",
@@ -21,7 +44,7 @@
       "hash": "06b5da2947cfed6a2a783a590a2e01e07a5d9d870d39e9fbbd7b361823e1031b",
       "fileSize": 1153352,
       "releaseDate": "2026-07-31",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Security: upgrade react-router to v8.3.0 (CVE fix) and fix transitive",
