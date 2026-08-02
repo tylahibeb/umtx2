@@ -14,6 +14,26 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "4.3.2",
+      "fileName": "ps5upload-4.3.2.elf",
+      "filePath": "payloads/ps5upload/4.3.2/ps5upload-4.3.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v4.3.2/ps5upload-4.3.2.elf",
+      "hash": "5cc36fbcea9ffd99eabca7d192c2c8f2e471446e029e042d38f9f06722d2b2ac",
+      "fileSize": 1309712,
+      "releaseDate": "2026-08-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Version-number fix \u2014 the v4.3.0 and v4.3.1 releases shipped code fixes",
+        "but forgot to bump the version strings in the desktop app, engine, and",
+        "payload. This release aligns all version numbers across every component.",
+        "**Fixed: all version strings now report `4.3.2`** \u2014 `package.json`,",
+        "`tauri.conf.json`, both `Cargo.toml`s, `VERSION` file,",
+        "`package-lock.json`, and the payload's `PS5UPLOAD2_VERSION` define.",
+        "**Includes all v4.3.1 fixes** (cheat engine crash fix)."
+      ]
+    },
+    {
       "version": "4.3.1",
       "fileName": "ps5upload-4.3.1.elf",
       "filePath": "payloads/ps5upload/4.3.1/ps5upload-4.3.1.elf",
@@ -21,7 +41,7 @@
       "hash": "7bfc22c082f57f2b9ab59100954a6142d725a8665a8ad6c1dddc6405caf09747",
       "fileSize": 1309712,
       "releaseDate": "2026-08-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Release 4.3.1.",

@@ -67,47 +67,47 @@
     {
       "name": "ftpsrv",
       "filename": "ftpsrv-ps5-install.elf",
-      "url": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.20/ftpsrv-ps5-install.elf",
+      "url": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.21/ftpsrv-ps5-install.elf",
       "description": "FTP server. Runs on port 2121.",
-      "version": "0.20",
+      "version": "0.21",
       "category": "Networking",
-      "checksum": "23f69de0f1ab1e1a3869473e87a271f750ec595056df0142fabbf21f5153c077"
+      "checksum": "f86aed1194e92146135e1e8964993ae99663a38361b0825d2ca51d2e78a54da4"
     },
     {
       "name": "gdbsrv",
       "filename": "gdbsrv-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.8/gdbsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.9/gdbsrv-ps5.elf",
       "description": "GDB server. Runs on port 2159.",
-      "version": "0.8",
+      "version": "0.9",
       "category": "Uncategorized",
-      "checksum": "7621b829bd8b6d6f3d2328fa12c16af956b0ca128250f92a91eddc100c87f208"
+      "checksum": "80952d75f423768b95385f0944e5a5c2f417dcc10c22c1bb6516a923ad8894e5"
     },
     {
       "name": "klogsrv",
       "filename": "klogsrv-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.8/klogsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.9/klogsrv-ps5.elf",
       "description": "Klog server. Runs on port 3232.",
-      "version": "0.8",
+      "version": "0.9",
       "category": "Networking",
-      "checksum": "f6eb1b415ecf3340b89a56a0cb04ba5c714430085851ada13a98012b63a5a4cf"
+      "checksum": "e828ec144231f81547cb58bc7d2c396fa984be0c2295f31364b58017816dcceb"
     },
     {
       "name": "shsrv",
       "filename": "shsrv-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.19/shsrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.20/shsrv-ps5.elf",
       "description": "Telnet shell server. Runs on port 2323.",
-      "version": "0.19",
+      "version": "0.20",
       "category": "Networking",
-      "checksum": "797827b50a93dbf327abdca45063d76ea24b17e561d927f397a0b73cadb2e2bd"
+      "checksum": "fa4ccb2587bb61be317df0d001f668b17ebf9b4aafad87acf691b1fb8da0bd2d"
     },
     {
       "name": "ELF Loader",
       "filename": "elfldr-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.23/elfldr-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.24/elfldr-ps5.elf",
       "description": "ELF loader",
-      "version": "0.23",
+      "version": "0.24",
       "category": "Tools",
-      "checksum": "092d16ee0ede0c494947efd38d1a17bbd7cc4b022d3858ea898833c188c703e8"
+      "checksum": "e23313367cf59a9b0a09e34eb59e435e2c387de418e557d65bf578b7744942a5"
     },
     {
       "name": "Byepervisor HEN",
@@ -129,12 +129,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-4.3.1.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v4.3.1/ps5upload-4.3.1.elf",
+      "filename": "ps5upload-4.3.2.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v4.3.2/ps5upload-4.3.2.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "4.3.1",
+      "version": "4.3.2",
       "category": "Game",
-      "checksum": "7bfc22c082f57f2b9ab59100954a6142d725a8665a8ad6c1dddc6405caf09747"
+      "checksum": "5cc36fbcea9ffd99eabca7d192c2c8f2e471446e029e042d38f9f06722d2b2ac"
     },
     {
       "name": "PS5 Game Compressor",
