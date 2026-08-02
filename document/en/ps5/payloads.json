@@ -58,11 +58,11 @@
     {
       "name": "websrv",
       "filename": "websrv-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.33/websrv-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.34/websrv-ps5.elf",
       "description": "Custom homebrew loader. Runs on port 8080.",
-      "version": "0.33",
+      "version": "0.34",
       "category": "Uncategorized",
-      "checksum": "4676a40ac4c7ca1adeb04980efa48dd33a8961446b42e6a12abfcbe96090c8ac"
+      "checksum": "54730c867c6e1148536fdcb370e63a7762d989ea87b62488ad4caff64d43f263"
     },
     {
       "name": "ftpsrv",
