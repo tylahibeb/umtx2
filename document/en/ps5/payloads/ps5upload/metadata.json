@@ -14,6 +14,52 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.0.0",
+      "fileName": "ps5upload-5.0.0.elf",
+      "filePath": "payloads/ps5upload/5.0.0/ps5upload-5.0.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.0.0/ps5upload-5.0.0.elf",
+      "hash": "337f0b8e4da76ae62ba8380bf2565108b82da4e75b9a26e5471ce5800c594f88",
+      "fileSize": 1309712,
+      "releaseDate": "2026-08-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**The v5 redesign is here.** This release delivers the complete v5",
+        "component primitive library \u2014 all 28 primitives from the master spec",
+        "are now implemented \u2014 plus Badge adoption across 8 screens.",
+        "**`Table` / `DataGrid`** (\u00a722.13) \u2014 WAI-ARIA Grid pattern with",
+        "arrow-key cell navigation, sortable headers, selectable rows,",
+        "sticky header, and progressive-render virtualization (no new",
+        "dependency). Full keyboard support: arrows, Home/End, Ctrl+Home/End.",
+        "**`ContextMenu`** (\u00a722.16) \u2014 right-click (desktop) / long-press",
+        "(mobile) menu. Portaled to `document.body`, viewport-clamped,",
+        "WAI-ARIA Menu pattern with arrow keys, type-ahead, Home/End."
+      ]
+    },
+    {
+      "version": "4.6.1",
+      "fileName": "ps5upload-4.6.1.elf",
+      "filePath": "payloads/ps5upload/4.6.1/ps5upload-4.6.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v4.6.1/ps5upload-4.6.1.elf",
+      "hash": "0f51eed0b46857fb1e6f9044b87f9ce786399e01bf2657420b8d4807c9748c4c",
+      "fileSize": 1309712,
+      "releaseDate": "2026-08-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Hotfix release \u2014 eliminates 7 compiler warnings that appeared when",
+        "building `ps5upload-core` for the Android target (aarch64-linux-android).",
+        "No user-visible behavior changes.",
+        "**Fixed: Android-target dead-code warnings** \u2014 three helper functions",
+        "(`format_from_index`, `parse_index_line`, `cheat_install_path`) and",
+        "four variables (`q`, `repo`, `filename`, `region`) were only",
+        "referenced inside `#[cfg(not(target_os = \"android\"))]` blocks, making",
+        "them dead code on Android. All are now properly cfg-gated. The",
+        "engine workspace, desktop crate, and Android target now all compile",
+        "with **zero warnings**."
+      ]
+    },
+    {
       "version": "4.6.0",
       "fileName": "ps5upload-4.6.0.elf",
       "filePath": "payloads/ps5upload/4.6.0/ps5upload-4.6.0.elf",
@@ -21,7 +67,7 @@
       "hash": "4ebc7af62ae391c376587d45996e4cc1e9b4fc545b1cf68572c228d766b4b07d",
       "fileSize": 1309712,
       "releaseDate": "2026-08-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Maintenance release \u2014 CI gate fixes, code hygiene, and dependency",
