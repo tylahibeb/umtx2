@@ -23,6 +23,26 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.10",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite-echostretch/1.10/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.10/kstuff.elf",
+      "hash": "82cbb1e70f8a562317d6b65269cf6aa0d7d94e22df4f1ac89a260ca0ec261252",
+      "fileSize": 1572832,
+      "releaseDate": "2026-08-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Kstuff Lite 1.10 Beta Supports Firmware 3.00-12.70**",
+        "A huge thanks to @sleirsgoevy for the help and creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif, @drakmor and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Improved stability and performance",
+        "Added updated Kit support",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
       "version": "1.09",
       "fileName": "kstuff.elf",
       "filePath": "payloads/kstuff-lite-echostretch/1.09/kstuff.elf",
@@ -30,7 +50,7 @@
       "hash": "ec5212794dc6e44ee8e70fd0549abec6d3dac8c3e03ddbeafd9f869ffe97d4e8",
       "fileSize": 1572824,
       "releaseDate": "2026-07-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Kstuff Lite 1.09 Beta Supports Firmware 3.00-12.70**",

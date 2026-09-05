@@ -23,6 +23,167 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7alpha13fix1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha13fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha13fix1/ShadowMountPlus_1.7alpha13fix1.zip",
+      "hash": "15af22e6cefefbcc9f16f137b5255b6b94d546788ba5f404dc9220da4759a6ff",
+      "fileSize": 2465896,
+      "releaseDate": "2026-09-04",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Added a web interface (draft version) and a shortcut for access.",
+        "Fixed an issue where the shell crashed in sleep mode and when launching heavy games.",
+        "**fix: Issue is the device shutting down unexpectedly on firmware versions 12+.**",
+        "**If the problem persists, run kstuff before SM+**"
+      ]
+    },
+    {
+      "version": "1.7alpha12",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha12/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha12/ShadowMountPlus_1.7alpha12.zip",
+      "hash": "b5496713a2663b378130b3144ad75d287e094e2b2076ed9fd7f880b85e40074f",
+      "fileSize": 1795160,
+      "releaseDate": "2026-08-28",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Use optimized exFAT, UFS/FFPKG and PFS/FFPFS mount profiles only for direct source paths under /data or /user",
+        "Pause background services during system sleep",
+        "Support FAKExxxxx title IDs"
+      ]
+    },
+    {
+      "version": "1.7alpha11",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha11/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha11/ShadowMountPlus_1.7alpha11.zip",
+      "hash": "e9daf5dea90807fc653e02180a0eaacf09bcc88e5d99d3f67aa6d7bbf1996522",
+      "fileSize": 1795736,
+      "releaseDate": "2026-08-25",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Added notifications when external USB drives are connected or disconnected. After scanning, the notification shows capacity, free space, block size, and the number of games found.",
+        "Improved image mounting and unmounting stability, preventing race conditions and premature device reuse.",
+        "Improved application database and cache reliability.",
+        "Fixed a potential freeze when cancelling an AMPR update download"
+      ]
+    },
+    {
+      "version": "1.7alpha10",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha10/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha10/ShadowMountPlus_1.7alpha10.zip",
+      "hash": "1dbf2131327a401a71020fa586350a795fd5eced3ecaa688ae194944a05f746d",
+      "fileSize": 1762968,
+      "releaseDate": "2026-08-24",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Keep fakelib2 exclusive from global and emulator overlays"
+      ]
+    },
+    {
+      "version": "1.7alpha9",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha9/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha9/ShadowMountPlus_1.7alpha9.zip",
+      "hash": "6584ba2c62ce8846150f4aa864deab9b7d6675eac0d7a0ef17ffb8f0ef4f43cb",
+      "fileSize": 1762880,
+      "releaseDate": "2026-08-24",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Reworked the ShellCore bridge to use dynamically allocated remote memory.",
+        "Improved game process handoff stability.",
+        "Added ShellCore hook failure notifications.",
+        "Renamed `legacy_gddr5_cache`  to `nested_pfs_index_cache`; the old name remains supported.",
+        "**If ShadowMountPlus 1.7 was already running, you must restart the console after updating.**"
+      ]
+    },
+    {
+      "version": "1.7alpha8",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha8/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha8/shadowmountplus.elf",
+      "hash": "f15653fe90d81e5f82841ca693c0599d307c384d6454c1b0cc18190ae1ef4812",
+      "fileSize": 1746608,
+      "releaseDate": "2026-08-19",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Fix game process handoff and remount fakelib across ExitSpawn/LoadExec."
+      ]
+    },
+    {
+      "version": "1.7alpha7",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha7/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha7/shadowmountplus.elf",
+      "hash": "42a215e10d655a6fcca4d837e28efe051993d7e72cb630e9ff83d4b10d5b0c70",
+      "fileSize": 1746608,
+      "releaseDate": "2026-08-19",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "ShadowMount+ can now update matching emulator files in a game\u2019s fakelib from `/data/shadowmount/emus`.",
+        "To update the emulator, you need to put its folder `/data/shadowmount/emus/libSceAmpr.sprx`. It will only update where it already exists.",
+        "Added automatic updates for `libSceAmpr.sprx` from GitHub (auto-update is disabled by default and can be enabled with `auto_update_ampr=1`)",
+        "Global and per-game fakelib files are now combined through a cache.",
+        "Added optional legacy and optimized mount profiles for UFS, exFAT, PFS, and PFSC images. (legace by default)",
+        "Improved exFAT mount validation and recovery.",
+        "The image scan cache is automatically rebuilt after a ShadowMount+ update or changes to `config.ini` and `autotune.ini`.",
+        "[README](https://github.com/drakmor/ShadowMountPlus/blob/1.7/README.md)"
+      ]
+    },
+    {
+      "version": "1.7alpha6",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha6/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha6/ShadowMountPlus_1.7alpha6.zip",
+      "hash": "00b5a7b083b2fc3db34e65e78dee2a484fec84ca2c2202f3a8e980181401f745",
+      "fileSize": 1721872,
+      "releaseDate": "2026-08-10",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Fixed an issue with mounting exfat images on ext1.",
+        "Changed the unmount method when closing the game to prevent crashes."
+      ]
+    },
+    {
+      "version": "1.7alpha5",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7alpha5/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha5/ShadowMountPlus_1.7alpha5.zip",
+      "hash": "b935ef34aa26f55b1fcb3f151729a7e797cd4b820f34ef81948178e5511995a4",
+      "fileSize": 1705472,
+      "releaseDate": "2026-08-08",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Optimized LVD mounting and enabled the BFS fast path with 64 KiB I/O batching where supported.",
+        "Enabled compressed-offset caching for nested PFSC images.",
+        "Updated image creation scripts to use a fixed 64 KiB exFAT allocation unit.",
+        "Improved LVD/MD image mount and unmount stability.",
+        "Busy images are now unmounted safely without forced teardown.",
+        "Added fan temperature configuration: `fan_target_temperature=auto|50..91`.",
+        "Expanded backport/UnionFS diagnostic logging."
+      ]
+    },
+    {
       "version": "1.7alpha4",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7alpha4/shadowmountplus.elf",
@@ -30,7 +191,7 @@
       "hash": "7a9f948f2f0d4d1b4974cb59a7dfa01dfd3db79bc0b83c26355d992d9e73449e",
       "fileSize": 1688528,
       "releaseDate": "2026-07-16",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",

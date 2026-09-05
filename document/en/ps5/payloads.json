@@ -13,11 +13,11 @@
     {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
-      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha4/ShadowMountPlus_1.7alpha4.zip",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7alpha13fix1/ShadowMountPlus_1.7alpha13fix1.zip",
       "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
-      "version": "1.7alpha4",
+      "version": "1.7alpha13fix1",
       "category": "Game",
-      "checksum": "7a9f948f2f0d4d1b4974cb59a7dfa01dfd3db79bc0b83c26355d992d9e73449e"
+      "checksum": "15af22e6cefefbcc9f16f137b5255b6b94d546788ba5f404dc9220da4759a6ff"
     },
     {
       "name": "etaHEN",
@@ -67,11 +67,11 @@
     {
       "name": "ftpsrv",
       "filename": "ftpsrv-ps5-install.elf",
-      "url": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.21/ftpsrv-ps5-install.elf",
+      "url": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.21.1/ftpsrv-ps5-install.elf",
       "description": "FTP server. Runs on port 2121.",
-      "version": "0.21",
+      "version": "0.21.1",
       "category": "Networking",
-      "checksum": "f86aed1194e92146135e1e8964993ae99663a38361b0825d2ca51d2e78a54da4"
+      "checksum": "0ccfe0097081be0514aabef34390a0f6776226e8b3eefbb047964584e0cfe3a9"
     },
     {
       "name": "gdbsrv",
@@ -103,11 +103,11 @@
     {
       "name": "ELF Loader",
       "filename": "elfldr-ps5.elf",
-      "url": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.24/elfldr-ps5.elf",
+      "url": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.26/elfldr-ps5.elf",
       "description": "ELF loader",
-      "version": "0.24",
+      "version": "0.26",
       "category": "Tools",
-      "checksum": "e23313367cf59a9b0a09e34eb59e435e2c387de418e557d65bf578b7744942a5"
+      "checksum": "ed6d587a057c09d6a95b2176e336d9ffc605e547ac56462128b029e47b8ccea1"
     },
     {
       "name": "Byepervisor HEN",
@@ -129,21 +129,21 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-5.1.3.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v5.1.3/ps5upload-5.1.3.elf",
+      "filename": "ps5upload-5.17.0.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v5.17.0/ps5upload-5.17.0.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "5.1.3",
+      "version": "5.17.0",
       "category": "Game",
-      "checksum": "d5133abe9e3cb7960d32845a98494a97dc2b4b1a7ddc0b58127de43e537e0d0e"
+      "checksum": "e180b4f06ee86d2acd00f2bcb0edbebc02330c396642936d9659b33529d9c3ed"
     },
     {
       "name": "PS5 Game Compressor",
       "filename": "game-compressor.elf",
-      "url": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.3/game-compressor.elf",
+      "url": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.4/game-compressor.elf",
       "description": "Compress, unpack, validate, and repair games mounted via ShadowMountPlus. WebUI on port 5910.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "category": "Game",
-      "checksum": "51b66edf6210c022d57a31ab12bf97f95a3c71ea683df387d9081494f11606b2"
+      "checksum": "e55e90aaade13b6e0d4316c1597ef90a21b67a06475c3e25de054224bc1e941b"
     },
     {
       "name": "CheatRunner",
@@ -193,11 +193,11 @@
     {
       "name": "kstuff-lite (EchoStretch)",
       "filename": "kstuff.elf",
-      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.09/kstuff.elf",
+      "url": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.10/kstuff.elf",
       "description": "FPKG enabler — EchoStretch's official upstream kstuff-lite",
-      "version": "1.09",
+      "version": "1.10",
       "category": "Hack",
-      "checksum": "ec5212794dc6e44ee8e70fd0549abec6d3dac8c3e03ddbeafd9f869ffe97d4e8"
+      "checksum": "82cbb1e70f8a562317d6b65269cf6aa0d7d94e22df4f1ac89a260ca0ec261252"
     },
     {
       "name": "Kylin Core",
@@ -211,11 +211,11 @@
     {
       "name": "BFpilot",
       "filename": "bfpilot.elf",
-      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.3/bfpilot.elf",
+      "url": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.4/bfpilot.elf",
       "description": "Browser-based file manager for jailbroken PS5 consoles — browse, upload, download, copy, move, rename, and delete files at http://<PS5_IP>:5905/. Built-in archive extraction (ZIP, RAR, 7z).",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "category": "Hack",
-      "checksum": "e2ca0a948f0d2b5d57f73672836714847a7850c0f07e0859e755e7cbb0204786"
+      "checksum": "5a8237630260026ad054d71fbbe661e433ac9ffa2cb4eea2785769c1eb7ee1c1"
     },
     {
       "name": "WebKit Cache Remover",
