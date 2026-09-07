@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.17.2",
+      "fileName": "ps5upload-5.17.2.elf",
+      "filePath": "payloads/ps5upload/5.17.2/ps5upload-5.17.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.17.2/ps5upload-5.17.2.elf",
+      "hash": "24761230d42f4662a6530ec17c705f1742c4b0652a2f7acf353b2051de9e2664",
+      "fileSize": 2230968,
+      "releaseDate": "2026-09-07",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Logs say what they mean, and a bug report now carries what we actually need.**",
+        "**The engine log no longer labels everything an error.** The engine writes",
+        "all of its output \u2014 routine, warning, failure alike \u2014 down one pipe, and the",
+        "app was stamping that whole pipe as an error. A perfectly healthy session read",
+        "as a wall of `[engine:err] ... 200 (0ms)` lines, every one of which was a",
+        "success. Lines that already state their own level are now left alone. The Logs",
+        "screen in the app was always right about this; it was the log file inside a bug",
+        "report \u2014 the one a maintainer reads \u2014 that was wrong.",
+        "**The log stopped filling up with itself.** The Logs screen asks the engine for",
+        "new lines about once a second, and each of those requests was being written to"
+      ]
+    },
+    {
       "version": "5.17.1",
       "fileName": "ps5upload-5.17.1.elf",
       "filePath": "payloads/ps5upload/5.17.1/ps5upload-5.17.1.elf",
@@ -21,7 +44,7 @@
       "hash": "9a912f28264c90ddfe5fee7cecbf96eec5cca2ebbec56518f1975d3786948621",
       "fileSize": 2230968,
       "releaseDate": "2026-09-07",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Uploads to internal storage are no longer refused when there is plenty of room.**",
