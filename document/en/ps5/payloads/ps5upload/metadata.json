@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.17.7",
+      "fileName": "ps5upload-5.17.7.elf",
+      "filePath": "payloads/ps5upload/5.17.7/ps5upload-5.17.7.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.17.7/ps5upload-5.17.7.elf",
+      "hash": "0fe96f274a9720aba66de8d6ea385f792cbca42e6cff7549685d34c9263c9b5d",
+      "fileSize": 2231720,
+      "releaseDate": "2026-09-08",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**One report, four fixes: updates that couldn't reach the console, an error",
+        "that blamed the wrong thing, and a 6 GB re-upload nobody asked for.**",
+        "**A failed install no longer restarts the upload on its own.** When an update",
+        "failed to install, the app treated it like a dropped connection and re-ran the",
+        "whole queue item \u2014 which for a package means uploading it again from scratch.",
+        "One user watched a 5.93 GiB update start over six seconds after the error,",
+        "with no prompt. The bytes were already on the console; re-sending them could",
+        "never have changed the outcome. Anything that fails *after* the upload has",
+        "committed \u2014 the install, or a mount \u2014 is now final, and the package stays on",
+        "the PS5 for a retry."
+      ]
+    },
+    {
       "version": "5.17.6",
       "fileName": "ps5upload-5.17.6.elf",
       "filePath": "payloads/ps5upload/5.17.6/ps5upload-5.17.6.elf",
@@ -21,7 +44,7 @@
       "hash": "db5cdfd99d49b86cb3b33d85637bb726e2f1b4ab57cd1c8c8379e096bed50485",
       "fileSize": 2231720,
       "releaseDate": "2026-09-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A build fix, and one that quietly protected the Docker image.**",
