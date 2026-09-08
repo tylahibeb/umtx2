@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.17.4",
+      "fileName": "ps5upload-5.17.4.elf",
+      "filePath": "payloads/ps5upload/5.17.4/ps5upload-5.17.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.17.4/ps5upload-5.17.4.elf",
+      "hash": "b8f8e415084523486145cffb8a79101d8d39a2df791ab9d1a498d0f627443697",
+      "fileSize": 2231720,
+      "releaseDate": "2026-09-08",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**You can file a bug report from the self-hosted web UI.**",
+        "**The web UI could not produce a bug report at all.** It showed the whole",
+        "form \u2014 description, options, screenshot list \u2014 and then, where the button",
+        "should have been, a line of grey text saying a bug report needed the desktop",
+        "app. So you filled everything in and only then found out you could not send",
+        "it. One reporter put it plainly: \"Could not capture a bug report on the",
+        "webui.\" The button is now there and it works: the engine builds the zip and",
+        "your browser downloads it.",
+        "**Screenshots can be attached in the browser too**, using the normal file",
+        "picker."
+      ]
+    },
+    {
       "version": "5.17.3",
       "fileName": "ps5upload-5.17.3.elf",
       "filePath": "payloads/ps5upload/5.17.3/ps5upload-5.17.3.elf",
@@ -21,7 +44,7 @@
       "hash": "f81e802a5ec7588fd98461f079aa6643a0e493cd21a8129080477df05a4b5932",
       "fileSize": 2231720,
       "releaseDate": "2026-09-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A repeat upload no longer deletes the file it already delivered \u2014 and failure messages now speak your language.**",
