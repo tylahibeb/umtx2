@@ -14,6 +14,50 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.19.0",
+      "fileName": "ps5upload-5.19.0.elf",
+      "filePath": "payloads/ps5upload/5.19.0/ps5upload-5.19.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.19.0/ps5upload-5.19.0.elf",
+      "hash": "7d6b80697ccbc57c9b95231f7c80c18c4b1fd99bd51b6e4d3e7153edfc628f7f",
+      "fileSize": 2262896,
+      "releaseDate": "2026-09-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Cheats tell you what they are and when they fire, and the power controls are",
+        "on the home screen.**",
+        "**Downloaded cheats show the game's name**, with the title ID underneath \u2014",
+        "including games you do not have installed, which is exactly when a bare ID is",
+        "least helpful.",
+        "**The console tells you when a cheat takes.** Turn one on while you are",
+        "playing and a notification appears on the PS5 naming the cheat. You also get",
+        "one when a game starts with cheats already enabled.",
+        "**Filter the collection** by cheat format, by the game version a cheat was",
+        "written for, and by \"only my games\" \u2014 which turns thousands of entries into"
+      ]
+    },
+    {
+      "version": "5.18.2",
+      "fileName": "ps5upload-5.18.2.elf",
+      "filePath": "payloads/ps5upload/5.18.2/ps5upload-5.18.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.18.2/ps5upload-5.18.2.elf",
+      "hash": "3e8b37217699b1d4f83cbc94c6acc18ab6d69510274cf9a624f85a31062c8eec",
+      "fileSize": 2262336,
+      "releaseDate": "2026-09-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Backport is no longer greyed out for the wrong reason.** A library-overlay",
+        "problem reported while one game was starting could disable backporting for a",
+        "completely different game, and a brief hiccup during a normal launch could",
+        "disable it for that game too. A problem now only counts against the game it",
+        "actually concerns.",
+        "Housekeeping: removed some stray development screenshots that had been",
+        "committed by accident, and tightened the ignore rules so the next ones cannot",
+        "follow them in."
+      ]
+    },
+    {
       "version": "5.18.1",
       "fileName": "ps5upload-5.18.1.elf",
       "filePath": "payloads/ps5upload/5.18.1/ps5upload-5.18.1.elf",
@@ -21,7 +65,7 @@
       "hash": "68bdecb5cf0cf2724b480288ce2f107d2fb98597352fd9796a765746cdbea6b2",
       "fileSize": 2262336,
       "releaseDate": "2026-09-11",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**The new backport-pack screens now speak every language ps5upload supports.**",
