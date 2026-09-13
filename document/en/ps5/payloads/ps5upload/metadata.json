@@ -14,6 +14,74 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.25.0",
+      "fileName": "ps5upload-5.25.0.elf",
+      "filePath": "payloads/ps5upload/5.25.0/ps5upload-5.25.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.25.0/ps5upload-5.25.0.elf",
+      "hash": "b24a0018292651111d7c0be00ab25bb88a9af624078ea5ee4ab1c3ecdcadc65a",
+      "fileSize": 2289456,
+      "releaseDate": "2026-09-13",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Fixes the console disconnects and \"ps5upload isn't responding\".**",
+        "**Reading sensors no longer risks dropping your console connection.**",
+        "ps5upload asked the PS5 for SoC power draw using the wrong call shape, and",
+        "the console wrote far more data back than ps5upload had made room for. On",
+        "consoles that report power draw this corrupted the helper's memory \u2014 which",
+        "showed up as the app going unresponsive, or the connection dying moments",
+        "after it was established. It has been reported as a firmware problem for",
+        "months; it was ours.",
+        "**Power draw is now read correctly** \u2014 the total across the PS5's eight",
+        "power rails, instead of a mis-read number that had to be guessed at."
+      ]
+    },
+    {
+      "version": "5.24.0",
+      "fileName": "ps5upload-5.24.0.elf",
+      "filePath": "payloads/ps5upload/5.24.0/ps5upload-5.24.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.24.0/ps5upload-5.24.0.elf",
+      "hash": "8a794fce74545f9bcfecc664c59e24447e84a3c2730b7b936c87df97752fe462",
+      "fileSize": 2289248,
+      "releaseDate": "2026-09-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Choose whether you get early releases or only verified ones.**",
+        "**New setting: \"Get pre-release versions\"** (Settings \u2192 Updates). Off by",
+        "default, and your choice is remembered.",
+        "**Releases are now checked on real hardware before they're offered to you.**",
+        "Every release is published as a pre-release first and promoted by hand once",
+        "it has been verified, so leaving the new setting off means you're only",
+        "offered builds that someone has actually run on a console.",
+        "Turn it on to be offered new releases as soon as they're published."
+      ]
+    },
+    {
+      "version": "5.23.0",
+      "fileName": "ps5upload-5.23.0.elf",
+      "filePath": "payloads/ps5upload/5.23.0/ps5upload-5.23.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.23.0/ps5upload-5.23.0.elf",
+      "hash": "b03480fb09493b9c09cc65c360e2b3d064ced827c9561e2865e7bcd0367367e6",
+      "fileSize": 2289248,
+      "releaseDate": "2026-09-12",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Waking your PS5 now signs you in on PS5 firmware 9.60.**",
+        "**Wake-from-standby lands on your user, not the user-select screen** \u2014 on",
+        "consoles running firmware 9.60, verified repeatedly from a cold rest. It",
+        "takes about 10-15 seconds.",
+        "**Honest errors when it doesn't work.** ps5upload used to blame your RP-Key",
+        "for failures that had nothing to do with it, and in one case reported",
+        "\"signed in\" for a console still sitting on the user-select screen. It now",
+        "says what actually happened.",
+        "**Firmware 5.10 consoles still stop at user-select after a wake.** Signing",
+        "in works normally on those consoles once they're already awake. This needs a"
+      ]
+    },
+    {
       "version": "5.22.0",
       "fileName": "ps5upload-5.22.0.elf",
       "filePath": "payloads/ps5upload/5.22.0/ps5upload-5.22.0.elf",
@@ -21,7 +89,7 @@
       "hash": "69e6ebf0dc4d2ebb8e5c1d4690da955e78efb8c31f243c4331efcdf5df6236b7",
       "fileSize": 2289248,
       "releaseDate": "2026-09-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Wake and sign-in set themselves up, and installs stop reporting success as",
