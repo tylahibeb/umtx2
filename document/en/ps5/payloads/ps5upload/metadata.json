@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.26.0",
+      "fileName": "ps5upload-5.26.0.elf",
+      "filePath": "payloads/ps5upload/5.26.0/ps5upload-5.26.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.26.0/ps5upload-5.26.0.elf",
+      "hash": "735edfeb5cf61b65bde8260cd63ce3d4417e2442dfe9609ae551a5bd8f15803a",
+      "fileSize": 2289456,
+      "releaseDate": "2026-09-13",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Your account ID, a readable fan curve, and consoles in the order you want them.**",
+        "**Your account ID is visible again.** It always reached the app; the screen",
+        "was throwing it away and showing a dash instead, on every console that has",
+        "an account.",
+        "**Both forms are shown, and both copy.** The same account is written one way",
+        "by the console and another by Remote Play pairing \u2014 pasting the wrong one",
+        "into the Remote Play field simply fails. The Remote Play form is now",
+        "labelled as such, so there is nothing to work out.",
+        "**You can change the account ID**, with a warning that spells out what it",
+        "costs: saves made under the old ID stop being recognised until you put it"
+      ]
+    },
+    {
       "version": "5.25.0",
       "fileName": "ps5upload-5.25.0.elf",
       "filePath": "payloads/ps5upload/5.25.0/ps5upload-5.25.0.elf",
@@ -21,7 +44,7 @@
       "hash": "b24a0018292651111d7c0be00ab25bb88a9af624078ea5ee4ab1c3ecdcadc65a",
       "fileSize": 2289456,
       "releaseDate": "2026-09-13",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Fixes the console disconnects and \"ps5upload isn't responding\".**",
