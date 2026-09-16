@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.29.0",
+      "fileName": "ps5upload-5.29.0.elf",
+      "filePath": "payloads/ps5upload/5.29.0/ps5upload-5.29.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.29.0/ps5upload-5.29.0.elf",
+      "hash": "efe450ee5573016fed3da95b9a88794a0d9f9bd02178a9f48938567e2498b292",
+      "fileSize": 2307664,
+      "releaseDate": "2026-09-16",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Bug reports stop leaking your network, and a conversion survives leaving the",
+        "page.**",
+        "**\"Redact IP addresses\" now covers every text file in the zip.** It used to",
+        "apply only to the structured fields in `report.json`, so the engine log,",
+        "the payload logs, crash reports, klog and syslog went in verbatim \u2014 a",
+        "connection error reading `connect 192.168.1.50:9021 refused` published the",
+        "full address anyway. Every textual entry is now redacted as the archive is",
+        "written, on desktop and in the self-hosted browser build alike.",
+        "**Addresses are hidden completely** (`<IPv4>`, `[<IPv6>]`) instead of being",
+        "shortened to `192.168.X.X`, which still identified the network. Ports and"
+      ]
+    },
+    {
       "version": "5.28.0",
       "fileName": "ps5upload-5.28.0.elf",
       "filePath": "payloads/ps5upload/5.28.0/ps5upload-5.28.0.elf",
@@ -21,7 +45,7 @@
       "hash": "e5937396055234122e21fa39ebc88287a8de916dbf541d5739b376e74ff882a3",
       "fileSize": 2307272,
       "releaseDate": "2026-09-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Screens wait for a console instead of pretending, and every on/off setting",
