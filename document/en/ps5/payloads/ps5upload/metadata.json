@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.30.0",
+      "fileName": "ps5upload-5.30.0.elf",
+      "filePath": "payloads/ps5upload/5.30.0/ps5upload-5.30.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.30.0/ps5upload-5.30.0.elf",
+      "hash": "5d459934a2e8dac8e1a21104db8c1632809d2f45bb2f9a5a0395317d44de32c8",
+      "fileSize": 2307664,
+      "releaseDate": "2026-09-18",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Install a game straight from a link, at your line speed \u2014 and a fix for",
+        "installs that died halfway.**",
+        "**Paste a direct package URL and install it, with nothing staged anywhere.**",
+        "Install Package has a new link field. No copy lands on your PC and none on",
+        "the console, so a 100 GB game no longer needs twice its size free \u2014 only the",
+        "space the installed game itself takes.",
+        "**The download is parallel, so it runs at your line speed.** ps5upload",
+        "fetches the link over several connections at once (eight by default) and",
+        "feeds the bytes to the PS5 over your network. Handing the URL to the console",
+        "instead \u2014 what other tools do \u2014 leaves Sony's single-stream downloader in"
+      ]
+    },
+    {
       "version": "5.29.0",
       "fileName": "ps5upload-5.29.0.elf",
       "filePath": "payloads/ps5upload/5.29.0/ps5upload-5.29.0.elf",
@@ -21,7 +44,7 @@
       "hash": "efe450ee5573016fed3da95b9a88794a0d9f9bd02178a9f48938567e2498b292",
       "fileSize": 2307664,
       "releaseDate": "2026-09-16",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
