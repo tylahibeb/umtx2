@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.31.2",
+      "fileName": "ps5upload-5.31.2.elf",
+      "filePath": "payloads/ps5upload/5.31.2/ps5upload-5.31.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.31.2/ps5upload-5.31.2.elf",
+      "hash": "2652edf8049d1953522dd7003b4c0ccb7ef10806d68569d6b29409d08e4c8b55",
+      "fileSize": 2311272,
+      "releaseDate": "2026-09-20",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Honest status for installs we can't confirm, and the payload finally gets",
+        "its own name on the console.**",
+        "**Your payload really does have its own name now.** 5.31.0 said this was",
+        "done. It wasn't \u2014 checked on a real console, ps5upload was still listed as",
+        "the generic `payload.elf`. Only one of its ~16 threads had been renamed, and",
+        "the console shows whichever thread it feels like. All of them are named now,",
+        "and it reads `ps5upload.elf`. This also repairs the cleanup that reuses that",
+        "name: ps5upload can once again spot and clear a stuck copy of itself on",
+        "reconnect, while leaving other homebrew on the console alone.",
+        "**An install we can't confirm no longer says \"Cancelled\".** Nothing was"
+      ]
+    },
+    {
       "version": "5.31.1",
       "fileName": "ps5upload-5.31.1.elf",
       "filePath": "payloads/ps5upload/5.31.1/ps5upload-5.31.1.elf",
@@ -21,7 +45,7 @@
       "hash": "c366ebdec72c53154938d3dc319ca9ee6b1bbceee52344755e88774c3d3b0956",
       "fileSize": 2310280,
       "releaseDate": "2026-09-20",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Fixes the Android build, which 5.31.0 broke.**",

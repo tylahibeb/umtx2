@@ -27,20 +27,22 @@
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta1/shadowmountplus.elf",
       "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta1/ShadowMountPlus_1.7beta1.zip",
-      "hash": "39bd6fdb2c5d48eca8cfe447bf462f1b9ba7b1ccd425ea4a6e23999d22217ae1",
-      "fileSize": 2433288,
+      "hash": "0b30a1c23b83ebb2aa6523c8caaa5801ee89bde00e90cb36f392a29bb0bdb403",
+      "fileSize": 2449672,
       "releaseDate": "2026-09-20",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "New SceShellCore runtime: images mount before a game starts and are released after it exits.",
-        "More reliable game switching, sleep recovery, and cleanup of busy mounts.",
-        "Faster handling of large libraries: up to 8,192 games across 2,048 images. Optional cleanup of unavailable games.",
-        "New web library interface, PS5 menu launcher, and HTTP/JSON API.",
-        "Expanded fakelib support with emulator updates, global overlays, and optional automatic AMPR updates.",
-        "Optimized mount profiles, including a fast path for exFAT images on internal storage.",
-        "Localized notifications and a configurable fan temperature target.",
-        "FW 1.00-13.60"
+        "Version `1.7` is a major ShadowMountPlus update compared with `1.6`.",
+        "It focuses on the game lifecycle, performance with large libraries, safe",
+        "release of mount resources, and new management features.",
+        "> [!WARNING]",
+        "> Mounting images can still cause shutdown problems and data corruption on",
+        "> internal drives, especially on older firmware versions. Back up important",
+        "> data and configuration before updating.",
+        "Game registration and runtime mount preparation now use the SceShellCore bridge.",
+        "By default, images are mounted on demand before a game starts and released",
+        "after the application exits."
       ]
     },
     {
