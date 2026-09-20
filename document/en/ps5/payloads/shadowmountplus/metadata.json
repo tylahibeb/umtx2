@@ -23,6 +23,27 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta1/ShadowMountPlus_1.7beta1.zip",
+      "hash": "39bd6fdb2c5d48eca8cfe447bf462f1b9ba7b1ccd425ea4a6e23999d22217ae1",
+      "fileSize": 2433288,
+      "releaseDate": "2026-09-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "New SceShellCore runtime: images mount before a game starts and are released after it exits.",
+        "More reliable game switching, sleep recovery, and cleanup of busy mounts.",
+        "Faster handling of large libraries: up to 8,192 games across 2,048 images. Optional cleanup of unavailable games.",
+        "New web library interface, PS5 menu launcher, and HTTP/JSON API.",
+        "Expanded fakelib support with emulator updates, global overlays, and optional automatic AMPR updates.",
+        "Optimized mount profiles, including a fast path for exFAT images on internal storage.",
+        "Localized notifications and a configurable fan temperature target.",
+        "FW 1.00-13.60"
+      ]
+    },
+    {
       "version": "1.7alpha13fix1",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7alpha13fix1/shadowmountplus.elf",
@@ -30,7 +51,7 @@
       "hash": "15af22e6cefefbcc9f16f137b5255b6b94d546788ba5f404dc9220da4759a6ff",
       "fileSize": 2465896,
       "releaseDate": "2026-09-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",

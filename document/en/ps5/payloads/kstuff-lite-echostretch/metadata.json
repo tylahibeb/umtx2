@@ -23,6 +23,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.11",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite-echostretch/1.11/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff-lite/releases/download/v1.11/kstuff.elf",
+      "hash": "ea14edbfe18ddc04f10dc09c4b1bf0c26e95b34a115a797722d6eda6298769c7",
+      "fileSize": 1737080,
+      "releaseDate": "2026-09-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Kstuff Lite 1.11 Beta Supports Firmware 1.00-13.60**",
+        "A huge thanks to @sleirsgoevy for the help and creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif, @drakmor and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added 13.xx Support",
+        "Added 1.xx/2.xx Support @drakmor",
+        "Added Fpkg Upto 11.40 @drakmor",
+        "Performance tuning @drakmor",
+        "PS4 media app support @drakmor",
+        "Fixed Fpkg For 11.60 @ArkSama",
+        "Fixed int3 For 13.xx @idlesauce"
+      ]
+    },
+    {
       "version": "1.10",
       "fileName": "kstuff.elf",
       "filePath": "payloads/kstuff-lite-echostretch/1.10/kstuff.elf",
@@ -30,7 +53,7 @@
       "hash": "82cbb1e70f8a562317d6b65269cf6aa0d7d94e22df4f1ac89a260ca0ec261252",
       "fileSize": 1572832,
       "releaseDate": "2026-08-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Kstuff Lite 1.10 Beta Supports Firmware 3.00-12.70**",
