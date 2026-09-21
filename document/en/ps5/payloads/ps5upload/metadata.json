@@ -22,7 +22,7 @@
       "fileSize": 2311272,
       "releaseDate": "2026-09-21",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Faster installs from a link when the file host is throttling, honest",
