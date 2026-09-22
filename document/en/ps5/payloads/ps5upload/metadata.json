@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.33.1",
+      "fileName": "ps5upload-5.33.1.elf",
+      "filePath": "payloads/ps5upload/5.33.1/ps5upload-5.33.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.33.1/ps5upload-5.33.1.elf",
+      "hash": "75b364880bedaaac1499779d5a459008ca838eb13d30252169f9b134dd32ed63",
+      "fileSize": 2311480,
+      "releaseDate": "2026-09-22",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Installing from a link is much faster, there is now a third way to do it,",
+        "and \"skip the certificate check\" actually works.**",
+        "**Links install about 65% faster.** Measured installing a 101 GB game: 108",
+        "MB/s, against 65 MB/s before, and it no longer slows to a crawl part way",
+        "through. ps5upload was getting in its own way \u2014 dropping and reopening",
+        "connections that were already fast, fetching the same piece of the file over",
+        "and over, and piling on more connections when the site was already",
+        "struggling. It now downloads about as many bytes as the game actually is,",
+        "instead of roughly six times that.",
+        "**New: download the package first, then install it.** The third choice"
+      ]
+    },
+    {
       "version": "5.32.0",
       "fileName": "ps5upload-5.32.0.elf",
       "filePath": "payloads/ps5upload/5.32.0/ps5upload-5.32.0.elf",
@@ -21,7 +44,7 @@
       "hash": "0070974f7be6aeeee84171474f8b71cd8ef0b2b055c2d76329501a543ed5b607",
       "fileSize": 2311480,
       "releaseDate": "2026-09-22",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
