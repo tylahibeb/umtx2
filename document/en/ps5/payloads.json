@@ -49,11 +49,11 @@
     {
       "name": "Elf Arsenal",
       "filename": "elf-arsenal.elf",
-      "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.22/elf-arsenal.elf",
+      "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
       "description": "All-in-one PS5 homebrew utility — save management, cheats, FTP, Linux loader, trophy unlocker, and file manager. Successor to Sonic Loader. WebUI on port 6969.",
-      "version": "1.6.22",
+      "version": "1.6.23",
       "category": "Networking",
-      "checksum": "c9793086f68cc9403634642448b2aceb07059aecb331a0b8ae0caaff7cedf860"
+      "checksum": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
     },
     {
       "name": "websrv",
