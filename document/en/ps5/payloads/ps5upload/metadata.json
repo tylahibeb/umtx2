@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.34.0",
+      "fileName": "ps5upload-5.34.0.elf",
+      "filePath": "payloads/ps5upload/5.34.0/ps5upload-5.34.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.34.0/ps5upload-5.34.0.elf",
+      "hash": "fbe6fb2c306828d72bffefef4e4149ec189a748c3f7662dffeb6c281bf7437c0",
+      "fileSize": 2313336,
+      "releaseDate": "2026-09-25",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**See every install's progress, and a big step for game conversion.**",
+        "**Link installs show their progress.** \"Download through this computer\" now",
+        "shows a progress bar, download speed, time left and a Cancel button from the",
+        "start, instead of nothing until the download finished. Stream installs show",
+        "time left next to their speeds, and \"Let the PS5 download it\" now appears in",
+        "Tasks.",
+        "**Clearer stream-install error.** When the PS5 can't reach your computer, the",
+        "app now says so and suggests what to check (firewall, VPN, same network),",
+        "instead of always blaming the proxy.",
+        "**Convert to FPKG (beta) uses a new package layout** that got a converted game"
+      ]
+    },
+    {
       "version": "5.33.3",
       "fileName": "ps5upload-5.33.3.elf",
       "filePath": "payloads/ps5upload/5.33.3/ps5upload-5.33.3.elf",
@@ -21,7 +44,7 @@
       "hash": "7710a3ea6c6ac37bab2ab18c4d6e185ae9fe1b06ddcc6e05e2d23da35fea9063",
       "fileSize": 2313336,
       "releaseDate": "2026-09-23",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
