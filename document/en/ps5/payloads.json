@@ -39,12 +39,12 @@
     },
     {
       "name": "pldmgr",
-      "filename": "pldmgr_v0.5.1.elf",
-      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.1/pldmgr_v0.5.1.elf",
+      "filename": "pldmgr_v0.5.2.elf",
+      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.2/pldmgr_v0.5.2.elf",
       "description": "PS5 payload manager. Runs on PS5 as a web server.",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "category": "Tools",
-      "checksum": "05617c69ea145d1c11b8f7a6b7d3bd9e6df3831afd25d71a4ac85d63fb8e28aa"
+      "checksum": "62b3ba2a4937c2afc502f9a4e7242cca538610ebb4ae2800c7c6f72e7f268e7c"
     },
     {
       "name": "Elf Arsenal",
@@ -129,12 +129,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-5.38.0.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v5.38.0/ps5upload-5.38.0.elf",
+      "filename": "ps5upload-5.39.1.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v5.39.1/ps5upload-5.39.1.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "5.38.0",
+      "version": "5.39.1",
       "category": "Game",
-      "checksum": "a57d86cb3b1ddab89f4317f021da4b4e0ef8180a5a88d50a0fb17a1c1ba8fd28"
+      "checksum": "a50d66033f66cb9d6600c810066b699e59b1a0cc3d7e98bffd5a0b6eb9ebd1a3"
     },
     {
       "name": "PS5 Game Compressor",
