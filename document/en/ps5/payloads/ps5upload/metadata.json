@@ -22,7 +22,7 @@
       "fileSize": 2261560,
       "releaseDate": "2026-09-29",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Activating an offline account works again in the desktop app.** It",
