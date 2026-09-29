@@ -14,6 +14,74 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "5.38.0",
+      "fileName": "ps5upload-5.38.0.elf",
+      "filePath": "payloads/ps5upload/5.38.0/ps5upload-5.38.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.38.0/ps5upload-5.38.0.elf",
+      "hash": "a57d86cb3b1ddab89f4317f021da4b4e0ef8180a5a88d50a0fb17a1c1ba8fd28",
+      "fileSize": 2261560,
+      "releaseDate": "2026-09-29",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Install queue: everything about an install, in its own row.**",
+        "**The running install shows its own progress.** Phase (copying,",
+        "sending to the PS5, installing on the PS5), a progress bar, bytes done",
+        "of total, speed and time left now sit inside the item being installed,",
+        "instead of in a separate line further down the page. A link install",
+        "shows both speeds: downloading from the link and sending to the PS5.",
+        "**What it's waiting on is said in the row.** \"Waiting for the PS5 to be",
+        "ready\", \"Verifying the installed package\" and similar notes appear",
+        "under the bar, and before the first numbers arrive the row says it is",
+        "getting ready instead of showing a stuck 0%."
+      ]
+    },
+    {
+      "version": "5.37.2",
+      "fileName": "ps5upload-5.37.2.elf",
+      "filePath": "payloads/ps5upload/5.37.2/ps5upload-5.37.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.37.2/ps5upload-5.37.2.elf",
+      "hash": "dbd856ef9a32e287e3afdedfc32eaad3ccc8bc83c10d4b844ac16f41150cfd7f",
+      "fileSize": 2261560,
+      "releaseDate": "2026-09-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**No crash screen after an update.** A web UI tab left open while the app",
+        "was updated could crash when you opened a screen (for example Files) \u2014",
+        "\"Importing a module script failed\". The page now reloads once and opens the",
+        "screen from the new version.",
+        "**FAQ and What's New** load again when running the app from source.",
+        "Building from source (`make run-client`, `make run-android`, \u2026) no longer",
+        "reinstalls the client's packages every time, which broke a dev app already",
+        "running."
+      ]
+    },
+    {
+      "version": "5.37.1",
+      "fileName": "ps5upload-5.37.1.elf",
+      "filePath": "payloads/ps5upload/5.37.1/ps5upload-5.37.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v5.37.1/ps5upload-5.37.1.elf",
+      "hash": "b84d3dc726078cfa2da1f5ea6a32a7d1301b667565efff2f0bada965c94dfe31",
+      "fileSize": 2261560,
+      "releaseDate": "2026-09-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "(5.37.0 was tagged but never published; everything it had is here.)",
+        "**No more loading elfldr again.**",
+        "The stock elfldr on port 9021 could get stuck for good when a connection",
+        "dropped mid-send \u2014 Wi-Fi hiccups, a computer going to sleep, or the PS5",
+        "entering rest mode \u2014 and then ignored everything until you loaded it",
+        "again. ps5upload now carries an elfldr that recovers by itself, and",
+        "swaps it in whenever the console's helper comes up. (Only the standard",
+        "elfldr is replaced; any other loader on port 9021 is left alone.)",
+        "The app no longer sends into a stuck loader: it waits for one that is",
+        "recovering, and says plainly when elfldr needs loading again."
+      ]
+    },
+    {
       "version": "5.36.0",
       "fileName": "ps5upload-5.36.0.elf",
       "filePath": "payloads/ps5upload/5.36.0/ps5upload-5.36.0.elf",
@@ -21,7 +89,7 @@
       "hash": "b1a10ae2b55ae8929681941991535226610d3fe2af9454a34d260e5884c8d336",
       "fileSize": 2260736,
       "releaseDate": "2026-09-27",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
