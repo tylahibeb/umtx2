@@ -13,11 +13,11 @@
     {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
-      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta2/shadowmountplus.elf",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta3/shadowmountplus.elf",
       "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
-      "version": "1.7beta2",
+      "version": "1.7beta3",
       "category": "Game",
-      "checksum": "3f716a7b2220c7e87e87452ae05cad689ef842d3beb4cdad6c526cb6dfc2b6b5"
+      "checksum": "2a7427e20ba7a70bd8cd01e47eb00ee7ca82db82dff3da7884f48f9c3fcbe95a"
     },
     {
       "name": "etaHEN",
@@ -148,11 +148,11 @@
     {
       "name": "CheatRunner",
       "filename": "CheatRunner.elf",
-      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.17.1/CheatRunner.elf",
+      "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.17.2/CheatRunner.elf",
       "description": "Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.",
-      "version": "0.17.1",
+      "version": "0.17.2",
       "category": "Game",
-      "checksum": "6863f06cb6ff41f846d84a0542c21469b52cacf55c9e6a0e2c74c114b3a55212"
+      "checksum": "36ad03e236e6603aaaf05d95ed3399c7b54475a9bceba085cbe02899bc88ae0f"
     },
     {
       "name": "ps5debug",
@@ -202,11 +202,11 @@
     {
       "name": "Kylin Core",
       "filename": "kylin-core.elf",
-      "url": "https://github.com/aydencharles/kylin-core-release/releases/download/v1.3.1-community-lite/kylin-core.elf",
+      "url": "https://github.com/aydencharles/kylin-core-release/releases/download/v2.0.0-community-lite/kylin-core.elf",
       "description": "PS5 homebrew cheat loader and real-time game modifier — supports .shn, .mc4, and .json formats with automatic game detection. Compatible with FW 4.xx - 12.xx.",
-      "version": "1.3.1-community-lite",
+      "version": "2.0.0-community-lite",
       "category": "Game",
-      "checksum": "90320a4169d61be6e168e605e59c4d8fc89fb978f1772f03c2011e7e8087b8a3"
+      "checksum": "7f5245f2db67b131c6f9e991b731117c2c730923a9dd65a2d82b36f2e2b91545"
     },
     {
       "name": "BFpilot",
