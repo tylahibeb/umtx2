@@ -14,6 +14,53 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.2.1",
+      "fileName": "ps5upload-6.2.1.elf",
+      "filePath": "payloads/ps5upload/6.2.1/ps5upload-6.2.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.2.1/ps5upload-6.2.1.elf",
+      "hash": "eb0bf3b9f5c0004cecc5e2c43dbd3d0749fa6e032a9a4b0343c115d79fb10a96",
+      "fileSize": 3275776,
+      "releaseDate": "2026-10-06",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Retrying a big file continues where it stopped.** Update the app and the helper together.",
+        "**Retrying a single-file upload:** starting the same file again (Start, or adding it to the",
+        "queue again) now continues the copy the PS5 kept, instead of asking for room for the whole",
+        "file a second time while the partial copy still takes up that room.",
+        "**Fan Curve:** the screen now says what it really sets. The PS5 has one fan setting, the",
+        "temperature at which the fans go to full speed, and cannot follow a curve; the screen shows",
+        "the temperature your points give.",
+        "**\"The PS5 declined the install\":** now shows Sony's error code, so a report can say which",
+        "refusal it was."
+      ]
+    },
+    {
+      "version": "6.2.0",
+      "fileName": "ps5upload-6.2.0.elf",
+      "filePath": "payloads/ps5upload/6.2.0/ps5upload-6.2.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.2.0/ps5upload-6.2.0.elf",
+      "hash": "2b19e3823621295ff02b9e3534be028f533805482dece3ebf23caa2e45e1c8e5",
+      "fileSize": 3275776,
+      "releaseDate": "2026-10-06",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Games launch again, and installs stop giving up early.** Update the app and the helper together.",
+        "**Games that would not start:** since 6.0, games uploaded from Windows lost their run",
+        "permission, so the PS5 refused them. Everything the helper writes is now readable and runnable",
+        "(777), including its own folders. Games uploaded with 6.0\u20136.1.2 get a **Fix permissions**",
+        "button, and Play repairs them by itself when it can.",
+        "**\"PS5 launcher returned 0x80940033\":** now says what it means. If kstuff isn't running,",
+        "the app tells you to load it; that error is not about the one game.",
+        "**Installs:** a package the PS5 refuses from its own storage can always be tried again, and",
+        "Stream is tried straight away instead of after a connection pre-check.",
+        "**\"The PS5 cannot connect to this computer\":** failed queue items offer the Windows firewall"
+      ]
+    },
+    {
       "version": "6.1.2",
       "fileName": "ps5upload-6.1.2.elf",
       "filePath": "payloads/ps5upload/6.1.2/ps5upload-6.1.2.elf",
@@ -21,7 +68,7 @@
       "hash": "1fdf0a79687a4a823dd7c331c267cf492f849bd2bc6666e2db496fc03e544162",
       "fileSize": 3274512,
       "releaseDate": "2026-10-06",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Game folders upload all the way through.**",
