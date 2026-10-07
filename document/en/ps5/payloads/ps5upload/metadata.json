@@ -14,6 +14,52 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.3.1",
+      "fileName": "ps5upload-6.3.1.elf",
+      "filePath": "payloads/ps5upload/6.3.1/ps5upload-6.3.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.3.1/ps5upload-6.3.1.elf",
+      "hash": "2ff17e8096fa06c36fe27f4ea28d750733a9d10677ae6c566fd851f07da6b136",
+      "fileSize": 3296696,
+      "releaseDate": "2026-10-07",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**\"The PS5 declined the install\" (`0x80B2116F`) is fixed.** Update the app; it sends its new",
+        "installer to the console by itself on the next install.",
+        "**`0x80B2116F` was our bug.** The install request ps5upload handed the PS5 was a few bytes",
+        "short, so the PS5 read leftover memory and sometimes took a full package for a patch. That",
+        "refused every **Upload & install**, and made **Stream** installs fail at random after a few",
+        "attempts. Measured on two consoles on FW 13.60: refused every time before, accepted every",
+        "time after, including a 3.6 GB game installed over itself and its patch. FW 9.60, 11.20 and",
+        "5.10 showed the same refusal and should be fixed by the same change; we could not test them.",
+        "**Console tabs keep their screens:** switching to another console and back keeps what you",
+        "typed, opened and loaded for each one (the last three consoles)."
+      ]
+    },
+    {
+      "version": "6.3.0",
+      "fileName": "ps5upload-6.3.0.elf",
+      "filePath": "payloads/ps5upload/6.3.0/ps5upload-6.3.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.3.0/ps5upload-6.3.0.elf",
+      "hash": "9614060e2b7903bc583f14909dbade4357654e635606e29a4e93eee4886560b5",
+      "fileSize": 3296696,
+      "releaseDate": "2026-10-07",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Switching screens no longer loses what you were doing.** Update the app; the helper is",
+        "unchanged apart from its version.",
+        "**Screens keep their state:** going to another screen and back keeps what you typed, what",
+        "you selected, open panels and where you had scrolled.",
+        "**Operations keep running and stay visible** when you switch screens or console tabs:",
+        "copying files into **Files** (drag-in, Add files, Add folder), downloading a link to the",
+        "PS5, a game's Download and Move in **Games**, and **Send helper**. They also show in Tasks.",
+        "**Resume a copy into Files** after you stop it, after it fails, or after the app closes or",
+        "crashes part-way. What already reached the PS5 is kept, so Resume sends only the rest. A",
+        "dropped connection is retried by itself, and the copy carries on when the PS5 comes back"
+      ]
+    },
+    {
       "version": "6.2.3",
       "fileName": "ps5upload-6.2.3.elf",
       "filePath": "payloads/ps5upload/6.2.3/ps5upload-6.2.3.elf",
@@ -21,7 +67,7 @@
       "hash": "19c0455f2e460badba95021501468dd7b06d3b8b3baa0348c7d3bc777d4c5f74",
       "fileSize": 3296696,
       "releaseDate": "2026-10-07",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "The 6.2.2 fixes, with a more reliable CI test run. No app or helper behavior changed."
