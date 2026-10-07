@@ -14,6 +14,44 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.2.3",
+      "fileName": "ps5upload-6.2.3.elf",
+      "filePath": "payloads/ps5upload/6.2.3/ps5upload-6.2.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.2.3/ps5upload-6.2.3.elf",
+      "hash": "19c0455f2e460badba95021501468dd7b06d3b8b3baa0348c7d3bc777d4c5f74",
+      "fileSize": 3296696,
+      "releaseDate": "2026-10-07",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "The 6.2.2 fixes, with a more reliable CI test run. No app or helper behavior changed."
+      ]
+    },
+    {
+      "version": "6.2.2",
+      "fileName": "ps5upload-6.2.2.elf",
+      "filePath": "payloads/ps5upload/6.2.2/ps5upload-6.2.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.2.2/ps5upload-6.2.2.elf",
+      "hash": "8b5a2c1ae0450044523cc96750db38c356613efcefb6fe5d532bc47c872718e7",
+      "fileSize": 3296696,
+      "releaseDate": "2026-10-07",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Fan control that respects the console, and a round of fixes from your reports.** Update the app and the helper together.",
+        "**Fan:** the app now shows the temperature the console is really holding and its own",
+        "setting, and has a **Use the console's own setting** button. Earlier versions treated 60 \u00b0C",
+        "as the console's default; it is much higher, so any setting ran the fans harder than normal",
+        "with no way back. A curve that never asks for full speed now leaves the fan to the console.",
+        "**Convert to FPKG:** reads `.ffpfs` images and `.ffpfsc` files that hold one, including from",
+        "the console.",
+        "**Other payloads keep running:** connecting no longer replaces the console's loader on every",
+        "app start, and never when doing so would stop kstuff or ShadowMount+. The auto-loader no",
+        "longer runs its playlist twice in one boot."
+      ]
+    },
+    {
       "version": "6.2.1",
       "fileName": "ps5upload-6.2.1.elf",
       "filePath": "payloads/ps5upload/6.2.1/ps5upload-6.2.1.elf",
@@ -21,8 +59,8 @@
       "hash": "eb0bf3b9f5c0004cecc5e2c43dbd3d0749fa6e032a9a4b0343c115d79fb10a96",
       "fileSize": 3275776,
       "releaseDate": "2026-10-06",
-      "isDefault": true,
-      "isPreRelease": true,
+      "isDefault": false,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Retrying a big file continues where it stopped.** Update the app and the helper together.",
