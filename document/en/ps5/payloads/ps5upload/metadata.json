@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.5.0",
+      "fileName": "ps5upload-6.5.0.elf",
+      "filePath": "payloads/ps5upload/6.5.0/ps5upload-6.5.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.5.0/ps5upload-6.5.0.elf",
+      "hash": "af6aac4acc7776909124eba6b737a9119e587364eeb1f63f9a4382589a8e0b56",
+      "fileSize": 3296776,
+      "releaseDate": "2026-10-08",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**The Collection, Move to\u2026, and a big round of fixes: Android connects again, the helper starts",
+        "on FW 5.50, and the web UI can pair.** Update the app; it updates the helper by itself.",
+        "**Collection:** every game in the folders you add (packages, game folders, game images,",
+        "archives, PS3 packages), grouped by game with its updates and DLC, duplicates and their size.",
+        "Search, filters, grid or table, covers, exports, automatic rescan. Folders on a NAS (SMB, FTP,",
+        "FTPS, SFTP) are scanned in place without mounting. **Import from PS Game Library** brings its",
+        "index over; PS Game Library is now part of ps5upload.",
+        "**What this PS5 has:** each game shows whether the selected console has it and at which",
+        "version. Install a game with its update and DLC, just the update or the missing DLC, or",
+        "**Bring this PS5 up to date** in one go."
+      ]
+    },
+    {
       "version": "6.4.0",
       "fileName": "ps5upload-6.4.0.elf",
       "filePath": "payloads/ps5upload/6.4.0/ps5upload-6.4.0.elf",
@@ -21,7 +44,7 @@
       "hash": "b0392932ae957821fbaccee44d761a9320655995ccfa80c9ffdcc5cec2497f70",
       "fileSize": 3296704,
       "releaseDate": "2026-10-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Install is two tabs, links say what they ask of you, and Home tells you when something is",
