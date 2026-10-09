@@ -14,6 +14,53 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.6.1",
+      "fileName": "ps5upload-6.6.1.elf",
+      "filePath": "payloads/ps5upload/6.6.1/ps5upload-6.6.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.6.1/ps5upload-6.6.1.elf",
+      "hash": "bca34345897b4332334c3da7b61b851eca884d3c0db5dca275b3327ac623b17a",
+      "fileSize": 3296952,
+      "releaseDate": "2026-10-09",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**A new Bug report page that gathers everything we need, and two or more consoles no longer",
+        "step on each other.**",
+        "**Bug report.** Open it from the command palette, or from the link on any error. One page:",
+        "say what went wrong, add screenshots, check your setup (filled in for you), and pick how far",
+        "back the logs go (the last 15 minutes up to the last 7 days, or a time you choose). Everything",
+        "the app, the engine and the PS5 recorded in that time goes in. Then post it as a GitHub issue,",
+        "copy it for the Discord #bugs-report channel, or download the zip. IP addresses, serials, MAC",
+        "addresses, home folders and keys are removed before anything leaves your computer.",
+        "**Screenshots for reports.** The Capture button at the bottom right of the desktop app takes a",
+        "picture of any screen. The Bug report lists your captures to pick from and adds one you take"
+      ]
+    },
+    {
+      "version": "6.5.2",
+      "fileName": "ps5upload-6.5.2.elf",
+      "filePath": "payloads/ps5upload/6.5.2/ps5upload-6.5.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.5.2/ps5upload-6.5.2.elf",
+      "hash": "bc95c23288272cfd669a062affc0e6886f0008dd0d869cc1f7f87ab2c6af3481",
+      "fileSize": 3296952,
+      "releaseDate": "2026-10-09",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**The helper no longer crashes on the Hardware screen, and a crash no longer locks it out until",
+        "you restart the PS5.**",
+        "**Helper crash on FW 13.60 (#417).** Opening Hardware could crash the helper (\"signal 11 while",
+        "serving frame 88\"). The console health readout now reads its values safely, and a reading the",
+        "firmware doesn't support shows as unavailable instead of taking the helper down.",
+        "**After a crash the helper can be sent again right away.** A crashed helper used to keep its",
+        "port, so the next one failed with \"ports still held\" until the PS5 was restarted. It now exits",
+        "cleanly and frees the port.",
+        "**Files: New folder in the right-click menu.** Right-click a file or folder, or the empty space",
+        "in the list, to create a folder there. The empty-space menu also has Paste here and Refresh."
+      ]
+    },
+    {
       "version": "6.5.1",
       "fileName": "ps5upload-6.5.1.elf",
       "filePath": "payloads/ps5upload/6.5.1/ps5upload-6.5.1.elf",
@@ -21,7 +68,7 @@
       "hash": "c1f924b6ccddde28a132f56aab4b30628bd79cbb98be6e9566d9768fbac93c3a",
       "fileSize": 3296776,
       "releaseDate": "2026-10-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Send games from the Collection in one click, and stop an install you no longer want.**",
