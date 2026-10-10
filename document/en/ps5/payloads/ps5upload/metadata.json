@@ -14,6 +14,26 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.8.1",
+      "fileName": "ps5upload-6.8.1.elf",
+      "filePath": "payloads/ps5upload/6.8.1/ps5upload-6.8.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.8.1/ps5upload-6.8.1.elf",
+      "hash": "4593fcbd6169b67a4dcbfda8f13b0f0485b9ac93adff19ab515957e2c1fa397b",
+      "fileSize": 3340056,
+      "releaseDate": "2026-10-10",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Convert's queue always made a package.** Picking a game image (.ffpkg, .exfat or .ffpfs, or",
+        "compressed into a .ffpfsc) and then queueing the game still built a .pkg: the queue only ever",
+        "made packages. The queue now has a **Make** choice, a package or a game image, and choosing",
+        "image options under \u2462 switches it to the image you picked. Each queued game shows the file it",
+        "becomes (.pkg, .ffpfsc, ...) and is built as exactly that. A queued image can be kept or sent",
+        "to the PS5 through the Upload queue. Only game folders on this computer can become images;",
+        "others are skipped with a note."
+      ]
+    },
+    {
       "version": "6.8.0",
       "fileName": "ps5upload-6.8.0.elf",
       "filePath": "payloads/ps5upload/6.8.0/ps5upload-6.8.0.elf",
@@ -21,7 +41,7 @@
       "hash": "a9e2aef4c83dc80f3a6704310437db9bd563b83ff9e825a67ec297646a44dadd",
       "fileSize": 3340056,
       "releaseDate": "2026-10-10",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",

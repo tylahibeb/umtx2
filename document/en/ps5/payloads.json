@@ -13,11 +13,11 @@
     {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
-      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta4/shadowmountplus.elf",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta5/shadowmountplus.elf",
       "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
-      "version": "1.7beta4",
+      "version": "1.7beta5",
       "category": "Game",
-      "checksum": "fc4e5f715e76660ce34bde2adb10eaf1d069cb2cdf06f7a380896dfb62bd0c4a"
+      "checksum": "0d54a8467ec3544e1c7b365c9f100b2bf42bf4633cb768bde7c8f16b6cfb5375"
     },
     {
       "name": "etaHEN",
@@ -129,12 +129,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-6.8.0.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v6.8.0/ps5upload-6.8.0.elf",
+      "filename": "ps5upload-6.8.1.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v6.8.1/ps5upload-6.8.1.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "6.8.0",
+      "version": "6.8.1",
       "category": "Game",
-      "checksum": "a9e2aef4c83dc80f3a6704310437db9bd563b83ff9e825a67ec297646a44dadd"
+      "checksum": "4593fcbd6169b67a4dcbfda8f13b0f0485b9ac93adff19ab515957e2c1fa397b"
     },
     {
       "name": "PS5 Game Compressor",
