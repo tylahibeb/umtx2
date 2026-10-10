@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "6.8.2",
+      "fileName": "ps5upload-6.8.2.elf",
+      "filePath": "payloads/ps5upload/6.8.2/ps5upload-6.8.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v6.8.2/ps5upload-6.8.2.elf",
+      "hash": "e9cb922ea48f3e8007aefd2862c2d41dd522eea11a92c846b136333ab37e9e0d",
+      "fileSize": 3286520,
+      "releaseDate": "2026-10-10",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "A clean-up release: every screen was gone through for things that no longer make sense, and",
+        "the code nothing used was removed.",
+        "**The upload speed limit was up to 8\u00d7 too high.** It held each of a transfer's connections to",
+        "the limit instead of the whole transfer, so 10 MB/s could run at 80. It now limits the whole",
+        "upload, and also applies to uploads from Files and to single files, which ignored it before.",
+        "**Stop on Upload and on Files downloads now really cancels.** It only stopped watching",
+        "before; the transfer kept running.",
+        "**First-time setup and \"Bring up PS5\" now pair with a new console** instead of timing out:",
+        "they send the helper the same way the rest of the app does.",
+        "**Home's Servers card** could show twice or vanish once you had activity; it shows once."
+      ]
+    },
+    {
       "version": "6.8.1",
       "fileName": "ps5upload-6.8.1.elf",
       "filePath": "payloads/ps5upload/6.8.1/ps5upload-6.8.1.elf",
@@ -21,7 +44,7 @@
       "hash": "4593fcbd6169b67a4dcbfda8f13b0f0485b9ac93adff19ab515957e2c1fa397b",
       "fileSize": 3340056,
       "releaseDate": "2026-10-10",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Convert's queue always made a package.** Picking a game image (.ffpkg, .exfat or .ffpfs, or",

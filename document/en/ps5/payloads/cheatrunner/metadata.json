@@ -14,6 +14,27 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.18",
+      "fileName": "CheatRunner.elf",
+      "filePath": "payloads/cheatrunner/0.18/CheatRunner.elf",
+      "downloadUrl": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.18/CheatRunner.elf",
+      "hash": "4ae1ea4e37b2e67d5487355ddf671f166861ed6dceea348c048ad060770c0140",
+      "fileSize": 8272800,
+      "releaseDate": "2026-10-10",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "CheatRunner v0.18",
+        "See the full changelog here: [Changelog](https://github.com/notmaj0r/CheatRunner/blob/main/CHANGELOG.md)",
+        "Check [GUIDE](https://github.com/notmaj0r/CheatRunner#homebrew-launcher) to setup CheatRunner.zip on Homebrew Launcher.",
+        "\u26a0\ufe0f Before updating to a new CheatRunner version, please follow these steps: [Updating CheatRunner](https://github.com/notmaj0r/CheatRunner#-updating-cheatrunner)",
+        "Special Thanks:",
+        "\ud83d\udc96 Supporters - those who supported the project through [Ko-Fi](https://ko-fi.com/maj0r) or [Buy Me a Coffee](https://buymeacoffee.com/maj0r).",
+        "\u2022 primo \u2022 lal3x \u2022 jawad \u2022 anonymous \u2022 Maffioh \u2022 X-F1REBALL-X \u2022 Br0ken4life \u2022 Nimrod \u2022 l gave a tip!",
+        "\ud83d\udc9a Testers - those who tested early builds of CheatRunner before release."
+      ]
+    },
+    {
       "version": "0.17.2",
       "fileName": "CheatRunner.elf",
       "filePath": "payloads/cheatrunner/0.17.2/CheatRunner.elf",
@@ -21,7 +42,7 @@
       "hash": "36ad03e236e6603aaaf05d95ed3399c7b54475a9bceba085cbe02899bc88ae0f",
       "fileSize": 10091832,
       "releaseDate": "2026-10-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "CheatRunner v0.17.2",
