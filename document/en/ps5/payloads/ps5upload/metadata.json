@@ -14,6 +14,72 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.12",
+      "fileName": "ps5upload-7.0.12.elf",
+      "filePath": "payloads/ps5upload/7.0.12/ps5upload-7.0.12.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.12/ps5upload-7.0.12.elf",
+      "hash": "6291b53c92d5e1e0b0f44253439615254fd8a876970fbdb4e368a9ed01175648",
+      "fileSize": 3294736,
+      "releaseDate": "2026-10-11",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Convert: a \"Stored\" package option (no compression).** Reports of packages that install but",
+        "will not start on FW 8.60 and 10.40 arrived while compressed packages have only been proven",
+        "to play on FW 5.10. Stored writes the same block layout with every block uncompressed, the",
+        "one form that has played on hardware; the package is the game's size. Pick it under",
+        "Compression if a compressed package installs but will not launch, and please say so on",
+        "GitHub, with your firmware, so the default can be set right.",
+        "**Helper mismatch notice** now says there is nothing to do on the PS5 itself: Reload helper",
+        "sends the matching helper from the app.",
+        "**RAR errors keep the library's reason** after the advice, so a report can be diagnosed."
+      ]
+    },
+    {
+      "version": "7.0.11",
+      "fileName": "ps5upload-7.0.11.elf",
+      "filePath": "payloads/ps5upload/7.0.11/ps5upload-7.0.11.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.11/ps5upload-7.0.11.elf",
+      "hash": "80f992eb814779ed56c73cd6a29a2b88f5323c9afa72613cc768651c9ac61cb4",
+      "fileSize": 3294736,
+      "releaseDate": "2026-10-11",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Game page: Install on a package card.** \"On your drives\" showed a package with only Copy",
+        "path and Copy install link; packages now have Install, which queues them streamed from the",
+        "drive (or server) they sit on, like the console row's offers.",
+        "**Settings \u2192 Accessibility \u2192 Reduce transparency (#443).** Turns off the frosted-glass blur",
+        "behind panels, the one thing that keeps the graphics card busy while an upload redraws its",
+        "progress on Windows. It follows the OS \"transparency effects\" setting until you change it.",
+        "(Motion \u2192 Reduced already did this as a side effect and still does.)"
+      ]
+    },
+    {
+      "version": "7.0.10",
+      "fileName": "ps5upload-7.0.10.elf",
+      "filePath": "payloads/ps5upload/7.0.10/ps5upload-7.0.10.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.10/ps5upload-7.0.10.elf",
+      "hash": "265cb3d2ed90a29a721a137b6877e680007c7f6041dfe324822c5b260eadc67f",
+      "fileSize": 3294736,
+      "releaseDate": "2026-10-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "7.0.9 was tagged but never published: its Android build failed on a desktop-only permission",
+        "(the file drag-out plugin), caught before the release existed. Everything below ships here.",
+        "**The app no longer sends the helper into a console that is still booting.** With the app",
+        "open while the PS5 started, the automatic helper restore fired the moment the loader port",
+        "answered, which on a cold boot is before kstuff and the rest of the jailbreak chain are",
+        "loaded; an FW 11.40 console crashed three times out of three. The automatic restore now",
+        "waits 90 seconds after the loader first appears. Your own sends from the Connection screen",
+        "are not held.",
+        "**Payloads \u2192 Payload Manager.** A new tab for itsPLK's Payload Manager on the console: what",
+        "it stores, Launch and Delete, and its boot list (load at boot, order). On the Catalog tab,"
+      ]
+    },
+    {
       "version": "7.0.8",
       "fileName": "ps5upload-7.0.8.elf",
       "filePath": "payloads/ps5upload/7.0.8/ps5upload-7.0.8.elf",
@@ -21,7 +87,7 @@
       "hash": "085d27825a78bb2066c334506791e2a85e12240c0710db1e649e4bf15f8f4aa4",
       "fileSize": 3293624,
       "releaseDate": "2026-10-11",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Hide an icon from the PS5 home screen.** For shortcuts and loaders you set up once and never",
