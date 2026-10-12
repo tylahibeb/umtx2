@@ -14,6 +14,136 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.22",
+      "fileName": "ps5upload-7.0.22.elf",
+      "filePath": "payloads/ps5upload/7.0.22/ps5upload-7.0.22.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.22/ps5upload-7.0.22.elf",
+      "hash": "e382353612fdf85b2fdbfea75f4f5ebad260c767faa51b0446118646a6db0267",
+      "fileSize": 3299976,
+      "releaseDate": "2026-10-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**HDR PNG carries the capture's ICC profile (#448).** 7.0.15 wrote the cICP tag only;",
+        "viewers that go by the ICC profile (and the reporter's) showed the image as SDR. Sony's",
+        "\"ScreenCapturePQ\" profile is now read out of the .jxr and embedded as iCCP in both HDR",
+        "variants, with cICP beside it in the tagged one."
+      ]
+    },
+    {
+      "version": "7.0.20",
+      "fileName": "ps5upload-7.0.20.elf",
+      "filePath": "payloads/ps5upload/7.0.20/ps5upload-7.0.20.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.20/ps5upload-7.0.20.elf",
+      "hash": "282c405bfcfe5b6f6ab00a7d7b1a3d784cfa51a6c55c991bb3d40f3ae5e30b58",
+      "fileSize": 3299976,
+      "releaseDate": "2026-10-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Convert remembers what it is making.** Leaving the screen during an image build and",
+        "coming back showed \"A package\" selected and package stage names while the image kept",
+        "building. What to make and the image choice are now remembered, follow the build that is",
+        "running, and an image build's stages read \"Plan image\", \"Write image\", \"Read the image",
+        "back\".",
+        "**Fix: the game page could crash on \"Measure how it plays\".** When the engine's reply had",
+        "no state (an engine without the route, or a test stand-in), the card threw and the whole",
+        "game page fell back to the error screen. It now treats that as nothing recorded."
+      ]
+    },
+    {
+      "version": "7.0.18",
+      "fileName": "ps5upload-7.0.18.elf",
+      "filePath": "payloads/ps5upload/7.0.18/ps5upload-7.0.18.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.18/ps5upload-7.0.18.elf",
+      "hash": "108ba938e0db7c929217d56761fe332a47a019212f158fb0dba5b3fc5045e168",
+      "fileSize": 3299976,
+      "releaseDate": "2026-10-12",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**LZ4 packs for games whose ampr_emu is missing or too old.** When the check finds a game",
+        "that reads through AMPR but ships no `fakelib/libSceAmpr.sprx`, or one that predates asset",
+        "packs, the LZ4 option now offers \"Put ampr_emu 0.4.2.1 into the image\": the engine fetches",
+        "drakmor's release once (checked against a known digest, never bundled) and writes it into",
+        "the image, keeping the game's own copy beside it as `libSceAmpr.sprx.orig`. This is the",
+        "runtime gap behind #449.",
+        "**A game that does not use AMPR is told so.** The LZ4 option explains that nothing in such a",
+        "game could serve asset packs, and points at .ffpfsc, which ShadowMount+ decompresses for any",
+        "game, instead of just refusing."
+      ]
+    },
+    {
+      "version": "7.0.17",
+      "fileName": "ps5upload-7.0.17.elf",
+      "filePath": "payloads/ps5upload/7.0.17/ps5upload-7.0.17.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.17/ps5upload-7.0.17.elf",
+      "hash": "4f8fa51d144d63263b494967eedc86e1c7749c776ce62aa45e6a39e9f3209d8e",
+      "fileSize": 3299976,
+      "releaseDate": "2026-10-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Open a save and edit its files.** Save data has an Open save button per save: the helper",
+        "copies the save image under `/data`, unseals its key through the console's own pfsmgr and",
+        "mounts the image decrypted, and Files opens on it. Read, replace or add files; Close &",
+        "write back unmounts it and copies the image back into the real save only if something",
+        "changed, so a look leaves the save untouched. One save open at a time. PS5 saves verified",
+        "on FW 13.60 (an untouched open keeps the image's timestamp); PS4 saves (`sdimg_*` with the",
+        "key in `<name>.bin`) follow the same path but have not been tried. The recipe is",
+        "earthonion's garlic-savemgr, credited in the README. Needs the 7.0.17 helper."
+      ]
+    },
+    {
+      "version": "7.0.15",
+      "fileName": "ps5upload-7.0.15.elf",
+      "filePath": "payloads/ps5upload/7.0.15/ps5upload-7.0.15.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.15/ps5upload-7.0.15.elf",
+      "hash": "e0c2ad7cbb59d283426daae2ac9e0ebab9fd317df3ea687be4d01b8b624c1feb",
+      "fileSize": 3294736,
+      "releaseDate": "2026-10-12",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Game images of a libSceAmpr game get a fresh ampr_emu.index (#449).** A dump's index is",
+        "often stale (files added, trimmed or resized since it was written), and a plain .exfat,",
+        ".ffpkg or .ffpfs image carried it as it was, which crashes the game the moment it touches a",
+        "file the index has wrong. The image now carries one generated from its files, as a package",
+        "and an LZ4 image already did.",
+        "**Connection says which of three things is wrong (#447).** \"The helper is not running or is",
+        "an old version\" sent people in circles. The app now tells them apart: the helper is down",
+        "but the console's payload loader answers (so Update helper will work); nothing answers at",
+        "all (run your jailbreak's loader first); or an older helper is running (Update helper).",
+        "**HDR screenshots as HDR PNG (#448).** Screenshots has a \"Convert as\" choice: SDR PNG as"
+      ]
+    },
+    {
+      "version": "7.0.14",
+      "fileName": "ps5upload-7.0.14.elf",
+      "filePath": "payloads/ps5upload/7.0.14/ps5upload-7.0.14.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.14/ps5upload-7.0.14.elf",
+      "hash": "0b420c7ed29ee3970af3687102e8feec469927e9b5b5a675dc02617a67cd10fa",
+      "fileSize": 3294736,
+      "releaseDate": "2026-10-12",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**A game on the PS5 or a saved server can become a game image.** Convert refused to write",
+        "an image unless the game folder was on this computer, while a package build happily read a",
+        "`ps5://` or `remote://` folder in place. Images now take the same sources: the game is read",
+        "through the helper (or from the server) as it is written, nothing is copied first.",
+        "**Convert walks you through it.** Four steps that read in order: \u2460 the game, \u2461 what to",
+        "make, \u2462 its options, \u2463 build & install. \"What to make\" explains a package and a game image",
+        "side by side and marks the one that suits the game on your PS5 (a PS5 game on firmware",
+        "above 11.60 installs as a package but will not play, so the image is marked there; a PS4",
+        "game or an older firmware marks the package). Options show only what applies: Kraken",
+        "compression and game language for a package; filesystem, .ffpfsc compression, LZ4 packs"
+      ]
+    },
+    {
       "version": "7.0.13",
       "fileName": "ps5upload-7.0.13.elf",
       "filePath": "payloads/ps5upload/7.0.13/ps5upload-7.0.13.elf",
@@ -21,7 +151,7 @@
       "hash": "579de1d0390925bd91fda3222ff98149b3e2425c6b5b16d6948dea8882744f66",
       "fileSize": 3294736,
       "releaseDate": "2026-10-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Game image builds: the read-back check is no longer the slow part.** After writing an",
