@@ -39,12 +39,12 @@
     },
     {
       "name": "pldmgr",
-      "filename": "pldmgr_v0.5.2.elf",
-      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.2/pldmgr_v0.5.2.elf",
+      "filename": "pldmgr_v0.6.0.elf",
+      "url": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.6.0/pldmgr_v0.6.0.elf",
       "description": "PS5 payload manager. Runs on PS5 as a web server.",
-      "version": "0.5.2",
+      "version": "0.6.0",
       "category": "Tools",
-      "checksum": "62b3ba2a4937c2afc502f9a4e7242cca538610ebb4ae2800c7c6f72e7f268e7c"
+      "checksum": "5b31079d81d6467f2754edd1d6dbe63b0306502e135c21a425ecb263e39e2059"
     },
     {
       "name": "Elf Arsenal",
