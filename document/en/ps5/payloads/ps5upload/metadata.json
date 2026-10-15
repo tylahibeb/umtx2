@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.23",
+      "fileName": "ps5upload-7.0.23.elf",
+      "filePath": "payloads/ps5upload/7.0.23/ps5upload-7.0.23.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.23/ps5upload-7.0.23.elf",
+      "hash": "419b56a10336dda8f4a28672271dfb635e74b05966cc08d44305e70f862dc110",
+      "fileSize": 3324944,
+      "releaseDate": "2026-10-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Payload Manager 0.6 works again (#458).** 0.6 refuses changes without its request marker",
+        "and wants POST for launch and delete, and keeps payloads in slots. The fallback launch,",
+        "storing, deleting and \"Load at boot\" now work with 0.6.1 as well as 0.5.2.",
+        "**Games is smooth with a big library (#450).** Covers come as small cached thumbnails",
+        "(about 20 KB instead of 300-700 KB), and screenshot thumbnails load two at a time and stop",
+        "when you leave the screen instead of filling every connection to the console.",
+        "**Hidden home-screen icons stay hidden (#450).** The console shows an app's icon again every",
+        "time it starts; the helper now hides it again a couple of seconds later. Icons hidden with",
+        "earlier versions are picked up.",
+        "**The game page shows where the game runs from (#452):** the image on your external drive,"
+      ]
+    },
+    {
       "version": "7.0.22",
       "fileName": "ps5upload-7.0.22.elf",
       "filePath": "payloads/ps5upload/7.0.22/ps5upload-7.0.22.elf",
@@ -21,7 +44,7 @@
       "hash": "e382353612fdf85b2fdbfea75f4f5ebad260c767faa51b0446118646a6db0267",
       "fileSize": 3299976,
       "releaseDate": "2026-10-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**HDR PNG carries the capture's ICC profile (#448).** 7.0.15 wrote the cICP tag only;",
