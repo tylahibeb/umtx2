@@ -14,6 +14,24 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.25",
+      "fileName": "ps5upload-7.0.25.elf",
+      "filePath": "payloads/ps5upload/7.0.25/ps5upload-7.0.25.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.25/ps5upload-7.0.25.elf",
+      "hash": "35c6b820302bb5ca2d3b270caa808f95b351bf7ca2bc5c0e10daba3204c1e862",
+      "fileSize": 3328408,
+      "releaseDate": "2026-10-15",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Profile no longer offers \"Create User\" (#460).** The PS5 has no create-user call a payload",
+        "can use, and the old button only ever tried to rename the console's first user, which fails",
+        "on a jailbroken console with \"sceUserServiceGetInitialUser failed\". Profile now says to add",
+        "users on the PS5 (Switch User, then Add User). Renaming and deleting users are unchanged."
+      ]
+    },
+    {
       "version": "7.0.24",
       "fileName": "ps5upload-7.0.24.elf",
       "filePath": "payloads/ps5upload/7.0.24/ps5upload-7.0.24.elf",
@@ -21,7 +39,7 @@
       "hash": "6f32c33a2f7cf4c119477336379fae574ee5b9bd9426f9f4b335ae52d8c432cb",
       "fileSize": 3345080,
       "releaseDate": "2026-10-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
