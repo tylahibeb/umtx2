@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.28",
+      "fileName": "ps5upload-7.0.28.elf",
+      "filePath": "payloads/ps5upload/7.0.28/ps5upload-7.0.28.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.28/ps5upload-7.0.28.elf",
+      "hash": "ab374bd0d5525f588417de53bcab716b5dc07d016c12e024e2cbc239c8255779",
+      "fileSize": 3338896,
+      "releaseDate": "2026-10-16",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Android: transfers keep going when you leave the app, and you get told when they finish",
+        "(#457).** Android pauses an app soon after it leaves the screen, and the notices that a job",
+        "finished lived in the app's page, which pauses with it. Now, while anything is uploading,",
+        "downloading or installing, ps5upload runs as a foreground service with a progress",
+        "notification (\"Uploading \u2026 42% \u00b7 1.2 of 2.9 GB \u00b7 38 MB/s\"), and posts \"Upload complete\" or",
+        "\"Upload failed\" when it ends. A queue moves on to the next item in the background too.",
+        "Measured on Android 16: a 1.8 GB upload with the screen off for 12 minutes finished, with one",
+        "\"complete\" notification. On a computer, a finished job is announced right away while the",
+        "window is minimised or hidden, and the queue no longer waits for the window to come back.",
+        "**Decompress a .ffpfsc on the console (#453).** Files \u2192 right-click a `.ffpfsc` \u2192"
+      ]
+    },
+    {
       "version": "7.0.27",
       "fileName": "ps5upload-7.0.27.elf",
       "filePath": "payloads/ps5upload/7.0.27/ps5upload-7.0.27.elf",
@@ -21,7 +44,7 @@
       "hash": "855f106a64a6e8a1ec0a3fac65e21585f209c9d6751995def04ee551b90a61ea",
       "fileSize": 3329584,
       "releaseDate": "2026-10-16",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A stream install no longer fails on the PS5 after ps5upload says it's done.** The PS5",
