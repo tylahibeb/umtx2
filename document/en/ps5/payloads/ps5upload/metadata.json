@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.27",
+      "fileName": "ps5upload-7.0.27.elf",
+      "filePath": "payloads/ps5upload/7.0.27/ps5upload-7.0.27.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.27/ps5upload-7.0.27.elf",
+      "hash": "855f106a64a6e8a1ec0a3fac65e21585f209c9d6751995def04ee551b90a61ea",
+      "fileSize": 3329584,
+      "releaseDate": "2026-10-16",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**A stream install no longer fails on the PS5 after ps5upload says it's done.** The PS5",
+        "downloads a package in pieces and re-reads some of them; ps5upload added up every byte it",
+        "sent, repeats included, and took that total as \"the console has it all\". On a small package",
+        "the repeats made up the size of a part never sent, so ps5upload closed the download link",
+        "first: the app's tile appeared and could even open, but the PS5's Downloads showed it failed,",
+        "Retry failed too and Cancel removed it. ps5upload now keeps the link open until every byte has",
+        "been sent at least once. Seen with a 37 MB package on FW 13.60; any size could hit it.",
+        "**\"Nothing answered on the ELF loader port :9021\" when starting a stream install, then fine",
+        "on a retry, is fixed.** When an install starts, the app also replaces the console's stock",
+        "elfldr with its own fixed build, and the loader port is closed for about a second during that"
+      ]
+    },
+    {
       "version": "7.0.26",
       "fileName": "ps5upload-7.0.26.elf",
       "filePath": "payloads/ps5upload/7.0.26/ps5upload-7.0.26.elf",
@@ -21,7 +44,7 @@
       "hash": "9b08d5a3849a10209be028b63c07a181b10fd146a7cf94fd3185f328e68dea01",
       "fileSize": 3329584,
       "releaseDate": "2026-10-16",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Uploaded game and homebrew folders show up with ShadowMount+ again.** ShadowMount+",
