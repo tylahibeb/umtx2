@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.0.33",
+      "fileName": "ps5upload-7.0.33.elf",
+      "filePath": "payloads/ps5upload/7.0.33/ps5upload-7.0.33.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.0.33/ps5upload-7.0.33.elf",
+      "hash": "39ac03d273afb51bfa3625802acfa9364e3efc3821c9479a5aedfda7bf4cf54c",
+      "fileSize": 3338896,
+      "releaseDate": "2026-10-17",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**A PS5 update package installs even when its base game isn't there.** The app refused any",
+        "update whose base game wasn't installed (\"Install the base game first\"), but some PS5 updates",
+        "carry the whole app: a YouTube update package installed fine through the PS5's own debug",
+        "Package Installer while ps5upload refused it. For PS5 packages the app now warns (\"the PS5 may",
+        "still accept it\") and lets the PS5 decide; if it can't, the PS5's own error still shows. PS4",
+        "updates are still refused, since there Sony accepts the request and installs nothing.",
+        "Stream-installed on both consoles (FW 13.60) with YouTube removed first.",
+        "**An install counts as done when its exact bytes are on the console.** Such a package lands as",
+        "the app, not in the updates folder, so the app looked in the wrong place: it called an",
+        "installed copy \"not installed\" and could not confirm a finished install."
+      ]
+    },
+    {
       "version": "7.0.32",
       "fileName": "ps5upload-7.0.32.elf",
       "filePath": "payloads/ps5upload/7.0.32/ps5upload-7.0.32.elf",
@@ -21,8 +44,8 @@
       "hash": "05f0fd48d3983cd34c03163950f545446a4db0e34eaf3131753e3fb8fbdf1f3d",
       "fileSize": 3338896,
       "releaseDate": "2026-10-17",
-      "isDefault": true,
-      "isPreRelease": true,
+      "isDefault": false,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Rest mode is found on a computer with Wi-Fi and a cable at once.** A Mac on both, sending",
