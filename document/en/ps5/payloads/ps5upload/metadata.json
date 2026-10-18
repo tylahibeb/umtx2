@@ -14,6 +14,53 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.3",
+      "fileName": "ps5upload-7.1.3.elf",
+      "filePath": "payloads/ps5upload/7.1.3/ps5upload-7.1.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.3/ps5upload-7.1.3.elf",
+      "hash": "74eeaabc600d0b305117f93375010923e5732602d10228c5b6eba2047b22df2b",
+      "fileSize": 4049336,
+      "releaseDate": "2026-10-18",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Payloads: one place for what's on your PS5.** The Payloads screen now has three tabs:",
+        "Catalog, Send and **On your PS5**. On your PS5 shows a card for each payload that is running",
+        "or installed on the console, with its status, Open (for payloads with a web page), Update when a",
+        "newer release is out, and Stop. **Manage** opens that payload's tools in the card:",
+        "ShadowMount+ mounts, the nanoDNS editor, Payload Manager and HearBridge. Old links to the",
+        "separate tabs still work.",
+        "**HearBridge in the catalog and on your PS5.** HearBridge plays the PS5's audio on ordinary",
+        "Bluetooth headphones or speakers. Its card shows the connected headset, battery, link quality,",
+        "latency, volume and the game's profile; Manage sets volume and mute, reconnects, switches",
+        "between saved headsets, scans for new ones, turns night mode on or off, sets latency, and stops"
+      ]
+    },
+    {
+      "version": "7.1.2",
+      "fileName": "ps5upload-7.1.2.elf",
+      "filePath": "payloads/ps5upload/7.1.2/ps5upload-7.1.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.2/ps5upload-7.1.2.elf",
+      "hash": "dde5731e9423112c243cde2c13165b5992f99e3ec35eb423e2c2bcbfab0ee564",
+      "fileSize": 3971032,
+      "releaseDate": "2026-10-18",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Save data on a shared PS5 shows whose save is whose.** Each save is labelled with its",
+        "owner's name instead of a number, and the screen starts on the user who is signed in at the",
+        "console; \"Whose saves\" switches to another user or to everyone. Back up all and Restore all",
+        "act on the saves shown. A backup saved on your computer is named after the game and the user",
+        "(`PPSA01234-Alice.zip`).",
+        "**USB backups are kept per user.** Backups to a USB drive on the console now go into a folder",
+        "per user (`<game>/<name>-<user id>/<date>/`). Before, every user's backups of a game shared one",
+        "folder, so on a shared console \"Restore all from USB\" could put one user's latest backup into",
+        "another user's save. Backups made before this update are still used when only one user on the",
+        "console has a save of that game."
+      ]
+    },
+    {
       "version": "7.1.1",
       "fileName": "ps5upload-7.1.1.elf",
       "filePath": "payloads/ps5upload/7.1.1/ps5upload-7.1.1.elf",
@@ -21,7 +68,7 @@
       "hash": "af29de2be5c5e7ba183df4e0f0e6284da11fa264c0e18ce99a9cdee248e4ca44",
       "fileSize": 3971032,
       "releaseDate": "2026-10-18",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
