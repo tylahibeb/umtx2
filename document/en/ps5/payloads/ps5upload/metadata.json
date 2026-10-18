@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.0",
+      "fileName": "ps5upload-7.1.0.elf",
+      "filePath": "payloads/ps5upload/7.1.0/ps5upload-7.1.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.0/ps5upload-7.1.0.elf",
+      "hash": "f16a99904f194f96a592cc29206843f3641a46ad7df96fabd4cc9851cd8c1d37",
+      "fileSize": 3971032,
+      "releaseDate": "2026-10-17",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**PS5Upload Files: manage your files from the couch.** A new PS5Upload Files tile on the",
+        "PS5 home screen opens a page in the PS5 browser that fills the TV. It has four sections:",
+        "**Home** (the running game with Close game, the tasks that are running with Cancel, and your",
+        "drives), **Files**, **Cheats** (switch the running game's cheats on and off) and **Settings**.",
+        "The PS5Upload helper must be loaded. If it isn't, the page tries to show a note that says so",
+        "(from a copy the PS5 browser keeps) and opens by itself once the helper answers. After an",
+        "update, a banner offers to reload.",
+        "**Made for the controller.** \u2715 selects, \u25cb steps back, \u25b3 opens an item's actions, and the PS5's",
+        "own pointer works too. Every action also has a button on screen. Three short tips show the",
+        "first time, Help lists the buttons that work on the current screen, and Controls shows which"
+      ]
+    },
+    {
       "version": "7.0.34",
       "fileName": "ps5upload-7.0.34.elf",
       "filePath": "payloads/ps5upload/7.0.34/ps5upload-7.0.34.elf",
@@ -21,7 +44,7 @@
       "hash": "f6a09ed9f92ea230490e2bc3ad912c4e882882839a25a184bb6daddabc0904a7",
       "fileSize": 3338896,
       "releaseDate": "2026-10-17",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Unity games no longer crash when they run as a folder.** Some game dumps name a file",
