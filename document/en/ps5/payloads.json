@@ -129,12 +129,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-7.1.4.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.4/ps5upload-7.1.4.elf",
+      "filename": "ps5upload-7.1.5.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.5/ps5upload-7.1.5.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "7.1.4",
+      "version": "7.1.5",
       "category": "Game",
-      "checksum": "71398d65f2f7cd3d0a35ab16f7aee1f51f0f2d2d5b8ab3a184a62b68805cf775"
+      "checksum": "1d72cb537e93546168a9a6dabd1c535fb96f997d4d921c99b3f8fe32d91a471c"
     },
     {
       "name": "PS5 Game Compressor",

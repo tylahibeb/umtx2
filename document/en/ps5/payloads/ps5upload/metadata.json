@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.5",
+      "fileName": "ps5upload-7.1.5.elf",
+      "filePath": "payloads/ps5upload/7.1.5/ps5upload-7.1.5.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.5/ps5upload-7.1.5.elf",
+      "hash": "1d72cb537e93546168a9a6dabd1c535fb96f997d4d921c99b3f8fe32d91a471c",
+      "fileSize": 4099872,
+      "releaseDate": "2026-10-18",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Uploading many small files no longer gets stuck (#475).** Picking hundreds of files in Files",
+        "(for example a Switch firmware folder) stopped after about 30 files with \"the console is busy\"",
+        "and never recovered. The console now lets go of each finished upload, so every file goes",
+        "through: a 240-file, 347 MB folder uploaded in about 2 minutes 20 seconds in testing.",
+        "**PS5Upload Files is now PS5Upload Minion.** Same page and tile, new name; the tile on the",
+        "home screen picks up the new name the next time the helper starts.",
+        "**Payload catalog fixes.** websrv's newest release showed an error instead of the release,",
+        "because its release notes are empty. A payload whose GitHub page has been taken down (such as",
+        "Ghostpad) now says so plainly and keeps offering the version saved in the app. How long ago a",
+        "release was saved reads like \"saved 3 days ago\" instead of a count of seconds."
+      ]
+    },
+    {
       "version": "7.1.4",
       "fileName": "ps5upload-7.1.4.elf",
       "filePath": "payloads/ps5upload/7.1.4/ps5upload-7.1.4.elf",
@@ -21,7 +45,7 @@
       "hash": "71398d65f2f7cd3d0a35ab16f7aee1f51f0f2d2d5b8ab3a184a62b68805cf775",
       "fileSize": 4082640,
       "releaseDate": "2026-10-18",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Cheats no longer crash the console.** Switching a cheat on or off could crash the game or the",
