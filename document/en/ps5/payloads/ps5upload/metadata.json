@@ -22,7 +22,7 @@
       "fileSize": 4099872,
       "releaseDate": "2026-10-18",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Uploading many small files no longer gets stuck (#475).** Picking hundreds of files in Files",
