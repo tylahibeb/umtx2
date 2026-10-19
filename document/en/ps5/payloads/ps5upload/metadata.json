@@ -14,6 +14,68 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.8",
+      "fileName": "ps5upload-7.1.8.elf",
+      "filePath": "payloads/ps5upload/7.1.8/ps5upload-7.1.8.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.8/ps5upload-7.1.8.elf",
+      "hash": "2e7b45ca91a2aa0b3fb8f6f1478d77d925e6479ec83842f3971543b35d9bfa5f",
+      "fileSize": 4102760,
+      "releaseDate": "2026-10-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Convert reads more Kraken-compressed PS5 packages (#477).** Some packages compressed at the",
+        "highest Kraken level stopped Convert with \"kraken: chunk too short\" although they were fine:",
+        "a small piece at the start of a block was refused. They convert now."
+      ]
+    },
+    {
+      "version": "7.1.7",
+      "fileName": "ps5upload-7.1.7.elf",
+      "filePath": "payloads/ps5upload/7.1.7/ps5upload-7.1.7.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.7/ps5upload-7.1.7.elf",
+      "hash": "55286e9212d31e6a0dbda993ce4bb041a0f49486db63b98b8b334d3c4676d3d9",
+      "fileSize": 4102760,
+      "releaseDate": "2026-10-19",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Organize packages works on your servers too.** Folders on a saved SMB, FTP, SFTP or WebDAV",
+        "server can now be organized like folders on this computer: the same preview, the same",
+        "Platform \u203a Game ID - Title layout, renames only, nothing overwritten, and every run can be",
+        "undone. A dropped connection stops the run cleanly and it can still be undone once the server is",
+        "back. Undo refuses if the saved connection now points at a different server. On WebDAV, folders",
+        "a run empties are left in place.",
+        "**WebDAV servers that redirect folder addresses work again.** Opening a folder on such a server",
+        "(Apache, for example) failed with a sign-in error.",
+        "**Clearer connection errors.** A very short saved password no longer garbles error messages."
+      ]
+    },
+    {
+      "version": "7.1.6",
+      "fileName": "ps5upload-7.1.6.elf",
+      "filePath": "payloads/ps5upload/7.1.6/ps5upload-7.1.6.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.6/ps5upload-7.1.6.elf",
+      "hash": "cc3cd53f9047ad6e82c13db246cb77c7399debaa00b57349c37e058b589b3950",
+      "fileSize": 4102760,
+      "releaseDate": "2026-10-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Uploading many files from Files is much faster.** Picking several files now sends them to the",
+        "PS5 together instead of one at a time: 240 small files went from over 2 minutes to about 5",
+        "seconds, and 5,000 small files from 44 minutes to under 30 seconds. A pick shows as one task",
+        "with one Cancel, and a stopped upload resumes where it left off.",
+        "**Choose what happens when a name is taken.** Instead of one all-or-nothing Overwrite question,",
+        "each clash offers Skip, Keep both or Replace (Merge for a folder onto a folder), with \"do the",
+        "same for the rest\". Keep both is the default, so Enter never overwrites, and names that differ",
+        "only in upper and lower case count as the same name.",
+        "**Uninstall tells you whether the game is really gone (#476).** Uninstall used to say",
+        "\"Unregistered\" whatever the console answered, and then quietly showed the game again if the"
+      ]
+    },
+    {
       "version": "7.1.5",
       "fileName": "ps5upload-7.1.5.elf",
       "filePath": "payloads/ps5upload/7.1.5/ps5upload-7.1.5.elf",
@@ -21,7 +83,7 @@
       "hash": "1d72cb537e93546168a9a6dabd1c535fb96f997d4d921c99b3f8fe32d91a471c",
       "fileSize": 4099872,
       "releaseDate": "2026-10-18",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
