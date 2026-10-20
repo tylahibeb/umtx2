@@ -15,11 +15,20 @@ A web-based PS5 jailbreak host. Open it in your PS5 browser, pick your firmware,
 - **One-click jailbreak** — Select your firmware version, hit the button, done
 - **Built-in payload manager** — Browse and send payloads directly from the UI, no extra tools needed
 - **Auto-updating payloads** — Stays current with the latest releases from GitHub, updated twice daily
+- **Customizable launcher** — Reorder payloads and choose the Quick Launch sequence, delay, and versions
 - **Multi-version support** — Pick specific payload versions, not just the latest
 - **Firmware compatibility checks** — Warns you if a payload doesn't match your firmware
 - **Settings & developer options** — Fine-tune your experience, hide payloads you don't use, enable debug mode
 - **PS5-optimized UI** — Designed for DualSense navigation and the PS5 browser
 - **Optional offline support** — Enable Save for offline use in Settings, then bookmark the offline page
+
+## Payload order and Quick Launch
+
+Open Settings before starting the jailbreak. Expand **Payload order** and use **Up / Down** to arrange the Settings grid and payload menu. New payloads are appended to your saved order; **Reset order** restores the maintained catalog order.
+
+Expand **Quick Launch** to choose and arrange its payloads, set a delay from 0 to 30 seconds, or hide the button. By default it sends kstuff-lite, ShadowMountPlus, then CheatRunner with a 3-second delay. Turn on **Use versions selected in Settings** to use your version choices; otherwise it uses each payload's default version. Changes are saved in this browser.
+
+Quick Launch can include payloads hidden from the menu. It checks the entire sequence for missing payloads, firmware compatibility, and sender-mode support before sending anything. It waits for each successful send/execution, then applies your delay; this does not confirm the receiving application is ready. A failure stops the remaining steps. Selected nondefault versions may need internet even with offline caching enabled.
 
 ## Optional offline caching
 

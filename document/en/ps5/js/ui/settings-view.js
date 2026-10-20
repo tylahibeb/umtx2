@@ -16,6 +16,7 @@ function openSettings() {
         return;
     }
     window.settingsMode = true;
+    initializeLaunchSettings();
     populateSettingsGrid();
     switchPage("settings-view");
 }
@@ -119,8 +120,9 @@ function populateSettingsGrid() {
         grid.removeChild(grid.firstChild);
     }
 
-    for (var i = 0; i < payload_map.length; i++) {
-        var payload = payload_map[i];
+    var orderedPayloads = getOrderedPayloads();
+    for (var i = 0; i < orderedPayloads.length; i++) {
+        var payload = orderedPayloads[i];
         var visible = isPayloadVisible(payload.id);
         var activeVersionInfo = resolveActiveVersion(payload);
         var activeVersion = activeVersionInfo.version;

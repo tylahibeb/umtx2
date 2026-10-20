@@ -166,6 +166,8 @@ function populateDevOptions() {
         try {
             localStorage.removeItem(SETTINGS_PAYLOAD_VISIBILITY);
             localStorage.removeItem(SETTINGS_PAYLOAD_VERSIONS);
+            localStorage.removeItem(SETTINGS_PAYLOAD_ORDER);
+            localStorage.removeItem(SETTINGS_QUICK_LAUNCH);
             localStorage.removeItem(SETTINGS_DEV_MODE);
             localStorage.removeItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY);
             sessionStorage.removeItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);

@@ -10,8 +10,11 @@
 window.LOCALSTORE_REDIRECTOR_LAST_URL_KEY = "redirector_last_url";
 window.SESSIONSTORE_ON_LOAD_AUTORUN_KEY = "on_load_autorun";
 window.MAINLOOP_EXECUTE_PAYLOAD_REQUEST = "mainloop_execute_payload_request";
+window.MAINLOOP_PAYLOAD_RESULT = "mainloop_payload_result";
 window.SETTINGS_PAYLOAD_VISIBILITY = "payload_visibility";
 window.SETTINGS_PAYLOAD_VERSIONS = "payload_versions";
+window.SETTINGS_PAYLOAD_ORDER = "payload_order";
+window.SETTINGS_QUICK_LAUNCH = "quick_launch";
 window.SETTINGS_DEV_MODE = "dev_mode";
 
 // ── Toast timeouts ─────────────────────────────────────────

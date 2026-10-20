@@ -80,6 +80,38 @@
                 </div>
                 <p class="offline-cache-help">Turning this off returns to online mode. Previously saved files are not erased; removing them requires clearing browser website data.</p>
             </section>
+            <details class="launch-settings" id="payload-order-settings">
+                <summary>Payload order</summary>
+                <p class="launch-settings-help">Move payloads up or down to arrange Settings and the payload list after jailbreak. Changes save on this browser.</p>
+                <ol id="payload-order-list" class="launch-settings-list" aria-label="Payload display order"></ol>
+                <button id="payload-order-reset" type="button">Reset payload order</button>
+                <p id="payload-order-status" class="launch-settings-status" role="status" aria-live="polite"></p>
+            </details>
+            <details class="launch-settings" id="quick-launch-settings">
+                <summary>Quick Launch</summary>
+                <label class="launch-settings-checkbox" for="quick-launch-enabled">
+                    <input id="quick-launch-enabled" type="checkbox"> Show Quick Launch button
+                </label>
+                <p class="launch-settings-help">Choose the payloads and the order they run. Keep prerequisites before payloads that depend on them. Hidden payloads can run when explicitly included here; incompatible or unavailable steps block the whole sequence.</p>
+                <p id="quick-launch-plan-status" class="launch-settings-status" role="status" aria-live="polite"></p>
+                <ol id="quick-launch-steps" class="launch-settings-list" aria-label="Quick Launch sequence"></ol>
+                <div class="launch-settings-add">
+                    <label for="quick-launch-add-payload">Add payload</label>
+                    <select id="quick-launch-add-payload"></select>
+                    <button id="quick-launch-add" type="button">Add step</button>
+                </div>
+                <div class="launch-settings-fields">
+                    <label for="quick-launch-delay">Delay between payloads (seconds)
+                        <input id="quick-launch-delay" type="number" min="0" max="30" step="0.5" inputmode="decimal">
+                    </label>
+                    <label class="launch-settings-checkbox" for="quick-launch-selected-versions">
+                        <input id="quick-launch-selected-versions" type="checkbox"> Use versions selected in Settings
+                    </label>
+                </div>
+                <p class="launch-settings-help">When version selection is off, Quick Launch uses each payload’s default version. Nondefault versions may require internet even with offline caching enabled. Changes save immediately on this browser.</p>
+                <button id="quick-launch-reset" type="button">Reset Quick Launch</button>
+                <p id="quick-launch-settings-status" class="launch-settings-status" role="status" aria-live="polite"></p>
+            </details>
             <div id="settings-payloads-grid"></div>
         </div>
 
@@ -213,6 +245,7 @@
     <script src="js/utils/firmware-compat.js"></script>
     <script src="js/utils/page-switcher.js"></script>
     <script src="js/ui/toast-notifications.js"></script>
+    <script src="js/ui/launch-settings.js"></script>
     <script src="js/ui/settings-view.js"></script>
     <script src="js/ui/version-selection.js"></script>
     <script src="js/ui/payloads-view.js"></script>

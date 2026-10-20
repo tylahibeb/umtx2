@@ -467,6 +467,17 @@ def test_firmware_compatibility():
     print_success("Firmware configuration, browser filtering and refresh regressions passed")
 
 
+
+def test_launch_settings():
+    """Exercise saved ordering and request-aware configurable Quick Launch."""
+    result = subprocess.run(
+        [sys.executable, str(Path(__file__).with_name("test_launch_settings.py"))],
+        capture_output=True, text=True
+    )
+    if result.returncode:
+        raise AssertionError(result.stdout + result.stderr)
+    print_success("Payload ordering, saved launch settings and launch sequencing regressions passed")
+
 def main():
     """Run all tests and report results."""
     print(f"\n{Colors.BLUE}{'='*60}")
@@ -486,6 +497,7 @@ def main():
         ("CSS Validity", test_css_validity),
         ("Firmware Offsets", test_firmware_offsets),
         ("Firmware Compatibility", test_firmware_compatibility),
+        ("Launch Settings", test_launch_settings),
     ]
     
     passed = 0

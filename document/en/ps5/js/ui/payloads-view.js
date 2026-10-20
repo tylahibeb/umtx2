@@ -23,44 +23,48 @@ function populatePayloadsPage(wkOnlyMode) {
         payloadsView.removeChild(payloadsView.firstChild);
     }
 
-    // Quick Launch button — dispatches kstuff-lite, ShadowMountPlus, CheatRunner sequentially
-    // Always show regardless of wkOnlyMode (all payloads send to port 9021 via elfldr)
-    // IMPORTANT: CheatRunner runs last — it depends on kstuff-lite's kernel patches
-    // and ShadowMountPlus's mounts being active first.
-    var quickLaunchContainer = document.createElement("div");
-    quickLaunchContainer.className = "quick-launch-container";
+    var launchSettings = getQuickLaunchSettings();
+    if (launchSettings.enabled) {
+        var launchPlan = getQuickLaunchPlan(wkOnlyMode);
+        var quickLaunchContainer = document.createElement("div");
+        quickLaunchContainer.className = "quick-launch-container";
 
-    var quickLaunchBtn = document.createElement("button");
-    quickLaunchBtn.className = "quick-launch-btn";
-    var quickLaunchIcon = document.createElement("span");
-    quickLaunchIcon.className = "quick-launch-icon";
-    quickLaunchIcon.textContent = "⚡";
-    var quickLaunchLabel = document.createElement("span");
-    quickLaunchLabel.textContent = "Quick Launch";
+        var quickLaunchBtn = document.createElement("button");
+        quickLaunchBtn.className = "quick-launch-btn";
+        quickLaunchBtn.type = "button";
+        quickLaunchBtn.disabled = !!launchPlan.error || !!window.quickLaunchInProgress;
+        var quickLaunchIcon = document.createElement("span");
+        quickLaunchIcon.className = "quick-launch-icon";
+        quickLaunchIcon.textContent = "⚡";
+        var quickLaunchLabel = document.createElement("span");
+        quickLaunchLabel.textContent = "Quick Launch";
 
-    var quickLaunchSubtitle = document.createElement("p");
-    quickLaunchSubtitle.className = "quick-launch-subtitle";
-    quickLaunchSubtitle.textContent = "kstuff-lite + ShadowMountPlus + CheatRunner";
+        var quickLaunchSubtitle = document.createElement("p");
+        quickLaunchSubtitle.className = "quick-launch-subtitle";
+        quickLaunchSubtitle.textContent = launchPlan.error ? launchPlan.error + " Change Quick Launch in Settings." :
+            launchPlan.payloads.map(function (payload) { return payload.displayTitle; }).join(" + ");
 
-    quickLaunchBtn.appendChild(quickLaunchIcon);
-    quickLaunchBtn.appendChild(quickLaunchLabel);
-    quickLaunchBtn.appendChild(quickLaunchSubtitle);
-    quickLaunchContainer.appendChild(quickLaunchBtn);
-    payloadsView.appendChild(quickLaunchContainer);
+        quickLaunchBtn.appendChild(quickLaunchIcon);
+        quickLaunchBtn.appendChild(quickLaunchLabel);
+        quickLaunchBtn.appendChild(quickLaunchSubtitle);
+        quickLaunchContainer.appendChild(quickLaunchBtn);
+        payloadsView.appendChild(quickLaunchContainer);
 
-    quickLaunchBtn.addEventListener("click", function () {
-        if (window.quickLaunchInProgress) return;
-        window.quickLaunchInProgress = true;
-        window.quickLaunchFailed = false;
-        this.classList.add("quick-launch-btn--loading");
-        var self = this;
-        startQuickLaunch(function onComplete() {
-            self.classList.remove("quick-launch-btn--loading");
+        quickLaunchBtn.addEventListener("click", function () {
+            if (window.quickLaunchInProgress) return;
+            this.classList.add("quick-launch-btn--loading");
+            this.disabled = true;
+            var self = this;
+            startQuickLaunch(function onComplete() {
+                self.classList.remove("quick-launch-btn--loading");
+                self.disabled = !!getQuickLaunchPlan(wkOnlyMode).error;
+            }, wkOnlyMode);
         });
-    });
+    }
 
-    for (var i = 0; i < payload_map.length; i++) {
-        var payload = payload_map[i];
+    var orderedPayloads = getOrderedPayloads();
+    for (var i = 0; i < orderedPayloads.length; i++) {
+        var payload = orderedPayloads[i];
 
         if (wkOnlyMode && !payload.toPort && !payload.customAction) {
             continue;
@@ -146,80 +150,145 @@ function populatePayloadsPage(wkOnlyMode) {
     }
 }
 
-// Quick Launch: sequential dispatcher for kstuff-lite, ShadowMountPlus, CheatRunner
-// CheatRunner is launched last because it depends on kstuff-lite's kernel patches
-// and ShadowMountPlus's mounts being active first.
-var QUICK_LAUNCH_PAYLOADS = ["kstuff-lite", "shadowmountplus", "cheatrunner"];
-var QUICK_LAUNCH_DELAY_MS = 3000;
+/**
+ * Resolve and validate the entire saved launch sequence before sending anything.
+ * A missing prerequisite must not silently disappear from the sequence.
+ * Hidden ordinary payloads are allowed because the sequence explicitly selects them.
+ * @param {boolean} [wkOnlyMode=false]
+ * @returns {{payloads: Object[], delayMs: number, error: string}}
+ */
+function getQuickLaunchPlan(wkOnlyMode) {
+    var settings = getQuickLaunchSettings();
+    var plan = { payloads: [], delayMs: settings.delayMs, error: "" };
+    if (!settings.enabled) {
+        plan.error = "Quick Launch is turned off.";
+        return plan;
+    }
+    if (!settings.payloadIds.length) {
+        plan.error = "Choose at least one Quick Launch payload.";
+        return plan;
+    }
 
-function startQuickLaunch(onComplete) {
+    for (var i = 0; i < settings.payloadIds.length; i++) {
+        var payloadId = settings.payloadIds[i];
+        var payload = payload_map.find(function (entry) { return entry.id === payloadId; });
+        if (!payload) {
+            plan.error = "Payload '" + payloadId + "' is unavailable.";
+            break;
+        }
+        if (payload.willHideEveryTime || payload.customAction) {
+            plan.error = payload.displayTitle + " cannot be used in Quick Launch.";
+            break;
+        }
+        if (!isFirmwareCompatible(payload)) {
+            plan.error = payload.displayTitle + " is incompatible with this firmware.";
+            break;
+        }
+        if (wkOnlyMode && !payload.toPort) {
+            plan.error = payload.displayTitle + " requires the full jailbreak.";
+            break;
+        }
+        if (!payload.versions || !payload.versions.length) {
+            plan.error = payload.displayTitle + " has no available version.";
+            break;
+        }
+
+        var versionInfo = settings.useSelectedVersions ? resolveActiveVersion(payload) :
+            payload.versions.find(function (version) { return version.isDefault; }) || payload.versions[0];
+        if (!versionInfo || (!versionInfo.filePath && !versionInfo.fileName)) {
+            plan.error = payload.displayTitle + " has no payload file.";
+            break;
+        }
+
+        var resolvedPayload = {};
+        for (var key in payload) resolvedPayload[key] = payload[key];
+        resolvedPayload.version = versionInfo.version;
+        resolvedPayload.fileName = versionInfo.fileName;
+        resolvedPayload.filePath = versionInfo.filePath ||
+            ("payloads/" + payload.id + "/" + versionInfo.version + "/" + versionInfo.fileName);
+        plan.payloads.push(resolvedPayload);
+    }
+    if (plan.error) plan.payloads = [];
+    return plan;
+}
+
+var quickLaunchRunCounter = 0;
+
+/**
+ * Send each payload only after its predecessor completes successfully. The delay
+ * starts after delivery/execution, not while the preceding file is downloading.
+ * A successful send does not confirm the receiving application is ready.
+ * @param {function(boolean): void} [onComplete]
+ * @param {boolean} [wkOnlyMode=false]
+ * @returns {boolean} Whether a launch was accepted.
+ */
+function startQuickLaunch(onComplete, wkOnlyMode) {
+    if (window.quickLaunchInProgress) return false;
+    var plan = getQuickLaunchPlan(wkOnlyMode);
+    if (plan.error) {
+        showToast("Quick Launch: " + plan.error, TOAST_ERROR_TIMEOUT);
+        if (onComplete) onComplete(false);
+        return false;
+    }
+
     var toast = showToast("Quick Launch: Starting...", -1);
+    var runId = ++quickLaunchRunCounter;
+    var completed = 0;
+    var waitingRequestId = null;
+    var delayTimer = null;
+    var finished = false;
+    window.quickLaunchInProgress = true;
+    window.quickLaunchFailed = false;
     window.quickLaunchToast = toast;
 
-    var dispatched = 0;
-
-    function finishSequence(success) {
+    function finishSequence(success, message) {
+        if (finished) return;
+        finished = true;
+        if (delayTimer !== null) clearTimeout(delayTimer);
+        window.removeEventListener(MAINLOOP_PAYLOAD_RESULT, onPayloadResult);
         window.quickLaunchInProgress = false;
         window.quickLaunchFailed = !success;
         window.quickLaunchToast = null;
-        if (onComplete) onComplete();
+        updateToastMessage(toast, message);
+        setTimeout(function () { removeToast(toast); }, success ? TOAST_SUCCESS_TIMEOUT : TOAST_ERROR_TIMEOUT);
+        if (onComplete) onComplete(success);
+    }
+
+    function onPayloadResult(event) {
+        var result = event.detail;
+        if (finished || !result || !waitingRequestId || result.requestId !== waitingRequestId) return;
+        waitingRequestId = null;
+        if (!result.success) {
+            finishSequence(false, "Quick Launch: Failed — " + plan.payloads[completed].displayTitle +
+                (result.error ? ": " + result.error : ""));
+            return;
+        }
+        completed++;
+        if (completed === plan.payloads.length) {
+            finishSequence(true, "Quick Launch: All payloads sent/completed (" + completed + "/" + plan.payloads.length + ")");
+        } else {
+            updateToastMessage(toast, "Quick Launch: Waiting " + (plan.delayMs / 1000) + "s before " +
+                plan.payloads[completed].displayTitle + " (" + (completed + 1) + "/" + plan.payloads.length + ")");
+            delayTimer = setTimeout(dispatchNext, plan.delayMs);
+        }
     }
 
     function dispatchNext() {
-        if (window.quickLaunchFailed) {
-            // Error occurred in main loop — button cleanup handled by finishSequence
-            finishSequence(false);
-            return;
-        }
-        if (dispatched >= QUICK_LAUNCH_PAYLOADS.length) {
-            return;
-        }
-
-        var payloadId = QUICK_LAUNCH_PAYLOADS[dispatched];
-        var payload = payload_map.find(function (p) { return p.id === payloadId; });
-
-        if (!payload) {
-            updateToastMessage(toast, "Quick Launch: Failed ❌ — payload '" + payloadId + "' not found");
-            setTimeout(function () {
-                removeToast(toast);
-                finishSequence(false);
-            }, TOAST_ERROR_TIMEOUT);
-            return;
-        }
-
-        // Resolve default version (always use isDefault, ignoring user Settings selection)
-        var defaultVer = payload.versions.find(function (v) { return v.isDefault; }) || payload.versions[0];
-        var filePath = defaultVer.filePath || ("payloads/" + payload.id + "/" + defaultVer.version + "/" + defaultVer.fileName);
-
-        var resolvedPayload = {};
-        for (var key in payload) {
-            resolvedPayload[key] = payload[key];
-        }
-        resolvedPayload.version = defaultVer.version;
-        resolvedPayload.fileName = defaultVer.fileName;
-        resolvedPayload.filePath = filePath;
-
-        updateToastMessage(toast, "Quick Launch: " + payload.displayTitle + " (" + (dispatched + 1) + "/" + QUICK_LAUNCH_PAYLOADS.length + ")");
-
-        window.dispatchEvent(new CustomEvent(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, { detail: resolvedPayload }));
-
-        dispatched++;
-
-        if (dispatched >= QUICK_LAUNCH_PAYLOADS.length) {
-            // All dispatched — main loop processes them
-            updateToastMessage(toast, "Quick Launch: All dispatched ✅ (" + QUICK_LAUNCH_PAYLOADS.length + "/" + QUICK_LAUNCH_PAYLOADS.length + ")");
-            setTimeout(function () {
-                removeToast(toast);
-                finishSequence(true);
-            }, TOAST_SUCCESS_TIMEOUT);
-        } else {
-            setTimeout(dispatchNext, QUICK_LAUNCH_DELAY_MS);
-        }
+        if (finished) return;
+        delayTimer = null;
+        var payload = plan.payloads[completed];
+        waitingRequestId = "quick-launch-" + runId + "-" + completed;
+        payload.quickLaunchRequestId = waitingRequestId;
+        updateToastMessage(toast, "Quick Launch: " + payload.displayTitle + " (" + (completed + 1) + "/" + plan.payloads.length + ")");
+        window.dispatchEvent(new CustomEvent(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, { detail: payload }));
     }
 
+    window.addEventListener(MAINLOOP_PAYLOAD_RESULT, onPayloadResult);
     dispatchNext();
+    return true;
 }
 
 // Export to global scope
 window.populatePayloadsPage = populatePayloadsPage;
+window.getQuickLaunchPlan = getQuickLaunchPlan;
 window.startQuickLaunch = startQuickLaunch;

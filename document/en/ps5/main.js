@@ -1186,8 +1186,8 @@ async function main(userlandRW, wkOnly = false) {
     window.addEventListener(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, async function (event) {
         /** @type {PayloadInfo} */
         let payload_info = event.detail;
-        // Suppress individual toasts during Quick Launch to avoid toast noise
-        if (window.quickLaunchInProgress) {
+        // Only this sequence's requests use the combined Quick Launch toast.
+        if (payload_info.quickLaunchRequestId) {
             queue.push({ payload_info, toast: null });
         } else {
             let toast = showToast(`${payload_info.displayTitle}: Waiting in queue...`, -1);
@@ -1244,20 +1244,19 @@ async function main(userlandRW, wkOnly = false) {
             } catch (error) {
                 updateToastMessage(toast, `${payload_info.displayTitle}: Error: ${error}`);
                 setTimeout(removeToast, TOAST_ERROR_TIMEOUT, toast);
-                // If Quick Launch is in progress, update the combined toast and abort remaining dispatches
-                if (window.quickLaunchInProgress) {
-                    var qlToast = window.quickLaunchToast;
-                    if (qlToast) {
-                        updateToastMessage(qlToast, "Quick Launch: Failed ❌ — " + error);
-                        setTimeout(function () { removeToast(qlToast); }, TOAST_ERROR_TIMEOUT);
-                    }
-                    window.quickLaunchInProgress = false;
-                    window.quickLaunchFailed = true;
-                    window.quickLaunchToast = null;
+                if (payload_info.quickLaunchRequestId) {
+                    window.dispatchEvent(new CustomEvent(MAINLOOP_PAYLOAD_RESULT, { detail: {
+                        requestId: payload_info.quickLaunchRequestId, success: false, error: String(error)
+                    } }));
                 }
                 continue;
             }
 
+            if (payload_info.quickLaunchRequestId) {
+                window.dispatchEvent(new CustomEvent(MAINLOOP_PAYLOAD_RESULT, { detail: {
+                    requestId: payload_info.quickLaunchRequestId, success: true
+                } }));
+            }
             setTimeout(removeToast, TOAST_SUCCESS_TIMEOUT, toast);
         }
 

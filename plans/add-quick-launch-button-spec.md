@@ -1,5 +1,7 @@
 # Spec: Add Quick Launch Multi-Payload Button
 
+> Historical implementation plan. Quick Launch is now configurable in Settings; see README.md and js/ui/launch-settings.js for current behavior. Request-specific completion events replace the fixed dispatch timer.
+
 **Status:** ✅ Implemented (updated 2026-06 — etaHEN swapped for Elf Arsenal, nanoDNS removed; Arsenal bundles its own DNS)
 **Date:** 2026-05-29
 **Request:** Add a full-width button to the top of the payload selections that launches kstuff-lite (drakmor), shadowmountplus, and Elf Arsenal in order with a delay between each.

@@ -5,7 +5,7 @@ Static PS5 jailbreak web host at `document/en/ps5/`. No build system, no TypeScr
 ## Commands
 | Command | What it does |
 |---|---|
-| `npm test` | Full 12-category test suite (Python 3 + Node.js 20 + PyYAML required) |
+| `npm test` | Full 13-category test suite (Python 3 + Node.js 20 + PyYAML required) |
 | `npm run test:js-syntax` | Verbose JS syntax check via `node --check` |
 | `npm run test:metadata` | Validates all `payloads/*/metadata.json` |
 | `npm run test:payloads` | Payload structure, metadata format, and custom-repository catalog schema |
@@ -34,5 +34,6 @@ Static PS5 jailbreak web host at `document/en/ps5/`. No build system, no TypeScr
 - `willHideEveryTime: true` hides a payload from the UI every page load (used for deprecated Sonic Loader).
 - Konami code (`↑↑↓↓←→←→`) unlocks developer options — not documented in the UI.
 - Offline caching is opt-in. Keep `index.html` manifest-free. Regenerate `offline.html` and SHA256-hashed `offline.appcache` via `appcache_manifest_generator.py`; only default payload binaries are included. Never restore legacy `cache.appcache` (its 404 retires automatic caches). Details: `docs/offline-caching.md`.
-- Plans at `plans/` contain pending feature specs (quick-launch button, cache optimization, etc.).
+- Payload order and Quick Launch are per-browser preferences in `settings-manager.js`; their normal Settings controls live in `js/ui/launch-settings.js`. Quick Launch waits for request-specific `MAINLOOP_PAYLOAD_RESULT` events before applying its delay.
+- Plans at `plans/` include historical feature specs; maintained behavior is in the implementation and README.
 - Companion Docker self-host repo: `kemalsanli/umtx2-self-hosted`.
