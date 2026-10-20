@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.10",
+      "fileName": "ps5upload-7.1.10.elf",
+      "filePath": "payloads/ps5upload/7.1.10/ps5upload-7.1.10.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.10/ps5upload-7.1.10.elf",
+      "hash": "0025ee8d5ac9b660e8bc0ee98e42675ddd69b39c58ce71ff5ac0fb97de1a6040",
+      "fileSize": 4104352,
+      "releaseDate": "2026-10-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Compressed images in Game files.** `.ffpfsc` files now appear, including images beyond the",
+        "first directory page. Open their folder in Files to decompress before editing; compressed",
+        "images use ShadowMount+ for playback.",
+        "**Truthful tile removal (#480).** Removing PS5Upload's own tile now waits for the removal",
+        "result and reports save/uninstall failures. Update the helper for this fix.",
+        "**Bulk conversion and copying (#479, #481).** Convert recognizes packages inside game",
+        "subfolders, names generic `game.pkg` image outputs after the game folder, and accepts supported",
+        "image/package sources for image conversion. Files can queue further picks during a copy;",
+        "desktop Stream can select multiple packages and queues bases before updates and DLC.",
+        "**Payload setup.** Repair the LZ4 Compression catalogue source, add the upstream elfldr"
+      ]
+    },
+    {
       "version": "7.1.9",
       "fileName": "ps5upload-7.1.9.elf",
       "filePath": "payloads/ps5upload/7.1.9/ps5upload-7.1.9.elf",
@@ -21,7 +44,7 @@
       "hash": "a9674bd22737688783c1857817d032ddf2fd5ca4e750eea17175428556271141",
       "fileSize": 4103760,
       "releaseDate": "2026-10-19",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**File properties and custom permissions (#478).** In Files, open Properties to see a file or",
