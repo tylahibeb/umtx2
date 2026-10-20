@@ -387,6 +387,24 @@ payloads:
       type: GPL-3.0-or-later
       url: https://github.com/X-F1REBALL-X/HearBridge-PS5/blob/main/LICENSE
 
+  # --- Orbit Store: Browser-based store and download manager ---
+  # The ELF serves the browser UI; native FFPKG and desktop assets are separate.
+  - id: orbit-store
+    displayTitle: Orbit Store (Beta)
+    description: PS5 store and download manager with a browser UI on port 34177. Library integration requires ShadowMountPlus.
+    authors:
+      - saawant12
+    projectUrl: https://github.com/saawant12/orbit-store-ps5
+    sourceType: github-release
+    sourceRepo: saawant12/orbit-store-ps5
+    sourcePattern: orbit_store.elf
+    includePrereleases: false
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: GPL-3.0-or-later
+      url: https://github.com/saawant12/orbit-store-ps5/blob/main/README.md#licence
+
   # --- PS5 Game Compressor: Compress, unpack, validate, and repair games ---
   # Repo has GitHub Releases with .elf assets - fully automated
   # Works in tandem with ShadowMountPlus. WebUI on port 5910.
