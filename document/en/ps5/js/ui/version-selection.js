@@ -142,8 +142,8 @@ async function showSettingsVersionPage(payload) {
                 cardBadges.appendChild(preReleaseBadge);
             }
 
-            // Cached (offline) badge for default versions
-            if (ver.isDefault === true) {
+            // Only claim offline availability after the browser confirms a usable cache.
+            if (ver.isDefault === true && window.offlineCache && window.offlineCache.isReady()) {
                 var cachedBadge = document.createElement('span');
                 cachedBadge.className = 'version-card-cached-badge';
                 cachedBadge.textContent = 'Cached';

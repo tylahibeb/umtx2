@@ -17,7 +17,8 @@ function loadDevOptions() {
         if (saved) {
             var parsed = JSON.parse(saved);
             for (var key in parsed) {
-                if (parsed.hasOwnProperty(key)) {
+                if (parsed.hasOwnProperty(key) && key !== "disableAppCache" &&
+                    Object.prototype.hasOwnProperty.call(window.devOptions, key)) {
                     window.devOptions[key] = parsed[key];
                 }
             }
@@ -156,55 +157,28 @@ function populateDevOptions() {
         }
     ));
 
-    // Disable AppCache toggle — when on (default), preserves browser's
-    // auto-download behavior. When off, in-flight cache downloads are aborted
-    // so the user does not see the cascading 'Downloading new cache...'
-    // toasts on frequent updates. Pairs with the existing 'Browser appcache
-    // remover' payload for clearing already-cached state.
-    body.appendChild(createDevToggle(
-        'Disable AppCache',
-        // Visual toggle ON means "preserve auto-download" (default), so we
-        // invert the underlying flag — checked = !disableAppCache.
-        !window.devOptions.disableAppCache,
-        function (enabled) {
-            // enabled is the new visual state. Invert back to the flag.
-            window.devOptions.disableAppCache = !enabled;
-            saveDevOptions();
-            if (window.devOptions.disableAppCache) {
-                // User flipped to OFF — abort kicks in on the next
-                // 'downloading' event. For users with existing cache, the
-                // Browser appcache remover payload is still needed.
-                showToast(
-                    'AppCache downloads will be aborted. To clear existing cache, run the "Browser appcache remover" payload once.',
-                    TOAST_SUCCESS_TIMEOUT
-                );
-            } else {
-                showToast('AppCache auto-downloads re-enabled.', TOAST_SUCCESS_TIMEOUT);
-            }
-        }
-    ));
-
-    // Clear All Cache button
-    var clearCacheBtn = document.createElement('button');
-    clearCacheBtn.className = 'dev-option-button';
-    clearCacheBtn.textContent = 'Clear All Cache';
-    clearCacheBtn.onclick = function () {
-        localStorage.clear();
-        sessionStorage.clear();
-        showToast("All cache cleared", TOAST_SUCCESS_TIMEOUT);
-    };
-    body.appendChild(clearCacheBtn);
-
-    // Reset Settings button
+    // Reset only this host's UI preferences. Offline storage and its dedicated
+    // opt-in are controlled separately and must survive unrelated settings resets.
     var resetBtn = document.createElement('button');
     resetBtn.className = 'dev-option-button danger';
     resetBtn.textContent = 'Reset Settings';
     resetBtn.onclick = function () {
-        localStorage.clear();
-        sessionStorage.clear();
-        location.reload();
+        try {
+            localStorage.removeItem(SETTINGS_PAYLOAD_VISIBILITY);
+            localStorage.removeItem(SETTINGS_PAYLOAD_VERSIONS);
+            localStorage.removeItem(SETTINGS_DEV_MODE);
+            localStorage.removeItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY);
+            sessionStorage.removeItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
+            location.reload();
+        } catch (error) {
+            showToast('Could not reset settings: ' + error.message, TOAST_ERROR_TIMEOUT);
+        }
     };
     body.appendChild(resetBtn);
+    var resetHelp = document.createElement('p');
+    resetHelp.className = 'dev-option-help';
+    resetHelp.textContent = 'Resets payload and developer settings. Your offline caching choice and stored files are kept.';
+    body.appendChild(resetHelp);
 
 }
 

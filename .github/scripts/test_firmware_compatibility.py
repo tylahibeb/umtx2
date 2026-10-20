@@ -5,6 +5,7 @@ import ast
 import base64
 from copy import deepcopy
 import fnmatch
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -34,6 +35,7 @@ def load_updater_functions(names, overrides=None):
         "Dict": Dict,
         "List": List,
         "Optional": Optional,
+        "Path": Path,
         "fnmatch": fnmatch,
         "re": re,
         "json": json,
@@ -225,6 +227,70 @@ class ReleaseSelectionTests(unittest.TestCase):
         self.assertEqual(result, [],
                          "Excluded metadata must not return via failed-asset or orphan fallback")
         self.assertEqual(self.process.call_args.args[7], {})
+
+
+class DirectSourceTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        self.download = Mock(side_effect=AssertionError("A local-only payload must not download"))
+        self.helpers = load_updater_functions(
+            ["update_payload_from_direct", "_finalize_versions", "calculate_file_hash"],
+            {"PAYLOADS_DIR": self.root, "hashlib": hashlib, "download_file": self.download},
+        )
+        self.update = self.helpers["update_payload_from_direct"]
+        self.binary = b"\x7fELF" + b"\x00" * 64
+
+    def write_binary(self, version, name="local.elf"):
+        directory = self.root / "local-payload" / version
+        directory.mkdir(parents=True)
+        binary_path = directory / name
+        binary_path.write_bytes(self.binary)
+        return binary_path
+
+    def test_unreleased_local_binary_preserves_prerelease_and_manual_default(self):
+        binary_path = self.write_binary("unreleased")
+        config = {"id": "local-payload", "manualVersions": [
+            {"version": "unreleased", "fileName": "local.elf", "url": "",
+             "isPreRelease": True, "isDefault": True},
+        ]}
+        versions = self.update(config, {"versions": []})
+        self.assertEqual(len(versions), 1)
+        version = versions[0]
+        self.assertEqual(version["version"], "unreleased")
+        self.assertEqual(version["releaseDate"], "")
+        self.assertEqual(version["downloadUrl"], "")
+        self.assertTrue(version["isPreRelease"])
+        self.assertTrue(version["isDefault"],
+                        "A dateless local build needs its explicit default for offline caching")
+        self.assertEqual(version["filePath"], "payloads/local-payload/unreleased/local.elf")
+        self.assertEqual(version["hash"], hashlib.sha256(self.binary).hexdigest())
+        self.assertEqual(version["fileSize"], len(self.binary))
+        self.assertEqual(binary_path.read_bytes(), self.binary)
+        self.download.assert_not_called()
+
+    def test_dated_versions_keep_newest_date_default_despite_stale_manual_flag(self):
+        self.write_binary("old")
+        self.write_binary("new")
+        config = {"id": "local-payload", "manualVersions": [
+            {"version": "old", "fileName": "local.elf", "url": "",
+             "releaseDate": "2026-09-01", "isDefault": True},
+            {"version": "new", "fileName": "local.elf", "url": "",
+             "releaseDate": "2026-10-01", "isDefault": False},
+        ]}
+        versions = self.update(config, {"versions": []})
+        self.assertEqual([v["version"] for v in versions if v["isDefault"]], ["new"])
+        self.download.assert_not_called()
+
+    def test_missing_local_binary_with_empty_url_does_not_invent_a_version(self):
+        config = {"id": "local-payload", "manualVersions": [
+            {"version": "missing", "fileName": "local.elf", "url": "",
+             "isPreRelease": True, "isDefault": True},
+        ]}
+        self.assertEqual(self.update(config, {"versions": []}), [])
+        self.assertFalse((self.root / "local-payload/missing/local.elf").exists())
+        self.download.assert_not_called()
 
 
 class OfflineRefreshTests(unittest.TestCase):

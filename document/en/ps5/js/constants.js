@@ -28,8 +28,7 @@ window.devOptions = {
     bypassFirmware: false,
     showAllPayloads: false,
     showPreRelease: true,
-    debugMode: false,
-    disableAppCache: false
+    debugMode: false
 };
 
 // ── Exploit state ──────────────────────────────────────────

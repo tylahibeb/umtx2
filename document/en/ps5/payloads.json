@@ -11,6 +11,15 @@
       "checksum": "2b699d411079a21dba7c39a02993fc0fb21e52f434103e884a0c892fafe56b75"
     },
     {
+      "name": "kstuff Lite FPKG (experimental)",
+      "filename": "kstuff-fpkg-1.13-dr-test6.elf",
+      "url": "https://tylahibeb.github.io/umtx2/payloads/kstuff-fpkg-test/1.13-dr-test6/kstuff-fpkg-1.13-dr-test6.elf",
+      "description": "User-supplied 1.13-dr-test6 build. Reported working on FW 4.xx; newer firmware is unverified. Use as an alternative kstuff build.",
+      "version": "1.13-dr-test6",
+      "category": "Hack",
+      "checksum": "b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443"
+    },
+    {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
       "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7-beta5fix1/shadowmountplus.elf",

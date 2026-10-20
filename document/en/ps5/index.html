@@ -1,7 +1,7 @@
-<html manifest="cache.appcache">
-<!-- <html manifest="cache.appcache"> -->
+<html>
 
 <head>
+    <script src="js/cache-controller.js"></script>
     <title>PS5 UMTX2 Jailbreak</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
@@ -63,6 +63,23 @@
                 </a>
                 <h2>Payload Settings</h2>
             </div>
+            <section class="offline-cache-settings" aria-labelledby="offline-cache-heading">
+                <div class="offline-cache-heading-row">
+                    <h3 id="offline-cache-heading">Offline caching</h3>
+                    <label class="offline-cache-toggle" for="offline-cache-toggle">
+                        Save for offline use
+                        <input id="offline-cache-toggle" type="checkbox" role="switch">
+                    </label>
+                </div>
+                <p id="offline-cache-status" role="status" aria-live="polite">Off — internet is required to open the site.</p>
+                <p class="offline-cache-help">When enabled, downloads the site and default payload versions. Other versions may need internet. <span id="offline-cache-size"></span></p>
+                <div class="offline-cache-actions">
+                    <a id="offline-cache-bookmark" href="offline.html" hidden>Offline page — bookmark for use without internet</a>
+                    <button id="offline-cache-update" type="button" hidden>Check offline files</button>
+                    <button id="offline-cache-reload" type="button" hidden>Reload updated copy</button>
+                </div>
+                <p class="offline-cache-help">Turning this off returns to online mode. Previously saved files are not erased; removing them requires clearing browser website data.</p>
+            </section>
             <div id="settings-payloads-grid"></div>
         </div>
 
@@ -189,7 +206,7 @@
     <script src="syscalls.js"></script>
     <script type="module" src="psfree/psfree.js"></script>
     <script src="payload_map.js"></script>
-    
+
     <!-- Modular UI Scripts (in dependency order) -->
     <script src="js/constants.js"></script>
     <script src="js/settings-manager.js"></script>
@@ -221,6 +238,7 @@
         } else {
             document.getElementById("current-fw").innerHTML = "N/A (not PS5)";
         }
+        initializeOfflineCacheSettings();
         registerAppCacheEventHandlers();
         registerL2ButtonHandler();
         registerKonamiCode();

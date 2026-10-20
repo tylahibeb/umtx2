@@ -1,0 +1,30 @@
+{
+  "id": "kstuff-fpkg-test",
+  "displayTitle": "kstuff Lite FPKG (experimental)",
+  "description": "User-supplied 1.13-dr-test6 build. Reported working on FW 4.xx; newer firmware is unverified. Use as an alternative kstuff build.",
+  "authors": [],
+  "projectUrl": "",
+  "sourceRepo": "",
+  "toPort": 9021,
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "supportedFirmwares": [
+    "4."
+  ],
+  "versions": [
+    {
+      "version": "1.13-dr-test6",
+      "fileName": "kstuff-fpkg-1.13-dr-test6.elf",
+      "filePath": "payloads/kstuff-fpkg-test/1.13-dr-test6/kstuff-fpkg-1.13-dr-test6.elf",
+      "downloadUrl": "",
+      "hash": "b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443",
+      "fileSize": 1818680,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": []
+    }
+  ]
+}

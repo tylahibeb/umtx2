@@ -22,6 +22,7 @@
 #                       Never inferred from README/topics. Evidence: docs/payload-compatibility.md.
 #   license:           {type: SPDX-ID, url: license-url} - auto-detected if empty
 #   manualVersions:    Required for 'direct' sourceType - list of version entries
+#                       isPreRelease marks test builds; a dateless local build can use isDefault.
 #
 # Adding a new payload via PR:
 #   1. Add your entry below following the appropriate pattern (A, B, or C)
@@ -69,6 +70,29 @@ payloads:
     license:
       type: ""
       url: ""
+
+  # --- User-supplied kstuff FPKG test build (not published upstream) ---
+  # Preserve the local binary; empty URL prevents any upstream replacement.
+  - id: kstuff-fpkg-test
+    displayTitle: kstuff Lite FPKG (experimental)
+    description: User-supplied 1.13-dr-test6 build. Reported working on FW 4.xx; newer firmware is unverified. Use as an alternative kstuff build.
+    authors: []
+    projectUrl: ""
+    sourceType: direct
+    sourceRepo: ""
+    sourcePattern: kstuff-fpkg-*.elf
+    toPort: 9021
+    supportedFirmwares: ["4."]
+    license:
+      type: Unknown
+      url: ""
+    manualVersions:
+      - version: "1.13-dr-test6"
+        fileName: kstuff-fpkg-1.13-dr-test6.elf
+        url: ""
+        isDefault: true
+        isPreRelease: true
+        releaseDate: ""
 
   # --- ShadowMountPlus: Automatic game image mounter ---
   # Repo has GitHub Releases with .elf or .zip assets - fully automated

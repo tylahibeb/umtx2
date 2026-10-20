@@ -33,6 +33,6 @@ Static PS5 jailbreak web host at `document/en/ps5/`. No build system, no TypeScr
 ## Gotchas
 - `willHideEveryTime: true` hides a payload from the UI every page load (used for deprecated Sonic Loader).
 - Konami code (`↑↑↓↓←→←→`) unlocks developer options — not documented in the UI.
-- `cache.appcache` is SHA256-hashed; regenerate via `appcache_manifest_generator.py`. It caches only default versions (~60% size savings).
+- Offline caching is opt-in. Keep `index.html` manifest-free. Regenerate `offline.html` and SHA256-hashed `offline.appcache` via `appcache_manifest_generator.py`; only default payload binaries are included. Never restore legacy `cache.appcache` (its 404 retires automatic caches). Details: `docs/offline-caching.md`.
 - Plans at `plans/` contain pending feature specs (quick-launch button, cache optimization, etc.).
 - Companion Docker self-host repo: `kemalsanli/umtx2-self-hosted`.

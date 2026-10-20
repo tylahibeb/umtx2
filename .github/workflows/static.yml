@@ -50,7 +50,7 @@ jobs:
 
       - name: Regenerate appcache manifest
         if: success()
-        # Keep cache.appcache in git in sync with the just-emitted payload_map.js
+        # Keep offline.html/offline.appcache in sync with the generated payload map
         # so on-disk hashes + metadata.json entries for new/changed payloads
         # are picked up. `git add .` in the next step will include any diff.
         run: |

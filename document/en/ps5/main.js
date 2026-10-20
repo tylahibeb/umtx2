@@ -527,7 +527,9 @@ async function main(userlandRW, wkOnly = false) {
         // or legacy filename for backward compatibility
         await log("Loading ELF file: " + filepathOrFilename + " ...", LogLevel.LOG);
         const fetchPath = filepathOrFilename.startsWith('payloads/') ? filepathOrFilename : ('payloads/' + filepathOrFilename);
-        const response = await fetch(fetchPath);
+        const response = await fetch(fetchPath, {
+            cache: window.offlineCache && window.offlineCache.isEnabled() ? 'default' : 'no-store'
+        });
         if (!response.ok) {
             throw new Error(`Failed to fetch the binary file. Status: ${response.status}`);
         }

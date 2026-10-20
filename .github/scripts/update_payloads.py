@@ -1040,7 +1040,7 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
                 'fileSize': 0,
                 'releaseDate': ver_config.get('releaseDate', ''),
                 'isDefault': False,  # Will be set by releaseDate-based sort below
-                'isPreRelease': False,
+                'isPreRelease': ver_config.get('isPreRelease') is True,
                 'changelog': []
             })
             continue
@@ -1064,7 +1064,7 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
                 'fileSize': existing_size,
                 'releaseDate': ver_config.get('releaseDate', ''),
                 'isDefault': False,  # Will be set by releaseDate-based sort below
-                'isPreRelease': False,
+                'isPreRelease': ver_config.get('isPreRelease') is True,
                 'changelog': []
             })
         elif download_url:
@@ -1079,7 +1079,7 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
                     'fileSize': file_size,
                     'releaseDate': ver_config.get('releaseDate', ''),
                     'isDefault': False,  # Will be set by releaseDate-based sort below
-                    'isPreRelease': False,
+                    'isPreRelease': ver_config.get('isPreRelease') is True,
                     'changelog': []
                 })
             except Exception as e:
@@ -1091,7 +1091,17 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
     # Use shared helper for sort-by-date and default-marking.
     # Pass empty existing_versions — direct sources don't have orphaned versions
     # from an upstream API, so the orphan-preservation loop is a no-op.
-    return _finalize_versions(payload_config['id'], versions, {}, source_name="direct")
+    versions = _finalize_versions(payload_config['id'], versions, {}, source_name="direct")
+    if not any(version.get('isDefault') for version in versions):
+        # Unpublished local builds may have no release date. Honor an explicit
+        # default without inventing a date, so their binary can still be cached.
+        declared_default = next((
+            version['version'] for version in payload_config.get('manualVersions', [])
+            if version.get('isDefault') is True
+        ), None)
+        for version in versions:
+            version['isDefault'] = version['version'] == declared_default
+    return versions
 
 
 def load_metadata(payload_id: str) -> Dict:

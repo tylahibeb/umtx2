@@ -1,6 +1,6 @@
 # Payload firmware compatibility audit
 
-Reviewed 2026-10-19. Covers all **41 payload entries** (39 original entries plus HearBridge and Orbit Store), their checked-in default versions, configured rules, generated metadata and browser filtering. Upstream evidence was checked at the default release/tag where available. This is a documentation/source audit, **not execution on a PS5**.
+Reviewed 2026-10-19. Covers all **42 payload entries** (39 original entries plus HearBridge, Orbit Store and the uploaded kstuff test build), their checked-in default versions, configured rules, generated metadata and browser filtering. Upstream evidence was checked at the default release/tag where available. This is a documentation/source audit, **not execution on a PS5**.
 
 The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/offsets/`, from 1.00 through 5.50. A payload supporting newer firmware does not extend the host exploit. A firmware rule also cannot certify dependency patches, console model, peripherals, game versions or individual payload features.
 
@@ -9,7 +9,7 @@ The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/
 - `.github/payloads.yaml` is authoritative. `supportedFirmwares: []` means **no maintained firmware filter**, not verified support everywhere. Missing rules behave the same way. Arbitrary README/topic mentions never become enforced restrictions.
 - A trailing-dot rule such as `"4."` matches a major family. A full version such as `"4.03"` or `"7.01.01"` matches exactly. Invalid configured rules fail validation.
 - Exact source tables replace broad prefixes where available. This restores supported 1.xx/2.xx entries and excludes documented unsupported firmware points.
-- Refresh fingerprints include firmware rules, so compatibility-only updates are detected. AppCache hashes are regenerated; existing PS5 clients must finish updating their cache and reload to use the new map/UI.
+- Refresh fingerprints include firmware rules, so compatibility-only updates are detected. Offline cache hashes are regenerated; opted-in PS5 clients must finish updating their cache and reload to use the new map/UI. Offline caching is now optional; see [the cache guide](offline-caching.md).
 - Rules remain **per payload**, audited against the default shown below. Historical selectable versions can have narrower support. This audit does not certify every historical binary against every firmware; version-specific compatibility remains a separate limitation.
 
 ## Every payload
@@ -19,6 +19,7 @@ The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/
 | Payload ID | Audited default | Maintained policy | Evidence and limits |
 | --- | --- | --- | --- |
 | `kstuff-lite` | 1.2-dr-test2 | 46 exact points (3.00–12.70) | [Source](https://raw.githubusercontent.com/drakmor/kstuff-lite/1.2-dr-test2/prosper0gdb/offsets.c). Source has an explicit 3.00–12.70 offset table. Replaced broad major prefixes with those exact points; 1.xx/2.xx remain excluded. |
+| `kstuff-fpkg-test` | 1.13-dr-test6 | `4.` (user report) | [Local metadata](../document/en/ps5/payloads/kstuff-fpkg-test/metadata.json). Unpublished user-supplied ELF, reported working on 4.xx; this is not an independent firmware matrix. Embedded identity is Kstuff Lite 1.13-fpkg-dr-test6. Newer firmware is unverified; PPR diagnostics explicitly mention missing firmware 12+ support. This separate alternative does not replace Quick Launch’s kstuff build. |
 | `shadowmountplus` | 1.7-beta5fix1 | No extra filter | [Source](https://raw.githubusercontent.com/drakmor/ShadowMountPlus/1.7-beta5fix1/README.md). Removed the 3/4/5-only cap: the pinned README explicitly includes 2.00. Requires Kstuff-lite v1.07+; the default beta release warns against using etaHEN. This is conditional support, not a standalone firmware guarantee. |
 | `etahen` | 2.5B | 52 exact points (1.00–10.60) | [Source](https://raw.githubusercontent.com/etaHEN/etaHEN/2.5B/Source%20Code/bootstrapper/source/main.cpp). Added the documented 1.xx/2.xx support. The pinned bootstrap uses its embedded Byepervisor below 3.00; embedded exploit and libhijacker source tables include the configured points through 10.60; release notes advertise kstuff/cheats only through 10.01. These tables differ from standalone Byepervisor 1.1. |
 | `nanodns` | 0.4 | No extra filter | [Source](https://github.com/drakmor/nanoDNS/blob/0.4/README.md). No firmware matrix. Generic SDK consumer; no justified firmware allowlist. |
@@ -80,6 +81,14 @@ The `orbit-store` entry tracks stable GitHub releases with the configured filena
 
 The downloaded ELF is 41,997,992 bytes, SHA-256 `561a8e8015d9564d44e32b58a84e1294ea7043e96146110801a9f62ad99ac93b`, verified against GitHub’s asset digest and corroborated by the official payload feed/build information. Its browser UI port is 34177; ELF injection uses 9021. See the [getting-started guide](https://github.com/saawant12/orbit-store-ps5/blob/v1.3.5/guides/getting-started.md) for the distinct ELF, native app and desktop workflows. No numeric firmware restriction is inferred from app/service versions or game installation limits.
 
+## Uploaded kstuff test build
+
+`kstuff-fpkg-test` preserves the user’s uploaded `kstuff-fpkg-1.13-dr-test6.elf` as a separate experimental direct/local payload. It is 1,818,680 bytes with SHA-256 `b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443`. The stored bytes match the upload, and the ELF64 little-endian x86-64 PIE header was inspected; the binary was not executed. No independent upstream checksum/source or verified authorship/license was supplied, so those fields remain unknown instead of assigning another release’s provenance.
+
+The maintained filter is `4.` based on the user’s report that it works on 4.xx. The user’s assumption about newer firmware is not treated as verification. Embedded PPR patch diagnostics mention missing firmware 12+ support, but do not establish a whole-payload compatibility range. Other firmware remains unverified until a source or direct report establishes it.
+
+The source/download URLs are empty, so the updater rehashes and retains the local file rather than trying to replace it from GitHub. The catalog uses this host’s Pages mirror URL. Its manual version is explicitly prerelease/default, with no invented release date. The direct-source updater now preserves manual prerelease flags and honors an explicit dateless default when date-based selection cannot choose one. It remains a separate launch option and does not change Quick Launch.
+
 ## Maintaining the rules
 
 1. Check the actual default release’s documentation/source. Update the YAML and this report with evidence and dependencies; avoid converting a single tested version into an exclusive allowlist.
@@ -93,6 +102,6 @@ The downloaded ELF is 41,997,992 bytes, SHA-256 `561a8e8015d9564d44e32b58a84e129
    python3 appcache_manifest_generator.py -d document/en/ps5
    npm test
    ```
-4. Publish the updated site through the repository’s normal deployment process. Existing clients must let AppCache update and then reload. Refresh only checks for changes; it does not replace the running map or clear AppCache.
+4. Publish the updated site through the repository’s normal deployment process. Opted-in clients must let the offline cache update and then reload. Refresh only checks for changes; it does not replace the running map or clear AppCache.
 
-The automated firmware regressions exercise the real generator/filter/fingerprint code, all 41 map/metadata rules, exact and major matching, stable-release and asset policies, and offline rebuilding. No existing binary or version was changed during the audit.
+The automated firmware regressions exercise the real generator/filter/fingerprint code, all 42 map/metadata rules, exact and major matching, stable-release and asset policies, and offline rebuilding. No existing binary or version was changed during the audit.

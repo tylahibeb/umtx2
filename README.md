@@ -19,7 +19,15 @@ A web-based PS5 jailbreak host. Open it in your PS5 browser, pick your firmware,
 - **Firmware compatibility checks** — Warns you if a payload doesn't match your firmware
 - **Settings & developer options** — Fine-tune your experience, hide payloads you don't use, enable debug mode
 - **PS5-optimized UI** — Designed for DualSense navigation and the PS5 browser
-- **Offline support** — AppCache lets you use it without an internet connection after the first load
+- **Optional offline support** — Enable Save for offline use in Settings, then bookmark the offline page
+
+## Optional offline caching
+
+Offline caching is **off by default**. Open the gear icon, turn on **Save for offline use**, and stay online until the status says **Ready for offline use**. Bookmark the offline page that opens; use that bookmark to launch without internet. The regular site address remains an online entry.
+
+The download includes the site and default payload versions. Other selected versions may need internet. Turn the switch off while online to stop offline downloads and return to online mode. Already saved files are not erased by the switch.
+
+Existing users may see “Site is obsolete” once while the old automatic cache is retired. Reopen the site while online, then reload to get the new Settings control. [Caching behavior and cleanup instructions](docs/offline-caching.md).
 
 ## Supported Firmwares
 

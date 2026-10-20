@@ -205,6 +205,7 @@ a:focus {
 
 
 #toast-container {
+    pointer-events: none;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -1541,4 +1542,98 @@ input:checked + .slider:before {
 .credits-author:hover {
     text-decoration: underline;
     opacity: 1;
+}
+
+/* Optional device offline storage, controlled from the normal Settings screen. */
+.offline-cache-settings {
+    background: var(--surface-color-secondary);
+    border: 1px solid var(--surface-color-primary);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+}
+
+.offline-cache-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#offline-cache-toggle {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex-shrink: 0;
+}
+
+#offline-cache-toggle:focus {
+    outline: 2px solid var(--surface-color-hover);
+    outline-offset: 3px;
+}
+
+.offline-cache-settings p,
+.dev-option-help {
+    color: var(--text-color-secondary);
+    line-height: 1.45;
+    font-size: 0.9rem;
+    margin: 0.65rem 0;
+}
+
+#offline-cache-status {
+    color: var(--text-color-primary);
+}
+
+.offline-cache-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.offline-cache-actions button,
+#offline-cache-bookmark {
+    background: var(--surface-color-primary);
+    color: var(--text-color-primary);
+    border: 0;
+    border-radius: 0.65rem;
+    font-size: 0.95rem;
+    padding: 0.65rem 1rem;
+    line-height: 1.35;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.offline-cache-actions button:hover,
+.offline-cache-actions button:focus,
+#offline-cache-bookmark:hover,
+#offline-cache-bookmark:focus {
+    background: var(--surface-color-hover);
+    color: var(--text-color-primary-hover);
+}
+
+.offline-cache-actions button:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+#offline-cache-bookmark[hidden],
+#offline-cache-update[hidden],
+#offline-cache-reload[hidden] {
+    display: none !important;
+}
+
+.offline-cache-heading-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.offline-cache-heading-row h3 {
+    margin: 0;
+    font-size: 1.05rem;
 }

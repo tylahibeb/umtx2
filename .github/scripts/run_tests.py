@@ -351,63 +351,15 @@ def test_catalog_structure():
 
 
 def test_appcache():
-    """Test cache.appcache lists all required files."""
-    print_info("Validating cache.appcache...")
-    
-    appcache_file = BASE_DIR / "cache.appcache"
-    if not appcache_file.exists():
-        raise AssertionError("cache.appcache not found")
-    
-    with open(appcache_file, 'r') as f:
-        lines = f.readlines()
-    
-    # Extract cached files (lines after CACHE MANIFEST and before NETWORK:)
-    cached_files = []
-    in_cache_section = False
-    
-    for line in lines:
-        line = line.strip()
-        if line == "CACHE MANIFEST":
-            in_cache_section = True
-            continue
-        if line == "NETWORK:":
-            break
-        if in_cache_section and line and not line.startswith("#"):
-            # Remove hash if present
-            file_path = line.split("#")[0].strip()
-            if file_path:
-                cached_files.append(file_path)
-    
-    errors = []
-    missing_files = []
-    
-    for file_ref in cached_files[:30]:  # Check first 30 to avoid long output
-        file_path = BASE_DIR / file_ref
-        if not file_path.exists():
-            missing_files.append(file_ref)
-    
-    if missing_files:
-        errors.append(f"cache.appcache references missing files:\n  - " + "\n  - ".join(missing_files))
-    
-    # Check that key JS files are in cache
-    key_files = [
-        "int64.js",
-        "rop.js", 
-        "main.js",
-        "umtx2.js",
-        "syscalls.js",
-        "payload_map.js",
-        "js/app.js"
-    ]
-    
-    for key_file in key_files:
-        if not any(key_file in f for f in cached_files):
-            errors.append(f"cache.appcache missing key file: {key_file}")
-    
-    if errors:
-        raise AssertionError("\n".join(errors))
-    
-    print_success(f"cache.appcache is valid ({len(cached_files)} files cached)")
+    """Validate opt-in artifacts and exercise actual cache lifecycle/routing code."""
+    print_info("Validating optional offline caching...")
+    result = subprocess.run(
+        [sys.executable, str(Path(__file__).with_name("test_offline_cache.py"))],
+        capture_output=True, text=True
+    )
+    if result.returncode:
+        raise AssertionError(result.stdout + result.stderr)
+    print_success("Offline cache generation, opt-in routing and lifecycle regressions passed")
 
 def test_global_functions():
     """Test that required global functions are exported."""

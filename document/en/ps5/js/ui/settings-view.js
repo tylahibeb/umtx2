@@ -24,61 +24,87 @@ function openSettings() {
  * Close the settings screen and return to the landing page.
  */
 function closeSettings() {
-    preFetchSelectedPayloads();
     window.settingsMode = false;
     switchPage("pre-jb-view");
 }
 
 /**
- * Pre-fetch non-default payload versions into browser HTTP cache.
- * Iterates over all visible payloads and fetches selected non-default versions.
- * This is fire-and-forget - errors are silently ignored.
+ * Bind the normal Settings controls to the offline-cache controller.
+ * Preference changes navigate between online and offline entry pages; downloading
+ * payloads merely by closing Settings is intentionally avoided.
  */
-function preFetchSelectedPayloads() {
-    var count = 0;
-    
-    for (var i = 0; i < payload_map.length; i++) {
-        var payload = payload_map[i];
-        
-        // Skip hidden payloads
-        if (!isPayloadVisible(payload.id)) {
-            continue;
-        }
-        
-        // Get the active version for this payload
-        var versionInfo = resolveActiveVersion(payload);
-        if (!versionInfo || !versionInfo.filePath) {
-            continue;
-        }
-        
-        // Skip default versions (already in AppCache)
-        // Find the actual version object to check isDefault flag
-        var isDefault = false;
-        if (payload.versions && payload.versions.length > 0) {
-            for (var j = 0; j < payload.versions.length; j++) {
-                if (payload.versions[j].version === versionInfo.version) {
-                    isDefault = payload.versions[j].isDefault;
-                    break;
-                }
+function initializeOfflineCacheSettings() {
+    var toggle = document.getElementById('offline-cache-toggle');
+    var status = document.getElementById('offline-cache-status');
+    var bookmark = document.getElementById('offline-cache-bookmark');
+    var update = document.getElementById('offline-cache-update');
+    var reload = document.getElementById('offline-cache-reload');
+    var controller = window.offlineCache;
+
+    if (!toggle || !status) return;
+    if (!controller) {
+        toggle.disabled = true;
+        status.textContent = 'Offline caching is unavailable in this browser.';
+        if (bookmark) bookmark.hidden = true;
+        if (update) update.hidden = true;
+        if (reload) reload.hidden = true;
+        return;
+    }
+
+    var size = document.getElementById('offline-cache-size');
+    if (size && typeof payload_map !== 'undefined') {
+        var bytes = 0;
+        for (var i = 0; i < payload_map.length; i++) {
+            var versions = payload_map[i].versions || [];
+            for (var j = 0; j < versions.length; j++) {
+                if (versions[j].isDefault) bytes += Number(versions[j].fileSize) || 0;
             }
         }
-        
-        if (isDefault) {
-            continue;
+        size.textContent = 'Default payloads total about ' + Math.ceil(bytes / 1000000) + ' MB, plus site files.';
+    }
+
+    function render(state) {
+        var busy = state.status === 'checking' || state.status === 'downloading';
+        toggle.checked = state.enabled;
+        toggle.disabled = !state.supported;
+        status.textContent = state.message || (state.enabled ?
+            'Offline download has not completed.' : 'Off — internet is required.');
+        // A version screen can stay open while a saved cache becomes obsolete.
+        // Remove stale success badges immediately; reopening adds them once ready.
+        if (!state.ready && typeof document.querySelectorAll === 'function') {
+            var staleBadges = document.querySelectorAll('.version-card-cached-badge');
+            for (var i = 0; i < staleBadges.length; i++) {
+                if (staleBadges[i].parentNode) staleBadges[i].parentNode.removeChild(staleBadges[i]);
+            }
         }
-        
-        // Fire-and-forget fetch to pre-load into HTTP cache
-        count++;
-        fetch(versionInfo.filePath, { cache: "default" })
-            ["catch"](function(err) {
-                // Silently ignore errors
-            });
+        if (bookmark) bookmark.hidden = !state.enabled || !state.ready;
+        if (update) {
+            update.hidden = !state.enabled || !state.supported;
+            update.disabled = busy;
+        }
+        if (reload) reload.hidden = state.status !== 'update-ready';
     }
-    
-    // Show brief notification if we're caching anything
-    if (count > 0) {
-        showToast("Caching selected payloads...", 2000);
+
+    toggle.addEventListener('change', function () {
+        controller.setEnabled(toggle.checked);
+        render(controller.getState());
+    });
+    if (update) {
+        update.addEventListener('click', function () {
+            controller.checkForUpdates();
+            render(controller.getState());
+        });
     }
+    if (reload) {
+        reload.addEventListener('click', function () {
+            if (typeof controller.reload === 'function') {
+                controller.reload();
+            } else {
+                window.location.reload();
+            }
+        });
+    }
+    controller.subscribe(render);
 }
 
 /**
@@ -341,4 +367,4 @@ window.openSettings = openSettings;
 window.closeSettings = closeSettings;
 window.populateSettingsGrid = populateSettingsGrid;
 window.refreshPayloads = refreshPayloads;
-window.preFetchSelectedPayloads = preFetchSelectedPayloads;
+window.initializeOfflineCacheSettings = initializeOfflineCacheSettings;
