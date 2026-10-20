@@ -215,8 +215,8 @@ function populateSettingsGrid() {
 
 /**
  * Generate a simple fingerprint from payload_map for comparison.
- * Extracts id + versions data from the current in-memory payload_map.
- * @returns {string} JSON fingerprint of [{ id, versions: [{version, hash}] }]
+ * Includes maintained firmware rules so compatibility-only updates are detected.
+ * @returns {string} JSON fingerprint of payload IDs, versions/hashes and firmware rules
  */
 function generatePayloadFingerprint() {
     var fingerprint = [];
@@ -229,7 +229,9 @@ function generatePayloadFingerprint() {
                 versionInfo.push({ version: v.version, hash: v.hash });
             }
         }
-        fingerprint.push({ id: p.id, versions: versionInfo });
+        fingerprint.push({
+            id: p.id, versions: versionInfo, supportedFirmwares: p.supportedFirmwares || []
+        });
     }
     return JSON.stringify(fingerprint);
 }
@@ -240,7 +242,7 @@ function generatePayloadFingerprint() {
  * into per-payload blocks, then extracts version+hash pairs from each block.
  * This avoids fragile regex matching against nested braces/brackets.
  * @param {string} text - The fetched payload_map.js file content
- * @returns {string} JSON fingerprint of [{ id, versions: [{version, hash}] }]
+ * @returns {string} JSON fingerprint of payload IDs, versions/hashes and firmware rules
  */
 function extractFingerprintFromText(text) {
     var fingerprint = [];
@@ -270,7 +272,12 @@ function extractFingerprintFromText(text) {
             versionInfo.push({ version: vMatch[1], hash: vMatch[2] });
         }
 
-        fingerprint.push({ id: idPositions[i].id, versions: versionInfo });
+        // The generator emits firmware rules as a JSON array on their own line.
+        var firmwareMatch = /^\s*supportedFirmwares:\s*(\[[^\]\r\n]*\])/m.exec(block);
+        var firmwareRules = firmwareMatch ? JSON.parse(firmwareMatch[1]) : [];
+        fingerprint.push({
+            id: idPositions[i].id, versions: versionInfo, supportedFirmwares: firmwareRules
+        });
     }
 
     return JSON.stringify(fingerprint);
@@ -278,7 +285,7 @@ function extractFingerprintFromText(text) {
 
 /**
  * Fetch the latest payload_map.js from the server and check if it matches local.
- * Uses a simple fingerprint comparison: if id + versions match, no update needed.
+ * Detects changes to versions/hashes and maintained firmware rules.
  */
 async function refreshPayloads() {
     var refreshBtn = document.getElementById("refresh-payloads-btn");

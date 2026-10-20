@@ -21,7 +21,7 @@ downloads latest payload binaries, generates metadata, and produces document/en/
    ├─ Load config from payloads.yaml
    ├─ For each payload:
    │  ├─ Detect license from GitHub API
-   │  ├─ Detect firmware compatibility from topics/README
+   │  ├─ Read maintained firmware compatibility from config (never guess from README)
    │  ├─ Fetch releases or use manual versions
    │  ├─ Download missing binaries (SECURITY: ZIP files are SKIPPED)
    │  ├─ Calculate SHA256 hash and file size
@@ -53,7 +53,7 @@ Add to .github/payloads.yaml:
     sourceRepo: username/repo    # GitHub repo (owner/name)
     sourcePattern: my-payload*.elf  # Glob pattern to match asset name
     toPort: 9021                 # Optional: Port number for network payloads
-    supportedFirmwares: ["3.", "4.", "5."]  # Optional: e.g., ["3.", "4."]
+    supportedFirmwares: ["3.", "4.03"]  # Major families or exact versions; [] means no filter
     license:                     # Optional: Auto-detected if empty
       type: ""
       url: ""
@@ -226,17 +226,19 @@ Features:
 - Gitea Releases REST API integration (any Gitea instance)
 - License auto-detection from GitHub API (manual for Gitea)
 - Pre-release flag detection
-- Firmware compatibility auto-detection (topics + README)
+- Maintained firmware compatibility (explicit configuration; no README inference)
 - metadata.json generation/maintenance per payload
 - payload_map.js v2 format generation with filePath support
 - SHA256 hash verification for all binaries
 - Automatic skipping of ZIP/archive files (security)
 """
 
+import argparse
 import os
 import sys
 import json
 import hashlib
+import fnmatch
 import re
 import subprocess
 import shutil
@@ -372,72 +374,27 @@ def detect_license(repo: str, manual_license: Dict[str, str]) -> Dict[str, str]:
     return {"type": "Unknown", "url": ""}
 
 
-def detect_firmware_compatibility(repo: str, manual_firmwares: List[str]) -> List[str]:
-    """Detect supported firmwares from multiple sources."""
-    # Priority 1: Manual override
-    if manual_firmwares:
-        return manual_firmwares
-    
-    # Priority 2: GitHub topics
-    try:
-        result = subprocess.run(
-            ["gh", "repo", "view", repo, "--json", "repositoryTopics"],
-            capture_output=True, text=True, timeout=15
+def detect_firmware_compatibility(
+    repo: str, manual_firmwares: Optional[List[str]] = None
+) -> List[str]:
+    """Validate maintained rules; an empty/missing list means no firmware filter.
+
+    README text and GitHub topics are not compatibility declarations: a mention
+    of 13.60 used to be misread as 3.60, and ranges lost intermediate versions.
+    Unknown support must not become an invented allowlist. Record the evidence
+    and limits in docs/payload-compatibility.md when changing these rules.
+    """
+    if manual_firmwares is None:
+        return []
+    if not isinstance(manual_firmwares, list) or any(
+        not isinstance(rule, str) or not re.fullmatch(r"[0-9]+\.(?:[0-9]{2}(?:\.[0-9]{2})*)?", rule)
+        for rule in manual_firmwares
+    ):
+        raise ValueError(
+            f"Invalid supportedFirmwares for {repo or 'local payload'}: "
+            "use a list of major prefixes (3.) or exact versions (4.03)"
         )
-        if result.returncode == 0:
-            data = json.loads(result.stdout)
-            topics = data.get('repositoryTopics', [])
-            topic_names = [t.get('name', '') for t in topics]
-            
-            fw_from_topics = []
-            for topic in topic_names:
-                if 'ps5-fw' in topic or 'fw-' in topic:
-                    # Extract version from topic like "ps5-fw-3xx" -> "3."
-                    match = re.search(r'[45]\.?', topic)
-                    if match:
-                        fw_prefix = match.group(0)
-                        if not fw_prefix.endswith('.'):
-                            fw_prefix += '.'
-                        if fw_prefix not in fw_from_topics:
-                            fw_from_topics.append(fw_prefix)
-            
-            if fw_from_topics:
-                return fw_from_topics
-    except Exception:
-        pass
-    
-    # Priority 3: README parse
-    try:
-        result = subprocess.run(
-            ["gh", "api", f"repos/{repo}/readme", "--jq", ".content"],
-            capture_output=True, text=True, timeout=15
-        )
-        if result.returncode == 0:
-            import base64
-            readme_content = base64.b64decode(result.stdout).decode('utf-8', errors='ignore')
-            
-            # Look for firmware mentions in README
-            fw_patterns = [
-                r'(?:firmware|fw|supports?).*?([345]\.[0-9]+)',
-                r'([345]\.[0-9]+).*?(?:firmware|fw|supports?)',
-            ]
-            
-            found_fw = set()
-            for pattern in fw_patterns:
-                matches = re.findall(pattern, readme_content, re.IGNORECASE)
-                for match in matches:
-                    major = match.split('.')[0]
-                    prefix = f"{major}."
-                    if prefix not in found_fw:
-                        found_fw.add(prefix)
-            
-            if found_fw:
-                return sorted(list(found_fw), reverse=True)
-    except Exception:
-        pass
-    
-    # Priority 4: No restriction
-    return []
+    return list(manual_firmwares)
 
 
 def get_github_releases(repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD) -> List[Dict]:
@@ -807,12 +764,28 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
     payload_id = payload_config['id']
 
     existing_versions = {v['version']: v for v in metadata.get('versions', [])}
+    excluded = payload_config.get('sourceExcludePatterns', [])
+    existing_versions = {
+        version: data for version, data in existing_versions.items()
+        if not any(fnmatch.fnmatchcase(data.get('fileName', ''), p) for p in excluded)
+    }
 
     # Step 1: Get release list (tagName, name, isPrerelease only)
     releases = get_github_releases(repo)
+    if not payload_config.get('includePrereleases', True):
+        releases = [r for r in releases if not r.get('isPrerelease', False)]
+        existing_versions = {
+            version: data for version, data in existing_versions.items()
+            if not data.get('isPreRelease', False)
+        }
     if not releases:
         print(f"  No releases found for {repo}, using existing metadata...")
-        return metadata.get('versions', [])
+        if not payload_config.get('includePrereleases', True) or excluded:
+            # A removed beta/test build may have been the previous default.
+            return _finalize_versions(
+                payload_id, list(existing_versions.values()), {}, source_name="local metadata"
+            )
+        return list(existing_versions.values())
 
     versions = []
     for release in releases[:MAX_VERSIONS_PER_PAYLOAD]:
@@ -835,6 +808,11 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         body = details.get('body', '')
         published_at = details.get('publishedAt', '')
         assets = details.get('assets', [])
+        excluded = payload_config.get('sourceExcludePatterns', [])
+        assets = [
+            asset for asset in assets
+            if not any(fnmatch.fnmatchcase(asset.get('name', ''), pattern) for pattern in excluded)
+        ]
 
         if not assets:
             ver = _process_release_version(
@@ -1454,7 +1432,39 @@ def generate_custom_catalog(
     return len(items)
 
 
-def main():
+def refresh_firmware_compatibility(payloads_config: List[Dict]) -> int:
+    """Rebuild only maintained firmware rules and maps from existing local metadata.
+
+    No release discovery, license lookup, binary downloads, or version selection.
+    Validate all inputs before writing so missing metadata cannot truncate the map.
+    """
+    prepared = []
+    for payload in payloads_config:
+        metadata = load_metadata(payload['id'])
+        if not metadata.get('versions'):
+            raise ValueError(f"Missing versions in metadata for {payload['id']}")
+        rules = detect_firmware_compatibility(
+            payload.get('sourceRepo', ''), payload.get('supportedFirmwares')
+        )
+        metadata['supportedFirmwares'] = rules
+        processed = dict(payload, versions=metadata['versions'], supportedFirmwares=rules)
+        prepared.append((metadata, processed))
+
+    configured_ids = {payload['id'] for payload in payloads_config}
+    on_disk_ids = {p.parent.name for p in PAYLOADS_DIR.glob('*/metadata.json')}
+    if on_disk_ids - configured_ids:
+        raise ValueError("Add orphaned payloads to payloads.yaml before an offline rebuild")
+
+    for metadata, payload in prepared:
+        save_metadata(payload['id'], metadata)
+    processed_payloads = [payload for _, payload in prepared]
+    PAYLOAD_MAP_FILE.write_text(generate_payload_map_js(processed_payloads))
+    generate_custom_catalog(processed_payloads, CUSTOM_CATALOG_FILE)
+    print(f"Refreshed firmware rules for {len(prepared)} payloads (offline)")
+    return 0
+
+
+def main(compatibility_only: bool = False):
     print("=" * 60)
     print("PS5 UMTX2 Payload Updater v2")
     print("=" * 60)
@@ -1469,6 +1479,9 @@ def main():
 
     with open(PAYLOAD_CONFIG_FILE, 'r') as f:
         config = yaml.safe_load(f)
+
+    if compatibility_only:
+        return refresh_firmware_compatibility(config['payloads'])
 
     has_changes = False
 
@@ -1487,16 +1500,14 @@ def main():
             license_info = payload.get('license', {})
             if not license_info or not license_info.get('type'):
                 license_info = {'type': 'Unknown', 'url': ''}
-            firmware_compat = payload.get('supportedFirmwares', [])
         else:
             license_info = detect_license(
                 payload['sourceRepo'],
                 payload.get('license', {})
             )
-            firmware_compat = detect_firmware_compatibility(
-                payload['sourceRepo'],
-                payload.get('supportedFirmwares', [])
-            )
+        firmware_compat = detect_firmware_compatibility(
+            payload.get('sourceRepo', ''), payload.get('supportedFirmwares')
+        )
         metadata['license'] = license_info
         
         versions = []
@@ -1513,8 +1524,17 @@ def main():
             continue
 
         if not versions:
-            print(f"  No versions found, keeping existing metadata")
-            versions = metadata.get('versions', [])
+            print(f"  No versions found, keeping eligible existing metadata")
+            versions = [
+                version for version in metadata.get('versions', [])
+                if (payload.get('includePrereleases', True) or not version.get('isPreRelease'))
+                and not any(
+                    fnmatch.fnmatchcase(version.get('fileName', ''), pattern)
+                    for pattern in payload.get('sourceExcludePatterns', [])
+                )
+            ]
+            if not payload.get('includePrereleases', True) or payload.get('sourceExcludePatterns'):
+                versions = _finalize_versions(payload_id, versions, {}, source_name="local metadata")
 
         # Ensure top-level fields from config are always in metadata
         metadata['id'] = payload_id
@@ -1638,4 +1658,10 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[1])
+    parser.add_argument(
+        '--compatibility-only', action='store_true',
+        help='Rebuild firmware rules and maps from local metadata without network requests'
+    )
+    args = parser.parse_args()
+    sys.exit(main(compatibility_only=args.compatibility_only))

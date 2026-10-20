@@ -651,7 +651,5 @@
       ]
     }
   ],
-  "supportedFirmwares": [
-    "4."
-  ]
+  "supportedFirmwares": []
 }

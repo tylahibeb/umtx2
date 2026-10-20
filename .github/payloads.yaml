@@ -14,8 +14,12 @@
 #   sourceType:        'github-release' | 'direct' | 'custom'
 #   sourceRepo:        GitHub repo in 'owner/name' format (empty for custom)
 #   sourcePattern:     Glob pattern to match release asset name (e.g., 'payload*.elf')
+#   sourceExcludePatterns: Optional GitHub asset globs to exclude test/firmware-specific variants.
+#   includePrereleases: Optional GitHub release policy (default true); false keeps stable releases only.
 #   toPort:            Port number for network payloads (omit if not applicable)
-#   supportedFirmwares: List of supported firmware version prefixes (e.g., ["3.", "4.", "5."])
+#   supportedFirmwares: Maintained rules: major prefixes ("3.") or exact versions ("4.03").
+#                       [] means no firmware filter, NOT verified support on every firmware.
+#                       Never inferred from README/topics. Evidence: docs/payload-compatibility.md.
 #   license:           {type: SPDX-ID, url: license-url} - auto-detected if empty
 #   manualVersions:    Required for 'direct' sourceType - list of version entries
 #
@@ -54,7 +58,14 @@ payloads:
     sourceRepo: drakmor/kstuff-lite
     sourcePattern: kstuff*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "12.70"
+    ]
     license:
       type: ""
       url: ""
@@ -80,7 +91,7 @@ payloads:
     sourceRepo: drakmor/ShadowMountPlus
     sourcePattern: shadowmount*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: []
     license:
       type: "GPL-3.0"
       url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
@@ -105,7 +116,15 @@ payloads:
     sourceRepo: etaHEN/etaHEN
     sourcePattern: etaHEN-*.bin
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "1.00", "1.01", "1.02", "1.05", "1.10", "1.11", "1.12", "1.13",
+      "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70",
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60"
+    ]
     license:
       type: ""
       url: ""
@@ -318,7 +337,15 @@ payloads:
     sourceRepo: OpenSourcereR-dev/ps5debug-NG
     sourcePattern: ps5debug-NG*.elf
     toPort: 9021
-    supportedFirmwares: []
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.01.01", "7.20", "7.40", "7.60", "7.61", "8.00",
+      "8.20", "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60",
+      "10.00", "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40",
+      "11.60", "12.00", "12.02", "12.20", "12.40", "12.60", "12.70", "13.00",
+      "13.20", "13.40", "13.42", "13.60"
+    ]
     license:
       type: "GPL-3.0"
       url: "https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/main/LICENSE"
@@ -340,6 +367,25 @@ payloads:
     license:
       type: "GPL-3.0"
       url: "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
+
+  # --- HearBridge: Bluetooth A2DP audio bridge (SBC headsets) ---
+  # Stable unified builds; exclude older firmware-specific and MediaTek test assets.
+  - id: hearbridge
+    displayTitle: HearBridge PS5
+    description: Bluetooth game and system audio for A2DP SBC headsets using the console Bluetooth. Control WebUI on port 8090.
+    authors:
+      - X-F1REBALL-X
+    projectUrl: https://github.com/X-F1REBALL-X/HearBridge-PS5
+    sourceType: github-release
+    sourceRepo: X-F1REBALL-X/HearBridge-PS5
+    sourcePattern: HearBridge-*.elf
+    sourceExcludePatterns: ["*-fw*.elf", "*-mtk-test.elf"]
+    includePrereleases: false
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: GPL-3.0-or-later
+      url: https://github.com/X-F1REBALL-X/HearBridge-PS5/blob/main/LICENSE
 
   # --- PS5 Game Compressor: Compress, unpack, validate, and repair games ---
   # Repo has GitHub Releases with .elf assets - fully automated
@@ -408,7 +454,7 @@ payloads:
     sourceType: github-release
     sourceRepo: SiSTR0/ps5-versions
     sourcePattern: ps5-versions*.elf
-    supportedFirmwares: ["1.", "2.", "3.", "4."]
+    supportedFirmwares: []
     license:
       type: ""
       url: ""
@@ -460,17 +506,17 @@ payloads:
     sourceRepo: EchoStretch/kstuff-lite
     sourcePattern: kstuff*.elf
     toPort: 9021
-    supportedFirmwares:
-      - "3."
-      - "4."
-      - "5."
-      - "6."
-      - "7."
-      - "8."
-      - "9."
-      - "10."
-      - "11."
-      - "12."
+    supportedFirmwares: [
+      "1.00", "1.01", "1.02", "1.05", "1.10", "1.11", "1.12", "1.13",
+      "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70",
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "12.70", "13.00", "13.20",
+      "13.40", "13.42", "13.60"
+    ]
     license:
       type: ""
       url: ""
@@ -496,7 +542,9 @@ payloads:
     sourceRepo: drakmor/kstuff-lite
     sourcePattern: kstuff-12.00-only*.elf
     toPort: 9021
-    supportedFirmwares: ["12."]
+    supportedFirmwares: [
+      "12.00"
+    ]
     willHideEveryTime: true
     license:
       type: ""
@@ -522,7 +570,14 @@ payloads:
     sourceRepo: aydencharles/kylin-core-release
     sourcePattern: kylin-core.elf
     toPort: 9021
-    supportedFirmwares: ["4.", "5.", "6.", "7.", "8.", "9.", "10.", "11.", "12."]
+    supportedFirmwares: [
+      "4.03", "4.50", "4.51", "5.00", "5.02", "5.10", "5.50", "6.00",
+      "6.02", "6.50", "7.00", "7.01", "7.20", "7.40", "7.60", "7.61",
+      "8.00", "8.20", "8.40", "8.60", "9.00", "9.05", "9.20", "9.40",
+      "9.60", "10.00", "10.01", "10.20", "10.40", "10.60", "11.00", "11.20",
+      "11.40", "11.60", "12.00", "12.02", "12.20", "12.40", "12.60", "12.70",
+      "13.00", "13.20", "13.40", "13.42", "13.60"
+    ]
     license:
       type: ""
       url: ""
@@ -596,7 +651,13 @@ payloads:
     sourceRepo: EchoStretch/kstuff
     sourcePattern: kstuff*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01"
+    ]
     license:
       type: ""
       url: ""
@@ -649,7 +710,11 @@ payloads:
     sourceRepo: EchoStretch/kstuff-toggle
     sourcePattern: kstuff-toggle*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61"
+    ]
     license:
       type: ""
       url: ""
@@ -674,7 +739,14 @@ payloads:
     sourceRepo: EchoStretch/kstuff-toggle
     sourcePattern: kstuff-toggle-ps5*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "13.00", "13.20"
+    ]
     license:
       type: ""
       url: ""
@@ -712,7 +784,14 @@ payloads:
     sourceRepo: EchoStretch/kstuff-toggle
     sourcePattern: kstuff-toggle-ps4*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "13.00", "13.20"
+    ]
     license:
       type: ""
       url: ""
@@ -750,7 +829,14 @@ payloads:
     sourceRepo: EchoStretch/kstuff-toggle
     sourcePattern: kstuff-toggle-both*.elf
     toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "13.00", "13.20"
+    ]
     license:
       type: ""
       url: ""
@@ -840,7 +926,12 @@ payloads:
     sourceRepo: cragson/ps5-hen
     sourcePattern: ps5-hen*.elf
     toPort: 9021
-    supportedFirmwares: ["1.", "2.", "3.", "4."]
+    supportedFirmwares: [
+      "1.00", "1.01", "1.02", "1.05", "1.10", "1.11", "1.12", "1.13",
+      "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70",
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51"
+    ]
     license:
       type: ""
       url: ""
@@ -956,7 +1047,14 @@ payloads:
     sourceRepo: ""
     sourcePattern: phu_overlay*.elf
     toPort: 9021
-    supportedFirmwares: []
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "12.70"
+    ]
     license:
       type: ""
       url: ""

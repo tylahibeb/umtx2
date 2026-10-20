@@ -12,14 +12,16 @@ function isFirmwareCompatible(payload) {
         return true;
     }
     
-    // No firmware restrictions = compatible
+    // No maintained restriction = do not filter. This is not hardware verification.
     if (!payload.supportedFirmwares || payload.supportedFirmwares.length === 0) {
         return true;
     }
     
-    // Check if current firmware matches any supported prefix
+    // Only a trailing dot denotes a major family. Full firmware versions are exact.
     const currentFw = window.fw_str || "";
-    return payload.supportedFirmwares.some(fwPrefix => currentFw.startsWith(fwPrefix));
+    return payload.supportedFirmwares.some(rule =>
+        rule.endsWith('.') ? currentFw.startsWith(rule) : currentFw === rule
+    );
 }
 
 // Export to global scope

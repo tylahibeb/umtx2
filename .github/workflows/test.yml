@@ -27,6 +27,9 @@ jobs:
       
       - name: Make test script executable
         run: chmod +x .github/scripts/run_tests.py
+
+      - name: Install test dependency
+        run: python3 -m pip install pyyaml
       
       - name: Run Test Suite
         run: python3 .github/scripts/run_tests.py

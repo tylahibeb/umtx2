@@ -504,6 +504,17 @@ def test_firmware_offsets():
     
     print_success(f"All {len(offset_files)} offset files are valid")
 
+def test_firmware_compatibility():
+    """Exercise maintained rules, actual browser filtering and update detection."""
+    result = subprocess.run(
+        [sys.executable, str(Path(__file__).with_name("test_firmware_compatibility.py"))],
+        capture_output=True, text=True
+    )
+    if result.returncode:
+        raise AssertionError(result.stdout + result.stderr)
+    print_success("Firmware configuration, browser filtering and refresh regressions passed")
+
+
 def main():
     """Run all tests and report results."""
     print(f"\n{Colors.BLUE}{'='*60}")
@@ -522,6 +533,7 @@ def main():
         ("Global Functions", test_global_functions),
         ("CSS Validity", test_css_validity),
         ("Firmware Offsets", test_firmware_offsets),
+        ("Firmware Compatibility", test_firmware_compatibility),
     ]
     
     passed = 0

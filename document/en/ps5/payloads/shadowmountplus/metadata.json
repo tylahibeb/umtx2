@@ -15,11 +15,7 @@
   "projectUrl": "https://github.com/drakmor/ShadowMountPlus",
   "sourceRepo": "drakmor/ShadowMountPlus",
   "sourceType": "github-release",
-  "supportedFirmwares": [
-    "3.",
-    "4.",
-    "5."
-  ],
+  "supportedFirmwares": [],
   "toPort": 9021,
   "versions": [
     {

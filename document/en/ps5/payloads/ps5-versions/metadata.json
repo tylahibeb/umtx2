@@ -7,12 +7,7 @@
   ],
   "projectUrl": "https://github.com/SiSTR0/ps5-versions",
   "sourceRepo": "SiSTR0/ps5-versions",
-  "supportedFirmwares": [
-    "1.",
-    "2.",
-    "3.",
-    "4."
-  ],
+  "supportedFirmwares": [],
   "toPort": null,
   "versions": [
     {

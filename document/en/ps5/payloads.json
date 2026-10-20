@@ -137,6 +137,15 @@
       "checksum": "a9674bd22737688783c1857817d032ddf2fd5ca4e750eea17175428556271141"
     },
     {
+      "name": "HearBridge PS5",
+      "filename": "HearBridge-1.3.6.elf",
+      "url": "https://github.com/X-F1REBALL-X/HearBridge-PS5/releases/download/v1.3.6/HearBridge-1.3.6.elf",
+      "description": "Bluetooth game and system audio for A2DP SBC headsets using the console Bluetooth. Control WebUI on port 8090.",
+      "version": "1.3.6",
+      "category": "Uncategorized",
+      "checksum": "7b1a1b4a9a44db0723692a83718ebca63ecef38875a53a41328950f2cfa6877c"
+    },
+    {
       "name": "PS5 Game Compressor",
       "filename": "game-compressor.elf",
       "url": "https://github.com/juma-sayeh/PS5-Game-Compressor/releases/download/v1.0.4/game-compressor.elf",

@@ -5114,8 +5114,5 @@
       ]
     }
   ],
-  "supportedFirmwares": [
-    "5.",
-    "3."
-  ]
+  "supportedFirmwares": []
 }

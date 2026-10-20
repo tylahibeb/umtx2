@@ -17,7 +17,7 @@
   "sourceRepo": "drakmor/kstuff-lite",
   "sourceType": "github-release",
   "supportedFirmwares": [
-    "12."
+    "12.00"
   ],
   "toPort": 9021,
   "willHideEveryTime": true,
