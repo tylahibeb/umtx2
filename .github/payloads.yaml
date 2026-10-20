@@ -38,39 +38,6 @@ payloads:
   # ★ Priority Payloads (surfaced to top for quick access)
   # ===========================================================================
 
-  # --- kstuff-lite: Performance optimized FPKG enabler (drakmor fork) ---
-  # Repo has GitHub Releases with .elf assets
-  # Note: directory name is 'kstuff-lite', id must match directory name
-  - id: kstuff-lite
-    displayTitle: kstuff-lite (drakmor fork)
-    description: FPKG enabler - Performance optimized fork with 1.5-2x speed improvement
-    authors:
-      - drakmor
-      - sleirsgoevy
-      - EchoStretch
-      - zecoxao
-      - flatz
-      - idlesauce
-      - buzzer-re
-      - Al-Azif
-      - john-tornblom
-    projectUrl: https://github.com/drakmor/kstuff-lite
-    sourceType: github-release
-    sourceRepo: drakmor/kstuff-lite
-    sourcePattern: kstuff*.elf
-    toPort: 9021
-    supportedFirmwares: [
-      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
-      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
-      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
-      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
-      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
-      "12.00", "12.02", "12.20", "12.40", "12.60", "12.70"
-    ]
-    license:
-      type: ""
-      url: ""
-
   # --- User-supplied kstuff FPKG test build (not published upstream) ---
   # Preserve the local binary; empty URL prevents any upstream replacement.
   - id: kstuff-fpkg-test
@@ -119,6 +86,94 @@ payloads:
     license:
       type: "GPL-3.0"
       url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
+
+  # --- ps5upload: Fast PS5 file transfer tool (desktop app + PS5 payload) ---
+  # Repo has GitHub Releases with ps5upload-*.elf assets - fully automated
+  # Companion desktop app at https://github.com/phantomptr/ps5upload
+  - id: ps5upload
+    displayTitle: PS5 Upload
+    description: Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.
+    authors:
+      - phantomptr
+    projectUrl: https://github.com/phantomptr/ps5upload
+    sourceType: github-release
+    sourceRepo: phantomptr/ps5upload
+    sourcePattern: ps5upload-*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
+
+  # --- CheatRunner: Web-based cheat trainer and launcher ---
+  # Repo has GitHub Releases with CheatRunner.elf assets - fully automated
+  # WebUI on port 9999. Licensed under GPL-3.0.
+  - id: cheatrunner
+    displayTitle: CheatRunner
+    description: Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.
+    authors:
+      - notmaj0r
+    projectUrl: https://github.com/notmaj0r/CheatRunner
+    sourceType: github-release
+    sourceRepo: notmaj0r/CheatRunner
+    sourcePattern: CheatRunner*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/notmaj0r/CheatRunner/blob/main/LICENSE"
+
+  # --- HearBridge: Bluetooth A2DP audio bridge (SBC headsets) ---
+  # Stable unified builds; exclude older firmware-specific and MediaTek test assets.
+  - id: hearbridge
+    displayTitle: HearBridge PS5
+    description: Bluetooth game and system audio for A2DP SBC headsets using the console Bluetooth. Control WebUI on port 8090.
+    authors:
+      - X-F1REBALL-X
+    projectUrl: https://github.com/X-F1REBALL-X/HearBridge-PS5
+    sourceType: github-release
+    sourceRepo: X-F1REBALL-X/HearBridge-PS5
+    sourcePattern: HearBridge-*.elf
+    sourceExcludePatterns: ["*-fw*.elf", "*-mtk-test.elf"]
+    includePrereleases: false
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: GPL-3.0-or-later
+      url: https://github.com/X-F1REBALL-X/HearBridge-PS5/blob/main/LICENSE
+
+  # --- kstuff-lite: Performance optimized FPKG enabler (drakmor fork) ---
+  # Repo has GitHub Releases with .elf assets
+  # Note: directory name is 'kstuff-lite', id must match directory name
+  - id: kstuff-lite
+    displayTitle: kstuff-lite (drakmor fork)
+    description: FPKG enabler - Performance optimized fork with 1.5-2x speed improvement
+    authors:
+      - drakmor
+      - sleirsgoevy
+      - EchoStretch
+      - zecoxao
+      - flatz
+      - idlesauce
+      - buzzer-re
+      - Al-Azif
+      - john-tornblom
+    projectUrl: https://github.com/drakmor/kstuff-lite
+    sourceType: github-release
+    sourceRepo: drakmor/kstuff-lite
+    sourcePattern: kstuff*.elf
+    toPort: 9021
+    supportedFirmwares: [
+      "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50",
+      "4.51", "5.00", "5.02", "5.10", "5.50", "6.00", "6.02", "6.50",
+      "7.00", "7.01", "7.20", "7.40", "7.60", "7.61", "8.00", "8.20",
+      "8.40", "8.60", "9.00", "9.05", "9.20", "9.40", "9.60", "10.00",
+      "10.01", "10.20", "10.40", "10.60", "11.00", "11.20", "11.40", "11.60",
+      "12.00", "12.02", "12.20", "12.40", "12.60", "12.70"
+    ]
+    license:
+      type: ""
+      url: ""
 
   # --- etaHEN: AIO HEN (converted from direct to github-release) ---
   # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
@@ -374,43 +429,6 @@ payloads:
       type: "GPL-3.0"
       url: "https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/main/LICENSE"
 
-  # --- ps5upload: Fast PS5 file transfer tool (desktop app + PS5 payload) ---
-  # Repo has GitHub Releases with ps5upload-*.elf assets - fully automated
-  # Companion desktop app at https://github.com/phantomptr/ps5upload
-  - id: ps5upload
-    displayTitle: PS5 Upload
-    description: Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.
-    authors:
-      - phantomptr
-    projectUrl: https://github.com/phantomptr/ps5upload
-    sourceType: github-release
-    sourceRepo: phantomptr/ps5upload
-    sourcePattern: ps5upload-*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: "GPL-3.0"
-      url: "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
-
-  # --- HearBridge: Bluetooth A2DP audio bridge (SBC headsets) ---
-  # Stable unified builds; exclude older firmware-specific and MediaTek test assets.
-  - id: hearbridge
-    displayTitle: HearBridge PS5
-    description: Bluetooth game and system audio for A2DP SBC headsets using the console Bluetooth. Control WebUI on port 8090.
-    authors:
-      - X-F1REBALL-X
-    projectUrl: https://github.com/X-F1REBALL-X/HearBridge-PS5
-    sourceType: github-release
-    sourceRepo: X-F1REBALL-X/HearBridge-PS5
-    sourcePattern: HearBridge-*.elf
-    sourceExcludePatterns: ["*-fw*.elf", "*-mtk-test.elf"]
-    includePrereleases: false
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: GPL-3.0-or-later
-      url: https://github.com/X-F1REBALL-X/HearBridge-PS5/blob/main/LICENSE
-
   # --- Orbit Store: Browser-based store and download manager ---
   # The ELF serves the browser UI; native FFPKG and desktop assets are separate.
   - id: orbit-store
@@ -446,24 +464,6 @@ payloads:
     license:
       type: ""
       url: ""
-
-  # --- CheatRunner: Web-based cheat trainer and launcher ---
-  # Repo has GitHub Releases with CheatRunner.elf assets - fully automated
-  # WebUI on port 9999. Licensed under GPL-3.0.
-  - id: cheatrunner
-    displayTitle: CheatRunner
-    description: Web-based cheat trainer and launcher for jailbroken PS5 consoles. Load .mc4, .shn, and .json cheat files with real-time toggle and crash detection. WebUI on port 9999.
-    authors:
-      - notmaj0r
-    projectUrl: https://github.com/notmaj0r/CheatRunner
-    sourceType: github-release
-    sourceRepo: notmaj0r/CheatRunner
-    sourcePattern: CheatRunner*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: "GPL-3.0"
-      url: "https://github.com/notmaj0r/CheatRunner/blob/main/LICENSE"
 
   # --- ps5debug-dizz: Open source debugger by DizzRL ---
   - id: ps5debug-dizz
