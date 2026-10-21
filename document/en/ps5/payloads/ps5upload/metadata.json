@@ -22,7 +22,7 @@
       "fileSize": 4104352,
       "releaseDate": "2026-10-21",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Browser avatar upload (#486).** Choose an image from the browser device, preview crop or",
