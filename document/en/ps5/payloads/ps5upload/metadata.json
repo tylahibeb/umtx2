@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.13",
+      "fileName": "ps5upload-7.1.13.elf",
+      "filePath": "payloads/ps5upload/7.1.13/ps5upload-7.1.13.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.13/ps5upload-7.1.13.elf",
+      "hash": "46bb7dc0e7f28ded2859ac4392c151e39010354c79de2f323d73aaa861287a30",
+      "fileSize": 4104352,
+      "releaseDate": "2026-10-21",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**SMB collection moves.** Close metadata readers before moving inspected game folders, and",
+        "wait for pending closes before renames and directory removal. Denied SMB operations no longer",
+        "appear as failed sign-ins. CI checks intact folder moves and Undo on an authenticated Samba",
+        "share with Apple metadata streams.",
+        "**Adjustable avatar crop (#491).** Position a crop horizontally or vertically and center it",
+        "again. Preview and Apply use the same framing in both browser and desktop clients.",
+        "**Files and payloads from a browser (#489).** Choose or drop files from your device, upload",
+        "them to the engine, and review them before sending to the PS5. Send a selected ELF payload",
+        "through the engine to a running loader after an explicit Send action. Archive intake remains",
+        "available in the native app."
+      ]
+    },
+    {
       "version": "7.1.11",
       "fileName": "ps5upload-7.1.11.elf",
       "filePath": "payloads/ps5upload/7.1.11/ps5upload-7.1.11.elf",
@@ -21,7 +45,7 @@
       "hash": "d82120553ab8826f64e1ce3fa3137a51dc28e8ee99711ebbe783d5b86bf7f814",
       "fileSize": 4104352,
       "releaseDate": "2026-10-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
