@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.18",
+      "fileName": "ps5upload-7.1.18.elf",
+      "filePath": "payloads/ps5upload/7.1.18/ps5upload-7.1.18.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.18/ps5upload-7.1.18.elf",
+      "hash": "360529ccbd9f00b9341f8ca72ed15851e3324ff69341304b7e93e12977aa7470",
+      "fileSize": 5925368,
+      "releaseDate": "2026-10-22",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Update the helper for everything below.",
+        "**Clean up: get space back on the PS5.** A new Clean up screen (desktop, browser and PS5Upload",
+        "Minion) finds what takes space for no reason: updates of games that are gone, leftover .pkg files",
+        "on any drive (your package library is skipped), PS5Upload's own temp files, download files of",
+        "removed games and leftovers of removed games. Updates of games you still have are listed too,",
+        "unticked, with a warning that the game goes back to its base version. You see sizes and a total",
+        "first, nothing is removed without a confirm, and saves are never touched.",
+        "**Fan control is safer and holds better.** The helper now changes only the target temperature in",
+        "the fan settings (it used to overwrite the rest with zeros), checks it took, and puts your target",
+        "back within about 2 seconds when the system resets it (it was up to 15). Targets go from 45 to"
+      ]
+    },
+    {
       "version": "7.1.17",
       "fileName": "ps5upload-7.1.17.elf",
       "filePath": "payloads/ps5upload/7.1.17/ps5upload-7.1.17.elf",
@@ -21,7 +44,7 @@
       "hash": "37b56b3e5cbe582e1bc33d0cf20ae4a01a4ea30723200750cd444a936cc10bf3",
       "fileSize": 4108560,
       "releaseDate": "2026-10-22",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
