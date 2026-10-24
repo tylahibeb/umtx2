@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.1.20",
+      "fileName": "ps5upload-7.1.20.elf",
+      "filePath": "payloads/ps5upload/7.1.20/ps5upload-7.1.20.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.1.20/ps5upload-7.1.20.elf",
+      "hash": "39fa28f42e9a854549f06543bf5cbb9c383b33a4ad8bfa8557b6aa6f6470d07b",
+      "fileSize": 6004040,
+      "releaseDate": "2026-10-24",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Covers stay while the helper is down.** When the helper was not running (or the console was in",
+        "rest mode), every cover asked for in that moment was remembered as \"no artwork\" for 15 minutes.",
+        "Only a real \"not there\" answer from the console is remembered now.",
+        "**Stopping a folder upload early works.** Cancelling while a big folder was still being counted",
+        "used to be ignored, and the whole folder uploaded anyway. The cancel is kept and the upload ends",
+        "as cancelled.",
+        "**Big libraries list in full.** A console with more than 256 titles (or app folders) had the rest",
+        "cut off, and the game pages then showed them as not installed. Every page is read now; the",
+        "Collection's console view also no longer reports every game as not installed when a folder",
+        "listing fails or is cut short."
+      ]
+    },
+    {
       "version": "7.1.19",
       "fileName": "ps5upload-7.1.19.elf",
       "filePath": "payloads/ps5upload/7.1.19/ps5upload-7.1.19.elf",
@@ -21,7 +45,7 @@
       "hash": "c5e68afd6c3101a50b6a425350a7d3fec9ab5049cf8bed9ced53f4548598da07",
       "fileSize": 5951056,
       "releaseDate": "2026-10-23",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
