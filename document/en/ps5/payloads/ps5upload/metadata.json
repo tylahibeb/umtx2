@@ -14,26 +14,44 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "7.3.0",
-      "fileName": "ps5upload-7.3.0.elf",
-      "filePath": "payloads/ps5upload/7.3.0/ps5upload-7.3.0.elf",
-      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.3.0/ps5upload-7.3.0.elf",
-      "hash": "ded4faa584fa2ac76d34210b7df01cee1359c47eeb0bae5c6f8d7c03a3e1a3cd",
-      "fileSize": 6004376,
+      "version": "7.4.1",
+      "fileName": "ps5upload-7.4.1.elf",
+      "filePath": "payloads/ps5upload/7.4.1/ps5upload-7.4.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.4.1/ps5upload-7.4.1.elf",
+      "hash": "b37ff9670fe33162e03b570a58542ddf3966d1ad4e0a3acdc6e1dae5b69c5b8a",
+      "fileSize": 6005840,
       "releaseDate": "2026-10-24",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "**Convert from Collection.** Every game in Collection has a menu with Convert\u2026, and the game",
-        "page has a Convert\u2026 button. It picks the best copy you have (a folder first, then an image,",
-        "then an archive) and opens Convert with it filled in.",
-        "**Cheats from the game page.** When a game has no cheats on the PS5 yet, its Cheats tab now",
-        "has a button that opens Cheats with that game already selected, ready to download.",
-        "**More from each game in Collection.** The \u22ef menu on a game now also installs a newer update",
-        "or missing DLC the PS5 lacks, opens its cheats, backports it when it is installed, and",
-        "checks its copies. Cards show when the cheat repositories have cheats for a game, how long it",
-        "has been played, and when it asks for newer firmware than the PS5 has.",
-        "**Select several games.** Select in Collection picks games, then sends them to one or more"
+        "Dependency updates: Tauri 2.12.5, Tauri CLI 2.12.4, Vite 8.3.5, lucide-react 1.61.0 and",
+        "crc32fast 1.5.3.",
+        "The new security scan no longer flags the Wake screen's made-up sample key, and a test no",
+        "longer trips the repository's old-port check."
+      ]
+    },
+    {
+      "version": "7.4.0",
+      "fileName": "ps5upload-7.4.0.elf",
+      "filePath": "payloads/ps5upload/7.4.0/ps5upload-7.4.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.4.0/ps5upload-7.4.0.elf",
+      "hash": "17f11956fd819a758c2036147a46b5615f888c5c72ddae728328e501d81a0d38",
+      "fileSize": 6005840,
+      "releaseDate": "2026-10-24",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Security scanning on every change.** Every pull request now runs a security scan: known",
+        "vulnerable Rust and npm dependencies (cargo audit, npm audit) and secrets anywhere in the git",
+        "history (gitleaks); `make security` runs the same scan locally. CodeQL checks our Rust,",
+        "TypeScript, Python and workflow code on every change and weekly. Every release file is",
+        "scanned with ClamAV before it is published, and gets a GitHub build attestation you can verify",
+        "with `gh attestation verify <file> -R phantomptr/ps5upload` (FAQ: anti-virus).",
+        "**Dependency fixes.** crypto-bigint 0.7.7 (constant-time fixes, RUSTSEC-2026-0387), zod 4.6.7",
+        "(memory exhaustion on oversized input, development tooling only), chacha20 0.10.2 (the yanked",
+        "0.10.1 replaced). Third-party CI actions are pinned to exact commits, and Dependabot waits",
+        "three days before proposing a new release."
       ]
     },
     {
@@ -1831,6 +1849,29 @@
         "(copied to the PS5 first, for when the console can't reach this computer).",
         "A failed install offers both.",
         "**Clearer failures.** When the PS5 can't reach this computer, or its proxy"
+      ]
+    },
+    {
+      "version": "7.3.0",
+      "fileName": "ps5upload-7.3.0.elf",
+      "filePath": "payloads/ps5upload/7.3.0/ps5upload-7.3.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.3.0/ps5upload-7.3.0.elf",
+      "hash": "ded4faa584fa2ac76d34210b7df01cee1359c47eeb0bae5c6f8d7c03a3e1a3cd",
+      "fileSize": 6004376,
+      "releaseDate": "2026-10-24",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Convert from Collection.** Every game in Collection has a menu with Convert\u2026, and the game",
+        "page has a Convert\u2026 button. It picks the best copy you have (a folder first, then an image,",
+        "then an archive) and opens Convert with it filled in.",
+        "**Cheats from the game page.** When a game has no cheats on the PS5 yet, its Cheats tab now",
+        "has a button that opens Cheats with that game already selected, ready to download.",
+        "**More from each game in Collection.** The \u22ef menu on a game now also installs a newer update",
+        "or missing DLC the PS5 lacks, opens its cheats, backports it when it is installed, and",
+        "checks its copies. Cards show when the cheat repositories have cheats for a game, how long it",
+        "has been played, and when it asks for newer firmware than the PS5 has.",
+        "**Select several games.** Select in Collection picks games, then sends them to one or more"
       ]
     },
     {

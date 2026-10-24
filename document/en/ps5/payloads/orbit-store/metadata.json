@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.5.0",
+      "fileName": "orbit_store.elf",
+      "filePath": "payloads/orbit-store/1.5.0/orbit_store.elf",
+      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.5.0/orbit_store.elf",
+      "hash": "9590ef2cfa8764eb96fbe52dec302f1d9c8ba7d51101f031a69ac1279d20e579",
+      "fileSize": 47141064,
+      "releaseDate": "2026-10-24",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**A major update:** DLCs, game installation support and over 2,000 games now in Orbit.",
+        "**Install without leaving Orbit.** After a PKG or FPKG downloads or transfers, choose **Install on PS5**. If a download has several packages, pick the ones you want. For exFAT, FFPFSC and extracted game folders, Orbit asks ShadowMount to scan for them, if a supported version is running.",
+        "**We\u2019re starting with 408 add-ons for 43 games.** Browse and download expansions, content packs, activation packages and bundles on the new **Add-ons** page, or from a game\u2019s details.",
+        "**Over 2,000 games.** This update adds 195 games (188 PS4 and 7 PS5) and 71 more download choices for games already in Orbit. The catalogue now has 2,026 games.",
+        "**Know what your firmware can run.** Download options show the firmware they need, when it\u2019s known. Options that won\u2019t run on your PS5 are listed last with a warning, and you can still download them.",
+        "**Update Orbit in one step.** **Update Orbit** updates the TV app and the download service together. If your ELF loader is running, Orbit restarts itself and picks up your downloads where they left off. You can also restart Orbit on its own from Updates.",
+        "**Download notifications.** Your PS5 tells you when a download finishes or fails, in your console\u2019s language. You can turn this off in settings.",
+        "**Save a diagnostic report.** In the TV app, **More settings \u2192 Save diagnostic report** saves a report you can attach to a bug report, on a USB drive or the PS5\u2019s own storage. It has no game titles, download links, passwords or tokens.",
+        "**Better download retries.** Downloads resume from the progress saved on your drive, and Retry still works if the partial file was deleted or is empty.",
+        "**Find the right add-on.** Search by add-on or game name, and filter by platform, type, source and region, in every interface. An add-on\u2019s details show which game it needs, and any version it requires, before you download."
+      ]
+    },
+    {
       "version": "1.4.0",
       "fileName": "orbit_store.elf",
       "filePath": "payloads/orbit-store/1.4.0/orbit_store.elf",
@@ -22,7 +45,7 @@
       "hash": "e43c6272b3519fc2ec8b9373a484f2c2adb9669d7652567661149da741ab6d94",
       "fileSize": 42598944,
       "releaseDate": "2026-10-22",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**More games, better download recovery, and the freedom to download to your computer now and transfer to your PS5 later.**",

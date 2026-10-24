@@ -14,16 +14,17 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "0.5.0",
+      "version": "0.4.9",
       "fileName": "bfpilot.elf",
-      "filePath": "payloads/bfpilot/0.5.0/bfpilot.elf",
-      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.5.0/bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.4.9/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.4.9/bfpilot.elf",
       "hash": "b9226a4321de09d434579d651b9fdbb5ce0ccbe5c65f86bb2e951c324da4df9f",
       "fileSize": 3529144,
       "releaseDate": "2026-10-24",
       "isDefault": true,
-      "isPreRelease": false,
+      "isPreRelease": true,
       "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
         "SMB2/3 connections, share browsing, file operations, transfers and text editing.",
         "SMB-hosted PKG details, icons and installation sources; payload loading from SMB.",
         "Built-in archive service with AES ZIP and additional formats.",
@@ -671,6 +672,29 @@
         "Click-to-calculate folder sizes",
         "Inject `bs5filemanager.elf` on port `9021`, then open `http://<PS5_IP>:5905/`.",
         "SHA256 (\bs5filemanager.elf): 33761f07b975f2664d0609899f208dd91a5ce8f0ffd2408d60bddfe979b8170e"
+      ]
+    },
+    {
+      "version": "0.5.0",
+      "fileName": "bfpilot.elf",
+      "filePath": "payloads/bfpilot/0.5.0/bfpilot.elf",
+      "downloadUrl": "https://github.com/ItsBlurf/BFpilot/releases/download/v0.5.0/bfpilot.elf",
+      "hash": "b9226a4321de09d434579d651b9fdbb5ce0ccbe5c65f86bb2e951c324da4df9f",
+      "fileSize": 3529144,
+      "releaseDate": "2026-10-24",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "SMB2/3 connections, share browsing, file operations, transfers and text editing.",
+        "SMB-hosted PKG details, icons and installation sources; payload loading from SMB.",
+        "Built-in archive service with AES ZIP and additional formats.",
+        "Multiple-archive extraction with destination and merge/replace options.",
+        "Individual selected-item downloads alongside combined TAR downloads.",
+        "Results beside Logs and Exit for file, archive and PKG status.",
+        "Large-folder copies waiting for a full file count before starting.",
+        "Overwrite, merge, cancellation and recovery handling.",
+        "Extracted-file permissions; new extracted files and directories use `0777`.",
+        "RAR cancellation during output, contributed by oz5hk."
       ]
     }
   ],
