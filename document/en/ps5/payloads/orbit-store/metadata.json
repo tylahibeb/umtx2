@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.6.0",
+      "fileName": "orbit_store.elf",
+      "filePath": "payloads/orbit-store/1.6.0/orbit_store.elf",
+      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.6.0/orbit_store.elf",
+      "hash": "61554da43cc2abc0474b0bcc58dfd563b64b8685b91fec11aa2676792ad6443a",
+      "fileSize": 48642552,
+      "releaseDate": "2026-10-25",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**New in Orbit 1.6.0:** notifications on your phone, up to 64 connections per download and other improvements.",
+        "**Notifications on your phone.** Orbit can now notify you through [ntfy](https://ntfy.sh), on your phone or computer, as well as on your PS5. Use ntfy.sh or your own server.",
+        "**Up to 64 connections per download.** Choose from 1 to 64 in **App settings \u2192 Storage**. Eight stays the default. More connections only help when the source allows them; if a host refuses, Orbit retries with fewer.",
+        "**More control over Browse.** Select multiple formats or sources at once, use **PlayStation exclusive** and other game tags, and hide games already installed or saved on a drive.",
+        "**Free up space after installing.** Orbit can delete a PKG or FPKG once it has installed on your PS5. It's off by default.",
+        "This update also pushes Orbit\u2019s catalogue to **2,045 games with 4,834 download options**, plus **542 add-ons with 544 download options across 138 base games**.",
+        "**Notifications have their own settings.** In **App settings \u2192 Notifications**, choose where to notify (on this PS5, through ntfy, or both) and what about: downloads that finish or fail, packages that install or fail to install, and new Orbit releases. When a package installs, the notification also says whether the downloaded file was deleted. Orbit checks for a new release ten minutes after it starts and then every six hours, and tells you about each release once.",
+        "**Set up ntfy.** Open **Change ntfy settings** and enter a server address, a topic and, if your server needs one, a username and password, then choose **Send test notification**. For an access token, leave the username empty and enter the token as the password. The password is never shown again after saving.",
+        "**Delete packages after installing.** Turn it on in **App settings \u2192 Storage \u2192 Installed packages**. If installation fails, or the file changed after Orbit checked it, the file is kept.",
+        "**Connections are shared.** Downloads running at the same time share up to 64 connections, and a download that has already started keeps its split."
+      ]
+    },
+    {
       "version": "1.5.0",
       "fileName": "orbit_store.elf",
       "filePath": "payloads/orbit-store/1.5.0/orbit_store.elf",
@@ -22,7 +45,7 @@
       "hash": "9590ef2cfa8764eb96fbe52dec302f1d9c8ba7d51101f031a69ac1279d20e579",
       "fileSize": 47141064,
       "releaseDate": "2026-10-24",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A major update:** DLCs, game installation support and over 2,000 games now in Orbit.",
