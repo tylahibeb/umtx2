@@ -22,7 +22,7 @@
       "fileSize": 5946304,
       "releaseDate": "2026-10-25",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Uploads wake a sleeping PS5.** When an upload is waiting for a PS5 in rest mode, the app now",
