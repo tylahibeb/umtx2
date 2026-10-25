@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "7.5.2",
+      "fileName": "ps5upload-7.5.2.elf",
+      "filePath": "payloads/ps5upload/7.5.2/ps5upload-7.5.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v7.5.2/ps5upload-7.5.2.elf",
+      "hash": "6ad5f22acb9dfb1f977b303c59e7e9c30dc61af302650249fe8fb0078feedde4",
+      "fileSize": 5946304,
+      "releaseDate": "2026-10-25",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Uploads wake a sleeping PS5.** When an upload is waiting for a PS5 in rest mode, the app now",
+        "sends it a wake signal, re-sends the helper once it is up, and carries on. Only for a console",
+        "with wake set up on the Connection screen; turn it off under Settings \u203a Uploads (\"Wake the PS5",
+        "for a waiting upload\").",
+        "**Convert reads big Sony-compressed packages.** Some large PS5 packages (Astro Bot, for one)",
+        "failed in Convert with \"the package's inner image uses a layout this reader does not know\".",
+        "Their layout table marks stretches with no stored data, 256 KiB each, and the reader took",
+        "them for blocks, so every offset after the first one was wrong. It now steps over them: Astro",
+        "Bot's 166,714 files open in seconds and read back correctly.",
+        "**Save backups skip the console's own folders.** The PS5 lists its empty `sce_backup`"
+      ]
+    },
+    {
       "version": "7.5.1",
       "fileName": "ps5upload-7.5.1.elf",
       "filePath": "payloads/ps5upload/7.5.1/ps5upload-7.5.1.elf",
@@ -21,7 +45,7 @@
       "hash": "021c03c15d1b077558f8966ca46f38636f1934c084b930545098167e11abbc7b",
       "fileSize": 5946304,
       "releaseDate": "2026-10-24",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Security scan clean-up.** Every finding of the new code scan was reviewed. A damaged game",
