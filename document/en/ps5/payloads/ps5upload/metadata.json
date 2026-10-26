@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "8.3.0",
+      "fileName": "ps5upload-8.3.0.elf",
+      "filePath": "payloads/ps5upload/8.3.0/ps5upload-8.3.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v8.3.0/ps5upload-8.3.0.elf",
+      "hash": "9fe5785c63382b2d3c6eb131b14b7027a6c7cf0fcac011ba26cc331051e44a13",
+      "fileSize": 5995600,
+      "releaseDate": "2026-10-26",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**\"Install and restart\" no longer freezes the app (macOS, and the same code on Windows and",
+        "Linux).** Quitting waited on its clean-up with no limit; when that clean-up could not finish,",
+        "the app sat \"not responding\" and the update waited for it. Quitting now gives the clean-up a",
+        "few seconds, then stops the engine itself and exits. The update also closes an app that still",
+        "has not quit after 30 seconds, instead of opening the old one again.",
+        "**\"Downloading\u2026\" no longer sticks after the download finished.** The app waited for Finder to",
+        "show the Downloads folder before it said the download was done, and Finder can take as long as",
+        "it likes (half an hour with the screen locked, measured). A copy that installs updates itself",
+        "no longer opens the folder at all, and on Windows no longer starts the setup on its own next",
+        "to **Install and restart**."
+      ]
+    },
+    {
       "version": "8.2.0",
       "fileName": "ps5upload-8.2.0.elf",
       "filePath": "payloads/ps5upload/8.2.0/ps5upload-8.2.0.elf",
@@ -21,7 +44,7 @@
       "hash": "66d3110530686e6768ee1ec1005d0a9a3af1b5b4c2019533980924db57d1cc73",
       "fileSize": 5995600,
       "releaseDate": "2026-10-26",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A console going to rest mode mid-sync no longer hangs the sync.** The copy in flight waited",
