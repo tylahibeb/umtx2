@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "8.2.0",
+      "fileName": "ps5upload-8.2.0.elf",
+      "filePath": "payloads/ps5upload/8.2.0/ps5upload-8.2.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v8.2.0/ps5upload-8.2.0.elf",
+      "hash": "66d3110530686e6768ee1ec1005d0a9a3af1b5b4c2019533980924db57d1cc73",
+      "fileSize": 5995600,
+      "releaseDate": "2026-10-26",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**A console going to rest mode mid-sync no longer hangs the sync.** The copy in flight waited",
+        "for the console forever, holding every drive behind it, and each file it gave up on counted as",
+        "failing (three times and it sat out for ten minutes after the wake). The sync now stops within",
+        "about a minute, keeps what it copied, and blames no file.",
+        "**It says what's wrong, not \"Problem\".** A folder shows **Console asleep**, **Helper not",
+        "running** (just woke, the helper does not survive rest) or **Console away** (off, other",
+        "network), since when, and that changes made here are kept. **Wake console** and **Send helper**",
+        "are on the card.",
+        "**Back within a round.** A sleeping console is checked over the network each round; when it",
+        "wakes, syncing resumes in about half a minute instead of after a growing wait. A console that is"
+      ]
+    },
+    {
       "version": "8.1.1",
       "fileName": "ps5upload-8.1.1.elf",
       "filePath": "payloads/ps5upload/8.1.1/ps5upload-8.1.1.elf",
@@ -21,7 +44,7 @@
       "hash": "db756d8b61cfa91627491092f090120239722cb8699bc531f34030497c6a1910",
       "fileSize": 5995600,
       "releaseDate": "2026-10-26",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**No more \"settings arrived \u2014 reload\" prompts.** A setting changed on another device now",
