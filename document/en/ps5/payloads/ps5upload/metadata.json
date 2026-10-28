@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "8.7.0",
+      "fileName": "ps5upload-8.7.0.elf",
+      "filePath": "payloads/ps5upload/8.7.0/ps5upload-8.7.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v8.7.0/ps5upload-8.7.0.elf",
+      "hash": "2ed23dcf25ea2ef08d9976b34a399415f991171cc28f014ff0e86a038e7bf789",
+      "fileSize": 6066616,
+      "releaseDate": "2026-10-28",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**A simpler sidebar: 25 screens became 21, and every feature is still there.** Screens that",
+        "did overlapping jobs are now one screen each, named by what you do there. Old links,",
+        "bookmarks, pinned screens and hidden screens carry over by themselves.",
+        "**Send to PS5** replaces Upload and Install Package. Drop or pick anything (a game folder,",
+        "an image, an archive, a package, any file) and the app works out what to do with it,",
+        "a package's Stream & install included. Below are install from a link or an archive, the",
+        "queue, and the packages already on the PS5 (USB drives and copies put there before, with",
+        "Install all).",
+        "**Workshop** replaces Convert Games and Game images. Pick a game once; then convert it, or",
+        "use **Look Inside** to browse an image or package and write an edited copy, or (macOS and"
+      ]
+    },
+    {
       "version": "8.6.1",
       "fileName": "ps5upload-8.6.1.elf",
       "filePath": "payloads/ps5upload/8.6.1/ps5upload-8.6.1.elf",
@@ -21,7 +45,7 @@
       "hash": "3e7d67537a2eac9f92ae9330a90682499610b06a5058dd47cb99c2b567c62671",
       "fileSize": 6066216,
       "releaseDate": "2026-10-28",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Undo sign-in covers every account slot used.** The copy kept before np-fake-signin now",
