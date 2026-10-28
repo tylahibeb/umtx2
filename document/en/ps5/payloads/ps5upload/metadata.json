@@ -14,6 +14,53 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "8.6.1",
+      "fileName": "ps5upload-8.6.1.elf",
+      "filePath": "payloads/ps5upload/8.6.1/ps5upload-8.6.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v8.6.1/ps5upload-8.6.1.elf",
+      "hash": "3e7d67537a2eac9f92ae9330a90682499610b06a5058dd47cb99c2b567c62671",
+      "fileSize": 6066216,
+      "releaseDate": "2026-10-28",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Undo sign-in covers every account slot used.** The copy kept before np-fake-signin now",
+        "also takes a later slot's settings, untouched, when the account moved to another slot since",
+        "the first copy; Undo puts those back too.",
+        "**Restoring a save gives back exactly the save backed up.** A save-details folder that was",
+        "not there at backup time is emptied on restore instead of mixing newer details with the older",
+        "save (the automatic safety backup keeps them).",
+        "**A save's own icon shows for games no longer installed** in Minion's Saves.",
+        "**Download to PS5 from an .lz4 link:** an image that ends before the size its header gives",
+        "is filled out instead of failing after the whole download, and a stream in several parts",
+        "announces the image's full size."
+      ]
+    },
+    {
+      "version": "8.6.0",
+      "fileName": "ps5upload-8.6.0.elf",
+      "filePath": "payloads/ps5upload/8.6.0/ps5upload-8.6.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v8.6.0/ps5upload-8.6.0.elf",
+      "hash": "79c4e86611235fc7cc6c5267a98c8abe77ec0b72054953bab9b78d54acf51984",
+      "fileSize": 6065776,
+      "releaseDate": "2026-10-28",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Minion's Library: one card per game, and a full-screen page for each (#526).** Copies,",
+        "updates, DLC and backports of the same game found on your drives and shares now sit on one",
+        "card with a sharper cover, an Installed mark and Update / DLC / Backport badges. \u2715 opens a",
+        "full-screen page with the size, the firmware the game needs next to this PS5's (with a warning",
+        "when it needs a newer one), the SDK it was built with, its formats and where each part was",
+        "found, and Install / Copy to the PS5 / Add to home screen / Show in Files for every part.",
+        "\u25cb goes back. Disk images are named after their file and use the installed game's icon.",
+        "**Back up and restore a game's save on the console.** Minion has a new **Saves** section:",
+        "pick a user and a game, then **Back up now** (named by date and time; keep as many as you",
+        "like), **Restore** or **Delete**. Restore asks first, refuses while the game is running"
+      ]
+    },
+    {
       "version": "8.5.1",
       "fileName": "ps5upload-8.5.1.elf",
       "filePath": "payloads/ps5upload/8.5.1/ps5upload-8.5.1.elf",
@@ -21,7 +68,7 @@
       "hash": "2039eb340f6c09f7fce6bd726ad526adb68e9e924351b21dba74720025267481",
       "fileSize": 5995600,
       "releaseDate": "2026-10-27",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Packages with Windows bookkeeping folders convert to game images again (#523, thanks",
