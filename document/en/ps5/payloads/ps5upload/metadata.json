@@ -14,6 +14,71 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "9.2.2",
+      "fileName": "ps5upload-9.2.2.elf",
+      "filePath": "payloads/ps5upload/9.2.2/ps5upload-9.2.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.2.2/ps5upload-9.2.2.elf",
+      "hash": "9b7ea36573c7fb7c78ea89d598a01b6cf6e49a52951279abfc8d09aeb6ae3cc5",
+      "fileSize": 6227224,
+      "releaseDate": "2026-10-29",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Remote Play Settings always show.** On a wide window the picture grew taller than the",
+        "screen and Settings opened below it, out of sight, so the button seemed to do nothing. The",
+        "picture now fits the window height and Settings open above it.",
+        "**Picture in picture opens in the Mac app.** When the app's own picture-in-picture window",
+        "didn't open (\"Picture in picture did not open\"), it now uses the system's picture in picture",
+        "instead: the picture only, and the controller plays while the app is in front."
+      ]
+    },
+    {
+      "version": "9.2.1",
+      "fileName": "ps5upload-9.2.1.elf",
+      "filePath": "payloads/ps5upload/9.2.1/ps5upload-9.2.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.2.1/ps5upload-9.2.1.elf",
+      "hash": "293535f8a55ed74beb729b4eee36e98076b6deee0e78295008b6370bd2d6b8af",
+      "fileSize": 6227224,
+      "releaseDate": "2026-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Send helper also updates the copy your PS5 starts at boot** (#540, #541). If Payload Manager,",
+        "the WebKit Autoloader or an autoload folder starts ps5upload's helper at every boot, it kept",
+        "starting the old version: Send helper only replaced the copy running in memory, so the \"helper",
+        "is older than this app\" message came back after every restart. Now, once the new helper",
+        "answers, the app finds the stored copies (Payload Manager's storage, `ps5_autoloader` folders on",
+        "the PS5 and its USB drives, etaHEN's payloads folder) and replaces them under the same name, so",
+        "your boot order stays as it is. It tells you what it updated, and how to update by hand anything",
+        "it couldn't. Only files named like the ps5upload helper are touched. The outdated-helper banner",
+        "now says when the old version came from a stored boot copy.",
+        "**GPU clock and real CPU clocks on the Hardware screen.** Read sensors now also shows the GPU"
+      ]
+    },
+    {
+      "version": "9.2.0",
+      "fileName": "ps5upload-9.2.0.elf",
+      "filePath": "payloads/ps5upload/9.2.0/ps5upload-9.2.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.2.0/ps5upload-9.2.0.elf",
+      "hash": "1b80852184fa8fa7df0783d1b151902dca514dc1e40a4b20623c23004a2a4367",
+      "fileSize": 6221376,
+      "releaseDate": "2026-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Nothing is in beta any more.** Remote Play was still a beta screen, so it only showed once",
+        "\"Beta features\" was turned on in Settings, which is why people couldn't find it. It is now in",
+        "the sidebar (Console \u203a Remote Play), in More on phones, and behind Play Here in Accounts \u203a",
+        "Remote Play. The Beta features switch is gone with it, and the \"Beta\" marks on the direct",
+        "console-to-console copy route and on Stream & install / link installs are removed.",
+        "**Remote Play on phones, redone.**",
+        "Held upright, the picture sits on top and its controls sit below it instead of on it: Full",
+        "screen, Stop and a \u22ef menu with Stats, Picture in picture, Settings and volume. Nothing is",
+        "squeezed or hidden any more.",
+        "Turn the phone sideways while playing and it goes full screen; turn it back and the page"
+      ]
+    },
+    {
       "version": "9.1.0",
       "fileName": "ps5upload-9.1.0.elf",
       "filePath": "payloads/ps5upload/9.1.0/ps5upload-9.1.0.elf",
@@ -21,7 +86,7 @@
       "hash": "4004b092c48b531ceb2035c2213c5fe8b0a7aaa0af47df7370c67935649b0f1d",
       "fileSize": 6221376,
       "releaseDate": "2026-10-29",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Upload & Install** (was Send to PS5). One drop zone takes everything: packages (installed as",

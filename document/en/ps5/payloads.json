@@ -13,20 +13,20 @@
     {
       "name": "ShadowMountPlus",
       "filename": "shadowmountplus.elf",
-      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta10/shadowmountplus.elf",
+      "url": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta11/shadowmountplus.elf",
       "description": "Automatic game image mounter - Mount .ffpkg, .exfat, .ffpfs, and .ffpfsc images automatically without manual intervention",
-      "version": "1.7beta10",
+      "version": "1.7beta11",
       "category": "Game",
-      "checksum": "8c6798232ae2a8fbcd209ab97fc4f8d4d47cf23b7eecfaa6349c0bfeb8e4a3d3"
+      "checksum": "08c843018750bef013fe3a4de5f80c5c9738c6c2dafa2406e6b6e68d7585f3da"
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-9.1.0.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v9.1.0/ps5upload-9.1.0.elf",
+      "filename": "ps5upload-9.2.2.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v9.2.2/ps5upload-9.2.2.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "9.1.0",
+      "version": "9.2.2",
       "category": "Game",
-      "checksum": "4004b092c48b531ceb2035c2213c5fe8b0a7aaa0af47df7370c67935649b0f1d"
+      "checksum": "9b7ea36573c7fb7c78ea89d598a01b6cf6e49a52951279abfc8d09aeb6ae3cc5"
     },
     {
       "name": "CheatRunner",
