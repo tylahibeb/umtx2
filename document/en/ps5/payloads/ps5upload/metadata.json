@@ -14,6 +14,72 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "9.11.0",
+      "fileName": "ps5upload-9.11.0.elf",
+      "filePath": "payloads/ps5upload/9.11.0/ps5upload-9.11.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.11.0/ps5upload-9.11.0.elf",
+      "hash": "ea961717fb823398dbf346a215cab21aba8cf7a966fb8be53b9d48e75543bdd9",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Per-game controls in Remote Play.** The Game panel's new **Controls** tab sets the running",
+        "game's own controls, kept per game on this device and switched by themselves with the game:",
+        "**turbo** on any face button, shoulder, trigger or arrow (2\u201330 presses a second while held),",
+        "**mouse aim** (with the pointer captured, the mouse moves the right stick, left click is R2 and",
+        "right click L2; sensitivity and invert), and **macros** (a key plays a few presses in a row;",
+        "pressing one of its buttons yourself stops it).",
+        "**Picture tools in Remote Play.** Remote Play \u203a Settings \u203a **Picture**: sharpen, brightness,",
+        "contrast, colour, **Crop to 21:9** (cuts the black bars off a game made for ultrawide screens)",
+        "and **Sharp pixels** (hard-edged scaling for retro games). They apply at once, on the GPU, and",
+        "screenshots and replays show them; with all of them off the picture is drawn exactly as before."
+      ]
+    },
+    {
+      "version": "9.9.0",
+      "fileName": "ps5upload-9.9.0.elf",
+      "filePath": "payloads/ps5upload/9.9.0/ps5upload-9.9.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.9.0/ps5upload-9.9.0.elf",
+      "hash": "754aa2645e24dad47f8cf14056af26aebaeae9a9a9f29ca313139f379b129b06",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Move saves from a PS4 (experimental).** Saves \u203a **Move saves from a PS4** reads a jailbroken",
+        "PS4's saves over its FTP server (GoldHEN's, usually port 2121), copies the games you pick to",
+        "this computer, then puts them into a PS5 user's PS4 save folders. It is built to be safe:",
+        "The PS4 is only read; nothing is written, renamed or deleted there.",
+        "Everything is copied to your save-backups folder first and checked against the PS4's sizes;",
+        "nothing reaches the PS5 until that is done.",
+        "On the PS5 only saves are written, only for the games you pick, and only into a save folder",
+        "the console already made (start the game once on the PS5 and save, if a game is not ready).",
+        "No users, system files, folder names or trophies are touched.",
+        "Each game's PS5 save is backed up first (marked \"Before a PS4 save\"), a running game is"
+      ]
+    },
+    {
+      "version": "9.8.0",
+      "fileName": "ps5upload-9.8.0.elf",
+      "filePath": "payloads/ps5upload/9.8.0/ps5upload-9.8.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.8.0/ps5upload-9.8.0.elf",
+      "hash": "3f51d4288e4a223395cace5ca952bd3e0952a3104065d9572b2d7d84cea3613e",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Instant replay in Remote Play.** Turn it on in Remote Play \u203a Settings \u203a **Instant replay**",
+        "(the last 15, 30 or 60 seconds), and **Save replay** on the stream's bar (and in the phone's",
+        "menu) saves what just happened as an MP4, with sound. The picture is saved exactly as the PS5",
+        "sent it, never re-encoded; the sound is turned into AAC where the device can (so Apple's Photos",
+        "takes it), Opus elsewhere. While it is on, the console is asked for a fresh keyframe every few",
+        "seconds so a replay starts close to where you want it; nothing is saved until you press the",
+        "button, and it works the same in the desktop apps, on phones and in the web UI."
+      ]
+    },
+    {
       "version": "9.7.0",
       "fileName": "ps5upload-9.7.0.elf",
       "filePath": "payloads/ps5upload/9.7.0/ps5upload-9.7.0.elf",
@@ -21,8 +87,8 @@
       "hash": "dcbbf088c09b45a170600f8ac0e0c890731b85124ecbf1aae144c7149a7b4947",
       "fileSize": 6238232,
       "releaseDate": "2026-10-30",
-      "isDefault": true,
-      "isPreRelease": true,
+      "isDefault": false,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Play any game on Remote Play, in one press.** A game's page has **Play on Remote Play** next",
@@ -46,7 +112,7 @@
       "fileSize": 6238232,
       "releaseDate": "2026-10-30",
       "isDefault": false,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Remote Play gets a Game panel.** A **Game** button on the stream bar (and in the phone's **\u22ef**",
