@@ -14,6 +14,95 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "9.4.1",
+      "fileName": "ps5upload-9.4.1.elf",
+      "filePath": "payloads/ps5upload/9.4.1/ps5upload-9.4.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.4.1/ps5upload-9.4.1.elf",
+      "hash": "b276e08c0b82dd29abbe7bbe7b23ed21adafc5a89737f5deba4787ed2ceccad8",
+      "fileSize": 6232248,
+      "releaseDate": "2026-10-30",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Remote Play on Linux shows the picture without extra installs (#548).** The Linux `.zip`",
+        "(AppImage) now carries GStreamer with its H.264 decoder: before, on Arch, CachyOS and other",
+        "distributions without that decoder, Remote Play failed with \"No decoder found for codec",
+        "avc1\u2026\", and installing it on the system didn't help the AppImage. The `.deb` and `.rpm` now",
+        "recommend the decoder packages, so a normal install brings them.",
+        "**No decoder, no wake.** The app checks for an H.264 decoder before it wakes the console. Without",
+        "one it ends the session cleanly (it used to retry forever) and says what to install, with the",
+        "command for Arch, Debian/Ubuntu and Fedora."
+      ]
+    },
+    {
+      "version": "9.4.0",
+      "fileName": "ps5upload-9.4.0.elf",
+      "filePath": "payloads/ps5upload/9.4.0/ps5upload-9.4.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.4.0/ps5upload-9.4.0.elf",
+      "hash": "620a771e34c83c2b84e537307d25e47cead2270c1024db44cf2c340c9c7bb083",
+      "fileSize": 6232248,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Backporting uses ShadowMount+'s own controls (1.7beta8 and later).** To write the backport",
+        "into a game image, the app now asks ShadowMount+ to mount that one game read-write and to",
+        "unmount it after: it takes well under a second instead of half a minute or more, and no longer",
+        "fails with \"has not mounted\" when the image isn't mounted, which with ShadowMount+'s default",
+        "settings is every idle image. ShadowMount+ postpones its scans while the image is held, and",
+        "`config.ini` is left alone. Tried on a PS5 Pro with ShadowMount+ 1.7beta11. Older versions,",
+        "or one set to answer only on the console, still get the previous method.",
+        "**The ShadowMount+ panel shows its exact version** (for example 1.7beta11), read from",
+        "ShadowMount+ itself.",
+        "The FAQ explains what ShadowMount+ 1.7beta8+ changed: its control interface is open to the"
+      ]
+    },
+    {
+      "version": "9.3.1",
+      "fileName": "ps5upload-9.3.1.elf",
+      "filePath": "payloads/ps5upload/9.3.1/ps5upload-9.3.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.3.1/ps5upload-9.3.1.elf",
+      "hash": "0e9e1c042f0a3157cd816fe59accd912fbd8de9ec5c349db62ddfed84433ccd8",
+      "fileSize": 6232248,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**The real CPU clock.** Read sensors now measures how fast the CPU actually runs (\"CPU clock",
+        "(measured)\"): the helper times a short run of simple instructions on each core it may use. The",
+        "number 9.2.1 showed was only the speed the power controller had set, and on top of that the row",
+        "mixed in the game cores' idle level, so at the home screen it read \"0.80\u20133.20 GHz\". Measured on a",
+        "PS5 at the home screen, the system cores run about 2.8\u20133.2 GHz against a 3.2 GHz target. The",
+        "target is still shown as \"CPU target clock\", now over the same cores, and hovering lists every",
+        "core. The four game cores are reserved for games and can't be measured. The measurement runs",
+        "only when you press Read sensors (about 20 ms per core) and uses no privileged instruction."
+      ]
+    },
+    {
+      "version": "9.3.0",
+      "fileName": "ps5upload-9.3.0.elf",
+      "filePath": "payloads/ps5upload/9.3.0/ps5upload-9.3.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.3.0/ps5upload-9.3.0.elf",
+      "hash": "e23000248c639c5c4f1343f84f0ff3a9ef7bde1988e0a7bd6330cbba050ab863",
+      "fileSize": 6227224,
+      "releaseDate": "2026-10-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Esc no longer throws you out of full screen.** In Remote Play, Esc is Circle (back in most",
+        "games), and in full screen it also left full screen, so backing out of a menu ended full screen.",
+        "Now a quick Esc in full screen is Circle, and holding Esc leaves full screen. Chrome and Edge get",
+        "the same through the browser's keyboard lock; Safari and Firefox still leave full screen on any",
+        "Esc (Backspace is Circle there).",
+        "**Every device knows who is using Remote Play.** A PS5 plays Remote Play with one device at a",
+        "time. When a phone or another computer is playing a console, the Remote Play page on your other",
+        "devices says so before you start (\"starting here ends it there\"), each of them gets a short",
+        "note when someone starts, and Connection \u203a Devices shows it as that device's activity.",
+        "**On phones and tablets the Remote Play page is view only.** The on-screen controller now only"
+      ]
+    },
+    {
       "version": "9.2.2",
       "fileName": "ps5upload-9.2.2.elf",
       "filePath": "payloads/ps5upload/9.2.2/ps5upload-9.2.2.elf",
@@ -21,7 +110,7 @@
       "hash": "9b7ea36573c7fb7c78ea89d598a01b6cf6e49a52951279abfc8d09aeb6ae3cc5",
       "fileSize": 6227224,
       "releaseDate": "2026-10-29",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Remote Play Settings always show.** On a wide window the picture grew taller than the",
