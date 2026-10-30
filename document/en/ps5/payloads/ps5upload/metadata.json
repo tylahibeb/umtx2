@@ -14,6 +14,99 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "9.7.0",
+      "fileName": "ps5upload-9.7.0.elf",
+      "filePath": "payloads/ps5upload/9.7.0/ps5upload-9.7.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.7.0/ps5upload-9.7.0.elf",
+      "hash": "dcbbf088c09b45a170600f8ac0e0c890731b85124ecbf1aae144c7149a7b4947",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Play any game on Remote Play, in one press.** A game's page has **Play on Remote Play** next",
+        "to Play (for the connected console, once it is set up for Remote Play): the stream starts,",
+        "waking the console and signing you in, the app waits for its helper to come back, then starts",
+        "the game on the stream. Each step shows on the picture, with a Cancel. In the stream, the Game",
+        "panel's **Play something else** lists the console's games (with a search) and starts the one",
+        "you pick, closing the running one first with your say-so. Anything the console has installed",
+        "or registered can be started: PS5 and PS4 games, folder games and fake packages.",
+        "**Drop a package on the stream to install it.** Drag a .pkg or .fpkg onto the picture (the",
+        "desktop app, or the web UI in a browser): it is installed on the streamed console **when you",
+        "stop playing** (an install shares the network with the stream and can make it stutter), or at"
+      ]
+    },
+    {
+      "version": "9.6.0",
+      "fileName": "ps5upload-9.6.0.elf",
+      "filePath": "payloads/ps5upload/9.6.0/ps5upload-9.6.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.6.0/ps5upload-9.6.0.elf",
+      "hash": "a68f0c5a346ba26258dcc1446e03986bd664f9c53bb97a1e3e2f582e12fe6802",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Remote Play gets a Game panel.** A **Game** button on the stream bar (and in the phone's **\u22ef**",
+        "menu) opens a panel over the picture without stopping the game. It reads the console only while",
+        "it is open.",
+        "**Game**: what is running, with a **Snapshot save now** button that backs up the game's save",
+        "while you play. It waits for a moment when the save is not being written and checks the copy did",
+        "not change mid-way, then keeps it with the game's save backups, marked **Taken while playing**.",
+        "Snapshots are kept apart from the automatic backups (five of each), so they never push the",
+        "automatic history out. Choose a folder in Saves \u203a Automatic backups first.",
+        "**Cheats**: the running game's cheats with their switches, the cheat engine switch, and the",
+        "paused notice when a game closed right after its cheats were applied."
+      ]
+    },
+    {
+      "version": "9.5.3",
+      "fileName": "ps5upload-9.5.3.elf",
+      "filePath": "payloads/ps5upload/9.5.3/ps5upload-9.5.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.5.3/ps5upload-9.5.3.elf",
+      "hash": "ae3e5287b6923b718df61c2f28d3ddae2c6d2f2620ed2a6958c6e6cd04a4a4c2",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Back up your users' information (Accounts).** A new **Back up user information** card",
+        "downloads a text file with every user on the PS5: their names, user IDs, account IDs (in hex,",
+        "decimal and the base64 form Remote Play uses), how each account is activated, its sign-in",
+        "details (online ID, date of birth, age), and step-by-step instructions for giving a new user",
+        "an old account ID. Saves are tied to the account ID, so after a console reset, or a crash that",
+        "loses a user, the file is what you need to get your saves back. It holds no passwords or",
+        "Remote Play keys; keep it private all the same.",
+        "**Phone screens scroll all the way down.** Payloads, Tasks and Help (FAQ, About, What's new)",
+        "now leave room under their last row, so nothing stays stuck behind the bottom tab bar."
+      ]
+    },
+    {
+      "version": "9.5.2",
+      "fileName": "ps5upload-9.5.2.elf",
+      "filePath": "payloads/ps5upload/9.5.2/ps5upload-9.5.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v9.5.2/ps5upload-9.5.2.elf",
+      "hash": "ce165092b435e1acfebbe1e4300625a9d4ce558958c65083f43353624e28fce5",
+      "fileSize": 6238232,
+      "releaseDate": "2026-10-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Remote Play full screen fits the screen, on every app.** Full screen now sits exactly on the",
+        "window's edges. Before, it was placed in the page instead, so the top and bottom of the picture",
+        "could be cut off even with **Fit**. The picture is now sized the way a video player sizes",
+        "its video: **Fit** shows the whole picture at its own shape, with black bars where the screen's",
+        "shape differs; **Fill** covers the whole screen and crops the edges; **Stretch** stretches the",
+        "picture to the whole screen. Each one now looks different on every app (Fill and Stretch",
+        "could look the same before).",
+        "**Picture size is a menu in full screen.** The button on the full-screen bar now shows the",
+        "current size and opens a list (Fit, Fill, Stretch), instead of stepping through them.",
+        "On phones, the Fit / Fill / Stretch row in the **\u22ef** menu is unchanged."
+      ]
+    },
+    {
       "version": "9.5.1",
       "fileName": "ps5upload-9.5.1.elf",
       "filePath": "payloads/ps5upload/9.5.1/ps5upload-9.5.1.elf",
@@ -21,7 +114,7 @@
       "hash": "6c113d167d7fe4c4f3e036e8556d044ab3b04e7f45fe53778f8dbea158ede8d7",
       "fileSize": 6238232,
       "releaseDate": "2026-10-30",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Remote Play full screen shows the whole picture.** With **Fit** (the default), the picture is",

@@ -15,6 +15,27 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.4.0",
+      "fileName": "HearBridge-1.4.0.elf",
+      "filePath": "payloads/hearbridge/1.4.0/HearBridge-1.4.0.elf",
+      "downloadUrl": "https://github.com/X-F1REBALL-X/HearBridge-PS5/releases/download/v1.4.0/HearBridge-1.4.0.elf",
+      "hash": "0c78332ac317541da12cb5998d1cab7f5b1b2778b3e835c4213b62278515d186",
+      "fileSize": 844232,
+      "releaseDate": "2026-10-30",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "USB Bluetooth adapter support and a lighter single-screen UI.",
+        "**USB Bluetooth adapters.** HearBridge can use a USB stick instead of the console chip. Realtek RTL8761BU sticks are supported with bundled firmware, and CSR8510 sticks work too. The console chip is still used when no adapter is plugged in.",
+        "**Adapter picker in Settings.** Choose Auto, the console chip, or a USB adapter and switch right away. Pairing is shared across adapters, so you do not have to pair the same headset again after changing sticks.",
+        "**Single-screen UI.** The home page fits a 1920\u00d71080 TV with no scrolling: larger controls for the headset, volume and latency, and a Details panel for equalizer, codecs and the log.",
+        "Thanks to [@jamesst20](https://github.com/jamesst20) for the original USB / Realtek RTL8761BU groundwork in #45.",
+        "**Download:** `HearBridge-1.4.0.elf`",
+        "Send it to your ELF loader on port 9021, then open `http://<console-ip>:8090`.",
+        "SHA-256: `0c78332ac317541da12cb5998d1cab7f5b1b2778b3e835c4213b62278515d186`"
+      ]
+    },
+    {
       "version": "1.3.6",
       "fileName": "HearBridge-1.3.6.elf",
       "filePath": "payloads/hearbridge/1.3.6/HearBridge-1.3.6.elf",
@@ -22,7 +43,7 @@
       "hash": "7b1a1b4a9a44db0723692a83718ebca63ecef38875a53a41328950f2cfa6877c",
       "fileSize": 744056,
       "releaseDate": "2026-10-18",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Fixed Bluetooth headphones failing to connect cleanly on consoles with a MediaTek chip (#34)."
