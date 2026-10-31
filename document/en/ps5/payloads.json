@@ -21,12 +21,12 @@
     },
     {
       "name": "PS5 Upload",
-      "filename": "ps5upload-9.11.0.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v9.11.0/ps5upload-9.11.0.elf",
+      "filename": "ps5upload-10.0.1.elf",
+      "url": "https://github.com/phantomptr/ps5upload/releases/download/v10.0.1/ps5upload-10.0.1.elf",
       "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "9.11.0",
+      "version": "10.0.1",
       "category": "Game",
-      "checksum": "ea961717fb823398dbf346a215cab21aba8cf7a966fb8be53b9d48e75543bdd9"
+      "checksum": "c5da95b6438a6d68e8c453df8ea84fb0341744f5fc9dae0781371b350450c3cc"
     },
     {
       "name": "CheatRunner",
@@ -166,11 +166,11 @@
     {
       "name": "Orbit Store (Beta)",
       "filename": "orbit_store.elf",
-      "url": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.8.0/orbit_store.elf",
+      "url": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.8.1/orbit_store.elf",
       "description": "PS5 store and download manager with a browser UI on port 34177. Library integration requires ShadowMountPlus.",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "category": "Game",
-      "checksum": "53446c09c568468436f5762593618a5063375ece64e73f0532063a2da5c80a07"
+      "checksum": "a9fe33c3b0338af074edb4f7c68bb3806a84efba718e3897f94eba9dc720f914"
     },
     {
       "name": "PS5 Game Compressor",
