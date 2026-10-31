@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "10.0.3",
+      "fileName": "ps5upload-10.0.3.elf",
+      "filePath": "payloads/ps5upload/10.0.3/ps5upload-10.0.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.0.3/ps5upload-10.0.3.elf",
+      "hash": "5dd0997ae31abe1e095a83ce0166eb92ccefa0ae13189aa29e51365498e872a2",
+      "fileSize": 6314176,
+      "releaseDate": "2026-10-31",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Fixed: after waking the PS5 from rest mode, the app said the helper was down (#593)**, and",
+        "sending it again left two copies running. The helper survived rest mode but stopped listening;",
+        "it now listens again right after the wake, and sending it again always leaves exactly one copy.",
+        "**The helper shows as `ps5upload.elf` in Payload Manager**, never `payload.elf` (the name the",
+        "loader gives anything sent to it) or one of its own thread names.",
+        "**The helper is steadier when it is replaced:** a running backported game keeps its fakelib",
+        "overlay, a Sony call in progress is finished instead of cut off, cheats applied just before",
+        "aren't paused, and a crash can no longer leave it spinning with its port held.",
+        "**Clearer delete and copy errors:** they name the file or folder and the reason (\"Permission",
+        "denied\"), and deleting a folder removes everything it can instead of refusing the whole folder."
+      ]
+    },
+    {
       "version": "10.0.2",
       "fileName": "ps5upload-10.0.2.elf",
       "filePath": "payloads/ps5upload/10.0.2/ps5upload-10.0.2.elf",
@@ -21,8 +44,8 @@
       "hash": "53ad7fe7b446709ccc36bdd9a7109a0f62a38076bb3b8cb9ba5c3c7cce5dc510",
       "fileSize": 6238232,
       "releaseDate": "2026-10-31",
-      "isDefault": true,
-      "isPreRelease": true,
+      "isDefault": false,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Fixed: watching the stream on a phone never showed the picture** (\"The picture could not be",
