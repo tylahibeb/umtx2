@@ -22,7 +22,7 @@
       "fileSize": 6314176,
       "releaseDate": "2026-11-01",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "**Remote Play's Settings open over the stream.** Every Settings button (on the picture's bar,",
