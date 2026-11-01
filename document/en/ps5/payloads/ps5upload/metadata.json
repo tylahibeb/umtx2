@@ -14,6 +14,92 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "10.5.1",
+      "fileName": "ps5upload-10.5.1.elf",
+      "filePath": "payloads/ps5upload/10.5.1/ps5upload-10.5.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.5.1/ps5upload-10.5.1.elf",
+      "hash": "b95d33b5afb9c51f90c41477d436e57a1ce8cd3539419f71d8a8f8be4223ff13",
+      "fileSize": 6514240,
+      "releaseDate": "2026-11-01",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Pressing Play no longer crashes the Linux app (#610).** On WebKitGTK 2.54 (Fedora 44 and other",
+        "current distros) the whole window died the moment Play checked which video formats it can",
+        "decode, whenever WebKit's DMA-BUF renderer was off, which the app does on most AMD and Intel",
+        "machines. WebKit wanted a graphics display the page had not made yet; the app now makes it",
+        "first.",
+        "**If Play ever crashes while the picture starts, the next launch recovers (Linux).** The app",
+        "notices, decodes the picture without the graphics card from then on, and says so once.",
+        "**Settings \u203a Window \u203a Graphics \u203a Hardware video decoding (Linux).** Off decodes Remote Play's",
+        "picture in software (GStreamer's graphics-card decoders are ranked out; applies after a",
+        "restart). Safe graphics mode turns it off too, and `PS5UPLOAD_SOFTWARE_VIDEO=1` does for one"
+      ]
+    },
+    {
+      "version": "10.5.0",
+      "fileName": "ps5upload-10.5.0.elf",
+      "filePath": "payloads/ps5upload/10.5.0/ps5upload-10.5.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.5.0/ps5upload-10.5.0.elf",
+      "hash": "965dc9cccc6d661f4895cc7098265b975395e6e8b67bfee65e5da0cce4a518f6",
+      "fileSize": 6514240,
+      "releaseDate": "2026-11-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Home's Recent games shows more games, at a sensible size.** The covers keep about the size of",
+        "a console's home screen instead of three filling the whole width, so a wide window shows six or",
+        "seven; up to twelve of your newest games are there, the row scrolls sideways, and with a mouse",
+        "the arrow buttons beside it page through.",
+        "**Pause an upload, send something else, carry on.** A running upload has a **Pause** button,",
+        "on the Upload & Install queue and on the Files screen alike. It stops the upload keeping what",
+        "already reached the PS5, marks it **Paused**, and the next item goes. **Resume** puts it back in",
+        "line where it was and it continues from where it stopped (nothing is sent twice); with nothing",
+        "else running it starts at once. Paused stays paused after you leave the screen or restart the",
+        "app. Asked for by Marc."
+      ]
+    },
+    {
+      "version": "10.4.1",
+      "fileName": "ps5upload-10.4.1.elf",
+      "filePath": "payloads/ps5upload/10.4.1/ps5upload-10.4.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.4.1/ps5upload-10.4.1.elf",
+      "hash": "7e52589212fb2a5da387d1cdfb5e245909316bab9fe6ae6c5a0e1d15ba34254d",
+      "fileSize": 6513952,
+      "releaseDate": "2026-11-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Keyboard & mouse in Remote Play now works on every firmware**, not only FW 13.60 (still the",
+        "one it's tested on). A firmware without the PS5's virtual keyboard and mouse says it isn't",
+        "available and keeps Controller. If it doesn't start on your console, it isn't tried again on its",
+        "own: turn Keyboard & mouse (or Mixed) on again to retry, and tell us your firmware."
+      ]
+    },
+    {
+      "version": "10.4.0",
+      "fileName": "ps5upload-10.4.0.elf",
+      "filePath": "payloads/ps5upload/10.4.0/ps5upload-10.4.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.4.0/ps5upload-10.4.0.elf",
+      "hash": "67b26d52fcb3cda8847cf7bf4893076b23f0d8b3f41765e3be64549c11336aae",
+      "fileSize": 6513904,
+      "releaseDate": "2026-11-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Your computer's keyboard and mouse as the PS5's own, in Remote Play (FW 13.60).** Settings \u203a",
+        "Controls has three modes, kept per game: **Controller** (the keys and mouse act as a controller,",
+        "exactly as before, and the default), **Keyboard & mouse** (the PS5 gets a real keyboard and",
+        "mouse, for games and apps that support them) and **Mixed** (a real mouse; the keys act as a",
+        "controller, WASD moves). A button on the stream bar shows the mode and switches it, and",
+        "Ctrl+Option+M (Ctrl+Alt+M on Windows and Linux) does too. Tested end to end on FW 13.60; other",
+        "firmwares say it isn't available yet and keep Controller.",
+        "**Click the picture to give the PS5 your keyboard and mouse; press and let go of Ctrl+Option",
+        "(Ctrl+Alt) to get them back.** Ctrl+Option with another key still goes to the PS5. They also",
+        "come back when the window loses focus, Settings or the text box opens, or the stream stops, and"
+      ]
+    },
+    {
       "version": "10.3.0",
       "fileName": "ps5upload-10.3.0.elf",
       "filePath": "payloads/ps5upload/10.3.0/ps5upload-10.3.0.elf",
@@ -21,7 +107,7 @@
       "hash": "e3da25330b0b3aeba1ad1eab628726a7b7526bd2be2d5f9a40dba59527dfb155",
       "fileSize": 6314176,
       "releaseDate": "2026-11-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
