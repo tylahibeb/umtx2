@@ -14,6 +14,49 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "10.7.2",
+      "fileName": "ps5upload-10.7.2.elf",
+      "filePath": "payloads/ps5upload/10.7.2/ps5upload-10.7.2.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.2/ps5upload-10.7.2.elf",
+      "hash": "afb8b1965796795f308dcc8e27be1a2e80feeaddbb85e3c94823ba46dabeb0d2",
+      "fileSize": 6550472,
+      "releaseDate": "2026-11-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Switched-on cheats now apply once the game is ready, and stay applied (For #627).** The helper",
+        "used to try a game's saved cheats once, right when the game started. When the game's code was not",
+        "loaded yet, that try failed quietly and nothing tried again, so a switch could read On while",
+        "nothing was applied, until you switched it Off and On. Now each switched-on cheat is tried again",
+        "every few seconds until the game is ready for it, checked after it is written, and put back if the",
+        "game undoes it (a loading screen or coming back from rest mode; at most 5 times in 2 minutes).",
+        "Cheats that don't match the game version, or that the game changed itself, are left alone; a game",
+        "patch whose code isn't found gives up after about a minute. The crash guard now also watches a",
+        "cheat that only applies later in the game, and paused games and the engine switch work as before.",
+        "A cheat its file switches on by itself now stays Off once you turn it off."
+      ]
+    },
+    {
+      "version": "10.7.1",
+      "fileName": "ps5upload-10.7.1.elf",
+      "filePath": "payloads/ps5upload/10.7.1/ps5upload-10.7.1.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.1/ps5upload-10.7.1.elf",
+      "hash": "db65ec2b61a6532620eb7b941cf378dadd11a254f05e1dd7b545911f65bfe49e",
+      "fileSize": 6514240,
+      "releaseDate": "2026-11-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Pairing with the PIN shown on the PS5 tries again by itself (#609).** On a PS5 Pro with FW",
+        "11.60 the console dropped the connection on the first try (sometimes showing CE-110024-8",
+        "\"Something went wrong\") and accepted the same PIN on the next. The app now retries a dropped",
+        "connection twice, two seconds apart; a refused PIN is never retried. If it still fails, the",
+        "message says to press Pair again, since the same PIN works while the PS5 shows it.",
+        "Tested by the #609 reporter on FW 11.60: native keyboard & mouse devices start and stop",
+        "cleanly there too."
+      ]
+    },
+    {
       "version": "10.7.0",
       "fileName": "ps5upload-10.7.0.elf",
       "filePath": "payloads/ps5upload/10.7.0/ps5upload-10.7.0.elf",
@@ -21,7 +64,7 @@
       "hash": "bdb3c4fc89d4ecb13c8472f31dbadc0ca9050d3fbcb0a359de4fb745fec49949",
       "fileSize": 6514240,
       "releaseDate": "2026-11-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Add games to Workshop's queue while one converts (For #621).** While a game is being made,",
