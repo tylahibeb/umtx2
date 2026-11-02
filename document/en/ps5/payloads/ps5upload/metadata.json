@@ -14,6 +14,52 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "10.7.0",
+      "fileName": "ps5upload-10.7.0.elf",
+      "filePath": "payloads/ps5upload/10.7.0/ps5upload-10.7.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.0/ps5upload-10.7.0.elf",
+      "hash": "bdb3c4fc89d4ecb13c8472f31dbadc0ca9050d3fbcb0a359de4fb745fec49949",
+      "fileSize": 6514240,
+      "releaseDate": "2026-11-01",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Add games to Workshop's queue while one converts (For #621).** While a game is being made,",
+        "games picked or dropped under **\u2460 Game**, picked **On the PS5\u2026** or sent with **Convert first**",
+        "now go into **\u2464 Queue** (dropping and the PS5 picker did nothing before) and are made after it,",
+        "one at a time and in order, without pressing Start. A dropped folder of games adds each game in",
+        "it, and the game being made is not added again. The first queued game starts once you put the",
+        "finished game's result away (**Convert another game**), so its Install, Launch and Delete",
+        "buttons stay until then; after a build that failed, the queue waits for you. This follows",
+        "**Start the queue when you add something**; with it off they wait for **Convert N queued**.",
+        "Installs still go on to Upload & Install's queue as before.",
+        "**Rebuild AMPR index (For #621).** A backported game that reads its files through libSceAmpr"
+      ]
+    },
+    {
+      "version": "10.6.0",
+      "fileName": "ps5upload-10.6.0.elf",
+      "filePath": "payloads/ps5upload/10.6.0/ps5upload-10.6.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.6.0/ps5upload-10.6.0.elf",
+      "hash": "2f67651bf1320a83202b632782a1f404543b1ea4911dfb3be5a510971f015392",
+      "fileSize": 6514240,
+      "releaseDate": "2026-11-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Remote Play Unlock (earthonion) in the payload catalogue.** Lets Remote Play stream games",
+        "and apps that forbid it (refused at start, a \"can't be streamed\" notice, or a black picture) by",
+        "patching the PS5's Remote Play service in memory. Firmware 3.20, 10.01, 12.00, 12.70 and 13.60;",
+        "load it again after every reboot, or add it to your autoloader. Payloads whose only release is a",
+        "pre-release (like its rolling `latest`) now download too.",
+        "**Save Data is laid out around what you do with a save.** Each game shows one row per user",
+        "with when it was last backed up (\"Backed up 2 hours ago\", or \"Not backed up yet\" in amber) and",
+        "four actions: **Back up now**, **Restore\u2026** (the game's backups, newest first), **Copy to\u2026**",
+        "and **Open**. A short \"How saves work here\" card explains them once; dismiss it when you know.",
+        "Backing up to a `.zip` on this computer and the USB actions are under **More** (desktop app)."
+      ]
+    },
+    {
       "version": "10.5.1",
       "fileName": "ps5upload-10.5.1.elf",
       "filePath": "payloads/ps5upload/10.5.1/ps5upload-10.5.1.elf",
@@ -21,7 +67,7 @@
       "hash": "b95d33b5afb9c51f90c41477d436e57a1ce8cd3539419f71d8a8f8be4223ff13",
       "fileSize": 6514240,
       "releaseDate": "2026-11-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Pressing Play no longer crashes the Linux app (#610).** On WebKitGTK 2.54 (Fedora 44 and other",
