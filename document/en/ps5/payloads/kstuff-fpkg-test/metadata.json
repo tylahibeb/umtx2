@@ -1,7 +1,7 @@
 {
   "id": "kstuff-fpkg-test",
   "displayTitle": "kstuff Lite FPKG (experimental)",
-  "description": "User-supplied 1.13-dr-test6 build. Reported working on FW 4.xx; newer firmware is unverified. Use as an alternative kstuff build.",
+  "description": "Experimental kstuff Lite FPKG builds. Test8 REST and REST Fast are unverified on hardware. Test6 was reported working on FW 4.xx.",
   "authors": [],
   "projectUrl": "",
   "sourceRepo": "",
@@ -15,6 +15,30 @@
   ],
   "versions": [
     {
+      "version": "1.13-dr-test8-rest",
+      "fileName": "kstuff1.13-fpkg-dr-test8-rest.elf",
+      "filePath": "payloads/kstuff-fpkg-test/1.13-dr-test8-rest/kstuff1.13-fpkg-dr-test8-rest.elf",
+      "downloadUrl": "",
+      "hash": "127332652374157b8ee0f5eb1128976f9055b88df5da89c0c54183e9c326fc7f",
+      "fileSize": 1845320,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": []
+    },
+    {
+      "version": "1.13-dr-test8-rest-fast",
+      "fileName": "kstuff1.13-fpkg-dr-test8-rest-fast.elf",
+      "filePath": "payloads/kstuff-fpkg-test/1.13-dr-test8-rest-fast/kstuff1.13-fpkg-dr-test8-rest-fast.elf",
+      "downloadUrl": "",
+      "hash": "221fa41c43597677c1153d5224174be9062105c0c9a3379e96cb45d278aa52fc",
+      "fileSize": 1845320,
+      "releaseDate": "",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": []
+    },
+    {
       "version": "1.13-dr-test6",
       "fileName": "kstuff-fpkg-1.13-dr-test6.elf",
       "filePath": "payloads/kstuff-fpkg-test/1.13-dr-test6/kstuff-fpkg-1.13-dr-test6.elf",
@@ -22,7 +46,7 @@
       "hash": "b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443",
       "fileSize": 1818680,
       "releaseDate": "",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": []
     }

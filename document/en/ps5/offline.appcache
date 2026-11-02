@@ -47,7 +47,7 @@ offsets/5.00.js #201c6e044113445c2a67bcfec702391961b42dcb0d0c633a230109ad882fb97
 offsets/5.02.js #201c6e044113445c2a67bcfec702391961b42dcb0d0c633a230109ad882fb972
 offsets/5.10.js #3b92eb6aab29a19b5c0e141e4307a27367c7e8cfb07d7399855c34d4e0aeb851
 offsets/5.50.js #ca785d1222a49f800b4437e0d4e0a69805f4d1d47dcc973dc30b11acdd2c5dcb
-payload_map.js #307745cc437e287046bd96cccdf1147c8df7b475564fa21b492fee1bff555139
+payload_map.js #b2d1388d33befa1480c82433104a84ab327478b021fb023d93f3009d2302644b
 payloads/appcache-remove/metadata.json #933aa875755bbc38a2c3f4006834c3272efe8008e44e216655afb07f5b26755a
 payloads/backpork/0.1/ps5-backpork.elf #f76dd1885ef6aebec55e12a71b32a6bbf0e1cafb9146960a51b231fd52b914fe
 payloads/backpork/metadata.json #d7bb8b7374307230fc82d22e6978cb62675c38575c474b2df13cdb47800ef54c
@@ -75,8 +75,8 @@ payloads/kstuff/1.5/kstuff.elf #02da00b055e39d7bd08e9b59e07420f6368a2c165d6d345c
 payloads/kstuff/metadata.json #38d1460e812c4022005f2b6829cdadd5a6316caf302aa4c01913a163f8677e88
 payloads/kstuff-echostretch/1.6.7/kstuff.elf #f1c1f4b2b6395644af04cbe9828aba58586acf7aacb9e01113cac92ce16e3569
 payloads/kstuff-echostretch/metadata.json #dde65beb67a655d214114b238cb2e9298eeaf35e7869a4d7757a61c43f0de514
-payloads/kstuff-fpkg-test/1.13-dr-test6/kstuff-fpkg-1.13-dr-test6.elf #b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443
-payloads/kstuff-fpkg-test/metadata.json #cfa7419b8b772770066b23581a7db908daec5ac6182d7a304c197252cbf192c2
+payloads/kstuff-fpkg-test/1.13-dr-test8-rest/kstuff1.13-fpkg-dr-test8-rest.elf #127332652374157b8ee0f5eb1128976f9055b88df5da89c0c54183e9c326fc7f
+payloads/kstuff-fpkg-test/metadata.json #b44a9d127c88316a47792ddde004e7a9284e2dddd708ca54a77dea628116c207
 payloads/kstuff-lite/1.2-dr-test2/kstuff.elf #2b699d411079a21dba7c39a02993fc0fb21e52f434103e884a0c892fafe56b75
 payloads/kstuff-lite/metadata.json #c7263ea6217dd14996fc691588bc201e0842ad710ca4cc2f6b04b0ba80ae0224
 payloads/kstuff-lite-1200-only/1.1-dr/kstuff-12.00-only.elf #4aacb238f165d1e241d8744f10e798ba7d7cb007d5c569804a0a1dace03f526d
@@ -131,7 +131,7 @@ payloads/webkit-cache-remover/1.02/ps5-webkit-cache-remover-v1.02.elf #96fa4e50f
 payloads/webkit-cache-remover/metadata.json #46dd0e1772e7c70f68a2bfbe65c22a6b4bcec3664921b8b263a269490dacf7a4
 payloads/websrv/0.35/websrv-ps5.elf #25501b41887a42789792d1367edd2fc892454bfe6b0b1519bc36456a581f264c
 payloads/websrv/metadata.json #1f9699ee9b67b7e759deafa8bf170396128bca76eeef77ffc069b8747bac367b
-payloads.json #eea58bed8835ef745589ba4c24cc7ddeff77dac76d91467578755dce63577134
+payloads.json #f389bf450bf249b829aad4f47761f16c50c53ddc0bef3840378f658a7bb04bdb
 psfree/COPYING #0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0
 psfree/alert.js #5aa0ddf4562eb48bba66f22bc785696d71832eb5169405e242da3f4121be488d
 psfree/config.js #aaa19edb30a37e3b25da5b837528665b2e3f72262b8c243098dcf7243e388645

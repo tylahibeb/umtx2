@@ -1,6 +1,6 @@
 # Payload firmware compatibility audit
 
-Reviewed 2026-10-19. Covers all **42 payload entries** (39 original entries plus HearBridge, Orbit Store and the uploaded kstuff test build), their checked-in default versions, configured rules, generated metadata and browser filtering. Upstream evidence was checked at the default release/tag where available. This is a documentation/source audit, **not execution on a PS5**.
+Reviewed 2026-10-19. Covers all **42 payload entries** (39 original entries plus HearBridge, Orbit Store and the experimental kstuff entry), their checked-in default versions, configured rules, generated metadata and browser filtering. Upstream evidence was checked at the default release/tag where available. This is a documentation/source audit, **not execution on a PS5**.
 
 The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/offsets/`, from 1.00 through 5.50. A payload supporting newer firmware does not extend the host exploit. A firmware rule also cannot certify dependency patches, console model, peripherals, game versions or individual payload features.
 
@@ -19,7 +19,7 @@ The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/
 | Payload ID | Audited default | Maintained policy | Evidence and limits |
 | --- | --- | --- | --- |
 | `kstuff-lite` | 1.2-dr-test2 | 46 exact points (3.00–12.70) | [Source](https://raw.githubusercontent.com/drakmor/kstuff-lite/1.2-dr-test2/prosper0gdb/offsets.c). Source has an explicit 3.00–12.70 offset table. Replaced broad major prefixes with those exact points; 1.xx/2.xx remain excluded. |
-| `kstuff-fpkg-test` | 1.13-dr-test6 | `4.` (user report) | [Local metadata](../document/en/ps5/payloads/kstuff-fpkg-test/metadata.json). Unpublished user-supplied ELF, reported working on 4.xx; this is not an independent firmware matrix. Embedded identity is Kstuff Lite 1.13-fpkg-dr-test6. Newer firmware is unverified; PPR diagnostics explicitly mention missing firmware 12+ support. This separate alternative does not replace Quick Launch’s kstuff build. |
+| `kstuff-fpkg-test` | 1.13-dr-test8-rest | `4.` (test6 user report) | A user reported that test6 worked on 4.xx. Firmware compatibility for both test8 variants is unverified. [Local metadata](../document/en/ps5/payloads/kstuff-fpkg-test/metadata.json). |
 | `shadowmountplus` | 1.7-beta5fix1 | No extra filter | [Source](https://raw.githubusercontent.com/drakmor/ShadowMountPlus/1.7-beta5fix1/README.md). Removed the 3/4/5-only cap: the pinned README explicitly includes 2.00. Requires Kstuff-lite v1.07+; the default beta release warns against using etaHEN. This is conditional support, not a standalone firmware guarantee. |
 | `etahen` | 2.5B | 52 exact points (1.00–10.60) | [Source](https://raw.githubusercontent.com/etaHEN/etaHEN/2.5B/Source%20Code/bootstrapper/source/main.cpp). Added the documented 1.xx/2.xx support. The pinned bootstrap uses its embedded Byepervisor below 3.00; embedded exploit and libhijacker source tables include the configured points through 10.60; release notes advertise kstuff/cheats only through 10.01. These tables differ from standalone Byepervisor 1.1. |
 | `nanodns` | 0.4 | No extra filter | [Source](https://github.com/drakmor/nanoDNS/blob/0.4/README.md). No firmware matrix. Generic SDK consumer; no justified firmware allowlist. |
@@ -81,13 +81,19 @@ The `orbit-store` entry tracks stable GitHub releases with the configured filena
 
 The downloaded ELF is 41,997,992 bytes, SHA-256 `561a8e8015d9564d44e32b58a84e1294ea7043e96146110801a9f62ad99ac93b`, verified against GitHub’s asset digest and corroborated by the official payload feed/build information. Its browser UI port is 34177; ELF injection uses 9021. See the [getting-started guide](https://github.com/saawant12/orbit-store-ps5/blob/v1.3.5/guides/getting-started.md) for the distinct ELF, native app and desktop workflows. No numeric firmware restriction is inferred from app/service versions or game installation limits.
 
-## Uploaded kstuff test build
+## Uploaded kstuff test builds
 
-`kstuff-fpkg-test` preserves the user’s uploaded `kstuff-fpkg-1.13-dr-test6.elf` as a separate experimental direct/local payload. It is 1,818,680 bytes with SHA-256 `b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443`. The stored bytes match the upload, and the ELF64 little-endian x86-64 PIE header was inspected; the binary was not executed. No independent upstream checksum/source or verified authorship/license was supplied, so those fields remain unknown instead of assigning another release’s provenance.
+`kstuff-fpkg-test` offers three user-supplied prereleases. Test8 REST is the default in the host, the Payload Manager catalog and the offline cache. Test8 REST Fast and test6 are selectable in the host’s payload settings.
 
-The maintained filter is `4.` based on the user’s report that it works on 4.xx. The user’s assumption about newer firmware is not treated as verification. Embedded PPR patch diagnostics mention missing firmware 12+ support, but do not establish a whole-payload compatibility range. Other firmware remains unverified until a source or direct report establishes it.
+| Uploaded file | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `kstuff1.13-fpkg-dr-test8-rest.elf` | 1,845,320 | `127332652374157b8ee0f5eb1128976f9055b88df5da89c0c54183e9c326fc7f` |
+| `kstuff1.13-fpkg-dr-test8-rest-fast.elf` | 1,845,320 | `221fa41c43597677c1153d5224174be9062105c0c9a3379e96cb45d278aa52fc` |
+| `kstuff-fpkg-1.13-dr-test6.elf` | 1,818,680 | `b1f60c1ec1685904d396da16710dc9d5676bf0880abf74c65459c886010b9443` |
 
-The source/download URLs are empty, so the updater rehashes and retains the local file rather than trying to replace it from GitHub. The catalog uses this host’s Pages mirror URL. Its manual version is explicitly prerelease/default, with no invented release date. The direct-source updater now preserves manual prerelease flags and honors an explicit dateless default when date-based selection cannot choose one. It remains a separate launch option and does not change Quick Launch.
+The stored hashes match the uploads, and the ELF headers identify all three as little-endian x86-64 PIE executables. Their upstream source, authorship, license and release dates are unknown. The updater rehashes the local files and the catalog points to this host’s Pages mirror.
+
+The payload-wide `4.` filter comes from the user’s report about test6 on 4.xx. Test6’s PPR diagnostics mention missing firmware 12+ support for those patches. Both test8 variants still lack hardware verification, including on 4.xx.
 
 ## Maintaining the rules
 

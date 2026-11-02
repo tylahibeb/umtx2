@@ -38,26 +38,35 @@ payloads:
   # ★ Priority Payloads (surfaced to top for quick access)
   # ===========================================================================
 
-  # --- User-supplied kstuff FPKG test build (not published upstream) ---
-  # Preserve the local binary; empty URL prevents any upstream replacement.
+  # --- User-supplied kstuff FPKG test builds ---
   - id: kstuff-fpkg-test
     displayTitle: kstuff Lite FPKG (experimental)
-    description: User-supplied 1.13-dr-test6 build. Reported working on FW 4.xx; newer firmware is unverified. Use as an alternative kstuff build.
+    description: Experimental kstuff Lite FPKG builds. Test8 REST and REST Fast are unverified on hardware. Test6 was reported working on FW 4.xx.
     authors: []
     projectUrl: ""
     sourceType: direct
     sourceRepo: ""
-    sourcePattern: kstuff-fpkg-*.elf
+    sourcePattern: kstuff*fpkg*.elf
     toPort: 9021
     supportedFirmwares: ["4."]
     license:
       type: Unknown
       url: ""
     manualVersions:
+      - version: "1.13-dr-test8-rest"
+        fileName: kstuff1.13-fpkg-dr-test8-rest.elf
+        url: ""
+        isDefault: true
+        isPreRelease: true
+        releaseDate: ""
+      - version: "1.13-dr-test8-rest-fast"
+        fileName: kstuff1.13-fpkg-dr-test8-rest-fast.elf
+        url: ""
+        isPreRelease: true
+        releaseDate: ""
       - version: "1.13-dr-test6"
         fileName: kstuff-fpkg-1.13-dr-test6.elf
         url: ""
-        isDefault: true
         isPreRelease: true
         releaseDate: ""
 
