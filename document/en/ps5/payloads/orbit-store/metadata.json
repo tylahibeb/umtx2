@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.8.4",
+      "fileName": "orbit_store.elf",
+      "filePath": "payloads/orbit-store/1.8.4/orbit_store.elf",
+      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.8.4/orbit_store.elf",
+      "hash": "a2ece507fdc835d72671820a6da30c3e2f92391a85da10e5f14130b5dbc2c596",
+      "fileSize": 60531376,
+      "releaseDate": "2026-11-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**TorBox filtering and fixes across Orbit.**",
+        "**Find downloads supported by TorBox.** With TorBox connected, choose **Browse \u2192 Source \u2192 TorBox available** to find games with a supported download option. You can save this choice with your other filters.",
+        "**Clearer extraction errors.** Orbit explains when an archive is damaged, incomplete or uses unsupported compression.",
+        "**News from Orbit.** Short notices about catalogue additions and other Orbit news can appear in the native PS5 app, browser (ELF) and Orbit Zero.",
+        "The catalogue now has **2,200 games and 5,100 download options**, plus **628 add-ons with 630 options across 194 base games**.",
+        "> **Orbit stays free.** [Orbit Store](https://github.com/saawant12/orbit-store-ps5), [Orbit Zero](https://github.com/saawant12/orbit-store-ps5#orbit-zero-for-mac-windows-and-linux), [Orbit Play](https://github.com/saawant12/orbit-play-ps5) and our upcoming apps are free and will stay free.",
+        ">",
+        "> I\u2019ve been building Orbit in my own time and covering the costs of AI tools, test consoles, hardware and servers. If you\u2019d like to help, you can support Orbit on [GitHub Sponsors](https://github.com/sponsors/saawant12) or [Buy Me a Coffee](https://buymeacoffee.com/saawant12). It\u2019s entirely optional.",
+        "We\u2019re also shipping improvements and bug fixes across our apps:",
+        "**Chinese, Japanese and Korean show correctly in the native app.** With one of these languages selected, most text showed as question marks."
+      ]
+    },
+    {
       "version": "1.8.3",
       "fileName": "orbit_store.elf",
       "filePath": "payloads/orbit-store/1.8.3/orbit_store.elf",
@@ -22,7 +45,7 @@
       "hash": "59e216d7d5b163a14c8f7ac8fce4962b0af04541a1724236e0efb216a882e124",
       "fileSize": 59959472,
       "releaseDate": "2026-11-01",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Clearer Browse filters and other improvements.**",

@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "10.7.3",
+      "fileName": "ps5upload-10.7.3.elf",
+      "filePath": "payloads/ps5upload/10.7.3/ps5upload-10.7.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.3/ps5upload-10.7.3.elf",
+      "hash": "ff33ec573c4c809719268d85771d69535151b1eda51b66b065c78767a30212fd",
+      "fileSize": 6550472,
+      "releaseDate": "2026-11-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Pause a conversion, and the queue with it (For #631).** Workshop's \u2463 now has **Pause** beside",
+        "**Cancel** while a game is being made: a package, a game image (`.ffpkg`, `.ffpfs`, `.exfat`), a",
+        "compressed `.ffpfsc`, LZ4 asset packs, a game folder, or an archive being unpacked. Paused, the",
+        "work stops at its next chunk and uses no processor or disk until you press **Resume**; **Cancel**",
+        "still works while paused. The queue waits for it (\u2464 says **Paused \u2014 the queue waits**), and the",
+        "speed and time left leave the paused time out. Over the API: `POST /api/jobs/{id}/pause` and",
+        "`/resume`.",
+        "**Use less of this computer (For #632).** One switch, in Settings \u203a Workshop and under \u2463: while it",
+        "is on, converting uses about half your processor and runs at low priority, which also puts",
+        "its disk reads and writes behind other apps'. Your computer stays quick for other things; the"
+      ]
+    },
+    {
       "version": "10.7.2",
       "fileName": "ps5upload-10.7.2.elf",
       "filePath": "payloads/ps5upload/10.7.2/ps5upload-10.7.2.elf",
@@ -21,7 +44,7 @@
       "hash": "afb8b1965796795f308dcc8e27be1a2e80feeaddbb85e3c94823ba46dabeb0d2",
       "fileSize": 6550472,
       "releaseDate": "2026-11-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Switched-on cheats now apply once the game is ready, and stay applied (For #627).** The helper",
