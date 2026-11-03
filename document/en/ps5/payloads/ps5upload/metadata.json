@@ -14,6 +14,75 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "10.7.6",
+      "fileName": "ps5upload-10.7.6.elf",
+      "filePath": "payloads/ps5upload/10.7.6/ps5upload-10.7.6.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.6/ps5upload-10.7.6.elf",
+      "hash": "354053806db54695837576bbe7f80740420884486eef00b4a6b4c77f654035e0",
+      "fileSize": 6576968,
+      "releaseDate": "2026-11-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Saved cheats and patches are applied the moment a game starts (For #627).** Some patches only",
+        "work if they are in place before the game reads the setting they change, which it does once in",
+        "its first seconds: Red Dead Redemption 2's \"Unlock FPS\" patch is one. The helper used to look",
+        "for a running game every 3 seconds, so it wrote such a patch 3 to 9 seconds in: it read back as",
+        "applied and did nothing. Now the helper hears the game start and, for its first minute, tries",
+        "the cheats still waiting for the game's code every few milliseconds, so they land as soon as the",
+        "code is there. With the engine on and no game running, it also looks for a game every half",
+        "second, in case it missed a start.",
+        "**A cheat that landed late says so.** When a saved cheat was applied more than about 3 seconds",
+        "after the game started, or after a start the helper didn't see (it was sent while the game was"
+      ]
+    },
+    {
+      "version": "10.7.5",
+      "fileName": "ps5upload-10.7.5.elf",
+      "filePath": "payloads/ps5upload/10.7.5/ps5upload-10.7.5.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.5/ps5upload-10.7.5.elf",
+      "hash": "aca8424e53bc08da2e3b41acb5bed563a73a31698a3b69825977f95625c3decb",
+      "fileSize": 6550472,
+      "releaseDate": "2026-11-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Remote Play sound no longer turns to static after the app has been open a long time.** In",
+        "the desktop and phone apps the game's sound was played 10 ms at a time from the app's page",
+        "itself (its sound player could not load under the apps' security settings), so anything that",
+        "kept the page busy broke it up into crackles, and restarting PS5Upload only helped for a",
+        "while. The sound now plays from its own buffer, decoded in the background, and stays clean",
+        "while the page is busy.",
+        "**Each Remote Play session gives back its graphics memory when it ends.** Every session kept",
+        "its picture's graphics context (and its sound player) until PS5Upload was restarted, so an app",
+        "left open through many sessions held more and more of them.",
+        "**Smoother sound when the PS5 and this computer keep slightly different time.** Instead of"
+      ]
+    },
+    {
+      "version": "10.7.4",
+      "fileName": "ps5upload-10.7.4.elf",
+      "filePath": "payloads/ps5upload/10.7.4/ps5upload-10.7.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v10.7.4/ps5upload-10.7.4.elf",
+      "hash": "31b39654ddf0d7e97160f99bbae57bff669ec34c8f7dd19ae8b15668205f1e5c",
+      "fileSize": 6550472,
+      "releaseDate": "2026-11-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Updates install when you quit, with no click (For #611).** On Windows, macOS and the Linux",
+        "AppImage, a new release is now downloaded in the background (never while something is",
+        "transferring) and installed as you quit PS5Upload. The update bar then just says \"v10.7.4 ready \u00b7",
+        "installs when you quit\", with **Restart now** if you'd rather not wait. This needs **Check for",
+        "updates automatically** and **Install updates when I quit** (both on unless you turned them off)",
+        "in Settings \u203a Updates. A `.deb` / `.rpm` install, which asks for your password, still waits for you.",
+        "**Fewer update notices.** Releases sometimes come several in a day; the notification center now",
+        "says \"update available\" at most once a day. A newer release inside that day only updates the",
+        "update bar and the sidebar dot.",
+        "**\"What's new\" covers every version you skipped.** Going from 10.7.1 straight to 10.7.3 now shows"
+      ]
+    },
+    {
       "version": "10.7.3",
       "fileName": "ps5upload-10.7.3.elf",
       "filePath": "payloads/ps5upload/10.7.3/ps5upload-10.7.3.elf",
@@ -21,7 +90,7 @@
       "hash": "ff33ec573c4c809719268d85771d69535151b1eda51b66b065c78767a30212fd",
       "fileSize": 6550472,
       "releaseDate": "2026-11-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Pause a conversion, and the queue with it (For #631).** Workshop's \u2463 now has **Pause** beside",
