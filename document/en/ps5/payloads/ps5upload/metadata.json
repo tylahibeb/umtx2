@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "11.0.0",
+      "fileName": "ps5upload-11.0.0.elf",
+      "filePath": "payloads/ps5upload/11.0.0/ps5upload-11.0.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.0/ps5upload-11.0.0.elf",
+      "hash": "027f62daaf060c90d159da9e2988e44fcc5f128ad866cb1b67d49a77d6485998",
+      "fileSize": 6613800,
+      "releaseDate": "2026-11-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Play Together: friends play your PS5 as Player 2, 3 and 4 (For #641).** While you play, the",
+        "new people button on the Play bar (or **\u22ef \u203a Play Together** on a phone) opens a panel with three",
+        "steps: share the invite (a QR code, the link with Copy, your phone's Share sheet, or a short code",
+        "like K7M-2QX), allow your friend when their name pops up over the picture, and on the TV they",
+        "press PS and pick **Quick Play** (or their own user). Each friend gets their own controller on",
+        "the PS5, a separate player, plus your picture and sound. Up to three friends. Each has a card",
+        "with what they're doing (asking, picking a user on the TV, playing, reconnecting with a",
+        "countdown, left), their delay in colour, and a Remove button; if a friend's delay is high, the",
+        "panel suggests a lower Play quality. The phone controller and watch features are one click away",
+        "in the same panel. On the PS5's home screen only you drive the menus; in games, friends play."
+      ]
+    },
+    {
       "version": "10.7.6",
       "fileName": "ps5upload-10.7.6.elf",
       "filePath": "payloads/ps5upload/10.7.6/ps5upload-10.7.6.elf",
@@ -21,7 +44,7 @@
       "hash": "354053806db54695837576bbe7f80740420884486eef00b4a6b4c77f654035e0",
       "fileSize": 6576968,
       "releaseDate": "2026-11-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Saved cheats and patches are applied the moment a game starts (For #627).** Some patches only",
