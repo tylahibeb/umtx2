@@ -14,6 +14,133 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "11.0.8",
+      "fileName": "ps5upload-11.0.8.elf",
+      "filePath": "payloads/ps5upload/11.0.8/ps5upload-11.0.8.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.8/ps5upload-11.0.8.elf",
+      "hash": "f315f5645d7be6cc0736ec3183cfa67ec9d7ec689321295fb222f5b699b2542e",
+      "fileSize": 6614240,
+      "releaseDate": "2026-11-04",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**A friend's buttons hide right away on a phone.** When a friend joins, the TV asks who's",
+        "using their controller; until someone picked a user, the card with the buttons stayed in the",
+        "middle of a phone's screen with no way to hide it. It now shows the ask once, and **Hide** (or",
+        "press and hold) puts it away at once.",
+        "**Full screen is easy to reach for a friend on a phone.** Joining inside the app on a phone,",
+        "the game's buttons crowded the small picture. They now sit in a bar under it, with a big",
+        "**Full screen** button, sound and **Leave**, and turning the phone sideways goes full screen,",
+        "as the host's player does.",
+        "**Friends' PS button works by default.** A friend's PS and Create buttons (and holding PS)",
+        "now reach the PS5 like the host's. To stop a stray press pulling everyone out of the game,"
+      ]
+    },
+    {
+      "version": "11.0.7",
+      "fileName": "ps5upload-11.0.7.elf",
+      "filePath": "payloads/ps5upload/11.0.7/ps5upload-11.0.7.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.7/ps5upload-11.0.7.elf",
+      "hash": "4bda6fb92654505c5a7b53f8076f87e1aea0b9a8d145bfd33806af1ad1ad776e",
+      "fileSize": 6614240,
+      "releaseDate": "2026-11-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**NAS connections with Chinese (or Japanese, Korean\u2026) names work again (For #663).** Since",
+        "11.0.2, a NAS whose share or server name started with three or more letters of such a",
+        "script failed to connect: the code that tidies up pasted addresses cut the name in the middle",
+        "of a letter. Names in any script go through again."
+      ]
+    },
+    {
+      "version": "11.0.6",
+      "fileName": "ps5upload-11.0.6.elf",
+      "filePath": "payloads/ps5upload/11.0.6/ps5upload-11.0.6.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.6/ps5upload-11.0.6.elf",
+      "hash": "c50617daf2a64befc6d936718230d39d6e1eb3fcaadd207911e1b8da5ddd9dcf",
+      "fileSize": 6614240,
+      "releaseDate": "2026-11-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Go live works on macOS.** Going live to YouTube, Twitch, Kick or Facebook from a Mac said",
+        "\"Can't reach the site's server\" every time: the streaming helper (ffmpeg) couldn't find the",
+        "Mac's trusted certificates, so every secure (`rtmps://`) connection failed. It now uses the",
+        "system's own. Linux systems that keep their certificates elsewhere (Fedora, openSUSE) are",
+        "covered too; Windows was not affected.",
+        "**Go live no longer says \"Trying again in 0 s\"** while it is already trying: it says",
+        "Connecting\u2026."
+      ]
+    },
+    {
+      "version": "11.0.5",
+      "fileName": "ps5upload-11.0.5.elf",
+      "filePath": "payloads/ps5upload/11.0.5/ps5upload-11.0.5.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.5/ps5upload-11.0.5.elf",
+      "hash": "7c0b8a6b1243e01892bcc0abde51afb32d621f4a633f1938123e2f7fbc0b7373",
+      "fileSize": 6614240,
+      "releaseDate": "2026-11-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Better translations in every language.** Every string added since 10.4 was re-read in all",
+        "20 languages and 216 were fixed: wrong words (Run, Host, Connected), mainland terms in",
+        "Traditional Chinese, labels that were sentences, and English left in a few places.",
+        "**The FAQ covers Play Together from a friend's side**: what they see and press, what happens",
+        "when the host stops or a connection drops, the \"Open in the PS5Upload app?\" question, and",
+        "Detailed logs. The bug report answer matches today's page.",
+        "**A new website** at ps5upload.phantomptr.com: a Play Together section, a how-to for playing",
+        "with a friend, and fresh screenshots in all 21 languages."
+      ]
+    },
+    {
+      "version": "11.0.4",
+      "fileName": "ps5upload-11.0.4.elf",
+      "filePath": "payloads/ps5upload/11.0.4/ps5upload-11.0.4.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.4/ps5upload-11.0.4.elf",
+      "hash": "54aa21146d60139d05ba2bcdb8c823aaf6e460e66c0a4286ba45fbb55f1501e8",
+      "fileSize": 6614240,
+      "releaseDate": "2026-11-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Friends hear the game.** A friend's sound in Play Together (and on the watch page) never",
+        "played right: the player fed each sound frame's 2-byte number to the decoder as if it were",
+        "sound, so browsers either stopped with a decode error or played noise. Fixed, and checked",
+        "against a PS5 for a minute at a time in Chrome and Safari's engine with no gaps. Also:",
+        "Safari's way of naming the sound's format is now asked first, so iPhones no longer say",
+        "\"No sound in this browser\" when they can play it (For #657).",
+        "Sound never doubles up, keeps its delay short, comes back after a decode hiccup, and",
+        "starts again after a phone call or switching tabs.",
+        "The host's engine sends friends' sound ahead of their picture, so a busy connection",
+        "delays the picture rather than dropping the sound."
+      ]
+    },
+    {
+      "version": "11.0.3",
+      "fileName": "ps5upload-11.0.3.elf",
+      "filePath": "payloads/ps5upload/11.0.3/ps5upload-11.0.3.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.0.3/ps5upload-11.0.3.elf",
+      "hash": "0b0cd0b743772cb54c106b10c97935c6e4d96ba3da1dbedb7710594f4ead73aa",
+      "fileSize": 6614240,
+      "releaseDate": "2026-11-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Invites open straight into the game.** Opening a Play Together invite on a phone with the app",
+        "closed could land on the last screen used with nothing filled in. The app now picks the invite",
+        "up however it was opened, and asks only for your name (the last one used is filled in): one tap",
+        "on **Join**.",
+        "**True full screen for friends.** A friend's Leave and Full screen buttons no longer cover the",
+        "on-screen controller. In full screen (and on the browser page) they hide after 3 seconds; tap the",
+        "picture away from the controller, move the mouse, press Esc or the controller's menu button to",
+        "bring them back. Leave is always one tap away.",
+        "**Scan QR no longer covers the link** you paste in Join a friend.",
+        "**Updates wait for every transfer (For #660).** An update downloading in the background waited"
+      ]
+    },
+    {
       "version": "11.0.2",
       "fileName": "ps5upload-11.0.2.elf",
       "filePath": "payloads/ps5upload/11.0.2/ps5upload-11.0.2.elf",
@@ -21,7 +148,7 @@
       "hash": "f3d0f6be1ec19f8285720618260fbe65bdc523ab6e4b1c5d99a60dd07dea9b54",
       "fileSize": 6614240,
       "releaseDate": "2026-11-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**No more green picture on some Linux PCs (For #656).** On some Linux PCs, the Linux app's fast",
