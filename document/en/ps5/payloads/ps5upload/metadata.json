@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "11.1.0",
+      "fileName": "ps5upload-11.1.0.elf",
+      "filePath": "payloads/ps5upload/11.1.0/ps5upload-11.1.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.1.0/ps5upload-11.1.0.elf",
+      "hash": "1aaf50efa91aac8d26d53ce27ec223a3646a880892834977615c2770ff17197b",
+      "fileSize": 6677960,
+      "releaseDate": "2026-11-05",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Agents can now drive PS5Upload: the engine has an MCP server at `/mcp`, and `ps5upload-engine mcp` connects clients that only speak stdio. It covers files, uploads, installs, games, saves, cheats, payloads, power, hardware and Remote Play, and can call any route of the engine's API. It answers to this computer only, and `PS5UPLOAD_MCP_READ_ONLY=1` makes it read-only.",
+        "Engine API: a route that changes something on a console now answers `400` without `addr`, instead of acting on the default console: transfers, `/api/link/download`, app launch, file op cancel, peripherals, opening a save, cheats and Remote Play writes. Scripts must name the console. Test routes such as `POST /api/ps5/cleanup` need `PS5UPLOAD_ENGINE_DEBUG=1`.",
+        "Engine API: the engine now has its own queue for each console. `GET/POST /api/queue` and `POST /api/queue/{id}/pause|resume|remove|move` run uploads, downloads and installs in order, every client sees the same line, and it survives a restart. An item that was running when the engine stopped comes back as interrupted and only runs again if you ask. `/api/events` carries `queue` events, and agents get `queue_list`, `queue_add`, `queue_pause`, `queue_resume`, `queue_remove`, `queue_move` and `queue_wait`.",
+        "Queue: the app's queue and the engine's queue take turns on a console. If a script or agent is using a PS5 through the engine's queue, the app's next row says so and carries on by itself after.",
+        "Engine API: `GET /api/openapi.json` describes every route in OpenAPI 3.1, generated from the code, and CI fails when a route isn't in it. [API.md](API.md) covers who it answers, errors, long calls, events and what it can't do.",
+        "Agents: [MCP.md](MCP.md) has the setup for Claude Code, Claude Desktop, Cursor, Codex, Gemini CLI and the Inspector, read-only mode and the tools to keep on \"ask\".",
+        "Agents: new MCP tools for Play Together, Go live, health checks and repairs, and making sure the helper runs. `api_describe` gives an agent any route's fields before it calls it, and the API and MCP guides are readable as resources.",
+        "Remote Play: a new switch, Picture on this device. Off, this computer or phone stops decoding and showing the stream and plays no sound, while friends and Go live keep getting it. One click brings the picture back without restarting. It's on the stream's bar, in the Stream and Play Together panels and in Settings. (#670, #649)",
+        "Play Together: you can play on your TV with the console's DualSense and use the app only to invite friends. Turn the picture off and pick a different PS5 user on the DualSense; the panel and the FAQ explain the two users step. (#649)",
+        "Activity: what you start on the PS5's own page (PS5Upload Minion) now shows in the app on your PC or phone: its name, progress and speed, marked \"Started on the PS5\", with Cancel, and how it ended. NAS copies started on the PS5 are included. A copy you started from the app still has one row. Needs the helper from this version. (#658)"
+      ]
+    },
+    {
       "version": "11.0.8",
       "fileName": "ps5upload-11.0.8.elf",
       "filePath": "payloads/ps5upload/11.0.8/ps5upload-11.0.8.elf",
@@ -21,7 +44,7 @@
       "hash": "f315f5645d7be6cc0736ec3183cfa67ec9d7ec689321295fb222f5b699b2542e",
       "fileSize": 6614240,
       "releaseDate": "2026-11-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**A friend's buttons hide right away on a phone.** When a friend joins, the TV asks who's",
