@@ -14,6 +14,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "11.6.0",
+      "fileName": "ps5upload-11.6.0.elf",
+      "filePath": "payloads/ps5upload/11.6.0/ps5upload-11.6.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v11.6.0/ps5upload-11.6.0.elf",
+      "hash": "13dca53b2216d920ad94b9564cba68fd085d4ea0f1f0193be5b5299c9872e67e",
+      "fileSize": 6691240,
+      "releaseDate": "2026-11-08",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Play Together over the internet:",
+        "Friends no longer need to be on your Wi-Fi. When you invite, choose Internet, and the link works from anywhere: a phone on mobile data, a friend's home. A small server at hub.phantomptr.com only introduces the two sides; the game's picture, sound and controls go straight between you and your friend, never through it.",
+        "The link carries your app's fingerprint, so a friend can only ever connect to you.",
+        "Most home routers work as they are. Where yours allows it, the app opens a port on it for the session (UPnP / NAT-PMP / PCP). Settings \u203a Play Together has the server address and these options.",
+        "Not yet tried from outside a home network: tell us how it goes.",
+        "Convert:",
+        "Save to: The PS5, straight. An image is written to the PS5 as it's built, with no copy on this computer and no upload afterwards. A dropped connection or a restart picks up where it stopped, and the image is checked on the PS5 when it's done. For .exfat, .ffpkg and .ffpfs images, and .exfat with zstd packs.",
+        "PS4 updates: pick a PS4 game and its update, and Convert merges them into one image or folder of the game at the update's version. It checks that the update belongs to the game and is newer.",
+        "PS4 add-ons (DLC) with files become a folder of their data. A licence-only add-on says there's nothing to convert.",
+        "A .ffpkg, .ffpfs or .ffpfsc build that stops partway (a crash, the app closed) now goes on from where it stopped, as .exfat already did. Every byte is read back afterwards, and a game that changed in between is built again from the start."
+      ]
+    },
+    {
       "version": "11.5.2",
       "fileName": "ps5upload-11.5.2.elf",
       "filePath": "payloads/ps5upload/11.5.2/ps5upload-11.5.2.elf",
@@ -21,7 +44,7 @@
       "hash": "1c2a6fe82de8438219c01c8c866deffd2b88ec3896bccb649601ef1fe1bc84c5",
       "fileSize": 6691240,
       "releaseDate": "2026-11-07",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Remote Play on older Macs (#720, #683):",
