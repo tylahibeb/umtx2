@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "12.0.0",
+      "fileName": "ps5upload-12.0.0.elf",
+      "filePath": "payloads/ps5upload/12.0.0/ps5upload-12.0.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v12.0.0/ps5upload-12.0.0.elf",
+      "hash": "ec3da9d9a20a9141e722bc1101ade6e6264cbd147566e866f3f823143e9b28a3",
+      "fileSize": 7060576,
+      "releaseDate": "2026-11-08",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Tailscale, built in:",
+        "Play your PS5 from anywhere through your own Tailscale network, with no Tailscale app on the PS5 or a VPN router. Sign in once in Settings \u203a Tailscale, then use Connection \u203a \"Put this PS5 on Tailscale\".",
+        "On Tailscale, the PS5 only answers to Remote Play and PS5Upload, nothing else.",
+        "Settings and the console's Tailscale panel say in plain words when something is wrong: sign-in refused, signed out, server unreachable, or a key that has expired or is about to.",
+        "Play Together:",
+        "Play together has its own page, with Start and Invite.",
+        "A friend can play as a profile you pick, such as a guest, so the game uses that profile's saves and trophies and nothing pops up on the TV.",
+        "A friend who reconnects gets the same profile back.",
+        "When an internet friend or phone would play as you, the Allow box says so and asks a second time.",
+        "The phone controller and the watch link now work over the internet too. A phone that reconnects is let back in only with the token it got when you allowed it."
+      ]
+    },
+    {
       "version": "11.6.0",
       "fileName": "ps5upload-11.6.0.elf",
       "filePath": "payloads/ps5upload/11.6.0/ps5upload-11.6.0.elf",
@@ -21,7 +45,7 @@
       "hash": "13dca53b2216d920ad94b9564cba68fd085d4ea0f1f0193be5b5299c9872e67e",
       "fileSize": 6691240,
       "releaseDate": "2026-11-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Play Together over the internet:",
