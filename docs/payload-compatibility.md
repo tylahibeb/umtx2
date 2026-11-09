@@ -1,6 +1,6 @@
 # Payload firmware compatibility audit
 
-Reviewed 2026-10-19. Covers all **42 payload entries** (39 original entries plus HearBridge, Orbit Store and the experimental kstuff entry), their checked-in default versions, configured rules, generated metadata and browser filtering. Upstream evidence was checked at the default release/tag where available. This is a documentation/source audit, **not execution on a PS5**.
+Reviewed 2026-10-19. Covers the **41 retained payload entries** (38 original entries plus HearBridge, Orbit Store and the experimental kstuff entry), their checked-in default versions, configured rules, generated metadata and browser filtering. Upstream evidence was checked at the default release/tag where available. This is a documentation/source audit, **not execution on a PS5**.
 
 The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/offsets/`, from 1.00 through 5.50. A payload supporting newer firmware does not extend the host exploit. A firmware rule also cannot certify dependency patches, console model, peripherals, game versions or individual payload features.
 
@@ -33,7 +33,6 @@ The host’s kernel exploit supports the 29 firmware points in `document/en/ps5/
 | `elfldr` | 0.26 | No extra filter | [Source](https://github.com/ps5-payload-dev/elfldr/blob/v0.26/README.md). No numeric firmware matrix; initial injection uses kernel-exploit loader 9020. Do not infer range from dated exploit links. |
 | `byepervisor` | 1.1 | 12 exact points (1.00–2.70) | [Source](https://raw.githubusercontent.com/EchoStretch/Byepervisor/1.1/README.md). Retained the exact completed-firmware list from release 1.1. Do not broaden it to every 1.xx/2.xx firmware. |
 | `ps5debug-ng` | 1.3.2 | 52 exact points (3.00–13.60) | [Source](https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/1.3.2/README.md#supported-firmwares). Added the explicit firmware allowlist from the pinned 1.3.2 README and installer switch. The installer aborts outside recognized points; 1.xx/2.xx are not supported. |
-| `ps5upload` | 7.1.9 | No extra filter | [Source](https://github.com/phantomptr/ps5upload/blob/v7.1.9/README.md#supported-platforms). Removed the fabricated 5/3 restriction. The pinned 7.1.9 README explicitly supports 1.00–13.60, including 4.xx; tested upstream on 5.10, 9.60 and 13.60. Requires the ELF loader on port 9021. |
 | `hearbridge` | 1.3.6 | No extra filter | [Source](https://github.com/X-F1REBALL-X/HearBridge-PS5/blob/v1.3.6/README.md). Added stable 1.3.6 with no maintained numerical filter. Upstream describes a unified firmware build and console Bluetooth support. Needs an ELF loader and A2DP/SBC headphones or speaker; no microphone. Hardware behavior on this host’s firmware was not tested. Stable releases only; exclude firmware-specific and MediaTek test assets. |
 | `orbit-store` | 1.3.5 | No extra filter | [Source](https://github.com/saawant12/orbit-store-ps5/blob/v1.3.5/README.md). ELF/browser path needs a homebrew ELF environment, loader, internet for direct downloads and writable storage. Upstream gives no numeric firmware allowlist; behavior depends on firmware, loader and ShadowMount version. Library requires the ShadowMount v1 local API. Native FFPKG requirements (kstuff and ShadowMountPlus) are separate. Hardware behavior is unverified. |
 | `ps5-game-compressor` | 1.0.4 | No extra filter | [Source](https://github.com/juma-sayeh/PS5-Game-Compressor/blob/v1.0.4/README.md#requirements). No firmware matrix. Actual capability depends on SMP and KStuff Lite, cannot label [] as guaranteed all-firmware support. |
@@ -77,7 +76,7 @@ Eight normal stable releases were imported, 1.0.0 through 1.3.6. Each downloaded
 
 ## Orbit Store release selection
 
-The `orbit-store` entry tracks stable GitHub releases with the configured filename pattern `orbit_store.elf`. In the requested release this selects the console ELF; desktop installers and the native FFPKG app are separate assets. Requested version 1.3.5 was imported initially; the normal updater can discover other stable versions. App Beta branding is separate from GitHub’s release prerelease flag.
+The `orbit-store` entry tracks stable GitHub releases with the configured filename pattern `orbit_store.elf`. In the requested release this selects the console ELF; desktop installers and the native FFPKG app are separate assets. Requested version 1.3.5 was imported initially; the normal updater keeps only the three newest stable releases by publication date (`maxVersions: 3`). Older versions are removed from metadata and disk after successful updates. App Beta branding is separate from GitHub’s release prerelease flag.
 
 The downloaded ELF is 41,997,992 bytes, SHA-256 `561a8e8015d9564d44e32b58a84e1294ea7043e96146110801a9f62ad99ac93b`, verified against GitHub’s asset digest and corroborated by the official payload feed/build information. Its browser UI port is 34177; ELF injection uses 9021. See the [getting-started guide](https://github.com/saawant12/orbit-store-ps5/blob/v1.3.5/guides/getting-started.md) for the distinct ELF, native app and desktop workflows. No numeric firmware restriction is inferred from app/service versions or game installation limits.
 
@@ -110,4 +109,4 @@ The payload-wide `4.` filter comes from the user’s report about test6 on 4.xx.
    ```
 4. Publish the updated site through the repository’s normal deployment process. Opted-in clients must let the offline cache update and then reload. Refresh only checks for changes; it does not replace the running map or clear AppCache.
 
-The automated firmware regressions exercise the real generator/filter/fingerprint code, all 42 map/metadata rules, exact and major matching, stable-release and asset policies, and offline rebuilding. No existing binary or version was changed during the audit.
+The automated firmware regressions exercise the real generator/filter/fingerprint code, all retained map/metadata rules, exact and major matching, stable-release and asset policies, and offline rebuilding. No existing binary or version was changed during the audit.

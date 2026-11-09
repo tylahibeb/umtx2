@@ -20,15 +20,6 @@
       "checksum": "8755172ec9bef1bff5453ea75606e0caf7c41b5963f94f5a1087e7e8c6d9b1bd"
     },
     {
-      "name": "PS5 Upload",
-      "filename": "ps5upload-12.1.0.elf",
-      "url": "https://github.com/phantomptr/ps5upload/releases/download/v12.1.0/ps5upload-12.1.0.elf",
-      "description": "Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.",
-      "version": "12.1.0",
-      "category": "Game",
-      "checksum": "c7235dc594c00e04fa0d946ffe18ca3d93d8505affd621669e357e79ef48af80"
-    },
-    {
       "name": "CheatRunner",
       "filename": "CheatRunner.elf",
       "url": "https://github.com/notmaj0r/CheatRunner/releases/download/v0.18.1/CheatRunner.elf",

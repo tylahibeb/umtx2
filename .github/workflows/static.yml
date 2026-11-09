@@ -21,13 +21,14 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   update-payloads:
     runs-on: ubuntu-latest
     outputs:
       has_changes: ${{ steps.update.outputs.has_changes }}
+      site_sha: ${{ steps.site_ref.outputs.sha }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -63,12 +64,12 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet; then
             # Get list of changed payloads
-            CHANGES=$(git diff --name-only | grep 'payloads/.*/metadata.json' | sed 's|document/en/ps5/payloads/||g' | sed 's|/metadata.json||g' | tr '\n' ', ' | sed 's/,$//')
+            CHANGES=$(git diff --name-only -- 'document/en/ps5/payloads/*/metadata.json' | sed 's|document/en/ps5/payloads/||g' | sed 's|/metadata.json||g' | tr '\n' ', ' | sed 's/,$//')
             
             # Create detailed commit message
-            if [ -n "$CHANGES" ]; then
+            if [ -n "$CHANGES" ] || [ -n "$(git diff --name-only --diff-filter=D -- document/en/ps5/payloads)" ]; then
               git add .
-              git commit -m "chore(payloads): update $CHANGES
+              git commit -m "chore(payloads): update ${CHANGES:-retained versions}
 
           Automated payload update:
           - Synced with latest GitHub releases
@@ -80,18 +81,21 @@ jobs:
             fi
           fi
 
-  deploy:
+      - name: Record source revision
+        id: site_ref
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  build-pages:
     needs: update-payloads
-    if: always()
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    outputs:
+      artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      artifact_id: ${{ steps.upload.outputs.artifact_id }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ needs.update-payloads.outputs.site_sha }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -100,11 +104,31 @@ jobs:
         run: |
           python appcache_manifest_generator.py -d document/en/ps5
 
+      - name: Report published site size
+        run: du -sb document/en/ps5
+
       - name: Upload artifact
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: 'document/en/ps5'
+
+  deploy:
+    needs: build-pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Record artifact identity
+        env:
+          ARTIFACT_NAME: ${{ needs.build-pages.outputs.artifact_name }}
+          ARTIFACT_ID: ${{ needs.build-pages.outputs.artifact_id }}
+        run: echo "Deploying $ARTIFACT_NAME (artifact ID $ARTIFACT_ID)"
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ needs.build-pages.outputs.artifact_name }}
