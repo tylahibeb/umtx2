@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "12.1.0",
+      "fileName": "ps5upload-12.1.0.elf",
+      "filePath": "payloads/ps5upload/12.1.0/ps5upload-12.1.0.elf",
+      "downloadUrl": "https://github.com/phantomptr/ps5upload/releases/download/v12.1.0/ps5upload-12.1.0.elf",
+      "hash": "c7235dc594c00e04fa0d946ffe18ca3d93d8505affd621669e357e79ef48af80",
+      "fileSize": 7100096,
+      "releaseDate": "2026-11-09",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Play Together:",
+        "One invite link works everywhere. A friend on your Wi-Fi connects over your home network, a friend on Tailscale over Tailscale, anyone else directly over the internet; the app picks the best way by itself. Settings \u203a App \u203a Play Together: \"Invites work: Anywhere\" or \"Only on my Wi-Fi\".",
+        "Over the internet the picture now comes as a video stream the browser plays smoothly: on a link that loses a few packets it goes from a few frames a second to a steady 60. If a friend's connection can't carry your stream, the panel tells you to lower its quality.",
+        "Without internet, the invite becomes a Wi-Fi link by itself, and a friend whose page can't reach the invite service gets \"Open on this Wi-Fi\".",
+        "The panel shows how each friend is connected: home network, Tailscale or internet, and the delay.",
+        "Share (new):",
+        "Each game and Collection item has Share: send a friend your saves, screenshots and clips, which cheats are on, your controls, a note, and homebrew apps (folder, image or package). Your friend opens the link, accepts, you allow, and it goes straight between you.",
+        "PS5Upload only shares homebrew: a retail game, its updates and add-ons can't be shared, in any format.",
+        "Tailscale:",
+        "Your home network always comes first; Tailscale is only used when the PS5 doesn't answer at home."
+      ]
+    },
+    {
       "version": "12.0.0",
       "fileName": "ps5upload-12.0.0.elf",
       "filePath": "payloads/ps5upload/12.0.0/ps5upload-12.0.0.elf",
@@ -21,7 +45,7 @@
       "hash": "ec3da9d9a20a9141e722bc1101ade6e6264cbd147566e866f3f823143e9b28a3",
       "fileSize": 7060576,
       "releaseDate": "2026-11-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
