@@ -408,7 +408,7 @@ def get_github_releases(repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD)
     try:
         result = subprocess.run(
             ["gh", "release", "list", "--repo", repo, "--json",
-             "tagName,name,isPrerelease", "--limit", str(max_releases)],
+             "tagName,name,isPrerelease,publishedAt", "--limit", str(max_releases)],
             capture_output=True, text=True, timeout=30
         )
         if result.returncode != 0:
@@ -750,18 +750,63 @@ def _finalize_versions(
     return fetched_versions
 
 
+def get_max_versions(payload_config: Dict) -> Optional[int]:
+    """An explicit retention policy opts a payload out of unlimited history."""
+    limit = payload_config.get('maxVersions')
+    if limit is not None and (type(limit) is not int or limit < 1):
+        raise ValueError(f"maxVersions must be a positive integer for {payload_config['id']}")
+    return limit
+
+
+def retain_latest_versions(payload_config: Dict, versions: List[Dict]) -> List[Dict]:
+    """Cap metadata, including orphan/failure fallbacks, without changing other payloads."""
+    limit = get_max_versions(payload_config)
+    if limit is None:
+        return versions
+    # Stable sorting preserves upstream publication order for same-day releases.
+    retained = sorted(versions, key=lambda version: version.get('releaseDate', ''), reverse=True)[:limit]
+    for index, version in enumerate(retained):
+        version['isDefault'] = index == 0
+    return retained
+
+
+def prune_payload_versions(payload_config: Dict, versions: List[Dict]):
+    """Remove obsolete version directories only for explicitly capped payloads."""
+    if get_max_versions(payload_config) is None:
+        return
+    root = PAYLOADS_DIR / payload_config['id']
+    if not versions:
+        raise ValueError(f"Refusing to prune {root} without retained versions")
+    keep = set()
+    # Validate every retained binary before removing any old directory.
+    for version in versions:
+        name = version['version']
+        if not name or name in {'.', '..'} or Path(name).name != name:
+            raise ValueError(f"Invalid retained version directory: {name}")
+        binary = root / name / version['fileName']
+        if not binary.is_file() or not binary.resolve().is_relative_to(root.resolve() / name):
+            raise ValueError(f"Missing or unsafe retained binary: {binary}")
+        keep.add(name)
+    for directory in root.iterdir():
+        if directory.is_dir() and directory.name not in keep:
+            if directory.is_symlink():
+                raise ValueError(f"Refusing to prune a linked version directory: {directory}")
+            print(f"  Removing old payload version: {directory.name}")
+            shutil.rmtree(directory)
+
+
 def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> List[Dict]:
     """Update payload from GitHub releases using a two-step approach.
     
     Step 1: gh release list → get tagName, name, isPrerelease
     Step 2: gh release view TAG → get body, url, assets, publishedAt
 
-    IMPORTANT: Existing versions are preserved even if they disappear from GitHub.
-    This prevents data loss when releases are deleted or pruned upstream.
+    Existing versions are preserved unless maxVersions explicitly caps retention.
     """
     repo = payload_config['sourceRepo']
     pattern = payload_config.get('sourcePattern', '*.elf')
     payload_id = payload_config['id']
+    max_versions = get_max_versions(payload_config)
 
     existing_versions = {v['version']: v for v in metadata.get('versions', [])}
     excluded = payload_config.get('sourceExcludePatterns', [])
@@ -770,7 +815,8 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         if not any(fnmatch.fnmatchcase(data.get('fileName', ''), p) for p in excluded)
     }
 
-    # Step 1: Get release list (tagName, name, isPrerelease only)
+    # Step 1: Filter release policy before limiting downloads. Publication time,
+    # rather than tag creation order, determines the newest retained releases.
     releases = get_github_releases(repo)
     if not payload_config.get('includePrereleases', True):
         releases = [r for r in releases if not r.get('isPrerelease', False)]
@@ -782,10 +828,14 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         print(f"  No releases found for {repo}, using existing metadata...")
         if not payload_config.get('includePrereleases', True) or excluded:
             # A removed beta/test build may have been the previous default.
-            return _finalize_versions(
+            return retain_latest_versions(payload_config, _finalize_versions(
                 payload_id, list(existing_versions.values()), {}, source_name="local metadata"
-            )
-        return list(existing_versions.values())
+            ))
+        return retain_latest_versions(payload_config, list(existing_versions.values()))
+
+    if max_versions is not None:
+        releases = sorted(releases, key=lambda release: release.get('publishedAt', ''), reverse=True)
+        releases = releases[:max_versions]
 
     versions = []
     for release in releases[:MAX_VERSIONS_PER_PAYLOAD]:
@@ -867,7 +917,9 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         if ver:
             versions.append(ver)
 
-    return _finalize_versions(payload_id, versions, existing_versions, source_name="GitHub")
+    return retain_latest_versions(payload_config, _finalize_versions(
+        payload_id, versions, existing_versions, source_name="GitHub"
+    ))
 
 
 def get_gitea_releases(source_host: str, repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD) -> List[Dict]:
@@ -1546,6 +1598,10 @@ def main(compatibility_only: bool = False):
             if not payload.get('includePrereleases', True) or payload.get('sourceExcludePatterns'):
                 versions = _finalize_versions(payload_id, versions, {}, source_name="local metadata")
 
+        # Apply retention after every fallback too, so a failed fetch cannot
+        # restore old versions. Disk pruning follows successful metadata saving.
+        versions = retain_latest_versions(payload, versions)
+
         # Ensure top-level fields from config are always in metadata
         metadata['id'] = payload_id
         metadata['displayTitle'] = payload.get('displayTitle', payload_id)
@@ -1562,6 +1618,7 @@ def main(compatibility_only: bool = False):
         
         # Save updated metadata to metadata.json
         save_metadata(payload_id, metadata)
+        prune_payload_versions(payload, versions)
         
         payload['versions'] = versions
         payload['supportedFirmwares'] = firmware_compat

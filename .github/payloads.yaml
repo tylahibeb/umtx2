@@ -16,6 +16,8 @@
 #   sourcePattern:     Glob pattern to match release asset name (e.g., 'payload*.elf')
 #   sourceExcludePatterns: Optional GitHub asset globs to exclude test/firmware-specific variants.
 #   includePrereleases: Optional GitHub release policy (default true); false keeps stable releases only.
+#   maxVersions:       Optional positive retention limit; removes older metadata and binaries.
+#                      GitHub release downloads are limited after prerelease filtering.
 #   toPort:            Port number for network payloads (omit if not applicable)
 #   supportedFirmwares: Maintained rules: major prefixes ("3.") or exact versions ("4.03").
 #                       [] means no firmware filter, NOT verified support on every firmware.
@@ -95,24 +97,6 @@ payloads:
     license:
       type: "GPL-3.0"
       url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
-
-  # --- ps5upload: Fast PS5 file transfer tool (desktop app + PS5 payload) ---
-  # Repo has GitHub Releases with ps5upload-*.elf assets - fully automated
-  # Companion desktop app at https://github.com/phantomptr/ps5upload
-  - id: ps5upload
-    displayTitle: PS5 Upload
-    description: Fast transfers, native image mount, file browser, fakepkg installer, and payload sender. Companion desktop app runs on macOS/Windows/Linux/Android.
-    authors:
-      - phantomptr
-    projectUrl: https://github.com/phantomptr/ps5upload
-    sourceType: github-release
-    sourceRepo: phantomptr/ps5upload
-    sourcePattern: ps5upload-*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: "GPL-3.0"
-      url: "https://github.com/phantomptr/ps5upload/blob/main/LICENSE"
 
   # --- CheatRunner: Web-based cheat trainer and launcher ---
   # Repo has GitHub Releases with CheatRunner.elf assets - fully automated
@@ -450,6 +434,7 @@ payloads:
     sourceRepo: saawant12/orbit-store-ps5
     sourcePattern: orbit_store.elf
     includePrereleases: false
+    maxVersions: 3
     toPort: 9021
     supportedFirmwares: []
     license:

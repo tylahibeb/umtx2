@@ -57,7 +57,7 @@ class ConfiguredFirmwareTests(unittest.TestCase):
         self.processes = Mock()
         self.detect = load_detector(self.processes)
 
-    def test_explicit_empty_rules_do_not_scrape_ps5upload_readme(self):
+    def test_explicit_empty_rules_do_not_scrape_readme(self):
         # The old parser misread 13.60 as 3.60 and dropped every 4.xx console.
         readme = "PS5 firmware: 1.00 through 13.60. Tested on 5.10."
         self.processes.run.side_effect = [
@@ -66,7 +66,7 @@ class ConfiguredFirmwareTests(unittest.TestCase):
                 [], 0, base64.b64encode(readme.encode()).decode()
             ),
         ]
-        self.assertEqual(self.detect("phantomptr/ps5upload", []), [])
+        self.assertEqual(self.detect("example/payload", []), [])
         self.processes.run.assert_not_called()
 
     def test_explicit_rules_survive_without_network_lookup(self):
@@ -122,7 +122,7 @@ class ReleaseSelectionTests(unittest.TestCase):
         self.process = Mock(side_effect=self.make_version)
         self.helpers = load_updater_functions(
             ["update_payload_from_github_release", "match_asset", "match_zip_asset",
-             "_finalize_versions"],
+             "_finalize_versions", "get_max_versions", "retain_latest_versions"],
             {"get_github_releases": self.releases,
              "get_release_details": self.details,
              "_process_release_version": self.process,
@@ -227,6 +227,95 @@ class ReleaseSelectionTests(unittest.TestCase):
         self.assertEqual(result, [],
                          "Excluded metadata must not return via failed-asset or orphan fallback")
         self.assertEqual(self.process.call_args.args[7], {})
+
+    def test_retention_downloads_only_three_newest_stable_publications(self):
+        # Deliberately unlike tag creation/semantic-version order. Prereleases
+        # must not consume one of the three retained stable slots.
+        self.releases.return_value = [
+            {"tagName": "v9", "publishedAt": "2026-10-01", "isPrerelease": False},
+            {"tagName": "v5-beta", "publishedAt": "2026-10-05", "isPrerelease": True},
+            {"tagName": "v2", "publishedAt": "2026-10-02", "isPrerelease": False},
+            {"tagName": "v4", "publishedAt": "2026-10-04", "isPrerelease": False},
+            {"tagName": "v3", "publishedAt": "2026-10-03", "isPrerelease": False},
+        ]
+        self.details.side_effect = lambda repo, tag: self.release_details(
+            "payload.elf", "2026-10-0" + tag[1:]
+        )
+        old = {"version": "9", "fileName": "payload.elf", "releaseDate": "2026-10-01"}
+        directory = self.root / "payload" / "9"
+        directory.mkdir(parents=True)
+        (directory / "payload.elf").write_bytes(b"old orphan")
+        config = dict(self.config, maxVersions=3, includePrereleases=False)
+        result = self.update(config, {"versions": [old]})
+        self.assertEqual([call.args[1] for call in self.details.call_args_list], ["v4", "v3", "v2"])
+        self.assertEqual([version["version"] for version in result], ["4", "3", "2"])
+        self.assertEqual([version["version"] for version in result if version["isDefault"]], ["4"])
+
+    def test_retention_caps_existing_metadata_when_release_listing_fails(self):
+        self.releases.return_value = []
+        metadata = {"versions": [
+            {"version": str(number), "fileName": "payload.elf",
+             "releaseDate": f"2026-10-0{number}", "isDefault": number == 1}
+            for number in range(1, 5)
+        ]}
+        result = self.update(dict(self.config, maxVersions=3), metadata)
+        self.assertEqual([version["version"] for version in result], ["4", "3", "2"])
+        self.assertEqual([version["version"] for version in result if version["isDefault"]], ["4"])
+        self.details.assert_not_called()
+
+    def test_invalid_retention_fails_before_network_calls(self):
+        for limit in (0, -1, True, "3", 1.5):
+            with self.subTest(limit=limit), self.assertRaises(ValueError):
+                self.update(dict(self.config, maxVersions=limit), {"versions": []})
+        self.releases.assert_not_called()
+
+
+class PayloadRetentionTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        self.helpers = load_updater_functions(
+            ["get_max_versions", "retain_latest_versions", "prune_payload_versions"],
+            {"PAYLOADS_DIR": self.root, "shutil": shutil},
+        )
+        self.versions = []
+        for number in range(1, 5):
+            directory = self.root / "payload" / str(number)
+            directory.mkdir(parents=True)
+            (directory / "payload.elf").write_bytes(bytes([number]))
+            self.versions.append({"version": str(number), "fileName": "payload.elf",
+                                  "releaseDate": f"2026-10-0{number}", "isDefault": False})
+        (self.root / "payload/metadata.json").write_text("metadata")
+        (self.root / "other/old").mkdir(parents=True)
+        (self.root / "other/old/other.elf").write_bytes(b"other payload")
+
+    def test_pruning_removes_old_binaries_without_touching_other_payloads(self):
+        config = {"id": "payload", "maxVersions": 3}
+        retained = self.helpers["retain_latest_versions"](config, self.versions)
+        self.helpers["prune_payload_versions"](config, retained)
+        self.assertEqual(sorted(p.name for p in (self.root / "payload").iterdir()),
+                         ["2", "3", "4", "metadata.json"])
+        self.assertEqual((self.root / "payload/4/payload.elf").read_bytes(), b"\x04")
+        self.assertEqual((self.root / "other/old/other.elf").read_bytes(), b"other payload")
+        # Repeating an update must be harmless once the history has been pruned.
+        self.helpers["prune_payload_versions"](config, retained)
+
+    def test_missing_retained_binary_prevents_any_deletion(self):
+        config = {"id": "payload", "maxVersions": 3}
+        retained = self.helpers["retain_latest_versions"](config, self.versions)
+        (self.root / "payload/4/payload.elf").unlink()
+        with self.assertRaises(ValueError):
+            self.helpers["prune_payload_versions"](config, retained)
+        self.assertTrue((self.root / "payload/1/payload.elf").is_file())
+
+    def test_uncapped_payload_keeps_history_and_default_selection(self):
+        config = {"id": "payload"}
+        self.versions[0]["isDefault"] = True
+        self.assertIs(self.helpers["retain_latest_versions"](config, self.versions), self.versions)
+        self.helpers["prune_payload_versions"](config, self.versions)
+        self.assertTrue((self.root / "payload/1/payload.elf").is_file())
+        self.assertTrue(self.versions[0]["isDefault"])
 
 
 class DirectSourceTests(unittest.TestCase):
@@ -445,7 +534,8 @@ function check(id, firmware, expected) {
     assert.equal(context.window.isFirmwareCompatible(payload), expected,
         JSON.stringify({id, firmware, expected}));
 }
-check('ps5upload', '4.03', true);
+assert.ok(!payloads.some(p => p.id === 'ps5upload'), 'Removed payload must not return');
+check('orbit-store', '4.03', true);
 check('hearbridge', '4.03', true);
 check('kylin-core', '4.00', false);
 check('kylin-core', '4.02', false);
@@ -492,14 +582,14 @@ const original = fingerprints(mapText);
 assert.equal(original.local, original.remote,
     'Refresh must recognize the current generated map as unchanged');
 
-// Change just PS5 Upload's firmware rule, preserving every binary/version/hash.
-const start = mapText.indexOf('id: "ps5upload",');
-assert.notEqual(start, -1, 'The PS5 Upload regression fixture must exist');
+// Change just Orbit Store's firmware rule, preserving every binary/version/hash.
+const start = mapText.indexOf('id: "orbit-store",');
+assert.notEqual(start, -1, 'The Orbit Store regression fixture must exist');
 let end = mapText.indexOf('\n        id: "', start + 1);
 if (end === -1) end = mapText.length;
 const block = mapText.slice(start, end)
     .replace(/supportedFirmwares:\s*\[[^\]]*\],?/g, '')
-    .replace('id: "ps5upload",', 'id: "ps5upload",\n        supportedFirmwares: ["99."],');
+    .replace('id: "orbit-store",', 'id: "orbit-store",\n        supportedFirmwares: ["99."],');
 const changedText = mapText.slice(0, start) + block + mapText.slice(end);
 const changed = fingerprints(changedText);
 assert.equal(changed.local, changed.remote,
