@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.9.0",
+      "fileName": "orbit_store.elf",
+      "filePath": "payloads/orbit-store/1.9.0/orbit_store.elf",
+      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.9.0/orbit_store.elf",
+      "hash": "4d2b78ad4c0de1211b93664d5401beb1e19e54452fccc74886d4cb63b659439a",
+      "fileSize": 64974592,
+      "releaseDate": "2026-11-13",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "> **\ud83c\udf89 Orbit is now on PS4 too.** Get the new [Orbit Store for PS4](https://github.com/saawant12/orbit-store-ps4) port, with downloads and setup instructions in its own repository.",
+        "We\u2019re shipping new features and fixes across Orbit Store and Orbit Zero.",
+        "**Scores and playtimes for 1,663 games.** See Metacritic scores and HowLongToBeat estimates on game pages. Browse by minimum score or playtime, choose Main Story, Main + Extras or Completionist, and save your filters. Coverage includes 645 scores and 1,568 playtime records; games with unknown values remain unlabelled. You can hide scores and playtimes on game cards in **Appearance**.",
+        "**Remember your download choice.** Orbit remembers Direct or TorBox. Turn on **Always use TorBox** to use it for new downloads, subject to your account and the source\u2019s support.",
+        "**Improved Vikingfile downloads.** Better download-link detection and support for more Vikingfile servers help Orbit capture links more reliably across Orbit Store and Orbit Zero.",
+        "**A clearer Library.** Games and Files stay together, with one counted **All games / Available now / Missing source** filter. Separate **Installed** and **Mounted** badges show each game\u2019s status.",
+        "**More catalogue detail.** Orbit now has **2,390 games with 5,335 download options**, plus **631 add-ons with 633 options across 197 base games**.",
+        "**Artwork stays ready between visits.** Orbit keeps a bounded artwork cache across restarts, reuses cached backup images when a host is unavailable, and uses smaller images for tiles across the native app, browser and Zero.",
+        "**Check game folders before making repairs.** Orbit automatically checks extracted game folders. For an existing folder, open **Library \u2192 Files \u2192 Verify & Repair**. Review proposed changes before applying them. Orbit can restore required permissions and fix uniquely matched filename-capitalization errors; missing files remain warnings.",
+        "**Find games inside nested folders.** After extraction or a transfer from Zero, Orbit sends the actual game folder to supported ShadowMount versions, even when it sits inside another folder. Existing completed downloads can use **Scan with ShadowMount** to try again without redownloading."
+      ]
+    },
+    {
       "version": "1.8.5",
       "fileName": "orbit_store.elf",
       "filePath": "payloads/orbit-store/1.8.5/orbit_store.elf",
@@ -22,7 +45,7 @@
       "hash": "935f81956acd3acba876977057c2ce77ded6a7fc72a98fd821cba2d1765e1f77",
       "fileSize": 61059976,
       "releaseDate": "2026-11-04",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "We\u2019re shipping improvements and bug fixes across our apps:",
@@ -58,29 +81,6 @@
         "> I\u2019ve been building Orbit in my own time and covering the costs of AI tools, test consoles, hardware and servers. If you\u2019d like to help, you can support Orbit on [GitHub Sponsors](https://github.com/sponsors/saawant12) or [Buy Me a Coffee](https://buymeacoffee.com/saawant12). It\u2019s entirely optional.",
         "We\u2019re also shipping improvements and bug fixes across our apps:",
         "**Chinese, Japanese and Korean show correctly in the native app.** With one of these languages selected, most text showed as question marks."
-      ]
-    },
-    {
-      "version": "1.8.3",
-      "fileName": "orbit_store.elf",
-      "filePath": "payloads/orbit-store/1.8.3/orbit_store.elf",
-      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.8.3/orbit_store.elf",
-      "hash": "59e216d7d5b163a14c8f7ac8fce4962b0af04541a1724236e0efb216a882e124",
-      "fileSize": 59959472,
-      "releaseDate": "2026-11-01",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "**Clearer Browse filters and other improvements.**",
-        "**See how many games match each filter.** Browse dropdowns show game counts alongside each choice. Choices with no matches are dimmed, and the counts update as you change your filters.",
-        "**Browse by genre.** Choose one or more genres, combine them with your other filters and save the selection for later. We\u2019ve also added a **Turn-based** tag and updated tags for more games.",
-        "**Know when a backport is included.** After extraction, Orbit recognises a backport by its `fakelib` folder. If the game needs newer firmware, its warning explains where to put the backport for ShadowMount+ using **Library \u2192 Files**.",
-        "The catalogue now has **2,168 games and 5,065 download options**, plus **626 add-ons with 628 options across 192 base games**.",
-        "> **Orbit stays free.** [Orbit Store](https://github.com/saawant12/orbit-store-ps5), [Orbit Zero](https://github.com/saawant12/orbit-store-ps5#orbit-zero-for-mac-windows-and-linux), [Orbit Play](https://github.com/saawant12/orbit-play-ps5) and our upcoming apps are free and will stay free.",
-        ">",
-        "> I\u2019ve been building Orbit in my own time and covering the costs of AI tools, test consoles, hardware and servers. If you\u2019d like to help, you can support Orbit on [GitHub Sponsors](https://github.com/sponsors/saawant12) or [Buy Me a Coffee](https://buymeacoffee.com/saawant12). It\u2019s entirely optional.",
-        "We\u2019re also shipping improvements and bug fixes across our apps:",
-        "**Check your existing copy before downloading again.** If the game is already installed or saved on a drive in another format or version, its page shows that copy\u2019s location and format above **Download anyway**. Available in the browser and the native Store layout."
       ]
     }
   ]
