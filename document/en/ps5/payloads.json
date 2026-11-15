@@ -157,11 +157,11 @@
     {
       "name": "Orbit Store (Beta)",
       "filename": "orbit_store.elf",
-      "url": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.9.0/orbit_store.elf",
+      "url": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.9.1/orbit_store.elf",
       "description": "PS5 store and download manager with a browser UI on port 34177. Library integration requires ShadowMountPlus.",
-      "version": "1.9.0",
+      "version": "1.9.1",
       "category": "Game",
-      "checksum": "4d2b78ad4c0de1211b93664d5401beb1e19e54452fccc74886d4cb63b659439a"
+      "checksum": "88caf08827cd8141fc18e1d293480633343e0f6f92aa9a43e07de8ee5a497738"
     },
     {
       "name": "PS5 Game Compressor",
