@@ -27,7 +27,7 @@
       "fileSize": 3626576,
       "releaseDate": "2026-11-08",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "Introduced configuration format v2, with separate config.ini and profiles.ini, automatic migration, and runtime reloads.",
