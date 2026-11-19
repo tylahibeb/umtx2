@@ -30,12 +30,12 @@
     },
     {
       "name": "HearBridge PS5",
-      "filename": "HearBridge-1.4.2.elf",
-      "url": "https://github.com/X-F1REBALL-X/HearBridge-PS5/releases/download/v1.4.2/HearBridge-1.4.2.elf",
+      "filename": "HearBridge-1.4.3.elf",
+      "url": "https://github.com/X-F1REBALL-X/HearBridge-PS5/releases/download/v1.4.3/HearBridge-1.4.3.elf",
       "description": "Bluetooth game and system audio for A2DP SBC headsets using the console Bluetooth. Control WebUI on port 8090.",
-      "version": "1.4.2",
+      "version": "1.4.3",
       "category": "Uncategorized",
-      "checksum": "565bb15656efad8d5561c2e397eac89002f12955fb2c6b65dc3475017613e434"
+      "checksum": "f9cd0952d1dd9bc8f1c48a974c8575a5de4646678c2cbb3669110d5ba7db3fef"
     },
     {
       "name": "kstuff-lite (drakmor fork)",

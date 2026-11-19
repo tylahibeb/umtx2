@@ -15,6 +15,25 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.4.3",
+      "fileName": "HearBridge-1.4.3.elf",
+      "filePath": "payloads/hearbridge/1.4.3/HearBridge-1.4.3.elf",
+      "downloadUrl": "https://github.com/X-F1REBALL-X/HearBridge-PS5/releases/download/v1.4.3/HearBridge-1.4.3.elf",
+      "hash": "f9cd0952d1dd9bc8f1c48a974c8575a5de4646678c2cbb3669110d5ba7db3fef",
+      "fileSize": 976144,
+      "releaseDate": "2026-11-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**HearBridge 1.4.3**",
+        "Headset connect and disconnect auto mode works",
+        "Interface layout updates for TV use",
+        "Optional ESP32-S3 board: plugs into the PS5 over USB and shows up as headphones, so Tempest 3D Audio can turn on while HearBridge still sends the sound to your real Bluetooth headset",
+        "Flash file for the ESP32-S3: **ESP32-S3-PS5-Audio-Sink.bin** (write at offset 0x0 on the UART port).",
+        "Board: **ESP32-S3 DevKitC-1** (N16R8 tested)."
+      ]
+    },
+    {
       "version": "1.4.2",
       "fileName": "HearBridge-1.4.2.elf",
       "filePath": "payloads/hearbridge/1.4.2/HearBridge-1.4.2.elf",
@@ -22,7 +41,7 @@
       "hash": "565bb15656efad8d5561c2e397eac89002f12955fb2c6b65dc3475017613e434",
       "fileSize": 942872,
       "releaseDate": "2026-11-15",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**HearBridge 1.4.2**",
