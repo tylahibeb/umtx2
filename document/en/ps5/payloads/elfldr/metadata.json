@@ -11,6 +11,18 @@
   "toPort": null,
   "versions": [
     {
+      "version": "0.28",
+      "fileName": "elfldr-ps5.elf",
+      "filePath": "payloads/elfldr/0.28/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.28/elfldr-ps5.elf",
+      "hash": "66968bae6159d8fb06125fcd43fb99cf64d6bfdf730c70f37a6f5d056ff63458",
+      "fileSize": 394568,
+      "releaseDate": "2026-11-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
       "version": "0.27",
       "fileName": "elfldr-ps5.elf",
       "filePath": "payloads/elfldr/0.27/elfldr-ps5.elf",
@@ -18,7 +30,7 @@
       "hash": "82f6227610172c98bad6efe68219fc93a10027035991f47eb4b75532d023407d",
       "fileSize": 394568,
       "releaseDate": "2026-10-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     },
