@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.9.6",
+      "fileName": "orbit_store.elf",
+      "filePath": "payloads/orbit-store/1.9.6/orbit_store.elf",
+      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.9.6/orbit_store.elf",
+      "hash": "8a73e1265984589b7b8835f8b3c5c786c5edf753964dfc614687cdf57f0c7146",
+      "fileSize": 59644208,
+      "releaseDate": "2026-11-21",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "> **\ud83c\udf89 OrbitNet is coming soon: online multiplayer for jailbroken PS5s.** From the developer of Orbit. Follow along at [getorbitnet.com](https://getorbitnet.com).",
+        "**Vikingfile downloads work again.**",
+        "**Vikingfile fix.** Vikingfile moved its download pages to a new address, so Vikingfile games stopped opening on the PS5. Orbit now follows the new address, in the TV app and in the browser version.",
+        "**Vikingfile fix.** The verification box on Vikingfile pages no longer stays blank, so Vikingfile downloads start again.",
+        "> **Orbit stays free.** [Orbit Store](https://github.com/saawant12/orbit-store-ps5), [Orbit Zero](https://github.com/saawant12/orbit-store-ps5#orbit-zero-for-mac-windows-and-linux), [Orbit Play](https://github.com/saawant12/orbit-play-ps5) and our upcoming apps are free and will stay free.",
+        ">",
+        "> I\u2019ve been building Orbit in my own time and covering the costs of AI tools, test consoles, hardware and servers. If you\u2019d like to help, you can [support Orbit via crypto](https://github.com/saawant12/orbit-store-ps5/issues/131#user-content-support-with-crypto). It\u2019s entirely optional.",
+        "[Install Orbit Zero on Mac, Windows or Linux](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/orbit-zero-installation.md) \u00b7 [Install Orbit Store on PS5](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/getting-started.md#install-the-native-tv-app)",
+        "<br>",
+        "Choose the package matching your computer from **Assets**: macOS DMG, Windows installer or ZIP, or Ubuntu/Debian DEB. Linux TAR.GZ packages are also available. Both ARM64 and x64 builds are included; Linux DEB names use **amd64** for Intel/AMD computers. Quit the older app before installing the new version. See the [installation guide](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/orbit-zero-installation.md) for setup and operating-system permissions."
+      ]
+    },
+    {
       "version": "1.9.5",
       "fileName": "orbit_store.elf",
       "filePath": "payloads/orbit-store/1.9.5/orbit_store.elf",
@@ -22,7 +45,7 @@
       "hash": "95da321dcfa054fe355e1d820e50163b3ee4da1410a9a2aa72213d7626b2d3b9",
       "fileSize": 59643408,
       "releaseDate": "2026-11-19",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "> **\ud83c\udf89 OrbitNet is coming soon: online multiplayer for jailbroken PS5s.** From the developer of Orbit. Follow along at [getorbitnet.com](https://getorbitnet.com).",
@@ -55,29 +78,6 @@
         "**Vikingfile login improvements.** If Vikingfile\u2019s sign-in page doesn\u2019t work on your PS5, sign in on your computer and paste the pass into Orbit. [How to copy the pass](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/vikingfile.md#use-a-pass-from-another-device)",
         "**TorBox improvements.** Orbit now tells you when TorBox can\u2019t get a file instead of waiting forever, and **Always use TorBox** no longer blocks AkiraBox downloads.",
         "**TorBox improvements.** The same TorBox fixes as on PS5, and **Download via TorBox** no longer greys out after Zero has been open for a while.",
-        "> **Orbit stays free.** [Orbit Store](https://github.com/saawant12/orbit-store-ps5), [Orbit Zero](https://github.com/saawant12/orbit-store-ps5#orbit-zero-for-mac-windows-and-linux), [Orbit Play](https://github.com/saawant12/orbit-play-ps5) and our upcoming apps are free and will stay free.",
-        ">",
-        "> I\u2019ve been building Orbit in my own time and covering the costs of AI tools, test consoles, hardware and servers. If you\u2019d like to help, you can [support Orbit via crypto](https://github.com/saawant12/orbit-store-ps5/issues/131#user-content-support-with-crypto). It\u2019s entirely optional."
-      ]
-    },
-    {
-      "version": "1.9.1",
-      "fileName": "orbit_store.elf",
-      "filePath": "payloads/orbit-store/1.9.1/orbit_store.elf",
-      "downloadUrl": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.9.1/orbit_store.elf",
-      "hash": "88caf08827cd8141fc18e1d293480633343e0f6f92aa9a43e07de8ee5a497738",
-      "fileSize": 65983168,
-      "releaseDate": "2026-11-15",
-      "isDefault": false,
-      "isPreRelease": false,
-      "changelog": [
-        "> **\ud83c\udf89 Orbit is now on PS4 too.** Get the new [Orbit Store for PS4](https://github.com/saawant12/orbit-store-ps4) port, with downloads and setup instructions in its own repository.",
-        "**ZSTD comes to Orbit.** Find ZSTD games with the Format filter and see the format in download details, across the PS5 browser and native app's four layouts. Orbit unpacks the outer archive and keeps the ZSTD game assets ready for a compatible loader and runtime.",
-        "**More download choices.** Orbit now has **2,714 games with 5,679 download options**, plus **631 add-ons with 633 options across 197 base games**.",
-        "We\u2019re also shipping improvements and bug fixes across our apps:",
-        "**More reliable installation and app updates.** Installation history no longer prevents new installs when it fills up. The native app installer also handles an already-registered Orbit app more reliably.",
-        "**Let your PS5 handle the download.** Set **Settings \u2192 Downloads \u2192 Download preference** to **Prefer PS5**. With Orbit Zero 1.9.1, Vikingfile and AkiraBox verification opens on your computer. Zero sends the ready link to Orbit on your PS5, which checks it and downloads the game directly. If the link cannot be used there, Zero can download and transfer the files instead.",
-        "**One app for PS5 and PS4.** Pair either console and keep a separate profile for its connection, games and downloads. Switch between consoles without pairing again, once unfinished console transfers are finished or cancelled.",
         "> **Orbit stays free.** [Orbit Store](https://github.com/saawant12/orbit-store-ps5), [Orbit Zero](https://github.com/saawant12/orbit-store-ps5#orbit-zero-for-mac-windows-and-linux), [Orbit Play](https://github.com/saawant12/orbit-play-ps5) and our upcoming apps are free and will stay free.",
         ">",
         "> I\u2019ve been building Orbit in my own time and covering the costs of AI tools, test consoles, hardware and servers. If you\u2019d like to help, you can [support Orbit via crypto](https://github.com/saawant12/orbit-store-ps5/issues/131#user-content-support-with-crypto). It\u2019s entirely optional."
